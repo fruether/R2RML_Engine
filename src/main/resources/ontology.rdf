@@ -1,0 +1,98 @@
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+        xml:base="http://softlang.com/"
+>
+    <!-- Body Code Omitted -->
+    <rdfs:Class rdf:about="Language" rdfs:label="Language" rdfs:comment="A programming language" />
+    <rdfs:Class rdf:about="DataDefinitionLanguage" rdfs:label="DataDefinitionLanguage" rdfs:comment="A language describing the data layout">
+        <rdfs:subClassOf rdf:resource="Language"/>
+    </rdfs:Class>
+
+    <rdfs:Class rdf:about="Artefact" rdfs:label="Artefact" rdfs:comment="An Artefact of a software eco system"/>
+
+    <rdfs:Class rdf:about="Concept" rdfs:label="Concept" rdfs:comment="Anything that is not physical" />
+
+    <rdfs:Class rdf:about="DatabaseSchema" rdfs:label="Database Schema" rdfs:comment="Database Schema">
+        <rdfs:subClassOf rdf:resource="Concept"/>
+    </rdfs:Class>
+
+    <rdfs:Class rdf:about="API" rdfs:label="Language" rdfs:comment="A programming language" />
+
+    <rdfs:Class rdf:about="BuildRelease" rdfs:label="BuildRelease" rdfs:comment="A BuildRelease is a build jar"/>
+
+    <rdfs:Class rdf:about="Attribute" rdfs:label="Attribute" rdfs:comment="An attribute in the OOPM concept"/>
+
+    <rdfs:Class rdf:about="Method" rdfs:label="Method" rdfs:comment="A method of the OOPM concept"/>
+
+
+    <rdf:Property rdf:about="hasAtt">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="Attribute"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="references">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="BuildRelease"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="hasParameter">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="Artefact"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="conformsTo">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="Artefact"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="correspondsTo">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="Artefact"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="similar">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="Artefact"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="affects">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="Artefact"/>
+    </rdf:Property >
+
+    <rdf:Property rdf:about="correlated">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="DatabaseSchema"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="hasPath">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="rdfs:Literal"/>
+    </rdf:Property >
+
+    <rdf:Property rdf:about="dependsOn">
+        <rdfs:domain rdf:resource="BuildRelease"/>
+        <rdfs:range rdf:resource="BuildRelease"/>
+    </rdf:Property >
+
+    <rdf:Property rdf:about="partOf">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="BuildRelease"/>
+    </rdf:Property >
+
+    <rdf:Property rdf:about="uses">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="API"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="elementOf">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="Language"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="describes">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="DatabaseSchema"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="realizes">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="DatabaseSchema"/>
+    </rdf:Property >
+
+    <rdf:Property rdf:about="XMLconformsToMavenXSD">
+        <rdfs:subPropertyOf rdf:resource="conformsTo"/>
+    </rdf:Property >
+
+</rdf:RDF>

@@ -1,0 +1,24 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema> .
+@prefix sl: <http://softlang.com/> .
+@prefix maven: <http://softlang.com/plugins/maven/> .
+
+
+[XSDCheck:
+    (?a sl:elementOf sl:XML)
+    (?b sl:elementOf sl:XSD)
+    XSDCheck(?a,?b) ->
+    (?a sl:conformsTo ?b)]
+
+[DetectProjectDependencies:
+    (?file sl:conformsTo maven:maven-4.0.0.xsd)
+    (?file sl:partOf ?build)
+    (?file  sl:references ?dependency) ->
+    (?build sl:dependsOn ?dependency)]
+
+[DetectLiquidBase:
+    (?file sl:conformsTo maven:maven-4.0.0.xsd)
+    liquidBaseDependencyCheck(?file) ->
+    (?file sl:references sl:liquidbase)]
+
+
