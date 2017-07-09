@@ -11,6 +11,7 @@ import org.apache.jena.reasoner.ValidityReport;
 import org.apache.jena.reasoner.rulesys.BuiltinRegistry;
 import org.apache.jena.reasoner.rulesys.GenericRuleReasoner;
 import org.apache.jena.reasoner.rulesys.Rule;
+import org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin;
 import org.apache.jena.util.FileManager;
 import org.apache.jena.vocabulary.RDF;
 
@@ -27,14 +28,17 @@ import org.apache.jena.riot.RDFDataMgr;
  */
 public class Program {
     public static void main(String[] args) throws FileNotFoundException {
+        ArrayList<BaseBuiltin> builtins= new ArrayList<BaseBuiltin>();
         try {
-            // Register the extension buildin.
-            BuiltinRegistry.theRegistry.register(new XSDCheckPlugin());
-            BuiltinRegistry.theRegistry.register(new LiquidBaseDependencyPlugin());
+            builtins.add(new XSDCheckPlugin());
+            builtins.add(new LiquidBaseDependencyPlugin());
         }
         catch (ParserConfigurationException e) {
            System.out.println("Error while setting up the plugins: " + e.getMessage());
            System.exit(1);
+        }
+        for (BaseBuiltin builtin : builtins) {
+            BuiltinRegistry.theRegistry.register(builtin);
         }
     
         Model model = FileManager.get().loadModel("data.ttl");

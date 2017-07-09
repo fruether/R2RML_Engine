@@ -16,7 +16,7 @@ public class XSDCheckPlugin extends BaseBuiltin {
 	}
 	
 	public int getArgLength() {
-		return 1;
+		return 2;
 	}
 	
 	public boolean bodyCall(Node[] args, int length, RuleContext context) {

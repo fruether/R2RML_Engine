@@ -21,4 +21,10 @@
     liquidBaseDependencyCheck(?file) ->
     (?file sl:references sl:liquidbase)]
 
+[LanguageDetection:
+    (?file sl:partOf ?build)
+    (Parse(?file, ?language)
+    ?file rdf:type sl:language) ->
+    (?file sl:elementOf ?language)
+]
 
