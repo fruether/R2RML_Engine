@@ -1,4 +1,5 @@
 import Plugin.LiquidBaseDependencyPlugin;
+import Plugin.ParserPlugin;
 import Plugin.XSDCheckPlugin;
 import Services.PluginManagmentService;
 import org.apache.jena.rdf.model.InfModel;
@@ -32,6 +33,7 @@ public class Program {
         try {
             builtins.add(new XSDCheckPlugin());
             builtins.add(new LiquidBaseDependencyPlugin());
+            builtins.add(new ParserPlugin());
         }
         catch (ParserConfigurationException e) {
            System.out.println("Error while setting up the plugins: " + e.getMessage());

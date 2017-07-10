@@ -23,8 +23,9 @@
 
 [LanguageDetection:
     (?file sl:partOf ?build)
-    (Parse(?file, ?language)
-    ?file rdf:type sl:language) ->
+    (?file rdf:type sl:Artefact)
+    Parse(?file, ?language)
+    ->
     (?file sl:elementOf ?language)
 ]
 

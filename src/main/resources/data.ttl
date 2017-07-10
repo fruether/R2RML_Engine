@@ -10,13 +10,13 @@ sl:XML rdf:type sl:Language .
 sl:liquidbase-core rdf:type sl:API .
 
 sl:classname.java rdf:type sl:Artefact .
-sl:pom.xml rdf:type sl:Artefact .
+mrs:pom.xml rdf:type sl:Artefact .
 
 sl:liquidbase rdf:type sl:BuildRelease.
 
 sl:openmrs rdf:type sl:BuildRelease.
 mrs:pom.xml sl:partOf sl:openmrs .
-mrs:pom.xml sl:elementOf sl:XML .
 sl:liquidbase-core sl:partOf sl:liquidbase .
+
 
 

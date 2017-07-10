@@ -16,7 +16,9 @@ public class FileRetrievementService {
 	private FileRetrievementService() {
 	
 	}
-	
+	public void setDataPath(String path) {
+		dataPath = path;
+	}
 	public static FileRetrievementService getInstance() {
 		
 		if(service == null) {
