@@ -108,7 +108,7 @@ public class ParserPluginTest {
 		Node[] env = setUpRuleContext(source);
 		
 		boolean result = parserPlugin.bodyCall(env,2 , ruleContext);
-		System.out.println(result);
+		
 		assertFalse(result);
 	}
 }

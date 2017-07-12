@@ -98,7 +98,8 @@ public class LanguageService {
 			throw new LanguageServiceException(io, "parseXSD", "We were not able to open a file. This should be the case", "N/A");
 		}
 		catch (Exception e) {
-			throw new LanguageServiceException(e, "parseXSD", "This kind of exception should not appear", "N/A");		}
+			throw new LanguageServiceException(e, "parseXSD", "This kind of exception should not appear", "N/A");
+		}
 		return true;
 	}
 }
