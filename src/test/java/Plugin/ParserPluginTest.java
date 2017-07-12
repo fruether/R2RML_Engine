@@ -101,4 +101,14 @@ public class ParserPluginTest {
 		
 		assertFalse(result);
 	}
+	
+	@Test
+	public void bodyCall_incorrect_xsd() throws Exception {
+		Node source = NodeFactory.createURI("http://softlang.com/pom.xsd");
+		Node[] env = setUpRuleContext(source);
+		
+		boolean result = parserPlugin.bodyCall(env,2 , ruleContext);
+		System.out.println(result);
+		assertFalse(result);
+	}
 }

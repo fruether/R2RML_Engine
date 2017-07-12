@@ -3,6 +3,7 @@ package Plugin;
 import Services.FileRetrievementService;
 import Services.FileRetrievementServiceException;
 import Services.LanguageService;
+import Services.LanguageServiceException;
 import org.apache.jena.base.Sys;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
@@ -47,6 +48,10 @@ public class ParserPlugin extends BaseBuiltin {
 		}
 		catch (FileRetrievementServiceException exception) {
 			exception.printError();
+			return false;
+		}
+		catch (LanguageServiceException excption) {
+			excption.printError();
 			return false;
 		}
 	}

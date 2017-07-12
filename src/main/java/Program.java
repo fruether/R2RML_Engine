@@ -68,10 +68,10 @@ public class Program {
         Resource test = model.getResource("http://softlang.com/liquidbase");
         System.out.println(test.getProperty(RDF.type));
         System.out.println("\n");
-       for (Statement x : infmodel.listStatements().toList())
+       /*for (Statement x : infmodel.listStatements().toList())
             System.out.println(x);
        //System.exit(0);
-    
+        */
         // Apply reasoner with rules.
         Reasoner reasoner = new GenericRuleReasoner(Rule.rulesFromURL("rules.txt"));
         reasoner.setDerivationLogging(true);

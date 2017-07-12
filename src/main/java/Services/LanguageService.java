@@ -13,8 +13,12 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.StringBufferInputStream;
+import java.net.URI;
+import java.net.URL;
+import java.security.spec.ECField;
 
 /**
  * Created by freddy on 09.07.17.
@@ -37,7 +41,7 @@ public class LanguageService {
 		return languageService;
 	}
 	
-	public String getLanguage(String prefix, String content) {
+	public String getLanguage(String prefix, String content) throws LanguageServiceException {
 		String result="";
 		switch (prefix) {
 			case "java" : result = ((parseJava(content)) ? "Java" :  ""); break;
@@ -77,11 +81,13 @@ public class LanguageService {
 		return true;
 	}
 	
-	private boolean parseXSD(String content) {
+	private boolean parseXSD(String content) throws LanguageServiceException {
 		String schemaLang = "http://www.w3.org/2001/XMLSchema";
 		SchemaFactory factory = SchemaFactory.newInstance(schemaLang);
 		try {
-			Schema schema = factory.newSchema(new StreamSource("XML/XMLSchema.xsd"));
+			URL path = getClass().getResource("/XML/XMLSchema.xsd");
+			Schema schema = factory.newSchema(new StreamSource(new File(path.toURI())));
+			
 			Validator validator = schema.newValidator();
 			validator.validate(new StreamSource(new ByteArrayInputStream(content.getBytes())));
 		}
@@ -89,8 +95,10 @@ public class LanguageService {
 			return false;
 		}
 		catch (IOException io) {
-			return false;
+			throw new LanguageServiceException(io, "parseXSD", "We were not able to open a file. This should be the case", "N/A");
 		}
+		catch (Exception e) {
+			throw new LanguageServiceException(e, "parseXSD", "This kind of exception should not appear", "N/A");		}
 		return true;
 	}
 }
