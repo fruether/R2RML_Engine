@@ -90,4 +90,15 @@ public class ParserPluginTest {
 		
 		assertFalse(result);
 	}
+	
+	@Test
+	public void bodyCall_incorrect_xml() throws Exception {
+		Node source = NodeFactory.createURI("http://softlang.com/pom_wrong_syntax.xml");
+		String resultingLanguage = "http://softlang.com/XML";
+		Node[] env = setUpRuleContext(source);
+		
+		boolean result = parserPlugin.bodyCall(env,2 , ruleContext);
+		
+		assertFalse(result);
+	}
 }
