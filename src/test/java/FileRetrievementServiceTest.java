@@ -1,9 +1,11 @@
 import Services.FileRetrievementService;
 import Services.FileRetrievementServiceException;
-import org.apache.jena.base.Sys;
 import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static junit.framework.TestCase.assertNull;
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 /**
  * FileRetrievementService Tester.
@@ -17,14 +19,14 @@ public class FileRetrievementServiceTest {
     }
     
     private FileRetrievementService fileRetrievementService;
-    @org.junit.jupiter.api.BeforeEach
+    @Before
     public void onSetUp()  {
         fileRetrievementService = FileRetrievementService.getInstance();
     }
     
     
-    @org.junit.jupiter.api.Test
-    void test_uriToPath_correct_small() throws FileRetrievementServiceException {
+    @Test
+    public void test_uriToPath_correct_small() throws FileRetrievementServiceException {
         String input = "http://softlang.com/input/";
         String result = "input/";
         
@@ -35,8 +37,10 @@ public class FileRetrievementServiceTest {
         }
     }
     
-    @org.junit.jupiter.api.Test
-    void test_uriToPath_correct_long() throws FileRetrievementServiceException {
+
+    
+    @Test
+    public void test_uriToPath_correct_long() throws FileRetrievementServiceException {
         String input = "http://softlang.com/plugins/maven/maven-4.0.0.xsd";
         String result = "plugins/maven/maven-4.0.0.xsd";
         
@@ -46,8 +50,13 @@ public class FileRetrievementServiceTest {
             assertNull(e);
         }
     }
-    @org.junit.jupiter.api.Test
-    void test_uriToPath_wrong() throws FileRetrievementServiceException {
+    
+    @Test
+    public void name() throws Exception {
+    }
+    
+    @Test
+    public void test_uriToPath_wrong() throws FileRetrievementServiceException {
         String input = "htp://softlang/plugins/maven/maven-4.0.0.xsd";
         boolean thrown = false;
         try {

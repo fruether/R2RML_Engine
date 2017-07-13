@@ -1,6 +1,8 @@
 package Services;
 
 import org.apache.jena.base.Sys;
+import org.apache.jena.rdf.model.InfModel;
+import org.apache.jena.riot.RDFDataMgr;
 
 import java.io.File;
 import java.io.IOException;
@@ -50,5 +52,13 @@ public class PluginManagmentService {
 			e.printStackTrace();
 		}
 		return plugins;
+	}
+	
+	public void addPluginsInfModel(InfModel infModel) {
+		getPlugins();
+		for(String plugin : plugins) {
+			RDFDataMgr.read(infModel, plugin);
+			System.out.println("I just added the following pluging " + plugin);
+		}
 	}
 }

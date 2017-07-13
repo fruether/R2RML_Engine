@@ -47,13 +47,9 @@ public class Program {
         Model schema = FileManager.get().loadModel("ontology.rdf");
     
         InfModel infmodel = ModelFactory.createRDFSModel(schema, model);
+        PluginManagmentService.getInstance().addPluginsInfModel(infmodel);
         ValidityReport validity = infmodel.validate();
-    
-        List<String> plugins = PluginManagmentService.getInstance().getPlugins();
-        for(String plugin : plugins) {
-            RDFDataMgr.read(infmodel, plugin);
-        }
-        
+
         if(validity.isValid()) {
             System.out.println("The model is valid");
         }
