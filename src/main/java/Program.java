@@ -2,6 +2,9 @@ import Plugin.LiquidBaseDependencyPlugin;
 import Plugin.ParserPlugin;
 import Plugin.XSDCheckPlugin;
 import Services.PluginManagmentService;
+import Services.ServiceExtensions.ArtifactDetectionExtension;
+import Services.ServiceExtensions.BuildReleaseExtension;
+import Services.ServiceExtensions.PluginManagerExtension;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -47,6 +50,7 @@ public class Program {
         Model schema = FileManager.get().loadModel("ontology.rdf");
     
         InfModel infmodel = ModelFactory.createRDFSModel(schema, model);
+        PluginManagmentService.getInstance().addExtension(new ArtifactDetectionExtension(), new BuildReleaseExtension());
         PluginManagmentService.getInstance().createArtifactsInPlugin();
         PluginManagmentService.getInstance().addPluginsInfModel(infmodel);
         ValidityReport validity = infmodel.validate();

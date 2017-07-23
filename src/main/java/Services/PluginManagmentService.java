@@ -1,17 +1,14 @@
 package Services;
 
-import org.apache.jena.base.Sys;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.riot.RDFDataMgr;
-import sun.plugin2.main.server.Plugin;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import Services.ServiceExtensions.PluginManagerExtension;
 
 /**
  * Created by freddy on 09.07.17.
@@ -22,6 +19,7 @@ public class PluginManagmentService {
 	private String basePath;
 	private String megaFile;
 	private String pluginPathBase;
+	private List<PluginManagerExtension> serviceExtensions;
 	
 	public PluginManagmentService(){
 		
@@ -29,6 +27,14 @@ public class PluginManagmentService {
 		basePath = "src/main/resources/";
 		megaFile= "input.ttl";
 		pluginPathBase = "Plugins/";
+		serviceExtensions = new ArrayList<>();
+	}
+	public void addExtension(PluginManagerExtension... extensions) {
+		for(PluginManagerExtension serviceExtension : extensions) {
+			if (!serviceExtensions.contains(serviceExtension)) {
+				serviceExtensions.add(serviceExtension);
+			}
+		}
 	}
 	
 	public static PluginManagmentService getInstance() {
@@ -40,9 +46,12 @@ public class PluginManagmentService {
 	
 	
 	public void createArtifactsInPlugin() {
+		List<String> expected = new ArrayList<>();
+		
 		if(plugins.isEmpty()) {
 			getPlugins();
 		}
+		
 		for(String plugin : plugins) {
 			int magaFileNameLength = (megaFile.length() + 1);
 			
@@ -50,15 +59,12 @@ public class PluginManagmentService {
 			String technologyName = plugin.substring(pluginPathBase.length(), plugin.length() - magaFileNameLength);
 
 			List<String> files = getFileNames(pluginPath);
-			for(String file : files) {
-				System.out.println("Found the following file: " + file);
-				
-				StringBuilder result = new StringBuilder(file);
-				result = result.append(" partOf ").append(technologyName).append(" .").append(System.getProperty("line.separator"));
-				result = result.append(file).append(" rdf:type ").append("Artifact .");
-				System.out.println(result.toString());
+			for(PluginManagerExtension extension : serviceExtensions) {
+				expected.addAll(extension.apply(pluginPath, files, technologyName));
 			}
 		}
+		for(String entry : expected)
+			System.out.println(entry);
 	}
 	private List<String> getFileNames(String path) {
 		List<String> files = new ArrayList<String>();
