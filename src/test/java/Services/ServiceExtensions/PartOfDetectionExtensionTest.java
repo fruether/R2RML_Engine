@@ -24,7 +24,6 @@ public class PartOfDetectionExtensionTest {
 	public void test_apply_correct(){
 		ArrayList<String> files = new ArrayList<String >();
 		String technology = "maven";
-		
 		files.add("maven-4.0.0.xsd");
 		files.add("File.java");
 		

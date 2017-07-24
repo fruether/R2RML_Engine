@@ -4,7 +4,9 @@ import Plugin.XSDCheckPlugin;
 import Services.PluginManagmentService;
 import Services.ServiceExtensions.ArtifactDetectionExtension;
 import Services.ServiceExtensions.BuildReleaseExtension;
+import Services.ServiceExtensions.PartOfDetectionExtension;
 import Services.ServiceExtensions.PluginManagerExtension;
+import Services.ServiceExtensions.PrefixCreationExtension;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -50,9 +52,13 @@ public class Program {
         Model schema = FileManager.get().loadModel("ontology.rdf");
     
         InfModel infmodel = ModelFactory.createRDFSModel(schema, model);
-        PluginManagmentService.getInstance().addExtension(new ArtifactDetectionExtension(), new BuildReleaseExtension());
-        PluginManagmentService.getInstance().createArtifactsInPlugin();
-        PluginManagmentService.getInstance().addPluginsInfModel(infmodel);
+        PluginManagmentService pluginManagmentService = PluginManagmentService.getInstance();
+        pluginManagmentService.addExtension(new PrefixCreationExtension(), new BuildReleaseExtension(),
+                                            new ArtifactDetectionExtension(), new PartOfDetectionExtension());
+       
+        pluginManagmentService.createArtifactsInPlugin();
+        pluginManagmentService.addPluginsInfModel(infmodel);
+        
         ValidityReport validity = infmodel.validate();
 
         if(validity.isValid()) {
