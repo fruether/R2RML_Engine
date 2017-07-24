@@ -56,7 +56,7 @@ public class Program {
         pluginManagmentService.addExtension(new PrefixCreationExtension(), new BuildReleaseExtension(),
                                             new ArtifactDetectionExtension(), new PartOfDetectionExtension());
        
-        pluginManagmentService.createArtifactsInPlugin();
+        pluginManagmentService.createPluginsOntology();
         pluginManagmentService.addPluginsInfModel(infmodel);
         
         ValidityReport validity = infmodel.validate();

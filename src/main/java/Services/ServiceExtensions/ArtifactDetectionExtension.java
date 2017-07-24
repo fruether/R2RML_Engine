@@ -18,6 +18,7 @@ public class ArtifactDetectionExtension extends PluginManagerExtension {
 			result = result.append(":").append(file).append(" rdf:type ").append(getName()).append(" .");
 			expected.add(result.toString());
 		}
+		
 		return expected;
 	}
 	
