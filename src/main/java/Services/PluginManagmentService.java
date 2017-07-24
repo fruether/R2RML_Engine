@@ -162,6 +162,8 @@ public class PluginManagmentService {
 	}
 	
 	public List<String> getPlugins() {
+		if(!plugins.isEmpty()) plugins.clear();
+		
 		try {
 			Files.walk(Paths.get(basePath + pluginPathBase))
 					.filter(Files::isRegularFile)

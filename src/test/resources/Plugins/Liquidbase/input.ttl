@@ -1,0 +1,4 @@
+@prefix liquidbase: <http://softlang.com/plugins/liquidbase/> .
+sl:Liquidbase rdf:type sl:BuildRelease .
+Liquidbase:.DS_Store rdf:type sl:Artefact .
+Liquidbase:.DS_Store sl:partOf sl:Liquidbase .
