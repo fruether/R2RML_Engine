@@ -9,14 +9,19 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by freddy on 03.07.17.
  */
 public class ValidationService {
 	static private ValidationService instance;
-	private ValidationService() {}
+	private Set<String> matched;
 	
+	private ValidationService() {
+		matched = new HashSet<>();
+	}
 	static public ValidationService getInstance() {
 		if (instance == null) {
 			instance = new ValidationService();
@@ -35,6 +40,15 @@ public class ValidationService {
 			System.out.println("Exception: " + e.getMessage());
 			return false;
 		}
+		matched.add(path);
 		return true;
+	}
+	
+	public boolean wasSuccessValidated(String path) {
+		return matched.contains(path);
+	}
+	
+	public void clean() {
+		matched.clear();
 	}
 }

@@ -1,4 +1,5 @@
 import Plugin.LiquidBaseDependencyPlugin;
+import Plugin.NoXSDMatch;
 import Plugin.ParserPlugin;
 import Plugin.XSDCheckPlugin;
 import Services.PluginManagmentService;
@@ -39,6 +40,7 @@ public class Program {
             builtins.add(new XSDCheckPlugin());
             builtins.add(new LiquidBaseDependencyPlugin());
             builtins.add(new ParserPlugin());
+            builtins.add(new NoXSDMatch());
         }
         catch (ParserConfigurationException e) {
            System.out.println("Error while setting up the plugins: " + e.getMessage());

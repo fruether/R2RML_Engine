@@ -73,11 +73,12 @@ public class PluginManagmentService {
 			int megaFileNameLength = (megaFile.length() + 1);
 			
 			String pluginPath = plugin.substring(0, plugin.length() - megaFileNameLength);
-			String technologyName = plugin.substring(pluginPathBase.length(), plugin.length() - megaFileNameLength);
+			String technologyName = plugin.substring(pluginPathBase.length(), plugin.length() - megaFileNameLength).toLowerCase();
 
 			List<String> files = getFileNames(pluginPath);
 			for(PluginManagerExtension extension : serviceExtensions) {
 				expectedElements.addAll(extension.apply(pluginPath, files, technologyName));
+				expectedElements.add(" ");
 			}
 			pluginExpectedElements.put(plugin, expectedElements);
 		}
@@ -92,12 +93,11 @@ public class PluginManagmentService {
 			
 			while (iter.hasNext()) {
 				String value = iter.next();
-				System.out.println("looking at " + value);
 				if(actualContent.contains(value)) {
 					iter.remove();
 				}
 			}
-			System.out.println("The following amount of elements have to be added " + expectedContent.size());
+			System.out.println("The following amount of elements have to be added " + expectedContent.size() + " to the plugin " + plugin);
 			iter = expectedContent.iterator();
 			while (iter.hasNext()) {
 				String value = iter.next();

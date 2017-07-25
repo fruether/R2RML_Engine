@@ -14,7 +14,9 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by freddy on 09.07.17.
@@ -27,8 +29,8 @@ import java.net.URL;
 public class LanguageService {
 	private static LanguageService languageService;
 	private LanguageService() {
-	
 	}
+	
 	
 	public static LanguageService getInstance() {
 		if(languageService == null) {
