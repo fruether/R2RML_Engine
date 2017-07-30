@@ -15,7 +15,7 @@ public class PrefixCreationExtension extends PluginManagerExtension {
 		if(technology == null) return result;
 		
 		String prefix = "@prefix " + technology.toLowerCase() + ":";
-		prefix+= " <http://softlang.com/" + path.toLowerCase()  +"/> .";
+		prefix+= " <http://softlang.com/" + path.toLowerCase() + (path.endsWith("/") ? "" : "/") +  "> .";
 		result.add(prefix);
 		
 		return result;

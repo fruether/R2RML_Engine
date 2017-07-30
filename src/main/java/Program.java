@@ -2,12 +2,14 @@ import Plugin.LiquidBaseDependencyPlugin;
 import Plugin.NoXSDMatch;
 import Plugin.ParserPlugin;
 import Plugin.XSDCheckPlugin;
+import Services.InputManagementService;
 import Services.PluginManagmentService;
 import Services.ServiceExtensions.ArtifactDetectionExtension;
 import Services.ServiceExtensions.BuildReleaseExtension;
 import Services.ServiceExtensions.PartOfDetectionExtension;
 import Services.ServiceExtensions.PluginManagerExtension;
 import Services.ServiceExtensions.PrefixCreationExtension;
+import Services.ServiceExtensions.PreludeExtension;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -36,6 +38,9 @@ import org.apache.jena.riot.RDFDataMgr;
 public class Program {
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<BaseBuiltin> builtins= new ArrayList<BaseBuiltin>();
+        String inputFile = "mrsData.ttl";
+        
+        
         try {
             builtins.add(new XSDCheckPlugin());
             builtins.add(new LiquidBaseDependencyPlugin());
@@ -50,16 +55,16 @@ public class Program {
             BuiltinRegistry.theRegistry.register(builtin);
         }
     
-        Model model = FileManager.get().loadModel("data.ttl");
+        InputManagementService inputManagementService = new InputManagementService("input/", inputFile);
+        managePlugins(inputManagementService);
+      //  Model model = FileManager.get().loadModel("data.ttl");
+    
+        Model model = inputManagementService.getModel();
         Model schema = FileManager.get().loadModel("ontology.rdf");
     
         InfModel infmodel = ModelFactory.createRDFSModel(schema, model);
-        PluginManagmentService pluginManagmentService = PluginManagmentService.getInstance();
-        pluginManagmentService.addExtension(new PrefixCreationExtension(), new BuildReleaseExtension(),
-                                            new ArtifactDetectionExtension(), new PartOfDetectionExtension());
-       
-        pluginManagmentService.createPluginsOntology();
-        pluginManagmentService.addPluginsInfModel(infmodel);
+        
+        PluginManagmentService.getInstance().addPluginsInfModel(infmodel);
         
         ValidityReport validity = infmodel.validate();
 
@@ -91,6 +96,20 @@ public class Program {
         for (Statement x : inf.listStatements().toList())
             System.out.println(x);
     
+    }
+    static void managePlugins(InputManagementService inputManagementService) {
+        PluginManagmentService pluginManagmentService = PluginManagmentService.getInstance();
+        
+        pluginManagmentService.addExtension(new PreludeExtension(), new PrefixCreationExtension(), new BuildReleaseExtension(),
+                new ArtifactDetectionExtension(), new PartOfDetectionExtension());
+        
+        
+        pluginManagmentService.copyExtensions(inputManagementService);
+    
+        pluginManagmentService.createPluginsOntology();
+        inputManagementService.createInputFile();
     
     }
+
 }
+

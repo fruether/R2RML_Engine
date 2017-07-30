@@ -15,38 +15,23 @@ import java.util.List;
 import java.util.Map;
 
 import Services.ServiceExtensions.PluginManagerExtension;
-import org.apache.jena.util.FileUtils;
 
-import static org.apache.jena.util.FileUtils.*;
 
 /**
  * Created by freddy on 09.07.17.
  */
-public class PluginManagmentService {
+public class PluginManagmentService extends CreationBaseService{
 	static private PluginManagmentService pluginManagmentService;
 	private List<String> plugins;
-	private String basePath;
-	private String megaFile;
 	private String pluginPathBase;
-	private List<PluginManagerExtension> serviceExtensions;
 	private Map<String, List<String>> pluginExpectedElements;
 	
 	public PluginManagmentService(){
-		
 		plugins = new ArrayList<String>();
-		basePath = "src/main/resources/";
-		megaFile= "input.ttl";
 		pluginPathBase = "Plugins/";
-		serviceExtensions = new ArrayList<>();
 		pluginExpectedElements  = new HashMap<>();
 	}
-	public void addExtension(PluginManagerExtension... extensions) {
-		for(PluginManagerExtension serviceExtension : extensions) {
-			if (!serviceExtensions.contains(serviceExtension)) {
-				serviceExtensions.add(serviceExtension);
-			}
-		}
-	}
+
 	
 	public static PluginManagmentService getInstance() {
 		if (pluginManagmentService == null) {
@@ -65,7 +50,7 @@ public class PluginManagmentService {
 	}
 	
 	private void createExpectedVector() {
-		List<String> expectedElements = new ArrayList<>();
+		List<String> expectedElements;
 		
 		
 		for(String plugin : plugins) {
@@ -74,7 +59,7 @@ public class PluginManagmentService {
 			
 			String pluginPath = plugin.substring(0, plugin.length() - megaFileNameLength);
 			String technologyName = plugin.substring(pluginPathBase.length(), plugin.length() - megaFileNameLength).toLowerCase();
-
+			
 			List<String> files = getFileNames(pluginPath);
 			for(PluginManagerExtension extension : serviceExtensions) {
 				expectedElements.addAll(extension.apply(pluginPath, files, technologyName));
@@ -112,19 +97,6 @@ public class PluginManagmentService {
 		}
 	}
 	
-	private void writeOutFile(String path, List<String> content) {
-		try {
-			File outFile = new File(path);
-			outFile.createNewFile();
-			org.apache.commons.io.FileUtils.writeLines(outFile, content);
-		}
-		catch (IOException e) {
-			System.out.println("Error while writing the file " + path + " in method writeOutFile. Message: " + e.getMessage());
-		}
-		System.out.println("Wrote out the file " + path);
-	}
-	
-	
 	private List<String> readFileToVector(String path) {
 		List<String> result = new ArrayList<>();
 		try {
@@ -138,32 +110,12 @@ public class PluginManagmentService {
 		}
 	}
 	
-	private List<String> getFileNames(String path) {
-		List<String> files = new ArrayList<String>();
-		try {
-			Files.walk(Paths.get(basePath + path))
-					.filter(Files::isRegularFile)
-					.filter(f -> !f.endsWith(megaFile))
-					.map(f -> f.getFileName())
-					.map(f -> f.toString())
-					.forEach(s -> files.add(s));
-		}
-		catch (IOException io) {
-			System.out.println("Error while reading " + path + ". The IO Exception says the following " + io.getMessage());
-		}
-		finally {
-			return files;
-		}
-	}
-	
-	
 	public void setPath(String basePath){
 		this.basePath = basePath;
 	}
 	
 	public List<String> getPlugins() {
 		if(!plugins.isEmpty()) plugins.clear();
-		
 		try {
 			Files.walk(Paths.get(basePath + pluginPathBase))
 					.filter(Files::isRegularFile)
@@ -174,7 +126,7 @@ public class PluginManagmentService {
 					.forEach(s->plugins.add(s));
 		}
 		catch (IOException e) {
-			System.out.println("Exception");
+			System.out.println("Exception: " + basePath + pluginPathBase);
 			e.printStackTrace();
 		}
 		return plugins;
