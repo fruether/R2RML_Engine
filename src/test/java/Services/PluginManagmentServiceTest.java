@@ -51,6 +51,7 @@ public class PluginManagmentServiceTest {
 		catch (IOException io) {
 			assertTrue(io==null);
 		}
+		assertEquals(lines.size(), 10);
 		assertTrue(lines.contains("maven:maven-4.0.0.xsd sl:partOf sl:maven ."));
 		assertTrue(lines.contains("maven:maven-4.0.0.xsd rdf:type sl:Artefact ."));
 		assertTrue(lines.contains("sl:maven rdf:type sl:BuildRelease ."));

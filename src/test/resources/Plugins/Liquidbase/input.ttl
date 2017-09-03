@@ -1,3 +1,4 @@
+@prefix liquidbase/inpu: <http://softlang.com/plugins/liquidbase/inpu/> .
 @prefix liquidbase: <http://softlang.com/plugins/liquidbase/> .
 sl:Liquidbase rdf:type sl:BuildRelease .
 Liquidbase:.DS_Store rdf:type sl:Artefact .
@@ -15,3 +16,4 @@ liquidbase:dbchangelog-3.1.xsd rdf:type sl:Artefact .
 liquidbase:dbchangelog-2.0.xsd sl:partOf sl:liquidbase .
 liquidbase:dbchangelog-3.0.xsd sl:partOf sl:liquidbase .
 liquidbase:dbchangelog-3.1.xsd sl:partOf sl:liquidbase .
+sl:liquidbase/inpu rdf:type sl:BuildRelease .

@@ -20,10 +20,10 @@
 	<description>Master project for the modules of OpenMRS</description>
 	<url>http://openmrs.org</url>
 
-	<issueManagement2>
+	<issueManagement>
 		<system>JIRA</system>
 		<url>http://tickets.openmrs.org/</url>
-	</issueManagement2>
+	</issueManagement>
 
 	<licenses>
 		<license>
@@ -294,6 +294,26 @@
 				<groupId>org.apache.lucene</groupId>
 				<artifactId>lucene-queries</artifactId>
 				<version>4.10.4</version>
+			</dependency>
+			<dependency>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-core</artifactId>
+				<version>2.0.5</version>
+			</dependency>
+			<dependency>
+				<groupId>org.openmrs.liquibase.ext</groupId>
+				<artifactId>modify-column</artifactId>
+				<version>2.0.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.openmrs.liquibase.ext</groupId>
+				<artifactId>identity-insert</artifactId>
+				<version>1.2.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.openmrs.liquibase.ext</groupId>
+				<artifactId>type-converter</artifactId>
+				<version>1.0.1</version>
 			</dependency>
 
 			<dependency>

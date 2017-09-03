@@ -22,17 +22,22 @@ public class XSDCheckPlugin extends BaseBuiltin {
 	public boolean bodyCall(Node[] args, int length, RuleContext context) {
 		if (!args[0].isURI()) return false;
 		
+		FileRetrievementService fileRetrievementService = FileRetrievementService.getInstance();
 		String uri_xml = args[0].getURI();
 		String uri_xsd = args[1].getURI();
 		try {
 			String path_xml = FileRetrievementService.getInstance().uriToPath(uri_xml);
 			String path_xsd = FileRetrievementService.getInstance().uriToPath(uri_xsd);
 			
+			boolean dtdDef = fileRetrievementService.checkContent(uri_xml,"<!DOCTYPE");
+			if(dtdDef) {
+				return false;
+			}
 			System.out.println("XSDCheckPlugin " + uri_xml + " and " + uri_xsd);
 			return validateMavenXMLSchema(path_xml, path_xsd);
 		}
-		catch (FileRetrievementServiceException fileRetrievementService) {
-			fileRetrievementService.printError();
+		catch (FileRetrievementServiceException fileRetrievementServiceexception) {
+			fileRetrievementServiceexception.printError();
 			return false;
 		}
 	}

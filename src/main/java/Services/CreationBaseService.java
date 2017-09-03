@@ -1,6 +1,7 @@
 package Services;
 
 import Services.ServiceExtensions.PluginManagerExtension;
+import org.apache.jena.base.Sys;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +22,7 @@ public class CreationBaseService {
 	public CreationBaseService() {
 		basePath = "src/main/resources/";
 		serviceExtensions = new ArrayList<>();
-		megaFile= "input.ttl";
+		megaFile= ".ttl";
 	}
 	
 	protected List<String> getFileNames(String path) {
@@ -29,7 +30,7 @@ public class CreationBaseService {
 		try {
 			Files.walk(Paths.get(basePath + path))
 					.filter(Files::isRegularFile)
-					.filter(f -> !f.endsWith(megaFile))
+					.filter(f -> !f.toString().endsWith(megaFile))
 					.map(f -> f.getFileName())
 					.map(f -> f.toString())
 					.forEach(s -> files.add(s));
@@ -67,5 +68,9 @@ public class CreationBaseService {
 			targetService.addExtension(extension);
 		}
 	}
+	public void setPath(String basePath){
+		this.basePath = basePath;
+	}
+	
 	
 }

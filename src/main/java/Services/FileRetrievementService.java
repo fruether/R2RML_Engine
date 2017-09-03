@@ -52,7 +52,9 @@ public class FileRetrievementService {
 			throw new FileRetrievementServiceException(mue, "uriToPath", message, uri);
 		}
 	}
-	
+	public boolean checkContent(String uri, String content) throws FileRetrievementServiceException {
+		return getContent(uri).contains(content);
+	}
 	public String getProjectRelativeResourcesPath() {
 		return dataPath;
 	}

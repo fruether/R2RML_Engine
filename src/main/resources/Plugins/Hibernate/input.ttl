@@ -1,0 +1,14 @@
+@prefix hibernate: <http://softlang.com/plugins/hibernate/> .
+@prefix sl: <http://softlang.com/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+ 
+ 
+sl:hibernate rdf:type sl:BuildRelease .
+ 
+hibernate:hibernate-configuration-4.0.xsd rdf:type sl:Artefact .
+ 
+hibernate:hibernate-configuration-4.0.xsd sl:partOf sl:hibernate .
+ 
+hibernate:hibernate-mapping-4.0.xsd rdf:type sl:Artefact .
+hibernate:hibernate-mapping-4.0.xsd sl:partOf sl:hibernate .

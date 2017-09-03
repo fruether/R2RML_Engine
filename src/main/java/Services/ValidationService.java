@@ -1,8 +1,15 @@
 package Services;
 
+import org.apache.jena.base.Sys;
+import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
 
+import javax.swing.text.Document;
 import javax.xml.XMLConstants;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
@@ -18,9 +25,12 @@ import java.util.Set;
 public class ValidationService {
 	static private ValidationService instance;
 	private Set<String> matched;
-	
+	private SchemaFactory sf;
 	private ValidationService() {
+		
 		matched = new HashSet<>();
+		sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		
 	}
 	static public ValidationService getInstance() {
 		if (instance == null) {
@@ -29,7 +39,7 @@ public class ValidationService {
 		return instance;
 	}
 	
-	public boolean validateXMLSchema(String path, String XSDpath) {
+	public boolean validateXMLSchema_Deprecated(String path, String XSDpath) {
 		try {
 			SchemaFactory factory =
 					SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
@@ -43,7 +53,40 @@ public class ValidationService {
 		matched.add(path);
 		return true;
 	}
-	
+	public boolean validateXMLSchema(String path, String XSDpath) {
+		try {
+			Schema schema = sf.newSchema(new File(XSDpath));
+			
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			dbf.setNamespaceAware(true);
+			dbf.setSchema(schema);
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			db.setErrorHandler(new ErrorHandler() {
+				
+				@Override
+				public void warning(SAXParseException exception) throws SAXException {
+				
+				}
+				
+				@Override
+				public void error(SAXParseException exception) throws SAXException {
+					throw exception;
+				}
+				
+				@Override
+				public void fatalError(SAXParseException exception) throws SAXException {
+					throw exception;
+				}
+			});
+			db.parse(new File(path));
+			
+		}
+		catch (SAXException | IOException | ParserConfigurationException error) {
+			return false;
+		}
+		matched.add(path);
+		return true;
+	}
 	public boolean wasSuccessValidated(String path) {
 		return matched.contains(path);
 	}

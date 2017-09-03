@@ -48,14 +48,19 @@ public class PluginManagmentService extends CreationBaseService{
 		createExpectedVector();
 		createActualVector();
 	}
-	
+	private int getMegaFileLength(String plugin) {
+		if(plugin == null) return 0;
+		String[] directory = plugin.split("/");
+		String megaFile = directory[directory.length - 1];
+		return megaFile.length();
+	}
 	private void createExpectedVector() {
 		List<String> expectedElements;
 		
 		
 		for(String plugin : plugins) {
 			expectedElements  = new ArrayList<>();
-			int megaFileNameLength = (megaFile.length() + 1);
+			int megaFileNameLength = (getMegaFileLength(plugin) + 1);
 			
 			String pluginPath = plugin.substring(0, plugin.length() - megaFileNameLength);
 			String technologyName = plugin.substring(pluginPathBase.length(), plugin.length() - megaFileNameLength).toLowerCase();
@@ -110,17 +115,13 @@ public class PluginManagmentService extends CreationBaseService{
 		}
 	}
 	
-	public void setPath(String basePath){
-		this.basePath = basePath;
-	}
-	
 	public List<String> getPlugins() {
 		if(!plugins.isEmpty()) plugins.clear();
 		try {
 			Files.walk(Paths.get(basePath + pluginPathBase))
 					.filter(Files::isRegularFile)
 					//.forEach(System.out::println)
-					.filter(f->f.endsWith(megaFile))
+					.filter(f->f.toString().endsWith(megaFile))
 					.map(f -> f.toString())
 					.map(s->s.replace(basePath, ""))
 					.forEach(s->plugins.add(s));

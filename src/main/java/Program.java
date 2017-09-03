@@ -1,3 +1,4 @@
+import Plugin.DTDCheckPlugin;
 import Plugin.LiquidBaseDependencyPlugin;
 import Plugin.NoXSDMatch;
 import Plugin.ParserPlugin;
@@ -7,7 +8,6 @@ import Services.PluginManagmentService;
 import Services.ServiceExtensions.ArtifactDetectionExtension;
 import Services.ServiceExtensions.BuildReleaseExtension;
 import Services.ServiceExtensions.PartOfDetectionExtension;
-import Services.ServiceExtensions.PluginManagerExtension;
 import Services.ServiceExtensions.PrefixCreationExtension;
 import Services.ServiceExtensions.PreludeExtension;
 import org.apache.jena.rdf.model.InfModel;
@@ -28,9 +28,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-
-import org.apache.jena.riot.RDFDataMgr;
 
 /**
  * Created by Frederik on 21.06.2017.
@@ -46,6 +43,7 @@ public class Program {
             builtins.add(new LiquidBaseDependencyPlugin());
             builtins.add(new ParserPlugin());
             builtins.add(new NoXSDMatch());
+            builtins.add(new DTDCheckPlugin());
         }
         catch (ParserConfigurationException e) {
            System.out.println("Error while setting up the plugins: " + e.getMessage());
@@ -57,7 +55,7 @@ public class Program {
     
         InputManagementService inputManagementService = new InputManagementService("input/", inputFile);
         managePlugins(inputManagementService);
-      //  Model model = FileManager.get().loadModel("data.ttl");
+       // Model model = FileManager.get().loadModel("data.ttl");
     
         Model model = inputManagementService.getModel();
         Model schema = FileManager.get().loadModel("ontology.rdf");

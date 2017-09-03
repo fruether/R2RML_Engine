@@ -1,5 +1,7 @@
 @prefix maven: <http://softlang.com/plugins/maven/> .
+
 sl:maven rdf:type sl:BuildRelease .
+
 maven:maven-4.0.0.xsd rdf:type sl:Artefact .
 maven:maven-4.0.0.xsd sl:partOf sl:maven .
  

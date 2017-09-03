@@ -13,7 +13,7 @@ public abstract class PluginManagerExtension {
 	public abstract String getName();
 	
 	public  boolean equals(Object obj) {
-		if(!(obj instanceof PluginManagmentService)) return false;
+		if(!(obj instanceof PluginManagerExtension)) return false;
 		PluginManagerExtension targetPluginManagerExtension = (PluginManagerExtension) obj;
 		return targetPluginManagerExtension.getName().equals(getName());
 	}
