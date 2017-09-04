@@ -1,7 +1,9 @@
 package Plugin;
 
+import Services.FileRetrievementService;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,14 +14,43 @@ import static org.junit.Assert.*;
 public class DTDCheckPluginTest {
 	DTDCheckPlugin dtdCheckPlugin = new DTDCheckPlugin();
 	
-	@Test
-	public void bodyCall() throws Exception {
-		Node xmlFile = NodeFactory.createURI("http://softlang.de/a.xml");
-		Node xsdFile = NodeFactory.createURI("http://softlang.de/a.xsd");
-		
-		Node[] env = new Node[] {xmlFile, xsdFile};
-		
-		dtdCheckPlugin.bodyCall(env, 2, null);
+	@Before
+	public void setUp(){
+		FileRetrievementService.getInstance().setDataPath("src/test/resources/");
 	}
 	
+	@Test
+	public void dtd_check_correct() {
+		Node xmlFile = NodeFactory.createURI("http://softlang.de/hibernate.cfg.xml");
+		Node dtdFile = NodeFactory.createURI("http://softlang.de/hibernate-configuration-3.0.dtd");
+		
+		Node[] env = new Node[] {xmlFile, dtdFile};
+		
+		boolean result = dtdCheckPlugin.bodyCall(env, 2, null);
+		assertTrue(result);
+	}
+	
+	@Test
+	public void dtd_check_correct2() {
+		Node xmlFile = NodeFactory.createURI("http://softlang.de/Allergy.hbm.xml"); //Allergy.hbm.xml
+		Node dtdFile = NodeFactory.createURI("http://softlang.de/hibernate-mapping-3.0.dtd");
+		
+		Node[] env = new Node[] {xmlFile, dtdFile};
+		
+		boolean result = dtdCheckPlugin.bodyCall(env, 2, null);
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void dtd_check_wrong() {
+		Node xmlFile = NodeFactory.createURI("http://softlang.de/pom.xml"); //Allergy.hbm.xml
+		Node dtdFile = NodeFactory.createURI("http://softlang.de/hibernate-mapping-3.0.dtd");
+		
+		Node[] env = new Node[] {xmlFile, dtdFile};
+		
+		boolean result = dtdCheckPlugin.bodyCall(env, 2, null);
+		
+		assertFalse(result);
+	}
 }
