@@ -30,3 +30,21 @@
     (?file sl:elementOf ?language)
 ]
 
+[DTDDetection:
+    (?file sl:partOf ?build)
+    (?file rdf:type sl:Artefact)
+    FileEnding(?file, ".dtd")
+    ->
+    (?file sl:elementOf sl:DTD)
+]
+[DTDValidation:
+    (?file1 sl:partOf ?build1)
+    (?file1 rdf:type sl:Artefact)
+    (?file1 sl:elementOf sl:XML)
+    (?file2 sl:partOf ?build2)
+    (?file2 rdf:type sl:Artefact)
+    (?file2 sl:elementOf sl:DTD)
+    DTDCheck(?file1, ?file2)
+    ->
+    (?file1 sl:conformsTo ?file2)
+]

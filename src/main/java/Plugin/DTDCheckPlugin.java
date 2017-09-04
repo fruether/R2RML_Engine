@@ -2,6 +2,8 @@ package Plugin;
 
 import Services.FileRetrievementService;
 import Services.FileRetrievementServiceException;
+import Services.ValidationService;
+import org.apache.jena.base.Sys;
 import org.apache.jena.graph.Node;
 import org.apache.jena.reasoner.rulesys.RuleContext;
 import org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin;
@@ -16,20 +18,24 @@ public class DTDCheckPlugin extends BaseBuiltin {
 	
 	@Override
 	public String getName() {
-		return "DTDCheckPlugin";
+		return "DTDCheck";
 	}
 	public int getArgLength() {
 		return 2;
 	}
 	
 	public boolean bodyCall(Node[] args, int length, RuleContext context) {
-		if(args.length > 2) return false;
+		if(args.length < 2) return false;
+		boolean result = false;
 		
 		String uri_xml = args[0].getURI();
 		String uri_dtd = args[1].getURI();
 		String dtd_file = last(uri_dtd.split("/"));
+		ValidationService validationService = ValidationService.getInstance();
 		
-		String regex = ".*<!DOCTYPE\\s+[a-zA-Z_0-9|-]+\\s+PUBLIC\\s+\".*\"\\s+\"(.*?)\"\\s*>.*";
+		if(validationService.wasSuccessValidatedUri(uri_xml)) return result;
+		
+		System.out.println("[DTDCheckPlugin:] Checking if " + uri_xml + " references " + uri_dtd);
 		
 		boolean dtdDef = false;
 		try {
@@ -39,30 +45,24 @@ public class DTDCheckPlugin extends BaseBuiltin {
 			if(!dtdDef) {
 				return false;
 			}
-			/*/
-			String content = "Hallo<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" "
-					+ "\"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\"> Bro";
-			String content2 = "<!DOCTYPE hibernate-Configuration PUBLIC\n"
-					+ " \"-//Hibernate/Hibernate Configuration DTD 3.0//EN\" "
-					+ "\"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd\">";
-			*/
-			
-			final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE | Pattern.DOTALL);
-			final Matcher matcher = pattern.matcher(content);
-			if(!matcher.find()) return false;
-			String dtdFile_reference = last(matcher.group(1).split("/"));
-			
-			System.out.println(matcher.group(1) + " " + dtdFile_reference);
-			return  dtd_file.equals(dtdFile_reference);
+			result = validationService.validateXMLDTD(uri_xml, dtd_file, content);
 			
 		}
 		catch (FileRetrievementServiceException e) {
 			e.printStackTrace();
 		}
-		return  false;
+		return  result;
 	}
 	
 	private<T> T last(T[] element) {
 		return  element[element.length - 1];
 	}
+	
+	/*
+			String content = "Hallo<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" "
+					+ "\"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\"> Bro";
+			String content2 = "<!DOCTYPE hibernate-Configuration PUBLIC\n"
+					+ " \"-//Hibernate/Hibernate Configuration DTD 3.0//EN\" "
+					+ "\"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd\">";
+	*/
 }

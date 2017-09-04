@@ -18,6 +18,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by freddy on 03.07.17.
@@ -87,11 +89,58 @@ public class ValidationService {
 		matched.add(path);
 		return true;
 	}
+	
+	public boolean validateXMLDTD(String uri_xml, String dtd_file, String content) {
+		boolean result = false;
+		String regex = ".*<!DOCTYPE\\s+[a-zA-Z_0-9|-]+\\s+PUBLIC\\s+\".*\"\\s+\"(.*?)\"\\s*>.*";
+		
+		
+		Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE | Pattern.DOTALL);
+		Matcher matcher = pattern.matcher(content);
+		
+		if(!matcher.find()) return result;
+		String dtdFile_reference = last(matcher.group(1).split("/"));
+		
+		System.out.println(matcher.group(1) + " " + dtdFile_reference);
+		result = dtd_file.equals(dtdFile_reference);
+		if(result) {
+			addSuccessValidatedUri(uri_xml);
+		}
+		return result;
+	
+	}
 	public boolean wasSuccessValidated(String path) {
 		return matched.contains(path);
+	}
+	public boolean wasSuccessValidatedUri(String uri) {
+		try {
+			String path = FileRetrievementService.getInstance().uriToPath(uri);
+			return matched.contains(path);
+		}
+		catch (FileRetrievementServiceException e) {
+			return false;
+		}
+		
+	}
+	public void addSuccessValidatedPath(String path) {
+		matched.add(path);
+	}
+	public void addSuccessValidatedUri(String uri) {
+		try {
+			String path = FileRetrievementService.getInstance().uriToPath(uri);
+			matched.add(path);
+		}
+		catch (FileRetrievementServiceException e) {
+			System.out.println("Invalid url: " + uri);
+		}
 	}
 	
 	public void clean() {
 		matched.clear();
 	}
+	
+	private<T> T last(T[] element) {
+		return  element[element.length - 1];
+	}
+	
 }

@@ -1,4 +1,5 @@
 import Plugin.DTDCheckPlugin;
+import Plugin.FileEndingPlugin;
 import Plugin.LiquidBaseDependencyPlugin;
 import Plugin.NoXSDMatch;
 import Plugin.ParserPlugin;
@@ -39,11 +40,7 @@ public class Program {
         
         
         try {
-            builtins.add(new XSDCheckPlugin());
-            builtins.add(new LiquidBaseDependencyPlugin());
-            builtins.add(new ParserPlugin());
-            builtins.add(new NoXSDMatch());
-            builtins.add(new DTDCheckPlugin());
+            addPlugins(builtins);
         }
         catch (ParserConfigurationException e) {
            System.out.println("Error while setting up the plugins: " + e.getMessage());
@@ -107,6 +104,16 @@ public class Program {
         pluginManagmentService.createPluginsOntology();
         inputManagementService.createInputFile();
     
+    }
+    
+    static void addPlugins(ArrayList<BaseBuiltin> builtins) throws ParserConfigurationException {
+        
+        builtins.add(new XSDCheckPlugin());
+        builtins.add(new LiquidBaseDependencyPlugin());
+        builtins.add(new ParserPlugin());
+        builtins.add(new NoXSDMatch());
+        builtins.add(new DTDCheckPlugin());
+        builtins.add(new FileEndingPlugin());
     }
 
 }
