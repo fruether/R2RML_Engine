@@ -44,7 +44,8 @@ public class FileRetrievementService {
 	
 	public String uriToPath(String uri) throws FileRetrievementServiceException{
 		try {
-			URL url = new URL(uri);
+			String cleaned_uri =  uri.replace("_S_", "/");
+			URL url = new URL(cleaned_uri);
 			return url.getPath().substring(1);
 		}
 		catch(MalformedURLException mue) {

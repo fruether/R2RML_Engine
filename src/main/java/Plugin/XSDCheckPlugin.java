@@ -33,7 +33,7 @@ public class XSDCheckPlugin extends BaseBuiltin {
 			if(dtdDef) {
 				return false;
 			}
-			System.out.println("XSDCheckPlugin " + uri_xml + " and " + uri_xsd);
+			System.out.println("[XSDCheckPlugin] between " + uri_xml + " and " + uri_xsd);
 			return validateMavenXMLSchema(path_xml, path_xsd);
 		}
 		catch (FileRetrievementServiceException fileRetrievementServiceexception) {

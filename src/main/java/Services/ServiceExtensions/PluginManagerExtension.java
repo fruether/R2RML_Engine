@@ -18,4 +18,7 @@ public abstract class PluginManagerExtension {
 		return targetPluginManagerExtension.getName().equals(getName());
 	}
 	
+	protected String pathToURI(String path) {
+		return path.replace("/", "_S_");
+	}
 }

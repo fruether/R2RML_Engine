@@ -2,7 +2,6 @@
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema> .
 @prefix sl: <http://softlang.com/> .
-
  
  
 sl:maven rdf:type sl:BuildRelease .
@@ -10,3 +9,4 @@ sl:maven rdf:type sl:BuildRelease .
 maven:maven-4.0.0.xsd rdf:type sl:Artefact .
  
 maven:maven-4.0.0.xsd sl:partOf sl:maven .
+ 

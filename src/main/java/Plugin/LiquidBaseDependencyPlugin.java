@@ -40,7 +40,7 @@ public class LiquidBaseDependencyPlugin extends BaseBuiltin {
 		if (!args[0].isURI()) return false;
 		
 		String uri = args[0].getURI();
-		System.out.println("Checking LiquidBaseDependencyPlugin");
+		System.out.println("[LiquidBaseDependencyPlugin] with " + uri);
 		try {
 			String content =  FileRetrievementService.getInstance().getContent(uri);
 			InputSource is = new InputSource(new ByteArrayInputStream(content.getBytes()));

@@ -14,7 +14,7 @@ public class PartOfDetectionExtension extends PluginManagerExtension {
 		
 		for(String file : files) {
 			StringBuilder builder = new StringBuilder(technology);
-			builder.append(":").append(file).append(" ").append(getName()).append(" ").append("sl:").append(technology).append(" .");
+			builder.append(":").append(pathToURI(file)).append(" ").append(getName()).append(" ").append("sl:").append(technology).append(" .");
 			result.add(builder.toString());
 		}
 		

@@ -27,7 +27,6 @@ public class CreationBaseService {
 	
 	protected List<String> getFileNames(String path) {
 		List<String> files = new ArrayList<String>();
-		System.out.println(path);
 		
 		if(!path.endsWith("/")) {
 			path +="/";
