@@ -46,6 +46,7 @@ public class PluginManagmentService extends CreationBaseService{
 			getPlugins();
 		}
 		createExpectedVector();
+		System.out.println("hi");
 		createActualVector();
 	}
 	private int getMegaFileLength(String plugin) {
@@ -138,9 +139,8 @@ public class PluginManagmentService extends CreationBaseService{
 			getPlugins();
 		}
 		for(String plugin : plugins) {
-			System.out.println("Load the file " + plugin);
+			System.out.println("[PluginManagmentService] Loading of the file " + plugin);
 			RDFDataMgr.read(infModel, basePath+plugin);
-			System.out.println("I just added the following plugin " + plugin);
 		}
 	}
 }

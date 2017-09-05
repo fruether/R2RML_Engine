@@ -14,6 +14,7 @@ public class ArtifactDetectionExtension extends PluginManagerExtension {
 	public List<String> apply(String path, List<String> files, String technology) {
 		List<String> expected = new ArrayList<>();
 		for(String file : files) {
+			System.out.println(file);
 			StringBuilder result = new StringBuilder(technology);
 			result = result.append(":").append(file).append(" rdf:type ").append(getName()).append(" .");
 			expected.add(result.toString());

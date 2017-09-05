@@ -1,3 +1,4 @@
+import Plugin.CheckReferences;
 import Plugin.DTDCheckPlugin;
 import Plugin.FileEndingPlugin;
 import Plugin.LiquidBaseDependencyPlugin;
@@ -114,6 +115,7 @@ public class Program {
         builtins.add(new NoXSDMatch());
         builtins.add(new DTDCheckPlugin());
         builtins.add(new FileEndingPlugin());
+        builtins.add(new CheckReferences());
     }
 
 }

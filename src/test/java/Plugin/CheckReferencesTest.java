@@ -19,13 +19,49 @@ public class CheckReferencesTest {
 		FileRetrievementService.getInstance().setDataPath("src/test/resources/");
 	}
 	@Test
-	public void test_correct1() {
+	public void test_correct_global_path() {
 		Node input = NodeFactory.createURI("http://softlang.de/hibernate.cfg.xml");
-		Node input2 = NodeFactory.createBlankNode();
+		Node input2 = NodeFactory.createURI("http://softlang.de/org/openmrs/api/db/hibernate/Allergy.hbm.xml");
 		
 		Node[] env = new Node[] {input, input2};
 		
 		boolean result = checkReferences.bodyCall(env, 2, null);
 		
+		assertTrue(result);
 	}
+	@Test
+	public void test_correct_sub_directory_path() {
+		Node input = NodeFactory.createURI("http://softlang.de/hibernate.cfg.xml");
+		Node input2 = NodeFactory.createURI("http://softlang.de/hibernate/Allergy.hbm.xml");
+		
+		Node[] env = new Node[] {input, input2};
+		
+		boolean result = checkReferences.bodyCall(env, 2, null);
+		
+		assertTrue(result);
+	}
+	@Test
+	public void test_correct_in_directory_path() {
+		Node input = NodeFactory.createURI("http://softlang.de/dir1/subdir1/hibernate.cfg.xml");
+		Node input2 = NodeFactory.createURI("http://softlang.de/dir1/subdir1/Allergy.hbm.xml");
+		
+		Node[] env = new Node[] {input, input2};
+		
+		boolean result = checkReferences.bodyCall(env, 2, null);
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void test_wrong_directory_path() {
+		Node input = NodeFactory.createURI("http://softlang.de/hibernate.cfg.xml");
+		Node input2 = NodeFactory.createURI("http://softlang.de/hibernate/Allergy2.hbm.xml");
+		
+		Node[] env = new Node[] {input, input2};
+		
+		boolean result = checkReferences.bodyCall(env, 2, null);
+		
+		assertFalse(result);
+	}
+
 }

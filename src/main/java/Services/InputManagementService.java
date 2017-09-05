@@ -37,7 +37,7 @@ public class InputManagementService extends CreationBaseService{
 			output.addAll(result);
 			output.add("");
 		}
-		System.out.println(basePath + inputPath +outputFile);
+		System.out.println("[InputManagementService] Creating input file: " + basePath + inputPath +outputFile);
 		writeOutFile(getPath(), output);
 	}
 	

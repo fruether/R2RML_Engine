@@ -27,12 +27,18 @@ public class CreationBaseService {
 	
 	protected List<String> getFileNames(String path) {
 		List<String> files = new ArrayList<String>();
+		System.out.println(path);
+		
+		if(!path.endsWith("/")) {
+			path +="/";
+		}
+		String completePath = basePath + path;
 		try {
-			Files.walk(Paths.get(basePath + path))
+			Files.walk(Paths.get(completePath))
 					.filter(Files::isRegularFile)
 					.filter(f -> !f.toString().endsWith(megaFile))
-					.map(f -> f.getFileName())
-					.map(f -> f.toString())
+					.map(f->f.toString())
+					.map(f->f.replace( completePath, ""))
 					.forEach(s -> files.add(s));
 		}
 		catch (IOException io) {
