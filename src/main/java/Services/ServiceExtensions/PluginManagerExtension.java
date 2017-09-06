@@ -19,6 +19,6 @@ public abstract class PluginManagerExtension {
 	}
 	
 	protected String pathToURI(String path) {
-		return path.replace("/", "_S_");
+		return path.replace("/", "\\/");
 	}
 }
