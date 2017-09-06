@@ -62,6 +62,7 @@ public class ParserPluginTest {
 		
 		
 		boolean result = parserPlugin.bodyCall(env,2 , ruleContext);
+		assertTrue(result);
 		Node languageNode = ruleContext.getEnv().getGroundVersion(env[1]);
 		
 		assertTrue(result);

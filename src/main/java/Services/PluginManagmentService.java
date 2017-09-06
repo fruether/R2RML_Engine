@@ -46,7 +46,6 @@ public class PluginManagmentService extends CreationBaseService{
 			getPlugins();
 		}
 		createExpectedVector();
-		System.out.println("hi");
 		createActualVector();
 	}
 	private int getMegaFileLength(String plugin) {
@@ -57,7 +56,6 @@ public class PluginManagmentService extends CreationBaseService{
 	}
 	private void createExpectedVector() {
 		List<String> expectedElements;
-		
 		
 		for(String plugin : plugins) {
 			expectedElements  = new ArrayList<>();

@@ -101,7 +101,6 @@ public class ValidationService {
 		if(!matcher.find()) return result;
 		String dtdFile_reference = last(matcher.group(1).split("/"));
 		
-		System.out.println(matcher.group(1) + " " + dtdFile_reference);
 		result = dtd_file.equals(dtdFile_reference);
 		if(result) {
 			addSuccessValidatedUri(uri_xml);

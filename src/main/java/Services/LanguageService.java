@@ -90,6 +90,7 @@ public class LanguageService {
 			validator.validate(new StreamSource(new ByteArrayInputStream(content.getBytes())));
 		}
 		catch (SAXException sax) {
+			System.out.println("Error parsing" + sax.getMessage());
 			return false;
 		}
 		catch (IOException io) {

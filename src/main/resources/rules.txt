@@ -7,7 +7,6 @@
 [XSDCheck:
     (?a sl:elementOf sl:XML)
     (?b sl:elementOf sl:XSD)
-    NoXSDMatch(?a)
     XSDCheck(?a,?b) ->
     (?a sl:conformsTo ?b)]
 

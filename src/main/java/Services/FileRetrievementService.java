@@ -36,7 +36,7 @@ public class FileRetrievementService {
 			content = new String(encoded);
 		}
 		catch (IOException ioe) {
-			System.out.println("There was an IO Exception while reading the followin URI " + uri);
+			System.out.println("There was an IO Exception while reading the following URI " + uri);
 			System.out.println(ioe.getMessage());
 		}
 		return content;
@@ -44,6 +44,7 @@ public class FileRetrievementService {
 	
 	public String uriToPath(String uri) throws FileRetrievementServiceException{
 		try {
+			//String cleaned_uri = uri.replace(":s:", "/");
 			URL url = new URL(uri);
 			return url.getPath().substring(1);
 		}

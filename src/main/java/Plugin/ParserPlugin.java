@@ -35,7 +35,7 @@ public class ParserPlugin extends BaseBuiltin {
 		
 		BindingEnvironment env = context.getEnv();
 		String uri = args[0].getURI();
-		System.out.println("Inside Parse plugin with " + uri);
+		System.out.println("[ParsePlugin] parsing " + uri);
 		try {
 			String content = fileRetrievementService.getContent(uri);
 			String path = fileRetrievementService.uriToPath(uri);
