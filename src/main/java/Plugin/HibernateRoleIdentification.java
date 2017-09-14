@@ -15,11 +15,11 @@ import java.util.Map;
 /**
  * Created by freddy on 14.09.17.
  */
-public class HibernateFilenameFingerprint extends BaseBuiltin {
+public class HibernateRoleIdentification extends BaseBuiltin {
 	private FileRetrievementService fileRetrievementService;
 	private Map<String, List<String >> roleNameMappingFileEnding;
 	
-	public HibernateFilenameFingerprint() {
+	public HibernateRoleIdentification() {
 		
 		fileRetrievementService = FileRetrievementService.getInstance();
 		
@@ -48,7 +48,7 @@ public class HibernateFilenameFingerprint extends BaseBuiltin {
 	
 	@Override
 	public String getName() {
-		return "HibernateFingerprint";
+		return "HibernateRoleIdentification";
 	}
 	
 	private boolean checkElementStartsWithAny(String input, List<String> elements) {
@@ -66,10 +66,10 @@ public class HibernateFilenameFingerprint extends BaseBuiltin {
 	public boolean bodyCall(Node[] args, int length, RuleContext context) {
 		boolean result = false;
 		if(args.length != 2) return result;
-		
 		try {
 			String filename = fileRetrievementService.uriToPath(args[0].getURI());
 			String resultValue = "http://softlang.com/Plugins/Hibernate/";
+			System.out.println("[HibernateRoleIdentification]: Checking role for " + filename);
 			
 			for(String roleNames : roleNameMappingFileEnding.keySet()) {
 				if(checkElementStartsWithAny(filename, roleNameMappingFileEnding.get(roleNames))) {

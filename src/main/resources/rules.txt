@@ -70,7 +70,7 @@
     (?file sl:elementOf sl:XML)
     (?file sl:conformsTo ?schema)
     (?schema sl:partOf sl:hibernate)
-    HibernateFingerprint(?schema, ?role)
+    HibernateRoleIdentification(?schema, ?role)
     ->
     (?file sl:hasRole ?role)
 
