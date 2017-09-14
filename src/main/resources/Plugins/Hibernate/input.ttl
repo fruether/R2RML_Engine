@@ -3,7 +3,9 @@
 @prefix sl: <http://softlang.com/> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
- 
+
+technologies:HibernateMapping rdf:type sl:Role .
+
 sl:hibernate rdf:type sl:BuildRelease .
 hibernate:hibernate-configuration-3.0.dtd rdf:type sl:Artefact .
 hibernate:hibernate-configuration-4.0.xsd rdf:type sl:Artefact .
@@ -13,3 +15,8 @@ hibernate:hibernate-configuration-3.0.dtd sl:partOf sl:hibernate .
 hibernate:hibernate-configuration-4.0.xsd sl:partOf sl:hibernate .
 hibernate:hibernate-mapping-3.0.dtd sl:partOf sl:hibernate .
 hibernate:hibernate-mapping-4.0.xsd sl:partOf sl:hibernate .
+ 
+ 
+ 
+ 
+ 
