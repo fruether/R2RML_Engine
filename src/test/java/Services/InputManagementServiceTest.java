@@ -42,7 +42,7 @@ public class InputManagementServiceTest {
 		
 		inputManagementService.createInputFile();
 		lines = FileUtils.readLines(new File(basePath + inputPath + outputFile), Charset.defaultCharset());
-		assertEquals(lines.size(), 18);
+		assertEquals(lines.size(), 19);
 		
 		String[] expected_result = new String[]{
 				"@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .",
@@ -55,7 +55,8 @@ public class InputManagementServiceTest {
 				"openmrs:liquibase-update-to-latest.xml sl:partOf sl:openmrs .",
 				"openmrs:pom.xml sl:partOf sl:openmrs .",
 				"openmrs:inputHibernate.xml rdf:type sl:Artefact .",
-				"openmrs:liquibase-update-to-latest.xml rdf:type sl:Artefact ."
+				"openmrs:liquibase-update-to-latest.xml rdf:type sl:Artefact .",
+				"@prefix technologies: <http://softlang.com/Plugins/> ."
 
 		};
 		
