@@ -2,6 +2,7 @@
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema> .
 @prefix sl: <http://softlang.com/> .
 @prefix maven: <http://softlang.com/plugins/maven/> .
+@prefix technologies: <http://softlang.com/Plugins/> .
 
 
 [XSDCheck:
@@ -19,7 +20,7 @@
 [DetectLiquidBase:
     (?file sl:conformsTo maven:maven-4.0.0.xsd)
     liquidBaseDependencyCheck(?file) ->
-    (?file sl:references sl:liquidbase)]
+    (?file sl:references technologies:liquidbase)]
 
 [LanguageDetection:
     (?file sl:partOf ?build)
@@ -56,4 +57,21 @@
     CheckReference(?file1, ?file2)
     ->
     (?file1 sl:references ?file2)
+]
+
+[HibernateDependency:
+    (?file sl:conformsTo maven:maven-4.0.0.xsd)
+    HibernateDependencyCheck(?file) ->
+    (?file sl:references technologies:hibernate)
+]
+[HibernateConfiguration:
+    (?file rdf:type sl:Artefact)
+    (?file sl:partOf ?build1)
+    (?file sl:elementOf sl:XML)
+    (?file sl:conformsTo ?schema)
+    (?schema sl:partOf sl:hibernate)
+    HibernateFingerprint(?schema, ?role)
+    ->
+    (?file sl:hasRole ?role)
+
 ]

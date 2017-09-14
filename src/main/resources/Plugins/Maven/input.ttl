@@ -1,3 +1,4 @@
+@prefix technologies: <http://softlang.com/Plugins/> .
 @prefix slash: </> .
 @prefix maven: <http://softlang.com/plugins/maven/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .

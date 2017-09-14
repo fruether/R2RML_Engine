@@ -15,7 +15,7 @@ public class PreludeExtension extends PluginManagerExtension{
 		result.add("@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .");
 		result.add("@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema> .");
 		result.add("@prefix sl: <http://softlang.com/> .");
-		result.add("@prefix slash: </> .");
+		result.add("@prefix technologies: <http://softlang.com/Plugins/> .");
 		
 		
 		return result;

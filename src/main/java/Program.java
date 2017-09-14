@@ -1,7 +1,9 @@
 import Plugin.CheckReferences;
 import Plugin.DTDCheckPlugin;
 import Plugin.FileEndingPlugin;
+import Plugin.HibernateFilenameFingerprint;
 import Plugin.LiquidBaseDependencyPlugin;
+import Plugin.HibernateDependency;
 import Plugin.NoXSDMatch;
 import Plugin.ParserPlugin;
 import Plugin.XSDCheckPlugin;
@@ -116,6 +118,8 @@ public class Program {
         builtins.add(new DTDCheckPlugin());
         builtins.add(new FileEndingPlugin());
         builtins.add(new CheckReferences());
+        builtins.add(new HibernateDependency());
+        builtins.add(new HibernateFilenameFingerprint());
     }
 
 }
