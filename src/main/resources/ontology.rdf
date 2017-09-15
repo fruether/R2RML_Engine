@@ -23,6 +23,7 @@
 
     <rdfs:Class rdf:about="Attribute" rdfs:label="Attribute" rdfs:comment="An attribute in the OOPM concept"/>
 
+    <rdfs:Class rdf:about="Class" rdfs:label="Class" rdfs:comment="A class of the OOPM concept"/>
     <rdfs:Class rdf:about="Method" rdfs:label="Method" rdfs:comment="A method of the OOPM concept"/>
     <rdfs:Class rdf:about="Role" rdfs:label="Role" rdfs:comment="A Role of the softlang concept"/>
 
@@ -60,7 +61,10 @@
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="Artefact"/>
     </rdf:Property >
-
+    <rdf:Property rdf:about="hasClass">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="Artefact"/>
+    </rdf:Property >
     <rdf:Property rdf:about="correlated">
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="DatabaseSchema"/>

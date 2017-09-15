@@ -1,11 +1,17 @@
 package Services;
 
 import com.github.javaparser.*;
+import com.github.javaparser.ast.CompilationUnit;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import javax.swing.text.Document;
+import javax.swing.text.Element;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
@@ -50,6 +56,14 @@ public class LanguageService {
 		return result;
 	}
 	
+	public String getJavaClass(String content, String path) {
+		CompilationUnit cu = JavaParser.parse( content );
+		
+		String packageName = cu.getPackageDeclaration().get().getNameAsString();
+		String className = path.substring(path.lastIndexOf("/") + 1, path.length() - 5);
+
+		return packageName + (packageName.isEmpty() ? "" : "." ) + className;
+	}
 	
 	private boolean parseJava(String content) {
 		try {
@@ -60,6 +74,32 @@ public class LanguageService {
 		}
 		return true;
 		
+	}
+	
+	public String getXMLFirstAttribute(String key, String tagName, String content) throws LanguageServiceException {
+		String value = "";
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			InputSource is = new InputSource(new ByteArrayInputStream(content.getBytes()));
+			org.w3c.dom.Document doc = builder.parse(is);
+			
+			NodeList nList = doc.getElementsByTagName(key);
+			if(nList.getLength() >= 1) {
+				Node curNode = nList.item(0);
+				value = curNode.getAttributes().getNamedItem(tagName).getNodeValue();
+			}
+		}
+		catch (SAXException e) {
+			throw new LanguageServiceException(e, "getXMLAttribute", "I  am not able to parse the XML. But this should be possible", key);
+		}
+		catch (IOException e) {
+			throw new LanguageServiceException(e, "getXMLAttribute", "I  am not able to parse the XML. But this should be possible", key);
+		}
+		catch (ParserConfigurationException e) {
+			throw new LanguageServiceException(e, "getXMLAttribute", "I  am not able to parse the XML. But this should be possible", key);
+		}
+		return value;
 	}
 	
 	private boolean parseXML(String content) {

@@ -1,11 +1,13 @@
 import Plugin.CheckReferences;
 import Plugin.DTDCheckPlugin;
 import Plugin.FileEndingPlugin;
+import Plugin.HibernateMappingAnalysis;
 import Plugin.HibernateRoleIdentification;
 import Plugin.LiquidBaseDependencyPlugin;
 import Plugin.HibernateDependency;
 import Plugin.NoXSDMatch;
 import Plugin.ParserPlugin;
+import Plugin.RetrieveClass;
 import Plugin.XSDCheckPlugin;
 import Services.InputManagementService;
 import Services.PluginManagmentService;
@@ -88,11 +90,10 @@ public class Program {
         Reasoner reasoner = new GenericRuleReasoner(Rule.rulesFromURL("rules.txt"));
         reasoner.setDerivationLogging(true);
         InfModel inf = ModelFactory.createInfModel(reasoner, model);
-    
         // Print model after reasoning.
-        System.out.println("InfModel:");
-        for (Statement x : inf.listStatements().toList())
-            System.out.println(x);
+        inf.write(System.out, "N-TRIPLES");
+        /*  for (Statement x : inf.listStatements().toList())
+            System.out.println(x);*/
     
     }
     static void managePlugins(InputManagementService inputManagementService) {
@@ -120,6 +121,8 @@ public class Program {
         builtins.add(new CheckReferences());
         builtins.add(new HibernateDependency());
         builtins.add(new HibernateRoleIdentification());
+        builtins.add(new RetrieveClass());
+        builtins.add(new HibernateMappingAnalysis());
     }
 
 }

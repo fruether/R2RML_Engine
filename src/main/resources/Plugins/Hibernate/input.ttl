@@ -5,6 +5,7 @@
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 technologies:HibernateMapping rdf:type sl:Role .
+technologies:HibernateConfiguration rdf:type sl:Role .
 
 sl:hibernate rdf:type sl:BuildRelease .
 hibernate:hibernate-configuration-3.0.dtd rdf:type sl:Artefact .

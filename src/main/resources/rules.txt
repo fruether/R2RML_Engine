@@ -29,6 +29,14 @@
     ->
     (?file sl:elementOf ?language)
 ]
+[JavaClassIdentification:
+    (?file sl:partOf ?build)
+    (?file rdf:type sl:Artefact)
+    (?file sl:elementOf sl:Java)
+    RetrieveClass(?file, ?classname)
+    ->
+    (?file sl:hasClass ?classname)
+]
 
 [DTDDetection:
     (?file sl:partOf ?build)
@@ -48,23 +56,22 @@
     ->
     (?file1 sl:conformsTo ?file2)
 ]
-
 [RetrieveReferences:
-    (?file1 sl:partOf ?build1)
-    (?file1 rdf:type sl:Artefact)
-    (?file2 sl:partOf ?build1)
-    (?file2 rdf:type sl:Artefact)
-    CheckReference(?file1, ?file2)
-    ->
-    (?file1 sl:references ?file2)
-]
+     (?file1 sl:partOf ?build1)
+     (?file1 rdf:type sl:Artefact)
+     (?file2 sl:partOf ?build1)
+     (?file2 rdf:type sl:Artefact)
+     CheckReference(?file1, ?file2)
+     ->
+     (?file1 sl:references ?file2)
+ ]
 
 [HibernateDependency:
     (?file sl:conformsTo maven:maven-4.0.0.xsd)
     HibernateDependencyCheck(?file) ->
     (?file sl:references technologies:hibernate)
 ]
-[HibernateConfiguration:
+[HibernateRoles:
     (?file rdf:type sl:Artefact)
     (?file sl:partOf ?build1)
     (?file sl:elementOf sl:XML)
@@ -73,5 +80,24 @@
     HibernateRoleIdentification(?schema, ?role)
     ->
     (?file sl:hasRole ?role)
-
 ]
+[HibernateReferences:
+    (?file1 rdf:type sl:Artefact)
+    (?file1 sl:hasRole technologies:Hibernate/HibernateConfiguration)
+    (?file2 rdf:type sl:Artefact)
+    (?file2 sl:hasRole technologies:Hibernate/HibernateMapping)
+    CheckReference(?file1, ?file2)
+    ->
+    (?file1 sl:hasParameter ?file2)
+]
+[HibernateMapping:
+    (?file1 rdf:type sl:Artefact)
+    (?file1 sl:hasRole technologies:Hibernate/HibernateMapping)
+    (?file2 rdf:type sl:Artefact)
+    (?file2 sl:elementOf sl:Java)
+    (?file2 sl:hasClass ?class)
+    HibernateMappingAnalysis(?file1, ?class)
+    ->
+    (?file1 sl:correlates ?class)
+]
+
