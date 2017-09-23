@@ -88,7 +88,7 @@
     (?file2 sl:hasRole technologies:Hibernate/HibernateMapping)
     CheckReference(?file1, ?file2)
     ->
-    (?file1 sl:hasParameter ?file2)
+    (?file1 HibernateConfigurationRefersToHibernateMapping ?file2)
 ]
 [HibernateMapping:
     (?file1 rdf:type sl:Artefact)
@@ -98,6 +98,28 @@
     (?file2 sl:hasClass ?class)
     HibernateMappingAnalysis(?file1, ?class)
     ->
-    (?file1 sl:correlates ?class)
+    (?file1 sl:refersTo ?class)
+]
+[HibernateObjectDefinition:
+    (?file1 rdf:type sl:Artefact)
+    (?file1 sl:hasRole technologies:Hibernate/HibernateMapping)
+    (?file2 rdf:type sl:Artefact)
+    (?file2 sl:elementOf sl:Java)
+    (?file2 sl:hasClass ?class)
+    (?file1 sl:refersTo ?class)
+    ->
+    (?class sl:defines sl:JavaObjects)
 ]
 
+[HibernateMappingFunction:
+    (?file rdf:type sl:Artefact)
+    (?file sl:hasRole technologies:Hibernate/HibernateMapping)
+    ->
+    (?file sl:defines sl:OR-Mapping)
+]
+[HibernateMappingConf:
+    (?file rdf:type sl:Artefact)
+    (?file sl:hasRole technologies:Hibernate/HibernateConfiguration)
+    ->
+    (?file sl:defines sl:OR-Mapping)
+]

@@ -35,7 +35,7 @@ public class CreationBaseService {
 		try {
 			Files.walk(Paths.get(completePath))
 					.filter(Files::isRegularFile)
-					.filter(f -> !f.toString().endsWith(megaFile))
+					.filter(f -> !f.toString().endsWith(megaFile) && !f.toString().toLowerCase().endsWith("api.json"))
 					.map(f->f.toString())
 					.map(f->f.replace( completePath, ""))
 					.forEach(s -> files.add(s));

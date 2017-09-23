@@ -26,6 +26,7 @@
     <rdfs:Class rdf:about="Class" rdfs:label="Class" rdfs:comment="A class of the OOPM concept"/>
     <rdfs:Class rdf:about="Method" rdfs:label="Method" rdfs:comment="A method of the OOPM concept"/>
     <rdfs:Class rdf:about="Role" rdfs:label="Role" rdfs:comment="A Role of the softlang concept"/>
+    <rdfs:Class rdf:about="Function" rdfs:label="Function" rdfs:comment="A function as defined in MegaL"/>
 
 
 
@@ -33,14 +34,23 @@
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="Attribute"/>
     </rdf:Property >
-    <rdf:Property rdf:about="references">
+    <rdf:Property rdf:about="refersTo">
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="BuildRelease"/>
     </rdf:Property >
-    <rdf:Property rdf:about="hasParameter">
+    <rdf:Property rdf:about="refersTo">
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="Artefact"/>
     </rdf:Property >
+    <rdf:Property rdf:about="refersTo">
+        <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="Class"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="refersTo">
+        <rdfs:domain rdf:resource="Class"/>
+        <rdfs:range rdf:resource="Artefact"/>
+    </rdf:Property >
+
     <rdf:Property rdf:about="hasRole">
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="Role"/>
@@ -50,14 +60,6 @@
         <rdfs:range rdf:resource="Artefact"/>
     </rdf:Property >
     <rdf:Property rdf:about="correspondsTo">
-        <rdfs:domain rdf:resource="Artefact"/>
-        <rdfs:range rdf:resource="Artefact"/>
-    </rdf:Property >
-    <rdf:Property rdf:about="similar">
-        <rdfs:domain rdf:resource="Artefact"/>
-        <rdfs:range rdf:resource="Artefact"/>
-    </rdf:Property >
-    <rdf:Property rdf:about="affects">
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="Artefact"/>
     </rdf:Property >
@@ -73,7 +75,14 @@
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
     </rdf:Property >
-
+    <rdf:Property rdf:about="input">
+        <rdfs:domain rdf:resource="Language"/>
+        <rdfs:range rdf:resource="Function"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="output">
+        <rdfs:domain rdf:resource="Function"/>
+        <rdfs:range rdf:resource="Language"/>
+    </rdf:Property >
     <rdf:Property rdf:about="dependsOn">
         <rdfs:domain rdf:resource="BuildRelease"/>
         <rdfs:range rdf:resource="BuildRelease"/>
@@ -92,17 +101,16 @@
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="Language"/>
     </rdf:Property >
-    <rdf:Property rdf:about="describes">
+    <rdf:Property rdf:about="defines">
         <rdfs:domain rdf:resource="Artefact"/>
-        <rdfs:range rdf:resource="DatabaseSchema"/>
+        <rdfs:range rdf:resource="Language"/>
     </rdf:Property >
-    <rdf:Property rdf:about="realizes">
-        <rdfs:domain rdf:resource="Artefact"/>
-        <rdfs:range rdf:resource="DatabaseSchema"/>
+    <rdf:Property rdf:about="implements">
+        <rdfs:domain rdf:resource="BuildRelease"/>
+        <rdfs:range rdf:resource="Function"/>
     </rdf:Property >
-
-    <rdf:Property rdf:about="XMLconformsToMavenXSD">
-        <rdfs:subPropertyOf rdf:resource="conformsTo"/>
+    <rdf:Property rdf:about="HibernateConfigurationRefersToHibernateMapping">
+        <rdfs:subPropertyOf rdf:resource="refersTo"/>
     </rdf:Property >
 
 </rdf:RDF>

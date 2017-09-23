@@ -1,0 +1,8 @@
+[
+  {
+    "org.hibernate.cfg.Configuration" : ["addResource", "addClass", "configure"]
+  },
+  {
+    "org.hibernate.Session" : ["save", "saveOrUpdate", "update", "persist", "createQuery"]
+  }
+]
