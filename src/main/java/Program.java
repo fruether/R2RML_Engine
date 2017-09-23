@@ -11,6 +11,7 @@ import Plugin.RetrieveClass;
 import Plugin.XSDCheckPlugin;
 import Services.InputManagementService;
 import Services.PluginManagmentService;
+import Services.ServiceExtensions.APIDetectionExtension;
 import Services.ServiceExtensions.ArtifactDetectionExtension;
 import Services.ServiceExtensions.BuildReleaseExtension;
 import Services.ServiceExtensions.PartOfDetectionExtension;
@@ -104,7 +105,7 @@ public class Program {
         
         
         pluginManagmentService.copyExtensions(inputManagementService);
-    
+        pluginManagmentService.addExtension(new APIDetectionExtension());
         pluginManagmentService.createPluginsOntology();
         inputManagementService.createInputFile();
     

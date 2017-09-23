@@ -88,7 +88,7 @@
     (?file2 sl:hasRole technologies:Hibernate/HibernateMapping)
     CheckReference(?file1, ?file2)
     ->
-    (?file1 HibernateConfigurationRefersToHibernateMapping ?file2)
+    (?file1 sl:HibernateConfigurationRefersToHibernateMapping ?file2)
 ]
 [HibernateMapping:
     (?file1 rdf:type sl:Artefact)

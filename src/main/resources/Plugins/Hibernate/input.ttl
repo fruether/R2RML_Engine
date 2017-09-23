@@ -28,3 +28,13 @@ sl:Mapping sl:input sl:OR-Mapping .
 sl:Relations sl:output sl:OR-Mapping .
 
 sl:hibernate sl:implements sl:OR-Mapping .
+ 
+ 
+ 
+ 
+ 
+hibernate:org.hibernate.cfg.Configuration rdf:type sl:Package .
+sl:hibernate sl:hasPackage hibernate:org.hibernate.cfg.Configuration .
+hibernate:org.hibernate.Session rdf:type sl:Package .
+sl:hibernate sl:hasPackage hibernate:org.hibernate.Session .
+ 

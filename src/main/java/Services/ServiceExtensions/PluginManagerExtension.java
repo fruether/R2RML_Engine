@@ -9,8 +9,13 @@ import java.util.List;
  */
 public abstract class PluginManagerExtension {
 	
+	protected String basePath;
 	public abstract List<String> apply(String path, List<String> files, String technology);
 	public abstract String getName();
+	
+	public void setBasePath(String path) {
+		basePath = path;
+	}
 	
 	public  boolean equals(Object obj) {
 		if(!(obj instanceof PluginManagerExtension)) return false;

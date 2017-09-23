@@ -66,6 +66,7 @@ public class PluginManagmentService extends CreationBaseService{
 			
 			List<String> files = getFileNames(pluginPath);
 			for(PluginManagerExtension extension : serviceExtensions) {
+				extension.setBasePath(basePath);
 				expectedElements.addAll(extension.apply(pluginPath, files, technologyName));
 				expectedElements.add(" ");
 			}
