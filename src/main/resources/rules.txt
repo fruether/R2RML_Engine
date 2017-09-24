@@ -156,7 +156,7 @@
     (?method rdf:type sl:Method)
     CheckCall(?file, ?method, ?class)
     ->
-    (?file sl:calls ?method)
+    (?class sl:calls ?method)
 ]
 [MethodCallDetectionWithDependency:
     (?file rdf:type sl:Artefact)
@@ -170,5 +170,5 @@
     (?method rdf:type sl:Method)
     CheckCall(?file, ?method, ?class)
     ->
-    (?file sl:calls ?method)
+    (?class sl:calls ?method)
 ]

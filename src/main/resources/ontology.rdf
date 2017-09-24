@@ -87,6 +87,10 @@
         <rdfs:domain rdf:resource="BuildRelease"/>
         <rdfs:range rdf:resource="BuildRelease"/>
     </rdf:Property >
+    <rdf:Property rdf:about="calls">
+        <rdfs:domain rdf:resource="Class"/>
+        <rdfs:range rdf:resource="Method"/>
+    </rdf:Property >
 
     <rdf:Property rdf:about="partOf">
         <rdfs:domain rdf:resource="Artefact"/>
