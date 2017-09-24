@@ -1,8 +1,13 @@
 package Services;
 
 import com.github.javaparser.*;
+import com.github.javaparser.ast.type.Type;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.ImportDeclaration;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.expr.MethodCallExpr;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -25,6 +30,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -88,6 +94,37 @@ public class LanguageService {
 		}
 		return true;
 		
+	}
+	
+	protected class MethodCallVisitor extends VoidVisitorAdapter<Void> {
+		@Override
+		public void visit(MethodCallExpr n, Void arg) {
+			// Found a method call
+			System.out.println(n.getScope() + " - " + n.getName());
+			// Don't forget to call super, it may find more method calls inside the arguments of this method call, for example.
+			super.visit(n, arg);
+		}
+	}
+	
+	public List<String> getMethodCalls(String content, String className) {
+		ArrayList<String> methodCalls = new ArrayList();
+		CompilationUnit compilationUnit = JavaParser.parse(content);
+		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElseThrow(null);
+		if(mainClass == null) return methodCalls;
+		
+		for(MethodDeclaration method : mainClass.getMethods()) {
+			method.accept(new VoidVisitorAdapter<Void> (){
+				
+				public void visit (MethodCallExpr n, Void arg) {
+					// Found a method call
+					methodCalls.add(n.getNameAsString());
+					super.visit(n, arg);
+				}
+			}
+			, null);
+			
+		}
+		return methodCalls;
 	}
 	
 	public String getXMLFirstAttribute(String key, String tagName, String content) throws LanguageServiceException {

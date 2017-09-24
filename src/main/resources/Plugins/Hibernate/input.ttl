@@ -33,10 +33,33 @@ sl:hibernate sl:implements sl:OR-Mapping .
  
  
  
-hibernate:org.hibernate.cfg.Configuration rdf:type sl:Package .
-sl:hibernate sl:hasPackage hibernate:org.hibernate.cfg.Configuration .
-hibernate:org.hibernate.Session rdf:type sl:Package .
-sl:hibernate sl:hasPackage hibernate:org.hibernate.Session .
- 
-hibernate:org.hibernate.cfg.Configuration sl:partOf sl:hibernate .
-hibernate:org.hibernate.Session sl:partOf sl:hibernate .
+hibernate:Package\/org.hibernate.cfg.Configuration rdf:type sl:Package .
+hibernate:Package\/org.hibernate.cfg.Configuration sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/org.hibernate.cfg.Configuration .
+hibernate:Package\/org.hibernate.Session rdf:type sl:Package .
+hibernate:Package\/org.hibernate.Session sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/org.hibernate.Session .
+hibernate:Package\/org.hibernate.SessionFactory rdf:type sl:Package .
+hibernate:Package\/org.hibernate.SessionFactory sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/org.hibernate.SessionFactory .
+hibernate:\/Method\/addResource rdf:type sl:Method .
+hibernate:\/Method\/addResource sl:partOf hibernate:Package\/org.hibernate.cfg.Configuration .
+hibernate:\/Method\/addClass rdf:type sl:Method .
+hibernate:\/Method\/addClass sl:partOf hibernate:Package\/org.hibernate.cfg.Configuration .
+hibernate:\/Method\/configure rdf:type sl:Method .
+hibernate:\/Method\/configure sl:partOf hibernate:Package\/org.hibernate.cfg.Configuration .
+hibernate:\/Method\/save rdf:type sl:Method .
+hibernate:\/Method\/save sl:partOf hibernate:Package\/org.hibernate.Session .
+hibernate:\/Method\/saveOrUpdate rdf:type sl:Method .
+hibernate:\/Method\/saveOrUpdate sl:partOf hibernate:Package\/org.hibernate.Session .
+hibernate:\/Method\/update rdf:type sl:Method .
+hibernate:\/Method\/update sl:partOf hibernate:Package\/org.hibernate.Session .
+hibernate:\/Method\/persist rdf:type sl:Method .
+hibernate:\/Method\/persist sl:partOf hibernate:Package\/org.hibernate.Session .
+hibernate:\/Method\/createQuery rdf:type sl:Method .
+hibernate:\/Method\/createQuery sl:partOf hibernate:Package\/org.hibernate.Session .
+hibernate:\/Method\/getCurrentSession rdf:type sl:Method .
+hibernate:\/Method\/getCurrentSession sl:partOf hibernate:Package\/org.hibernate.SessionFactory .
+hibernate:\/Method\/openSession rdf:type sl:Method .
+hibernate:\/Method\/openSession sl:partOf hibernate:Package\/org.hibernate.SessionFactory .
+hibernate:Package\/org.hibernate.SessionFactory sl:uses hibernate:Package\/org.hibernate.Session .

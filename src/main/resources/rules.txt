@@ -133,3 +133,42 @@
     ->
     (?file sl:uses ?package)
 ]
+[ClassDetection:
+    (?file1 rdf:type sl:Artefact)
+    (?file1 sl:elementOf sl:Java)
+    (?file1 sl:hasClass ?class1)
+    (?file1 sl:partOf ?build)
+    (?file2 rdf:type sl:Artefact)
+    (?file2 sl:elementOf sl:Java)
+    (?file2 sl:hasClass ?class2)
+    (?file2 sl:partOf ?build)
+    CheckClassReference(?file1, ?file2)
+    ->
+    (?class1 sl:uses ?class2)
+]
+[MethodCallDetection:
+    (?file rdf:type sl:Artefact)
+    (?file sl:elementOf sl:Java)
+    (?file sl:hasClass ?class)
+    (?package rdf:type sl:Package)
+    (?file sl:uses ?package)
+    (?method sl:partOf ?package)
+    (?method rdf:type sl:Method)
+    CheckCall(?file, ?method, ?class)
+    ->
+    (?file sl:calls ?method)
+]
+[MethodCallDetectionWithDependency:
+    (?file rdf:type sl:Artefact)
+    (?file sl:elementOf sl:Java)
+    (?file sl:hasClass ?class)
+    (?package rdf:type sl:Package)
+    (?packageDep rdf:type sl:Package)
+    (?package sl:uses ?packageDep)
+    (?file sl:uses ?package)
+    (?method sl:partOf ?packageDep)
+    (?method rdf:type sl:Method)
+    CheckCall(?file, ?method, ?class)
+    ->
+    (?file sl:calls ?method)
+]

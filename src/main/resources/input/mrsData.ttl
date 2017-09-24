@@ -11,6 +11,7 @@ openmrs:Allergy.hbm.xml rdf:type sl:Artefact .
 openmrs:Allergy.java rdf:type sl:Artefact .
 openmrs:hibernate\/Allergy.hbm.xml rdf:type sl:Artefact .
 openmrs:hibernate.cfg.xml rdf:type sl:Artefact .
+openmrs:Java\/HibernatePatientDAO.java rdf:type sl:Artefact .
 openmrs:liquibase-update-to-latest.xml rdf:type sl:Artefact .
 openmrs:pom.xml rdf:type sl:Artefact .
 
@@ -18,6 +19,7 @@ openmrs:Allergy.hbm.xml sl:partOf sl:openmrs .
 openmrs:Allergy.java sl:partOf sl:openmrs .
 openmrs:hibernate\/Allergy.hbm.xml sl:partOf sl:openmrs .
 openmrs:hibernate.cfg.xml sl:partOf sl:openmrs .
+openmrs:Java\/HibernatePatientDAO.java sl:partOf sl:openmrs .
 openmrs:liquibase-update-to-latest.xml sl:partOf sl:openmrs .
 openmrs:pom.xml sl:partOf sl:openmrs .
 

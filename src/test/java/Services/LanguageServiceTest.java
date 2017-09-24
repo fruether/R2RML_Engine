@@ -3,6 +3,7 @@ package Services;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.beans.Transient;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -56,9 +57,25 @@ public class LanguageServiceTest {
 			List<String> result = languageService.getJavaImportetElements(content);
 			
 			assertEquals("ALl imports noticed", result.size(), 3);
-			assertEquals("Name is matching", result.get(0), "junit.extensions.ActiveTestSuite");
-			assertEquals("Name is matching2", result.get(1), "java.util.List");
+			assertEquals("Name is matching case 1", result.get(0), "junit.extensions.ActiveTestSuite");
+			assertEquals("Name is matching case 2", result.get(1), "java.util.List");
 			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+	}
+	
+	@Test
+	public void getJavaCalledMethods() {
+		String content = null;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/Java/SampleClassComplex.java");
+			List<String> result = languageService.getMethodCalls(content, "SampleClassComplex");
+			
+			assertEquals(result.size(), 2);
+			assertEquals(result.get(0), "println");
 		}
 		catch (FileRetrievementServiceException e) {
 			assertNull(e);

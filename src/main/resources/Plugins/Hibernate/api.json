@@ -6,5 +6,10 @@
   {
     "package" : "org.hibernate.Session",
     "methods" : ["save", "saveOrUpdate", "update", "persist", "createQuery"]
+  },
+  {
+    "package" : "org.hibernate.SessionFactory",
+    "methods" : ["getCurrentSession", "openSession"],
+    "dependency" : ["org.hibernate.Session"]
   }
 ]

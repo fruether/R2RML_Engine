@@ -1,4 +1,4 @@
-package Plugin;
+package Plugin.JavaSpecific;
 
 import Services.FileRetrievementService;
 import Services.FileRetrievementServiceException;
@@ -9,6 +9,9 @@ import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.reasoner.rulesys.BindingEnvironment;
 import org.apache.jena.reasoner.rulesys.RuleContext;
 import org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by freddy on 15.09.17.

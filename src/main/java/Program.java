@@ -1,3 +1,5 @@
+import Plugin.JavaSpecific.CheckCall;
+import Plugin.JavaSpecific.CheckImport;
 import Plugin.CheckReferences;
 import Plugin.DTDCheckPlugin;
 import Plugin.FileEndingPlugin;
@@ -7,13 +9,15 @@ import Plugin.LiquidBaseDependencyPlugin;
 import Plugin.HibernateDependency;
 import Plugin.NoXSDMatch;
 import Plugin.ParserPlugin;
-import Plugin.RetrieveClass;
+import Plugin.JavaSpecific.RetrieveClass;
 import Plugin.XSDCheckPlugin;
 import Services.InputManagementService;
 import Services.PluginManagmentService;
 import Services.ServiceExtensions.APIDetectionExtension;
 import Services.ServiceExtensions.ArtifactDetectionExtension;
 import Services.ServiceExtensions.BuildReleaseExtension;
+import Services.ServiceExtensions.MethodExtractionExtension;
+import Services.ServiceExtensions.PackageDependencyExtension;
 import Services.ServiceExtensions.PartOfDetectionExtension;
 import Services.ServiceExtensions.PrefixCreationExtension;
 import Services.ServiceExtensions.PreludeExtension;
@@ -21,7 +25,6 @@ import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ValidityReport;
 import org.apache.jena.reasoner.rulesys.BuiltinRegistry;
@@ -105,7 +108,11 @@ public class Program {
         
         
         pluginManagmentService.copyExtensions(inputManagementService);
+        
         pluginManagmentService.addExtension(new APIDetectionExtension());
+        pluginManagmentService.addExtension(new MethodExtractionExtension());
+        pluginManagmentService.addExtension(new PackageDependencyExtension());
+        
         pluginManagmentService.createPluginsOntology();
         inputManagementService.createInputFile();
     
@@ -124,6 +131,9 @@ public class Program {
         builtins.add(new HibernateRoleIdentification());
         builtins.add(new RetrieveClass());
         builtins.add(new HibernateMappingAnalysis());
+        builtins.add(new CheckImport());
+        builtins.add(new CheckCall());
+    
     }
 
 }
