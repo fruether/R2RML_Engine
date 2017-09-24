@@ -3,6 +3,8 @@ package Services;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -46,5 +48,23 @@ public class LanguageServiceTest {
 			assertNull(e);
 		}
 	}
+	
+	@Test
+	public void getJavaImportetElements_correct()  {
+		try {
+			String content = FileRetrievementService.getInstance().getContent("http://softlang.com/Java/SampleClass.java");
+			List<String> result = languageService.getJavaImportetElements(content);
+			
+			assertEquals("ALl imports noticed", result.size(), 3);
+			assertEquals("Name is matching", result.get(0), "junit.extensions.ActiveTestSuite");
+			assertEquals("Name is matching2", result.get(1), "java.util.List");
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+	}
+	
 	
 }

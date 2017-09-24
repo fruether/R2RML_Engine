@@ -32,6 +32,7 @@ public class APIDetectionExtension extends PreludeExtension{
 					String curPackage = jsonObject.get("package").toString();
 					String technologyPackagePath=technology + ":" + curPackage;
 					expected.add(technologyPackagePath+ " rdf:type " + getName() + " .");
+					expected.add(technologyPackagePath+ " sl:partOf " +  "sl:" + technology + " .");
 					expected.add("sl:" + technology + " sl:hasPackage " + technologyPackagePath + " .");
 					
 				}

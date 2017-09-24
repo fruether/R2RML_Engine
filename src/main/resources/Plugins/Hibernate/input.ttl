@@ -38,3 +38,5 @@ sl:hibernate sl:hasPackage hibernate:org.hibernate.cfg.Configuration .
 hibernate:org.hibernate.Session rdf:type sl:Package .
 sl:hibernate sl:hasPackage hibernate:org.hibernate.Session .
  
+hibernate:org.hibernate.cfg.Configuration sl:partOf sl:hibernate .
+hibernate:org.hibernate.Session sl:partOf sl:hibernate .

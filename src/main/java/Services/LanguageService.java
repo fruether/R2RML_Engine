@@ -2,6 +2,7 @@ package Services;
 
 import com.github.javaparser.*;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.ImportDeclaration;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -20,7 +21,9 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -65,6 +68,17 @@ public class LanguageService {
 		return packageName + (packageName.isEmpty() ? "" : "." ) + className;
 	}
 	
+	public List<String> getJavaImportetElements(String content) {
+		ArrayList<String> importedElements = new ArrayList<>();
+		
+		CompilationUnit cu = JavaParser.parse( content );
+		com.github.javaparser.ast.NodeList<ImportDeclaration> imports = cu.getImports();
+		for(int i = 0; i < imports.size(); i++) {
+			String importName = imports.get(i).getNameAsString();
+			importedElements.add(importName);
+		}
+		return importedElements;
+	}
 	private boolean parseJava(String content) {
 		try {
 			JavaParser.parse(content);

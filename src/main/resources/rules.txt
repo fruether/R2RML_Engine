@@ -123,3 +123,13 @@
     ->
     (?file sl:defines sl:OR-Mapping)
 ]
+
+[PackageDetection:
+    (?file rdf:type sl:Artefact)
+    (?file sl:elementOf sl:Java)
+    (?file sl:hasClass ?class)
+    (?package rdf:type sl:Package)
+    CheckImport(?file, ?package)
+    ->
+    (?file sl:uses ?package)
+]
