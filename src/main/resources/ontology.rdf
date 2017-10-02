@@ -67,10 +67,6 @@
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="Artefact"/>
     </rdf:Property >
-    <rdf:Property rdf:about="correlated">
-        <rdfs:domain rdf:resource="Artefact"/>
-        <rdfs:range rdf:resource="DatabaseSchema"/>
-    </rdf:Property >
     <rdf:Property rdf:about="hasPath">
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="rdfs:Literal"/>
@@ -120,6 +116,11 @@
         <rdfs:domain rdf:resource="BuildRelease"/>
         <rdfs:range rdf:resource="Function"/>
     </rdf:Property >
+    <rdf:Property rdf:about="subsetOf">
+        <rdfs:domain rdf:resource="Language"/>
+        <rdfs:range rdf:resource="Language"/>
+    </rdf:Property >
+
     <rdf:Property rdf:about="HibernateConfigurationRefersToHibernateMapping">
         <rdfs:subPropertyOf rdf:resource="refersTo"/>
     </rdf:Property >

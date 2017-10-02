@@ -107,21 +107,37 @@
     (?file2 sl:elementOf sl:Java)
     (?file2 sl:hasClass ?class)
     (?file1 sl:refersTo ?class)
+    GetClassLiteral(?class, ?classLanguage)
     ->
-    (?class sl:defines sl:JavaObjects)
+    (?class sl:defines ?classLanguage)
+    (?classLanguage rdf:type sl:Language)
+    (?classLanguage sl:subsetOf sl:JVMObject)
 ]
 
 [HibernateMappingFunction:
     (?file rdf:type sl:Artefact)
     (?file sl:hasRole technologies:Hibernate/HibernateMapping)
+    HibernateGetMappingType(?file, ?function)
     ->
-    (?file sl:defines sl:OR-Mapping)
+    (?file sl:defines ?function)
+    (?function rdf:type sl:Function)
+    (?function sl:partOf sl:OR-Mapping)
 ]
 [HibernateMappingConf:
     (?file rdf:type sl:Artefact)
     (?file sl:hasRole technologies:Hibernate/HibernateConfiguration)
     ->
     (?file sl:defines sl:OR-Mapping)
+]
+[HibernateMappingFunctionDefinition:
+    (?mappingFile rdf:type sl:Artefact)
+    (?mappingFile sl:elementOf sl:XML)
+    (?mappingFile sl:defines ?function)
+    (?function sl:partOf sl:OR-Mapping)
+    (?mappingFile sl:refersTo ?className)
+    (?className sl:defines ?language)
+    ->
+    (?language sl:input ?function)
 ]
 
 [PackageDetection:
@@ -171,4 +187,19 @@
     CheckCall(?file, ?method, ?class)
     ->
     (?class sl:calls ?method)
+]
+
+[HibernateORMappingDetection
+    (?file rdf:type sl:Artefact)
+    (?file sl:elementOf sl:Java)
+    (?file sl:refersTo ?class)
+    (?mappingFile sl:refersTo ?class)
+    (?mappingFile sl:hasRole technologies:Hibernate/HibernateMapping)
+    (?mappingFile sl:defines ?function)
+    (?file sl:calls ?method)
+    (?method sl:partOf technologies:Hibernate/Package/org.hibernate.Session)
+    ->
+    (?file sl:uses ?function)
+
+
 ]
