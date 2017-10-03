@@ -1,6 +1,7 @@
 import Plugin.ClassLiteral;
 import Plugin.HibernateGetMappingType;
 import Plugin.JavaSpecific.CheckCall;
+import Plugin.JavaSpecific.CheckClassReference;
 import Plugin.JavaSpecific.CheckImport;
 import Plugin.CheckReferences;
 import Plugin.DTDCheckPlugin;
@@ -137,6 +138,7 @@ public class Program {
         builtins.add(new CheckCall());
         builtins.add(new HibernateGetMappingType());
         builtins.add(new ClassLiteral());
+        builtins.add(new CheckClassReference());
     
     }
 

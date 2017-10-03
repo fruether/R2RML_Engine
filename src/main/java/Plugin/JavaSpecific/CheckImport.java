@@ -51,7 +51,7 @@ public class CheckImport extends BaseBuiltin {
 			String content = null;
 			try {
 				content = fileRetrievementService.getContent(fileUri);
-				importedPackages = languageService.getJavaImportetElements(content);
+				importedPackages = languageService.getJavaImportedElements(content);
 				fileImportsCache.put(fileUri, importedPackages);
 			}
 			catch (FileRetrievementServiceException e) {

@@ -3,7 +3,6 @@ package Services;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.beans.Transient;
 import java.util.List;
 import java.util.Set;
 
@@ -55,7 +54,7 @@ public class LanguageServiceTest {
 	public void getJavaImportetElements_correct()  {
 		try {
 			String content = FileRetrievementService.getInstance().getContent("http://softlang.com/Java/SampleClass.java");
-			List<String> result = languageService.getJavaImportetElements(content);
+			List<String> result = languageService.getJavaImportedElements(content);
 			
 			assertEquals("ALl imports noticed", result.size(), 3);
 			assertEquals("Name is matching case 1", result.get(0), "junit.extensions.ActiveTestSuite");
@@ -89,9 +88,9 @@ public class LanguageServiceTest {
 		String content = null;
 		try {
 			content = FileRetrievementService.getInstance().getContent("http://softlang.com/Java/SampleClassDeclarations.java");
-			Set<String> result = languageService.getDeclaredClasses(content, "SampleClassComplex");
+			Set<String> result = languageService.getDeclaredClasses(content, "SampleClassDeclarations");
 			
-			assertEquals(result.size(), 6);
+			assertEquals(result.size(), 8);
 		}
 		catch (FileRetrievementServiceException e) {
 			assertNull(e);

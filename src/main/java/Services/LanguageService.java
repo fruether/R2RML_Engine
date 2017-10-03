@@ -87,7 +87,7 @@ public class LanguageService {
 		return packageName + (packageName.isEmpty() ? "" : "." ) + className;
 	}
 	
-	public List<String> getJavaImportetElements(String content) {
+	public List<String> getJavaImportedElements(String content) {
 		ArrayList<String> importedElements = new ArrayList<>();
 		
 		CompilationUnit cu = JavaParser.parse( content );
@@ -110,6 +110,7 @@ public class LanguageService {
 	}
 	
 	public Set<String> getDeclaredClasses(String content, String className) {
+		
 		Set<String> classDeclarations = new HashSet<>();
 		
 		if(content == null || className == null) return classDeclarations;
@@ -127,8 +128,12 @@ public class LanguageService {
 				classDeclarations.add(type);
 			}
 		}
+		
+		// Search for declarations in methods
 		List<MethodDeclaration> methods = mainClass.getMethods();
 		for(MethodDeclaration method : methods) {
+			classDeclarations.add(method.getType().toString());
+			
 			BlockStmt blockStmt = method.getBody().orElseGet(null);
 			blockStmt.getStatements().forEach(
 					new Consumer<Statement>() {

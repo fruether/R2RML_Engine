@@ -5,7 +5,7 @@ import java.util.List;
 import java.math.sqrt;
 import java.lang.*;
 
-public class SampleClassComplex {
+public class SampleClassDeclarations {
 	private String test;
 	private Object hallo;
 	private LinkedHashMap linkedHashMap;
@@ -20,6 +20,10 @@ public class SampleClassComplex {
 	
 	public void doStuff3() {
 			Person x = new Person();
+		
+	}
+	public StringBuilder doStuff3() {
+		Person x = new Person();
 		
 	}
 }
