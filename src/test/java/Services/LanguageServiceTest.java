@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.beans.Transient;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.*;
 
@@ -81,6 +82,20 @@ public class LanguageServiceTest {
 			assertNull(e);
 		}
 		
+	}
+	
+	@Test
+	public void getDeclaredClasses_correct() {
+		String content = null;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/Java/SampleClassDeclarations.java");
+			Set<String> result = languageService.getDeclaredClasses(content, "SampleClassComplex");
+			
+			assertEquals(result.size(), 6);
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
 	}
 	
 	

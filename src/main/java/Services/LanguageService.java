@@ -1,12 +1,24 @@
 package Services;
 
 import com.github.javaparser.*;
+import com.github.javaparser.ast.body.BodyDeclaration;
+import com.github.javaparser.ast.body.FieldDeclaration;
+import com.github.javaparser.ast.body.TypeDeclaration;
+
+import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.ast.expr.Expression;
+import com.github.javaparser.ast.expr.VariableDeclarationExpr;
+import com.github.javaparser.ast.stmt.BlockStmt;
+import com.github.javaparser.ast.stmt.ExpressionStmt;
+import com.github.javaparser.ast.stmt.Statement;
+import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.type.Type;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.ImportDeclaration;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.MethodCallExpr;
+import com.github.javaparser.ast.type.TypeParameter;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -32,6 +44,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Consumer;
 
 /**
  * Created by freddy on 09.07.17.
@@ -96,14 +109,48 @@ public class LanguageService {
 		
 	}
 	
-	protected class MethodCallVisitor extends VoidVisitorAdapter<Void> {
-		@Override
-		public void visit(MethodCallExpr n, Void arg) {
-			// Found a method call
-			System.out.println(n.getScope() + " - " + n.getName());
-			// Don't forget to call super, it may find more method calls inside the arguments of this method call, for example.
-			super.visit(n, arg);
+	public Set<String> getDeclaredClasses(String content, String className) {
+		Set<String> classDeclarations = new HashSet<>();
+		
+		if(content == null || className == null) return classDeclarations;
+		
+		CompilationUnit compilationUnit = JavaParser.parse(content);
+		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElseThrow(null);
+		if(mainClass == null) return classDeclarations;
+		
+		List<BodyDeclaration<?>>  members = mainClass.getMembers();
+		for (BodyDeclaration member : members) {
+			if(member instanceof FieldDeclaration) {
+				FieldDeclaration field = (FieldDeclaration) member;
+				String type = field.getElementType().toString();
+				com.github.javaparser.ast.NodeList<VariableDeclarator> variableDeclaration =  field.getVariables();
+				classDeclarations.add(type);
+			}
 		}
+		List<MethodDeclaration> methods = mainClass.getMethods();
+		for(MethodDeclaration method : methods) {
+			BlockStmt blockStmt = method.getBody().orElseGet(null);
+			blockStmt.getStatements().forEach(
+					new Consumer<Statement>() {
+						
+						@Override
+						public void accept(Statement statement) {
+							if(statement instanceof ExpressionStmt) {
+								ExpressionStmt expressionStmt = (ExpressionStmt) statement;
+								Expression expression = expressionStmt.getExpression();
+								if(expression instanceof VariableDeclarationExpr) {
+									VariableDeclarationExpr variableDeclaration = (VariableDeclarationExpr) expression;
+									String type = variableDeclaration.getElementType().asString();
+									classDeclarations.add(type);
+								}
+							}
+						}
+					}
+			
+			);
+		}
+		
+		return classDeclarations;
 	}
 	
 	public List<String> getMethodCalls(String content, String className) {
@@ -111,7 +158,6 @@ public class LanguageService {
 		CompilationUnit compilationUnit = JavaParser.parse(content);
 		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElseThrow(null);
 		if(mainClass == null) return methodCalls;
-		
 		for(MethodDeclaration method : mainClass.getMethods()) {
 			method.accept(new VoidVisitorAdapter<Void> (){
 				
