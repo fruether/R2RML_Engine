@@ -87,8 +87,6 @@
     (?file1 rdf:type sl:Artefact)
     (?file1 sl:hasRole technologies:Hibernate/HibernateMapping)
     HibernateMappingAnalysis(?file1, ?class)
-    (?file2 sl:hasClass ?class)
-    (?file2 sl:elementOf sl:Java)
     ->
     (?file1 sl:refersTo ?class)
 ]
@@ -142,17 +140,18 @@
     ->
     (?file sl:uses ?package)
 ]
-[ClassDetection:
-    (?file1 rdf:type sl:Artefact)
+[ClassDetectionHibernate:
     (?file1 sl:elementOf sl:Java)
-    (?file1 sl:hasClass ?class1)
     (?file1 sl:partOf ?build)
-    (?file2 rdf:type sl:Artefact)
+    (?package rdf:type sl:Package)
+    (?package sl:partOf sl:hibernate)
+    (?file1 sl:uses ?package)
     (?file2 sl:elementOf sl:Java)
+    notEqual(?file1, ?file2)
     (?file2 sl:hasClass ?class2)
     (?file2 sl:partOf ?build)
-    notEqual(?file1, ?file2)
     CheckClassReference(?file1, ?class2)
+    (?file1 sl:hasClass ?class1)
     ->
     (?class1 sl:uses ?class2)
 ]

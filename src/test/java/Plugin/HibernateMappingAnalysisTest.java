@@ -97,9 +97,10 @@ public class HibernateMappingAnalysisTest {
 		Node srfFile = NodeFactory.createURI(foundClass);
 		
 		Node[] env = new Node[] {mapping_file, srfFile};
+		BindingEnvironment bindingEnvironment = new BindingVector(env);
+		ruleContext.setEnv(bindingEnvironment);
 		
-		
-		boolean foundMapping = hibernateMappingAnalysis.bodyCall(env, 2, null);
+		boolean foundMapping = hibernateMappingAnalysis.bodyCall(env, 2, ruleContext);
 		
 		assertFalse(foundMapping);
 	}

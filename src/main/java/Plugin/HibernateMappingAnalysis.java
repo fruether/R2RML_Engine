@@ -30,7 +30,6 @@ public class HibernateMappingAnalysis extends BaseBuiltin {
 		try {
 			String classUri = "http://softlang.com/Class/";
 			String uri = args[0].getURI();
-			if(args[1].isURI()) return false;
 			BindingEnvironment env = context.getEnv();
 			
 			System.out.println("[HibernateMappingAnalysis]: Checking for " + uri);

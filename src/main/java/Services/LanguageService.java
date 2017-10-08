@@ -1,6 +1,7 @@
 package Services;
 
 import com.github.javaparser.*;
+import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.BodyDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.TypeDeclaration;
@@ -92,6 +93,10 @@ public class LanguageService {
 		
 		CompilationUnit cu = JavaParser.parse( content );
 		com.github.javaparser.ast.NodeList<ImportDeclaration> imports = cu.getImports();
+		PackageDeclaration packageDeclaration  = cu.getPackageDeclaration().orElse(null);
+		if(packageDeclaration != null) {
+			importedElements.add(packageDeclaration.getNameAsString());
+		}
 		for(int i = 0; i < imports.size(); i++) {
 			String importName = imports.get(i).getNameAsString();
 			importedElements.add(importName);
