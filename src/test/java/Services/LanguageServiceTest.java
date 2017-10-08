@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  * Created by freddy on 15.09.17.
  */
 public class LanguageServiceTest {
-	
+	//Qualification.hbm.xml
 	private LanguageService languageService;
 	
 	@Before
@@ -27,6 +27,21 @@ public class LanguageServiceTest {
 			String content = FileRetrievementService.getInstance().getContent("http://softlang.com/Allergy.hbm.xml");
 			String result = languageService.getXMLFirstAttribute("class", "name", content);
 			assertEquals(result, "org.openmrs.Allergy");
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		catch (LanguageServiceException e) {
+			assertNull(e);
+		}
+	}
+	
+	@Test
+	public void getXMLFirstAttribute_correct2() {
+		try {
+			String content = FileRetrievementService.getInstance().getContent("http://softlang.com/Qualification.hbm.xml");
+			String result = languageService.getXMLFirstAttribute("hibernate-mapping", "package", content);
+			assertEquals(result, "uk.org.rbc1b.roms.db.volunteer.qualification");
 		}
 		catch (FileRetrievementServiceException e) {
 			assertNull(e);

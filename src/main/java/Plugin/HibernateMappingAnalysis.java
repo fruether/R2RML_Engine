@@ -32,9 +32,16 @@ public class HibernateMappingAnalysis extends BaseBuiltin {
 			System.out.println("[HibernateMappingAnalysis]: Checking for " + uri + " and " + className);
 			
 			String content = fileRetrievementService.getContent(uri);
+			String packageName = languageService.getXMLFirstAttribute("hibernate-mapping", "package", content);
 			String refClassName = languageService.getXMLFirstAttribute("class", "name", content);
 			
-			result = className.equals(refClassName);
+			if(packageName != "") {
+				result = className.equals(packageName + "." + refClassName);
+			}
+			else {
+				result = className.equals(refClassName);
+				
+			}
 		}
 		catch (FileRetrievementServiceException e) {
 			e.printError();

@@ -116,7 +116,7 @@ public class LanguageService {
 		if(content == null || className == null) return classDeclarations;
 		
 		CompilationUnit compilationUnit = JavaParser.parse(content);
-		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElseThrow(null);
+		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElse(null);
 		if(mainClass == null) return classDeclarations;
 		
 		List<BodyDeclaration<?>>  members = mainClass.getMembers();
@@ -189,7 +189,10 @@ public class LanguageService {
 			NodeList nList = doc.getElementsByTagName(key);
 			if(nList.getLength() >= 1) {
 				Node curNode = nList.item(0);
-				value = curNode.getAttributes().getNamedItem(tagName).getNodeValue();
+				Node taggedNode = curNode.getAttributes().getNamedItem(tagName);
+				if(taggedNode != null) {
+					value = taggedNode.getNodeValue();
+				}
 			}
 		}
 		catch (SAXException e) {

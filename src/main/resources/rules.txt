@@ -57,15 +57,6 @@
     ->
     (?file1 sl:conformsTo ?file2)
 ]
-[RetrieveReferences:
-     (?file1 sl:partOf ?build1)
-     (?file1 rdf:type sl:Artefact)
-     (?file2 sl:partOf ?build1)
-     (?file2 rdf:type sl:Artefact)
-     CheckReference(?file1, ?file2)
-     ->
-     (?file1 sl:references ?file2)
- ]
 
 [HibernateDependency:
     (?file sl:conformsTo maven:maven-4.0.0.xsd)

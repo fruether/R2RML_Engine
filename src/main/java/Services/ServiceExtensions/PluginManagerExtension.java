@@ -24,6 +24,9 @@ public abstract class PluginManagerExtension {
 	}
 	
 	protected String pathToURI(String path) {
+		
+		if(path.startsWith("."))
+			path = "\\" + path;
 		return path.replace("/", "\\/");
 	}
 }
