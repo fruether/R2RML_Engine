@@ -4,6 +4,7 @@ import com.github.javaparser.*;
 import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.BodyDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
+import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.body.TypeDeclaration;
 
 import com.github.javaparser.ast.body.VariableDeclarator;
@@ -138,6 +139,15 @@ public class LanguageService {
 		List<MethodDeclaration> methods = mainClass.getMethods();
 		for(MethodDeclaration method : methods) {
 			classDeclarations.add(method.getType().toString());
+			
+			method.getParameters().forEach(
+					new Consumer<Parameter>() {
+						@Override
+						public void accept(Parameter parameter) {
+							classDeclarations.add(parameter.getType().toString());
+						}
+					}
+			);
 			
 			BlockStmt blockStmt = method.getBody().orElseGet(null);
 			blockStmt.getStatements().forEach(
