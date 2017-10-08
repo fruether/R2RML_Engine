@@ -82,16 +82,17 @@
     ->
     (?file1 sl:HibernateConfigurationRefersToHibernateMapping ?file2)
 ]
-[HibernateMapping:
+
+[HibernateMappingFast:
     (?file1 rdf:type sl:Artefact)
     (?file1 sl:hasRole technologies:Hibernate/HibernateMapping)
-    (?file2 rdf:type sl:Artefact)
-    (?file2 sl:elementOf sl:Java)
-    (?file2 sl:hasClass ?class)
     HibernateMappingAnalysis(?file1, ?class)
+    (?file2 sl:hasClass ?class)
+    (?file2 sl:elementOf sl:Java)
     ->
     (?file1 sl:refersTo ?class)
 ]
+
 [HibernateObjectDefinition:
     (?file1 rdf:type sl:Artefact)
     (?file1 sl:hasRole technologies:Hibernate/HibernateMapping)

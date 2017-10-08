@@ -4,6 +4,7 @@ import Services.FileRetrievementService;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.reasoner.rulesys.BindingEnvironment;
+import org.apache.jena.reasoner.rulesys.Node_RuleVariable;
 import org.apache.jena.reasoner.rulesys.impl.BBRuleContext;
 import org.apache.jena.reasoner.rulesys.impl.BindingVector;
 import org.junit.Before;
@@ -27,67 +28,76 @@ public class HibernateMappingAnalysisTest {
 		ruleContext = new BBRuleContext(null);
 	}
 	
-	@Test
-	public void hibernate_mapping_with_package_correct() {
-		String foundClass  = "http://softlang.com/Class/uk.org.rbc1b.roms.db.volunteer.qualification.Qualification";
-		Node mapping_file = NodeFactory.createURI("http://softlang.com/Qualification.hbm.xml");
-		Node referencing_url = NodeFactory.createURI(foundClass);
-		Node[] env = new Node[] {mapping_file, referencing_url};
-		
+	private Node[] setUpRuleContext(Node source) {
+		Node_RuleVariable empty = new Node_RuleVariable("class",1);
+		Node[] env = new Node[]{source, empty};
 		BindingEnvironment bindingEnvironment = new BindingVector(env);
 		ruleContext.setEnv(bindingEnvironment);
+		return env;
+	}
+	
+	
+	
+	@Test
+	public void hibernate_mapping_with_package_correct() {
+		String expectedClass  = "http://softlang.com/Class/uk.org.rbc1b.roms.db.volunteer.qualification.Qualification";
+		Node mapping_file = NodeFactory.createURI("http://softlang.com/Qualification.hbm.xml");
 		
-		boolean foundMapping = hibernateMappingAnalysis.bodyCall(env, 2, null);
-		//Node classNode = ruleContext.getEnv().getGroundVersion(env[1]);
+		Node[] env = setUpRuleContext(mapping_file);
 		
 		
-		//String result = classNode.toString();
+		boolean foundMapping = hibernateMappingAnalysis.bodyCall(env, 2, ruleContext);
+		Node classNode = ruleContext.getEnv().getGroundVersion(env[1]);
+		
+		
+		String calculatedClassUri = classNode.toString();
 		
 		assertTrue(foundMapping);
+		assertEquals(calculatedClassUri, expectedClass);
 	}
 	
 	@Test
 	public void hibernate_mapping_with_package_wrong() {
 		String foundClass  = "http://softlang.com/Class/uk.org.rbc1b.roms.db.volunteer.qualification.Peter";
 		Node mapping_file = NodeFactory.createURI("http://softlang.com/Qualification.hbm.xml");
-		Node referencing_url = NodeFactory.createURI(foundClass);
-		Node[] env = new Node[] {mapping_file, referencing_url};
+		Node[] env = setUpRuleContext(mapping_file);
 		
 		BindingEnvironment bindingEnvironment = new BindingVector(env);
 		ruleContext.setEnv(bindingEnvironment);
 		
-		boolean foundMapping = hibernateMappingAnalysis.bodyCall(env, 2, null);
-		assertFalse(foundMapping);
+		boolean foundMapping = hibernateMappingAnalysis.bodyCall(env, 2, ruleContext);
+		Node classNode = ruleContext.getEnv().getGroundVersion(env[1]);
+		String result = classNode.toString();
+		
+		assertTrue(foundMapping);
+		assertNotEquals(result, foundClass);
+		
 	}
 	
 	@Test
 	public void hibernate_mapping_without_package_correct() {
 		String foundClass  = "http://softlang.com/Class/org.openmrs.Allergy";
 		Node mapping_file = NodeFactory.createURI("http://softlang.com/Allergy.hbm.xml");
-		Node referencing_url = NodeFactory.createURI(foundClass);
-		Node[] env = new Node[] {mapping_file, referencing_url};
-		
-		BindingEnvironment bindingEnvironment = new BindingVector(env);
-		ruleContext.setEnv(bindingEnvironment);
-		
-		boolean foundMapping = hibernateMappingAnalysis.bodyCall(env, 2, null);
-		//Node classNode = ruleContext.getEnv().getGroundVersion(env[1]);
+
+		Node[] env = setUpRuleContext(mapping_file);
 		
 		
-		//String result = classNode.toString();
+		boolean foundMapping = hibernateMappingAnalysis.bodyCall(env, 2, ruleContext);
+		Node classNode = ruleContext.getEnv().getGroundVersion(env[1]);
+		String result = classNode.toString();
 		
 		assertTrue(foundMapping);
+		assertEquals(foundClass, result);
 	}
 	
 	@Test
 	public void hibernate_mapping_without_package_wrong() {
 		String foundClass  = "http://softlang.com/Class/org.openmrs.Allergy2";
 		Node mapping_file = NodeFactory.createURI("http://softlang.com/Allergy.hbm.xml");
-		Node referencing_url = NodeFactory.createURI(foundClass);
-		Node[] env = new Node[] {mapping_file, referencing_url};
+		Node srfFile = NodeFactory.createURI(foundClass);
 		
-		BindingEnvironment bindingEnvironment = new BindingVector(env);
-		ruleContext.setEnv(bindingEnvironment);
+		Node[] env = new Node[] {mapping_file, srfFile};
+		
 		
 		boolean foundMapping = hibernateMappingAnalysis.bodyCall(env, 2, null);
 		
