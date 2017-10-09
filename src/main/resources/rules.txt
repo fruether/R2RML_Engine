@@ -197,8 +197,8 @@
      (?file1 sl:partOf ?build1)
      (?file1 sl:elementOf sl:XML)
      (?file2 sl:partOf ?build1)
-     (?file2 sl:elementOf sl:XML)
+     (?file1 sl:elementOf sl:XML)
      CheckReference(?file1, ?file2)
      ->
-     (?file1 sl:refersTo ?file2)
+     (?file1 sl:references ?file2)
  ]

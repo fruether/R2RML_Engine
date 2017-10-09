@@ -96,16 +96,16 @@
         <rdfs:domain rdf:resource="Package"/>
         <rdfs:range rdf:resource="Method"/>
     </rdf:Property >
-    <rdf:Property rdf:about="uses">
-        <rdfs:domain rdf:resource="Artefact"/>
-        <rdfs:range rdf:resource="API"/>
-    </rdf:Property >
     <rdf:Property rdf:about="indicatesUseOf">
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="Function"/>
     </rdf:Property >
     <rdf:Property rdf:about="uses">
         <rdfs:domain rdf:resource="Package"/>
+        <rdfs:range rdf:resource="Package"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="uses">
+        <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="Package"/>
     </rdf:Property >
     <rdf:Property rdf:about="uses">
