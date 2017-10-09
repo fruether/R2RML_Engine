@@ -100,7 +100,7 @@
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="API"/>
     </rdf:Property >
-    <rdf:Property rdf:about="uses">
+    <rdf:Property rdf:about="indicatesUseOf">
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="Function"/>
     </rdf:Property >

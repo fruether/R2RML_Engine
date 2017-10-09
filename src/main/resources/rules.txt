@@ -62,7 +62,6 @@
     (?file sl:references technologies:hibernate)
 ]
 [HibernateRoles:
-    (?file rdf:type sl:Artefact)
     (?file sl:partOf ?build1)
     (?file sl:elementOf sl:XML)
     (?file sl:conformsTo ?schema)
@@ -191,15 +190,15 @@
     (?theClass sl:calls ?method)
     (?method sl:partOf technologiesSmall:hibernate/Package/org.hibernate.Session)
  ->
-    (?theClass sl:uses ?function)
+    (?theClass sl:indicatesUseOf ?function)
 ]
 
-[RetrieveReferences
+[RetrieveReferences:
      (?file1 sl:partOf ?build1)
-     (?file1 rdf:type sl:Artefact)
+     (?file1 sl:elementOf sl:XML)
      (?file2 sl:partOf ?build1)
-     (?file2 rdf:type sl:Artefact)
+     (?file2 sl:elementOf sl:XML)
      CheckReference(?file1, ?file2)
      ->
-     (?file1 sl:references ?file2)
+     (?file1 sl:refersTo ?file2)
  ]
