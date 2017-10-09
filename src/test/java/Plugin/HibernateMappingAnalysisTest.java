@@ -105,4 +105,20 @@ public class HibernateMappingAnalysisTest {
 		assertFalse(foundMapping);
 	}
 	
+	@Test
+	public void hibernate_mapping_without_with_package_correct() {
+		String foundClass  = "http://softlang.com/Class/uk.org.rbc1b.roms.db.report.FixedReport";
+		Node mapping_file = NodeFactory.createURI("http://softlang.com/FixedReport.hbm.xml");
+		
+		Node[] env = setUpRuleContext(mapping_file);
+		
+		
+		boolean foundMapping = hibernateMappingAnalysis.bodyCall(env, 2, ruleContext);
+		Node classNode = ruleContext.getEnv().getGroundVersion(env[1]);
+		String result = classNode.toString();
+		
+		assertTrue(foundMapping);
+		assertEquals(foundClass, result);
+	}
+
 }

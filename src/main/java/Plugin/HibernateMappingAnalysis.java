@@ -38,7 +38,7 @@ public class HibernateMappingAnalysis extends BaseBuiltin {
 			String packageName = languageService.getXMLFirstAttribute("hibernate-mapping", "package", content);
 			String refClassName = languageService.getXMLFirstAttribute("class", "name", content);
 			
-			if(packageName != "" && refClassName != "") {
+			if(packageName != "" && refClassName != "" && refClassName.indexOf(".") == -1) {
 				classUri += packageName + "." + refClassName;
 			}
 			else if(refClassName != "") {
