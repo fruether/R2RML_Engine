@@ -114,7 +114,6 @@
     (?file sl:defines sl:OR-Mapping)
 ]
 [HibernateMappingFunctionDefinition:
-    (?mappingFile rdf:type sl:Artefact)
     (?mappingFile sl:elementOf sl:XML)
     (?mappingFile sl:defines ?function)
     (?function sl:partOf sl:OR-Mapping)
@@ -125,7 +124,6 @@
 ]
 
 [PackageDetection:
-    (?file rdf:type sl:Artefact)
     (?file sl:elementOf sl:Java)
     (?file sl:hasClass ?class)
     (?package rdf:type sl:Package)
@@ -135,14 +133,12 @@
 ]
 [ClassDetectionHibernate:
     (?file1 sl:elementOf sl:Java)
-    (?file1 sl:partOf ?build)
     (?package rdf:type sl:Package)
     (?package sl:partOf sl:hibernate)
     (?file1 sl:uses ?package)
     (?file2 sl:elementOf sl:Java)
     notEqual(?file1, ?file2)
     (?file2 sl:hasClass ?class2)
-    (?file2 sl:partOf ?build)
     CheckClassReference(?file1, ?class2)
     (?file1 sl:hasClass ?class1)
     ->

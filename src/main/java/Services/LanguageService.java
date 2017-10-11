@@ -277,9 +277,7 @@ public class LanguageService {
 				result = true;
 			}
 			catch (JSQLParserException e) {
-				e.printStackTrace();
-				System.out.println("Error " );
-				System.out.println("SQL expression " + expression);
+				System.out.println("SQL ERROR: expression " + expression);
 				result |= false;
 			}
 		}
