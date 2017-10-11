@@ -27,6 +27,7 @@ openmrs:LICENCE rdf:type sl:Artefact .
 openmrs:nb-configuration.xml rdf:type sl:Artefact .
 openmrs:pom.xml rdf:type sl:Artefact .
 openmrs:README.md rdf:type sl:Artefact .
+openmrs:src\/.DS_Store rdf:type sl:Artefact .
 openmrs:src\/main\/java\/uk\/org\/rbc1b\/roms\/aop\/PersonAspect.java rdf:type sl:Artefact .
 openmrs:src\/main\/java\/uk\/org\/rbc1b\/roms\/controller\/admin\/AdminController.java rdf:type sl:Artefact .
 openmrs:src\/main\/java\/uk\/org\/rbc1b\/roms\/controller\/admin\/users\/ApplicationAccessForm.java rdf:type sl:Artefact .
@@ -489,6 +490,7 @@ openmrs:LICENCE sl:partOf sl:openmrs .
 openmrs:nb-configuration.xml sl:partOf sl:openmrs .
 openmrs:pom.xml sl:partOf sl:openmrs .
 openmrs:README.md sl:partOf sl:openmrs .
+openmrs:src\/.DS_Store sl:partOf sl:openmrs .
 openmrs:src\/main\/java\/uk\/org\/rbc1b\/roms\/aop\/PersonAspect.java sl:partOf sl:openmrs .
 openmrs:src\/main\/java\/uk\/org\/rbc1b\/roms\/controller\/admin\/AdminController.java sl:partOf sl:openmrs .
 openmrs:src\/main\/java\/uk\/org\/rbc1b\/roms\/controller\/admin\/users\/ApplicationAccessForm.java sl:partOf sl:openmrs .

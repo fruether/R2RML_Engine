@@ -129,5 +129,31 @@ public class LanguageServiceTest {
 		}
 	}
 	
+	@Test
+	public void parseSQL_correct() {
+		String content = null;
+		boolean result = false;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/001.sql");
+			content = "create Table MailRecipient (\n"
+					+ "    MailRecipientId    bigint(20) auto_increment,\n"
+					+ "    MailTypeId          bigint(20),\n"
+					+ "    PersonId            bigint(20),\n"
+					+ "    primary key (MailRecipientId),\n"
+					+ "    constraint  unique (MailTypeId, PersonId),\n"
+
+					+ ");";
+
+			result = languageService.parseSQL(content);
+		
+			assertTrue(result);
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+	}
+	
+	
 	
 }

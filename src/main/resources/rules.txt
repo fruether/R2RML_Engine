@@ -14,7 +14,6 @@
 
 [DetectProjectDependencies:
     (?file sl:conformsTo maven:maven-4.0.0.xsd)
-    (?file sl:partOf ?build)
     (?file  sl:references ?dependency) ->
     (?build sl:dependsOn ?dependency)]
 
@@ -89,9 +88,7 @@
 ]
 
 [HibernateObjectDefinition:
-    (?file1 rdf:type sl:Artefact)
     (?file1 sl:hasRole technologies:Hibernate/HibernateMapping)
-    (?file2 rdf:type sl:Artefact)
     (?file2 sl:elementOf sl:Java)
     (?file2 sl:hasClass ?class)
     (?file1 sl:refersTo ?class)
@@ -112,7 +109,6 @@
     (?function sl:partOf sl:OR-Mapping)
 ]
 [HibernateMappingConf:
-    (?file rdf:type sl:Artefact)
     (?file sl:hasRole technologies:Hibernate/HibernateConfiguration)
     ->
     (?file sl:defines sl:OR-Mapping)

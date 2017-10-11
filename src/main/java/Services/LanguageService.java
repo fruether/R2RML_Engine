@@ -22,6 +22,9 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.type.TypeParameter;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import net.sf.jsqlparser.JSQLParserException;
+import net.sf.jsqlparser.parser.CCJSqlParserManager;
+import net.sf.jsqlparser.parser.CCJSqlParserUtil;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -39,6 +42,7 @@ import javax.xml.validation.Validator;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -75,6 +79,8 @@ public class LanguageService {
 			case "java" : result = ((parseJava(content)) ? "Java" :  ""); break;
 			case "xml" : result = ((parseXML(content)) ?   "XML"  :  ""); break;
 			case "xsd" : result  = ((parseXSD(content)) ?  "XSD"  :  ""); break;
+			case "sql" : result  = ((parseSQL(content)) ?  "SQL"  :  ""); break;
+			
 			default: break;
 		}
 		return result;
@@ -260,5 +266,23 @@ public class LanguageService {
 			throw new LanguageServiceException(e, "parseXSD", "This kind of exception should not appear", "N/A");
 		}
 		return true;
+	}
+	
+	public boolean parseSQL(String content) {
+		boolean result = false;
+		String[] expressions = content.split(";");
+		for(String expression : expressions) {
+			try {
+				CCJSqlParserUtil.parseStatements(expression);
+				result = true;
+			}
+			catch (JSQLParserException e) {
+				e.printStackTrace();
+				System.out.println("Error " );
+				System.out.println("SQL expression " + expression);
+				result |= false;
+			}
+		}
+		return result;
 	}
 }
