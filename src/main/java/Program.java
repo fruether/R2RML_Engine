@@ -13,6 +13,7 @@ import Plugin.HibernateDependency;
 import Plugin.NoXSDMatch;
 import Plugin.ParserPlugin;
 import Plugin.JavaSpecific.RetrieveClass;
+import Plugin.RetrieveTables;
 import Plugin.XSDCheckPlugin;
 import Services.InputManagementService;
 import Services.PluginManagmentService;
@@ -139,6 +140,7 @@ public class Program {
         builtins.add(new HibernateGetMappingType());
         builtins.add(new ClassLiteral());
         builtins.add(new CheckClassReference());
+        builtins.add(new RetrieveTables());
     
     }
 

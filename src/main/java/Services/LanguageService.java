@@ -97,7 +97,7 @@ public class LanguageService {
 			case "java" : result = ((parseJava(content)) ? "Java" :  ""); break;
 			case "xml" : result = ((parseXML(content)) ?   "XML"  :  ""); break;
 			case "xsd" : result  = ((parseXSD(content)) ?  "XSD"  :  ""); break;
-			case "sql" : result  = ((parseMySQL(content.toUpperCase())) ?  "SQL"  :  ""); break;
+			case "sql" : result  = ((parseSQL(content.toUpperCase()) || parseMySQL(content.toUpperCase())) ?  "SQL"  :  ""); break;
 			
 			default: break;
 		}
@@ -298,10 +298,10 @@ public class LanguageService {
 		}
 		return result;
 	}
-	private boolean SQLShit;
+	private boolean wellFormedSQL;
 	public boolean parseMySQL(String content) {
 		try {
-			SQLShit = true;
+			wellFormedSQL = true;
 			MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(content));
 			MySqlParser parser = new MySqlParser(new CommonTokenStream(lexer));
 			parser.addErrorListener(new ANTLRErrorListener() {
@@ -309,7 +309,7 @@ public class LanguageService {
 				@Override
 				public void syntaxError(Recognizer<?, ?> recognizer, Object o, int i, int i1, String s,
 						RecognitionException e) {
-						SQLShit = false;
+					wellFormedSQL = false;
 				}
 				
 				@Override
@@ -333,9 +333,34 @@ public class LanguageService {
 			parser.root();
 		}
 		catch (Throwable error) {
-			System.out.println("Here is an error");
-			return SQLShit;
+			return wellFormedSQL;
 		}
-		return SQLShit;
+		return wellFormedSQL;
+	}
+	
+	public Set<String> mysql_get_tables(String content) {
+		Set<String> foundTables = new HashSet<>();
+		
+		MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(content.toUpperCase()));
+		MySqlParser parser = new MySqlParser(new CommonTokenStream(lexer));
+		
+		ParseTree tree = parser.root();
+		
+		
+		ParseTreeWalker.DEFAULT.walk(new MySqlParserBaseListener(){
+			@Override public void enterQueryCreateTable(MySqlParser.QueryCreateTableContext ctx) {
+				List<MySqlParser.Id_Context> tableId = ctx.table_name().id_();
+				String tableNameValue  = tableId.get(tableId.size() - 1).getText();
+				foundTables.add(tableNameValue);
+			}
+			@Override public void enterColCreateTable(MySqlParser.ColCreateTableContext ctx) {
+				List<MySqlParser.Id_Context> tableId = ctx.table_name().id_();
+				String tableNameValue  = tableId.get(tableId.size() - 1).getText();
+				foundTables.add(tableNameValue);
+			}
+	
+		}, tree);
+		
+		return foundTables;
 	}
 }

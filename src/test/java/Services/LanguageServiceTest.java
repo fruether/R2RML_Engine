@@ -179,18 +179,38 @@ public class LanguageServiceTest {
 	@Test
 	public void parseMySQL_wrong3() {
 		String content = null;
-		
 		boolean result = false;
+		
 		try {
 			content = FileRetrievementService.getInstance().getContent("http://softlang.com/001_wrong.sql");
+			result = languageService.parseMySQL(content);
+			
 		}
 		catch (FileRetrievementServiceException e) {
 			assertNull(e);
 		}
-		result = languageService.parseMySQL(content);
 		
 		assertFalse(result);
+	}
+	@Test
+	public void mysql_get_tables_correct() {
+		String content = null;
+		Set<String> tables = null;
+		boolean result = false;
 		
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/001.sql").toUpperCase();
+			tables = languageService.mysql_get_tables(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+		assertEquals(tables.size(), 88);
+		assertTrue(tables.contains("USER"));
+		assertTrue(tables.contains("Congregation_AUD".toUpperCase()));
+		assertTrue(tables.contains("KingdomHallFeature_AUD".toUpperCase()));
 		
 	}
 }
