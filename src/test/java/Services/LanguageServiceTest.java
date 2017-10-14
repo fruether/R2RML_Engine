@@ -176,5 +176,21 @@ public class LanguageServiceTest {
 
 		
 	}
-	
+	@Test
+	public void parseMySQL_wrong3() {
+		String content = null;
+		
+		boolean result = false;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/001_wrong.sql");
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		result = languageService.parseMySQL(content);
+		
+		assertFalse(result);
+		
+		
+	}
 }

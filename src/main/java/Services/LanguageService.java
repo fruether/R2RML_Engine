@@ -97,7 +97,7 @@ public class LanguageService {
 			case "java" : result = ((parseJava(content)) ? "Java" :  ""); break;
 			case "xml" : result = ((parseXML(content)) ?   "XML"  :  ""); break;
 			case "xsd" : result  = ((parseXSD(content)) ?  "XSD"  :  ""); break;
-			case "sql" : result  = ((parseSQL(content) || parseMySQL(content)) ?  "SQL"  :  ""); break;
+			case "sql" : result  = ((parseMySQL(content.toUpperCase())) ?  "SQL"  :  ""); break;
 			
 			default: break;
 		}
