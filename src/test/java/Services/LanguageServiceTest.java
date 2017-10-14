@@ -130,21 +130,13 @@ public class LanguageServiceTest {
 	}
 	
 	@Test
-	public void parseSQL_correct() {
+	public void parseMySQL_correct() {
 		String content = null;
 		boolean result = false;
 		try {
 			content = FileRetrievementService.getInstance().getContent("http://softlang.com/001.sql");
-			content = "create Table MailRecipient (\n"
-					+ "    MailRecipientId    bigint(20) auto_increment,\n"
-					+ "    MailTypeId          bigint(20),\n"
-					+ "    PersonId            bigint(20),\n"
-					+ "    primary key (MailRecipientId),\n"
-					+ "    constraint  unique (MailTypeId, PersonId),\n"
-
-					+ ");";
-
-			result = languageService.parseSQL(content);
+			//content = "GRANT ALL ON blub.* TO xay;";
+			result = languageService.parseMySQL(content.toUpperCase());
 		
 			assertTrue(result);
 		}
@@ -154,6 +146,35 @@ public class LanguageServiceTest {
 		
 	}
 	
-	
+	@Test
+	public void parseMySQL_wrong() {
+		String content = null;
+		
+		boolean result = false;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/Java/SampleClassDeclarations.java");
+			
+			result = languageService.parseMySQL(content);
+			
+			assertFalse(result);
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+	}
+	@Test
+	public void parseMySQL_wrong2() {
+		String content = null;
+		
+		boolean result = false;
+			content = "SELEKT X, Y ROM table";
+			
+			result = languageService.parseMySQL(content);
+			
+			assertFalse(result);
+
+		
+	}
 	
 }

@@ -25,6 +25,15 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.parser.CCJSqlParserManager;
 import net.sf.jsqlparser.parser.CCJSqlParserUtil;
+import org.antlr.v4.runtime.ANTLRErrorListener;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.NoViableAltException;
+import org.antlr.v4.runtime.Parser;
+import org.antlr.v4.runtime.RecognitionException;
+import org.antlr.v4.runtime.Recognizer;
+import org.antlr.v4.runtime.atn.ATNConfigSet;
+import org.antlr.v4.runtime.dfa.DFA;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -45,12 +54,21 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
+
+import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
+import nl.bigo.sqliteparser.*;
 
 /**
  * Created by freddy on 09.07.17.
@@ -79,7 +97,7 @@ public class LanguageService {
 			case "java" : result = ((parseJava(content)) ? "Java" :  ""); break;
 			case "xml" : result = ((parseXML(content)) ?   "XML"  :  ""); break;
 			case "xsd" : result  = ((parseXSD(content)) ?  "XSD"  :  ""); break;
-			case "sql" : result  = ((parseSQL(content)) ?  "SQL"  :  ""); break;
+			case "sql" : result  = ((parseSQL(content) || parseMySQL(content)) ?  "SQL"  :  ""); break;
 			
 			default: break;
 		}
@@ -269,18 +287,55 @@ public class LanguageService {
 	}
 	
 	public boolean parseSQL(String content) {
-		boolean result = false;
-		String[] expressions = content.split(";");
-		for(String expression : expressions) {
-			try {
-				CCJSqlParserUtil.parseStatements(expression);
+		boolean result;
+		try {
+				CCJSqlParserUtil.parseStatements(content);
 				result = true;
 			}
-			catch (JSQLParserException e) {
-				System.out.println("SQL ERROR: expression " + expression);
-				result |= false;
-			}
+		catch (JSQLParserException e) {
+			System.out.println("SQL ERROR: expression ");
+			result = false;
 		}
 		return result;
+	}
+	private boolean SQLShit;
+	public boolean parseMySQL(String content) {
+		try {
+			SQLShit = true;
+			MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(content));
+			MySqlParser parser = new MySqlParser(new CommonTokenStream(lexer));
+			parser.addErrorListener(new ANTLRErrorListener() {
+				
+				@Override
+				public void syntaxError(Recognizer<?, ?> recognizer, Object o, int i, int i1, String s,
+						RecognitionException e) {
+						SQLShit = false;
+				}
+				
+				@Override
+				public void reportAmbiguity(Parser parser, DFA dfa, int i, int i1, boolean b, BitSet bitSet,
+						ATNConfigSet atnConfigSet) {
+					
+				}
+				
+				@Override
+				public void reportAttemptingFullContext(Parser parser, DFA dfa, int i, int i1, BitSet bitSet,
+						ATNConfigSet atnConfigSet) {
+					
+				}
+				
+				@Override
+				public void reportContextSensitivity(Parser parser, DFA dfa, int i, int i1, int i2,
+						ATNConfigSet atnConfigSet) {
+					
+				}
+			});
+			parser.root();
+		}
+		catch (Throwable error) {
+			System.out.println("Here is an error");
+			return SQLShit;
+		}
+		return SQLShit;
 	}
 }
