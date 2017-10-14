@@ -20,12 +20,16 @@ public class RetrieveTables extends BaseBuiltin {
 	
 	private String predicateUriString;
 	private String baseUri;
+	private Node rdfTypeUri;
+	private Node tableSoftlang;
 	
 	public RetrieveTables() {
 		languageService = LanguageService.getInstance();
 		fileRetrievementService = FileRetrievementService.getInstance();
 		baseUri = "http://softlang.com";
-		predicateUriString = baseUri + "/hasTable";
+		predicateUriString = baseUri + "/definesTable";
+		rdfTypeUri = NodeFactory.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
+		tableSoftlang = NodeFactory.createURI("http://softlang.com/Table");
 	}
 	
 	@Override
@@ -57,9 +61,9 @@ public class RetrieveTables extends BaseBuiltin {
 		}
 		
 		for(String table : retrievedTables) {
-			Node tableNode = NodeFactory.createURI(baseUri + "/" + table);
+			Node tableNode = NodeFactory.createURI(baseUri + "/Table/" + table);
 			context.add( new Triple( sqlFileNode, predicateUri, tableNode ) );
+			context.add( new Triple( tableNode, rdfTypeUri, tableSoftlang ) );
 		}
-		
 	}
 }
