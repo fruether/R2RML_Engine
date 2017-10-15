@@ -211,7 +211,7 @@
     (?class sl:correspondsTo ?table)
 ]
 
-[RelationalLanguage:
+[RelationalLanguageDefinition:
     (?table rdf:type sl:Table)
     GetTableLiteral(?table, ?relationalLanguage)
     ->
