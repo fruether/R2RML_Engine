@@ -64,6 +64,10 @@
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="Artefact"/>
     </rdf:Property >
+    <rdf:Property rdf:about="correspondsTo">
+        <rdfs:domain rdf:resource="Class"/>
+        <rdfs:range rdf:resource="Table"/>
+    </rdf:Property >
     <rdf:Property rdf:about="hasClass">
         <rdfs:domain rdf:resource="Artefact"/>
         <rdfs:range rdf:resource="Artefact"/>

@@ -1,4 +1,5 @@
 import Plugin.ClassLiteral;
+import Plugin.GetTableLiteral;
 import Plugin.HibernateGetMappingType;
 import Plugin.JavaSpecific.CheckCall;
 import Plugin.JavaSpecific.CheckClassReference;
@@ -143,6 +144,7 @@ public class Program {
         builtins.add(new CheckClassReference());
         builtins.add(new RetrieveTables());
         builtins.add(new HibernateMappingGetTable());
+        builtins.add(new GetTableLiteral());
     
     }
 

@@ -185,7 +185,7 @@
     (?theClass sl:indicatesUseOf ?function)
 ]
 
-[RetrieveReferences:
+[RetrieveReferences
      (?file1 sl:partOf ?build1)
      (?file1 sl:elementOf sl:XML)
      (?file2 sl:partOf ?build1)
@@ -213,8 +213,25 @@
     (?file sl:HibernateMappingRefersToRelationalTable ?table)
     (?table rdf:type sl:Table)
     (?sqlFile sl:definesTable ?table)
-    (?file sl:refersTo ?javaFile)
-    (?javaFile sl:elementOf sl:Java)
+    (?file sl:refersTo ?class)
     ->
-    (?javaFile sl:correspondsTo ?sqlFile)
+    (?class sl:correspondsTo ?table)
+]
+
+[RelationalLanguage:
+    (?table rdf:type sl:Table)
+    GetTableLiteral(?table, ?relationalLanguage)
+    ->
+    (?table sl:defines ?relationalLanguage)
+    (?relationalLanguage rdf:type sl:Language)
+    (?relationalLanguage sl:partOf sl:RelationalDatabase)
+]
+
+[HibernateMappingOutput:
+    (?file sl:hasRole technologies:Hibernate/HibernateMapping)
+    (?file sl:defines ?function)
+    (?file sl:HibernateMappingRefersToRelationalTable ?table)
+    (?table sl:defines ?relationalLanguage)
+    ->
+    (?function sl:output ?relationalLanguage)
 ]
