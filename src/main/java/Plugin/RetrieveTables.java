@@ -3,6 +3,7 @@ package Plugin;
 import Services.FileRetrievementService;
 import Services.FileRetrievementServiceException;
 import Services.LanguageService;
+import Services.SQLService;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.graph.Triple;
@@ -17,6 +18,7 @@ import java.util.Set;
 public class RetrieveTables extends BaseBuiltin {
 	private FileRetrievementService fileRetrievementService;
 	private LanguageService languageService;
+	private SQLService sqlService;
 	
 	private String predicateUriString;
 	private String baseUri;
@@ -26,6 +28,7 @@ public class RetrieveTables extends BaseBuiltin {
 	public RetrieveTables() {
 		languageService = LanguageService.getInstance();
 		fileRetrievementService = FileRetrievementService.getInstance();
+		sqlService = languageService.getSQLService();
 		baseUri = "http://softlang.com";
 		predicateUriString = baseUri + "/definesTable";
 		rdfTypeUri = NodeFactory.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
@@ -54,7 +57,7 @@ public class RetrieveTables extends BaseBuiltin {
 		
 		try {
 			String sqlContent = fileRetrievementService.getContent(sqlFileUri);
-			 retrievedTables = languageService.mysql_get_tables(sqlContent);
+			 retrievedTables = sqlService.mysql_get_tables(sqlContent);
 		}
 		catch (FileRetrievementServiceException e) {
 			return;

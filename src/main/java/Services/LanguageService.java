@@ -80,10 +80,14 @@ import nl.bigo.sqliteparser.*;
  */
 public class LanguageService {
 	private static LanguageService languageService;
+	private SQLService sqlService;
 	private LanguageService() {
+		sqlService = new SQLService();
 	}
 	
-	
+	public SQLService getSQLService() {
+		return sqlService;
+	}
 	public static LanguageService getInstance() {
 		if(languageService == null) {
 			languageService = new LanguageService();
@@ -97,7 +101,7 @@ public class LanguageService {
 			case "java" : result = ((parseJava(content)) ? "Java" :  ""); break;
 			case "xml" : result = ((parseXML(content)) ?   "XML"  :  ""); break;
 			case "xsd" : result  = ((parseXSD(content)) ?  "XSD"  :  ""); break;
-			case "sql" : result  = ((parseSQL(content.toUpperCase()) || parseMySQL(content.toUpperCase())) ?  "SQL"  :  ""); break;
+			case "sql" : result  = ((sqlService.parseSQL(content)) ?  "SQL"  :  ""); break;
 			
 			default: break;
 		}
@@ -286,81 +290,4 @@ public class LanguageService {
 		return true;
 	}
 	
-	public boolean parseSQL(String content) {
-		boolean result;
-		try {
-				CCJSqlParserUtil.parseStatements(content);
-				result = true;
-			}
-		catch (JSQLParserException e) {
-			System.out.println("SQL ERROR: expression ");
-			result = false;
-		}
-		return result;
-	}
-	private boolean wellFormedSQL;
-	public boolean parseMySQL(String content) {
-		try {
-			wellFormedSQL = true;
-			MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(content));
-			MySqlParser parser = new MySqlParser(new CommonTokenStream(lexer));
-			parser.addErrorListener(new ANTLRErrorListener() {
-				
-				@Override
-				public void syntaxError(Recognizer<?, ?> recognizer, Object o, int i, int i1, String s,
-						RecognitionException e) {
-					wellFormedSQL = false;
-				}
-				
-				@Override
-				public void reportAmbiguity(Parser parser, DFA dfa, int i, int i1, boolean b, BitSet bitSet,
-						ATNConfigSet atnConfigSet) {
-					
-				}
-				
-				@Override
-				public void reportAttemptingFullContext(Parser parser, DFA dfa, int i, int i1, BitSet bitSet,
-						ATNConfigSet atnConfigSet) {
-					
-				}
-				
-				@Override
-				public void reportContextSensitivity(Parser parser, DFA dfa, int i, int i1, int i2,
-						ATNConfigSet atnConfigSet) {
-					
-				}
-			});
-			parser.root();
-		}
-		catch (Throwable error) {
-			return wellFormedSQL;
-		}
-		return wellFormedSQL;
-	}
-	
-	public Set<String> mysql_get_tables(String content) {
-		Set<String> foundTables = new HashSet<>();
-		
-		MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(content.toUpperCase()));
-		MySqlParser parser = new MySqlParser(new CommonTokenStream(lexer));
-		
-		ParseTree tree = parser.root();
-		
-		
-		ParseTreeWalker.DEFAULT.walk(new MySqlParserBaseListener(){
-			@Override public void enterQueryCreateTable(MySqlParser.QueryCreateTableContext ctx) {
-				List<MySqlParser.Id_Context> tableId = ctx.table_name().id_();
-				String tableNameValue  = tableId.get(tableId.size() - 1).getText();
-				foundTables.add(tableNameValue);
-			}
-			@Override public void enterColCreateTable(MySqlParser.ColCreateTableContext ctx) {
-				List<MySqlParser.Id_Context> tableId = ctx.table_name().id_();
-				String tableNameValue  = tableId.get(tableId.size() - 1).getText();
-				foundTables.add(tableNameValue);
-			}
-	
-		}, tree);
-		
-		return foundTables;
-	}
 }
