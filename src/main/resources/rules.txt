@@ -205,5 +205,16 @@
     (?file sl:hasRole technologies:Hibernate/HibernateMapping)
     HibernateMappingGetTable(?file, ?table)
     ->
-    (?file sl:refersTo ?table)
+    (?file sl:HibernateMappingRefersToRelationalTable ?table)
+]
+
+[CorrespondsTo:
+    (?file sl:hasRole technologies:Hibernate/HibernateMapping)
+    (?file sl:HibernateMappingRefersToRelationalTable ?table)
+    (?table rdf:type sl:Table)
+    (?sqlFile sl:definesTable ?table)
+    (?file sl:refersTo ?javaFile)
+    (?javaFile sl:elementOf sl:Java)
+    ->
+    (?javaFile sl:correspondsTo ?sqlFile)
 ]

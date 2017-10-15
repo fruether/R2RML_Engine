@@ -73,4 +73,17 @@ public class HibernateMappingGetTableTest {
 		
 		assertFalse(result);
 	}
+	@Test
+	public void table_name_correct_default() {
+		String expectedTable = "http://softlang.com/Table/PROJECTAVAILABILITY";
+		Node inputFile = NodeFactory.createURI("http://softlang.com/ProjectAvailability.hbm.xml");
+		Node[] env = setUpRuleContext(inputFile);
+		
+		boolean result = hibernateMappingGetTable.bodyCall(env, 2, ruleContext);
+		
+		assertTrue(result);
+		
+		String retrievedTable = ruleContext.getEnv().getGroundVersion(env[1]).getURI();
+		assertEquals(expectedTable, retrievedTable);
+	}
 }

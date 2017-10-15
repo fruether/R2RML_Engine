@@ -133,5 +133,7 @@
     <rdf:Property rdf:about="HibernateConfigurationRefersToHibernateMapping">
         <rdfs:subPropertyOf rdf:resource="refersTo"/>
     </rdf:Property >
-
+    <rdf:Property rdf:about="HibernateMappingRefersToRelationalTable">
+        <rdfs:subPropertyOf rdf:resource="refersTo"/>
+    </rdf:Property >
 </rdf:RDF>

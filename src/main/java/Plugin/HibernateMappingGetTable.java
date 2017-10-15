@@ -38,10 +38,21 @@ public class HibernateMappingGetTable extends BaseBuiltin {
 		try {
 			String content = fileRetrievementService.getContent(fileUri);
 			String tableName = languageService.getXMLFirstAttribute("class", "table", content);
+			Node tableNode = null;
 			if(tableName != "") {
-				Node tableNode = NodeFactory.createURI(baseUriTable + tableName.toUpperCase());
-				return environment.bind(args[1], tableNode);
+				tableNode = NodeFactory.createURI(baseUriTable + tableName.toUpperCase());
 			}
+			else {
+				String className = languageService.getXMLFirstAttribute("class", "name", content);
+				
+				if(className == "") {
+					return false;
+				}
+				String defaultTableName = getClassName(className);
+				tableNode = NodeFactory.createURI(baseUriTable + defaultTableName.toUpperCase());
+				
+			}
+			return environment.bind(args[1], tableNode);
 			
 		}
 		catch (FileRetrievementServiceException e) {
@@ -51,5 +62,11 @@ public class HibernateMappingGetTable extends BaseBuiltin {
 			e.printError();
 		}
 		return false;
+	}
+	
+	private  String getClassName(String classname) {
+		if(!classname.contains(".")) return classname;
+		return classname.substring(classname.lastIndexOf(".") + 1);
+		
 	}
 }
