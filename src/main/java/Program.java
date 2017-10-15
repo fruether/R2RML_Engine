@@ -8,6 +8,7 @@ import Plugin.DTDCheckPlugin;
 import Plugin.FileEndingPlugin;
 import Plugin.HibernateMappingAnalysis;
 import Plugin.HibernateRoleIdentification;
+import Plugin.HibernateMappingGetTable;
 import Plugin.LiquidBaseDependencyPlugin;
 import Plugin.HibernateDependency;
 import Plugin.NoXSDMatch;
@@ -141,6 +142,7 @@ public class Program {
         builtins.add(new ClassLiteral());
         builtins.add(new CheckClassReference());
         builtins.add(new RetrieveTables());
+        builtins.add(new HibernateMappingGetTable());
     
     }
 

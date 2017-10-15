@@ -192,11 +192,18 @@
      (?file1 sl:elementOf sl:XML)
      CheckReference(?file1, ?file2)
      ->
-     (?file1 sl:references ?file2)
+     (?file1 sl:refersTo ?file2)
  ]
 
 [GetDefinesTables:
     (?file sl:elementOf sl:SQL)
     ->
     RetrieveTables(?file)
+]
+
+[HibernateMappingTheTables:
+    (?file sl:hasRole technologies:Hibernate/HibernateMapping)
+    HibernateMappingGetTable(?file, ?table)
+    ->
+    (?file sl:refersTo ?table)
 ]
