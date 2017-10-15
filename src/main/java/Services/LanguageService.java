@@ -1,8 +1,10 @@
 package Services;
 
 import com.github.javaparser.*;
+import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.BodyDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
+import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.body.TypeDeclaration;
 
 import com.github.javaparser.ast.body.VariableDeclarator;
@@ -20,6 +22,18 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.type.TypeParameter;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import net.sf.jsqlparser.JSQLParserException;
+import net.sf.jsqlparser.parser.CCJSqlParserManager;
+import net.sf.jsqlparser.parser.CCJSqlParserUtil;
+import org.antlr.v4.runtime.ANTLRErrorListener;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.NoViableAltException;
+import org.antlr.v4.runtime.Parser;
+import org.antlr.v4.runtime.RecognitionException;
+import org.antlr.v4.runtime.Recognizer;
+import org.antlr.v4.runtime.atn.ATNConfigSet;
+import org.antlr.v4.runtime.dfa.DFA;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -37,14 +51,24 @@ import javax.xml.validation.Validator;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
+
+import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
+import nl.bigo.sqliteparser.*;
 
 /**
  * Created by freddy on 09.07.17.
@@ -56,10 +80,14 @@ import java.util.function.Consumer;
  */
 public class LanguageService {
 	private static LanguageService languageService;
+	private SQLService sqlService;
 	private LanguageService() {
+		sqlService = new SQLService();
 	}
 	
-	
+	public SQLService getSQLService() {
+		return sqlService;
+	}
 	public static LanguageService getInstance() {
 		if(languageService == null) {
 			languageService = new LanguageService();
@@ -73,6 +101,8 @@ public class LanguageService {
 			case "java" : result = ((parseJava(content)) ? "Java" :  ""); break;
 			case "xml" : result = ((parseXML(content)) ?   "XML"  :  ""); break;
 			case "xsd" : result  = ((parseXSD(content)) ?  "XSD"  :  ""); break;
+			case "sql" : result  = ((sqlService.parseSQL(content)) ?  "SQL"  :  ""); break;
+			
 			default: break;
 		}
 		return result;
@@ -92,6 +122,10 @@ public class LanguageService {
 		
 		CompilationUnit cu = JavaParser.parse( content );
 		com.github.javaparser.ast.NodeList<ImportDeclaration> imports = cu.getImports();
+		PackageDeclaration packageDeclaration  = cu.getPackageDeclaration().orElse(null);
+		if(packageDeclaration != null) {
+			importedElements.add(packageDeclaration.getNameAsString());
+		}
 		for(int i = 0; i < imports.size(); i++) {
 			String importName = imports.get(i).getNameAsString();
 			importedElements.add(importName);
@@ -116,7 +150,7 @@ public class LanguageService {
 		if(content == null || className == null) return classDeclarations;
 		
 		CompilationUnit compilationUnit = JavaParser.parse(content);
-		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElseThrow(null);
+		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElse(null);
 		if(mainClass == null) return classDeclarations;
 		
 		List<BodyDeclaration<?>>  members = mainClass.getMembers();
@@ -133,6 +167,15 @@ public class LanguageService {
 		List<MethodDeclaration> methods = mainClass.getMethods();
 		for(MethodDeclaration method : methods) {
 			classDeclarations.add(method.getType().toString());
+			
+			method.getParameters().forEach(
+					new Consumer<Parameter>() {
+						@Override
+						public void accept(Parameter parameter) {
+							classDeclarations.add(parameter.getType().toString());
+						}
+					}
+			);
 			
 			BlockStmt blockStmt = method.getBody().orElseGet(null);
 			blockStmt.getStatements().forEach(
@@ -189,7 +232,10 @@ public class LanguageService {
 			NodeList nList = doc.getElementsByTagName(key);
 			if(nList.getLength() >= 1) {
 				Node curNode = nList.item(0);
-				value = curNode.getAttributes().getNamedItem(tagName).getNodeValue();
+				Node taggedNode = curNode.getAttributes().getNamedItem(tagName);
+				if(taggedNode != null) {
+					value = taggedNode.getNodeValue();
+				}
 			}
 		}
 		catch (SAXException e) {
@@ -243,4 +289,5 @@ public class LanguageService {
 		}
 		return true;
 	}
+	
 }

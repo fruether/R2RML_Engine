@@ -26,4 +26,9 @@ public class SampleClassDeclarations {
 		Person x = new Person();
 		
 	}
+	
+	public StringBuilder doStuff5(Peter x) {
+		Person x = new Person();
+		
+	}
 }

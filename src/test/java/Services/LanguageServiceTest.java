@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  * Created by freddy on 15.09.17.
  */
 public class LanguageServiceTest {
-	
+	//Qualification.hbm.xml
 	private LanguageService languageService;
 	
 	@Before
@@ -27,6 +27,21 @@ public class LanguageServiceTest {
 			String content = FileRetrievementService.getInstance().getContent("http://softlang.com/Allergy.hbm.xml");
 			String result = languageService.getXMLFirstAttribute("class", "name", content);
 			assertEquals(result, "org.openmrs.Allergy");
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		catch (LanguageServiceException e) {
+			assertNull(e);
+		}
+	}
+	
+	@Test
+	public void getXMLFirstAttribute_correct2() {
+		try {
+			String content = FileRetrievementService.getInstance().getContent("http://softlang.com/Qualification.hbm.xml");
+			String result = languageService.getXMLFirstAttribute("hibernate-mapping", "package", content);
+			assertEquals(result, "uk.org.rbc1b.roms.db.volunteer.qualification");
 		}
 		catch (FileRetrievementServiceException e) {
 			assertNull(e);
@@ -68,6 +83,23 @@ public class LanguageServiceTest {
 	}
 	
 	@Test
+	public void getJavaImportetElements_correct_withPackage()  {
+		try {
+			String content = FileRetrievementService.getInstance().getContent("http://softlang.com/Java/HibernateEmailDao");
+			List<String> result = languageService.getJavaImportedElements(content);
+			
+			assertEquals("ALl imports noticed", result.size(), 8);
+			assertEquals("Name is matching case 1", result.get(0), "uk.org.rbc1b.roms.db.email");
+			assertEquals("Name is matching case 2", result.get(1), "java.util.List");
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+	}
+	
+	@Test
 	public void getJavaCalledMethods() {
 		String content = null;
 		try {
@@ -90,12 +122,10 @@ public class LanguageServiceTest {
 			content = FileRetrievementService.getInstance().getContent("http://softlang.com/Java/SampleClassDeclarations.java");
 			Set<String> result = languageService.getDeclaredClasses(content, "SampleClassDeclarations");
 			
-			assertEquals(result.size(), 8);
+			assertEquals(result.size(), 9);
 		}
 		catch (FileRetrievementServiceException e) {
 			assertNull(e);
 		}
 	}
-	
-	
 }

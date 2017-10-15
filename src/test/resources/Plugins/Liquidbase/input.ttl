@@ -17,3 +17,5 @@ liquidbase:dbchangelog-2.0.xsd sl:partOf sl:liquidbase .
 liquidbase:dbchangelog-3.0.xsd sl:partOf sl:liquidbase .
 liquidbase:dbchangelog-3.1.xsd sl:partOf sl:liquidbase .
 sl:liquidbase/inpu rdf:type sl:BuildRelease .
+liquidbase:\.DS_Store rdf:type sl:Artefact .
+liquidbase:\.DS_Store sl:partOf sl:liquidbase .

@@ -5,6 +5,8 @@ import Services.FileRetrievementServiceException;
 import Services.LanguageService;
 import Services.LanguageServiceException;
 import org.apache.jena.graph.Node;
+import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.reasoner.rulesys.BindingEnvironment;
 import org.apache.jena.reasoner.rulesys.RuleContext;
 import org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin;
 
@@ -22,19 +24,31 @@ public class HibernateMappingAnalysis extends BaseBuiltin {
 	}
 	
 	public boolean bodyCall(Node[] args, int length, RuleContext context) {
-		boolean result = false;
 		if (args.length != 2)
-			return result;
+			return false;
 		
 		try {
+			String classUri = "http://softlang.com/Class/";
 			String uri = args[0].getURI();
-			String className = getClassFromParh(fileRetrievementService.uriToPath(args[1].getURI()));
-			System.out.println("[HibernateMappingAnalysis]: Checking for " + uri + " and " + className);
+			BindingEnvironment env = context.getEnv();
+			
+			System.out.println("[HibernateMappingAnalysis]: Checking for " + uri);
 			
 			String content = fileRetrievementService.getContent(uri);
+			String packageName = languageService.getXMLFirstAttribute("hibernate-mapping", "package", content);
 			String refClassName = languageService.getXMLFirstAttribute("class", "name", content);
 			
-			result = className.equals(refClassName);
+			if(packageName != "" && refClassName != "" && refClassName.indexOf(".") == -1) {
+				classUri += packageName + "." + refClassName;
+			}
+			else if(refClassName != "") {
+				classUri += refClassName;
+			}
+			else {
+				return false;
+			}
+			Node value = NodeFactory.createURI(classUri);
+			return env.bind(args[1], value);
 		}
 		catch (FileRetrievementServiceException e) {
 			e.printError();
@@ -42,7 +56,7 @@ public class HibernateMappingAnalysis extends BaseBuiltin {
 		catch (LanguageServiceException e) {
 			e.printError();
 		}
-		return result;
+		return false;
 	}
 	
 	private String getClassFromParh(String path) {

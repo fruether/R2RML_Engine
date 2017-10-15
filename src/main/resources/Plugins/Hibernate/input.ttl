@@ -63,3 +63,11 @@ hibernate:\/Method\/getCurrentSession sl:partOf hibernate:Package\/org.hibernate
 hibernate:\/Method\/openSession rdf:type sl:Method .
 hibernate:\/Method\/openSession sl:partOf hibernate:Package\/org.hibernate.SessionFactory .
 hibernate:Package\/org.hibernate.SessionFactory sl:uses hibernate:Package\/org.hibernate.Session .
+hibernate:hibernate-configuration-3\.0\.dtd rdf:type sl:Artefact .
+hibernate:hibernate-configuration-4\.0\.xsd rdf:type sl:Artefact .
+hibernate:hibernate-mapping-3\.0\.dtd rdf:type sl:Artefact .
+hibernate:hibernate-mapping-4\.0\.xsd rdf:type sl:Artefact .
+hibernate:hibernate-configuration-3\.0\.dtd sl:partOf sl:hibernate .
+hibernate:hibernate-configuration-4\.0\.xsd sl:partOf sl:hibernate .
+hibernate:hibernate-mapping-3\.0\.dtd sl:partOf sl:hibernate .
+hibernate:hibernate-mapping-4\.0\.xsd sl:partOf sl:hibernate .

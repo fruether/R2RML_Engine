@@ -1,4 +1,5 @@
 import Plugin.ClassLiteral;
+import Plugin.GetTableLiteral;
 import Plugin.HibernateGetMappingType;
 import Plugin.JavaSpecific.CheckCall;
 import Plugin.JavaSpecific.CheckClassReference;
@@ -8,11 +9,13 @@ import Plugin.DTDCheckPlugin;
 import Plugin.FileEndingPlugin;
 import Plugin.HibernateMappingAnalysis;
 import Plugin.HibernateRoleIdentification;
+import Plugin.HibernateMappingGetTable;
 import Plugin.LiquidBaseDependencyPlugin;
 import Plugin.HibernateDependency;
 import Plugin.NoXSDMatch;
 import Plugin.ParserPlugin;
 import Plugin.JavaSpecific.RetrieveClass;
+import Plugin.RetrieveTables;
 import Plugin.XSDCheckPlugin;
 import Services.InputManagementService;
 import Services.PluginManagmentService;
@@ -139,6 +142,9 @@ public class Program {
         builtins.add(new HibernateGetMappingType());
         builtins.add(new ClassLiteral());
         builtins.add(new CheckClassReference());
+        builtins.add(new RetrieveTables());
+        builtins.add(new HibernateMappingGetTable());
+        builtins.add(new GetTableLiteral());
     
     }
 

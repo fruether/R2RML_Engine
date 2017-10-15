@@ -106,6 +106,8 @@ public class CheckReferences extends BaseBuiltin{
 		if(uri == null) return listOfReferences;
 		
 		String regex = "\"(.*?)\"";
+		String regex2 = "(\\.*)+";
+		
 		try {
 			String content = fileRetrievementService.getContent(uri);
 			Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
