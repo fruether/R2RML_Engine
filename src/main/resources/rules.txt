@@ -13,6 +13,7 @@
     (?a sl:conformsTo ?b)]
 
 [DetectProjectDependencies:
+    (?file sl:partOf ?build)
     (?file sl:conformsTo maven:maven-4.0.0.xsd)
     (?file  sl:references ?dependency) ->
     (?build sl:dependsOn ?dependency)]
@@ -30,8 +31,6 @@
     (?file sl:elementOf ?language)
 ]
 [JavaClassIdentification:
-    (?file sl:partOf ?build)
-    (?file rdf:type sl:Artefact)
     (?file sl:elementOf sl:Java)
     RetrieveClass(?file, ?classname)
     ->
@@ -70,9 +69,7 @@
     (?file sl:hasRole ?role)
 ]
 [HibernateReferences:
-    (?file1 rdf:type sl:Artefact)
     (?file1 sl:hasRole technologies:Hibernate/HibernateConfiguration)
-    (?file2 rdf:type sl:Artefact)
     (?file2 sl:hasRole technologies:Hibernate/HibernateMapping)
     CheckReference(?file1, ?file2)
     ->
@@ -80,7 +77,6 @@
 ]
 
 [HibernateMappingFast:
-    (?file1 rdf:type sl:Artefact)
     (?file1 sl:hasRole technologies:Hibernate/HibernateMapping)
     HibernateMappingAnalysis(?file1, ?class)
     ->
@@ -99,8 +95,7 @@
     (?classLanguage sl:subsetOf sl:JVMObject)
 ]
 
-[HibernateMappingFunction:
-    (?file rdf:type sl:Artefact)
+[HibernateMappingFunctionDefinition:
     (?file sl:hasRole technologies:Hibernate/HibernateMapping)
     HibernateGetMappingType(?file, ?function)
     ->
@@ -108,12 +103,12 @@
     (?function rdf:type sl:Function)
     (?function sl:partOf sl:OR-Mapping)
 ]
-[HibernateMappingConf:
+[HibernateMappingConfFunctionDefinition:
     (?file sl:hasRole technologies:Hibernate/HibernateConfiguration)
     ->
     (?file sl:defines sl:OR-Mapping)
 ]
-[HibernateMappingFunctionDefinition:
+[ibernateMappingFunctionInputDefinition:
     (?mappingFile sl:elementOf sl:XML)
     (?mappingFile sl:defines ?function)
     (?function sl:partOf sl:OR-Mapping)
@@ -123,7 +118,7 @@
     (?language sl:input ?function)
 ]
 
-[PackageDetection:
+[ImportDetection:
     (?file sl:elementOf sl:Java)
     (?file sl:hasClass ?class)
     (?package rdf:type sl:Package)
@@ -131,7 +126,7 @@
     ->
     (?file sl:uses ?package)
 ]
-[ClassDetectionHibernate:
+[HibernateImportUsedDetection:
     (?file1 sl:elementOf sl:Java)
     (?package rdf:type sl:Package)
     (?package sl:partOf sl:hibernate)
@@ -145,7 +140,6 @@
     (?class1 sl:uses ?class2)
 ]
 [MethodCallDetection:
-    (?file rdf:type sl:Artefact)
     (?file sl:elementOf sl:Java)
     (?file sl:hasClass ?class)
     (?package rdf:type sl:Package)
@@ -157,7 +151,6 @@
     (?class sl:calls ?method)
 ]
 [MethodCallDetectionWithDependency:
-    (?file rdf:type sl:Artefact)
     (?file sl:elementOf sl:Java)
     (?file sl:hasClass ?class)
     (?package rdf:type sl:Package)
@@ -171,7 +164,7 @@
     (?class sl:calls ?method)
 ]
 
-[HibernateORMappingDetection:
+[HibernateMappingFunctionUsed:
     (?file rdf:type sl:Artefact)
     (?file sl:elementOf sl:Java)
     (?file sl:hasClass ?theClass)
@@ -185,7 +178,7 @@
     (?theClass sl:indicatesUseOf ?function)
 ]
 
-[RetrieveReferences
+[RetrieveReferencesBetweenXML:
      (?file1 sl:partOf ?build1)
      (?file1 sl:elementOf sl:XML)
      (?file2 sl:partOf ?build1)
@@ -195,20 +188,20 @@
      (?file1 sl:refersTo ?file2)
  ]
 
-[GetDefinesTables:
+[GetDefinedTablesInSQL:
     (?file sl:elementOf sl:SQL)
     ->
     RetrieveTables(?file)
 ]
 
-[HibernateMappingTheTables:
+[HibernateMappingReferencedTables:
     (?file sl:hasRole technologies:Hibernate/HibernateMapping)
     HibernateMappingGetTable(?file, ?table)
     ->
     (?file sl:HibernateMappingRefersToRelationalTable ?table)
 ]
 
-[CorrespondsTo:
+[HibernateMappingJavaCorrespondsToTable:
     (?file sl:hasRole technologies:Hibernate/HibernateMapping)
     (?file sl:HibernateMappingRefersToRelationalTable ?table)
     (?table rdf:type sl:Table)
