@@ -8,6 +8,8 @@ import nl.bigo.sqliteparser.MySqlParserBaseListener;
 import nl.bigo.sqliteparser.SQLiteLexer;
 import nl.bigo.sqliteparser.SQLiteParser;
 import org.antlr.v4.runtime.ANTLRErrorListener;
+import org.antlr.v4.runtime.ANTLRErrorStrategy;
+import org.antlr.v4.runtime.BailErrorStrategy;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Parser;
@@ -15,6 +17,7 @@ import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.atn.ATNConfigSet;
 import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.misc.ParseCancellationException;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
@@ -29,9 +32,11 @@ import java.util.Set;
 public class SQLService implements ANTLRErrorListener {
 	private boolean wellFormedSQL;
 	
+	private ANTLRErrorStrategy defaultAntlrErrorStrategy =  new BailErrorStrategy();
+	
 	public boolean parseSQL(String content) {
 		String upperCase = content.toUpperCase();
-		boolean result = parseSQLNormal(upperCase) || parseMySQL(upperCase) || parseSQLite(upperCase);
+		boolean result =  parseMySQL(upperCase) || parseSQLNormal(upperCase) || parseSQLite(upperCase);
 		return result;
 	}
 	
@@ -44,6 +49,9 @@ public class SQLService implements ANTLRErrorListener {
 		catch (JSQLParserException e) {
 			return false;
 		}
+		catch (Throwable e) {
+			return false;
+		}
 		return result;
 	}
 	private boolean parseMySQL(String content) {
@@ -51,11 +59,15 @@ public class SQLService implements ANTLRErrorListener {
 			wellFormedSQL = true;
 			MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(content));
 			MySqlParser parser = new MySqlParser(new CommonTokenStream(lexer));
+			parser.setErrorHandler(defaultAntlrErrorStrategy);
 			parser.addErrorListener(this);
 			parser.root();
 		}
+		catch (ParseCancellationException parseCancellationException) {
+			wellFormedSQL =  false;
+		}
 		catch (Throwable error) {
-			return wellFormedSQL;
+			wellFormedSQL =  false;
 		}
 		return wellFormedSQL;
 	}
@@ -65,11 +77,15 @@ public class SQLService implements ANTLRErrorListener {
 			wellFormedSQL = true;
 			SQLiteLexer lexer = new SQLiteLexer(CharStreams.fromString(content));
 			SQLiteParser parser = new SQLiteParser(new CommonTokenStream(lexer));
+			parser.setErrorHandler(defaultAntlrErrorStrategy);
 			parser.addErrorListener(this);
 			parser.parse();
 		}
+		catch (ParseCancellationException parseCancellationException) {
+			wellFormedSQL =  false;
+		}
 		catch (Throwable error) {
-			return wellFormedSQL;
+			wellFormedSQL =  false;
 		}
 		return wellFormedSQL;
 	}
@@ -80,7 +96,6 @@ public class SQLService implements ANTLRErrorListener {
 		
 		MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(content.toUpperCase()));
 		MySqlParser parser = new MySqlParser(new CommonTokenStream(lexer));
-		
 		ParseTree tree = parser.root();
 		
 		

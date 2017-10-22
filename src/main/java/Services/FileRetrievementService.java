@@ -1,8 +1,10 @@
 package Services;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -44,11 +46,12 @@ public class FileRetrievementService {
 	
 	public String uriToPath(String uri) throws FileRetrievementServiceException{
 		try {
-			//String cleaned_uri = uri.replace(":s:", "/");
+			//String cleaned_uri = uri.replace("", "/");
+			String cleaned_uri = URLDecoder.decode( uri, "UTF-8" );
 			URL url = new URL(uri);
 			return url.getPath().substring(1);
 		}
-		catch(MalformedURLException mue) {
+		catch(Exception mue) {
 			String message = "The following url is malformed: " + uri + " and cause the following error " + mue.getCause();
 			throw new FileRetrievementServiceException(mue, "uriToPath", message, uri);
 		}

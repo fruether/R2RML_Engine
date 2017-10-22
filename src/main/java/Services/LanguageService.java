@@ -2,13 +2,17 @@ package Services;
 
 import com.github.javaparser.*;
 import com.github.javaparser.ast.PackageDeclaration;
+import com.github.javaparser.ast.body.AnnotationDeclaration;
 import com.github.javaparser.ast.body.BodyDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.body.TypeDeclaration;
 
 import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.expr.Expression;
+import com.github.javaparser.ast.expr.NormalAnnotationExpr;
+import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.ExpressionStmt;
@@ -69,6 +73,8 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import nl.bigo.sqliteparser.*;
+import util.AnnotationConsumer;
+import util.Package;
 
 /**
  * Created by freddy on 09.07.17.
@@ -81,8 +87,12 @@ import nl.bigo.sqliteparser.*;
 public class LanguageService {
 	private static LanguageService languageService;
 	private SQLService sqlService;
+	private JavaService javaService;
+	
 	private LanguageService() {
+		
 		sqlService = new SQLService();
+		javaService = new JavaService();
 	}
 	
 	public SQLService getSQLService() {
@@ -94,6 +104,11 @@ public class LanguageService {
 		}
 		return languageService;
 	}
+	
+	public JavaService getJavaService() {
+		return javaService;
+	}
+	
 	
 	public String getLanguage(String prefix, String content) throws LanguageServiceException {
 		String result="";
@@ -108,30 +123,6 @@ public class LanguageService {
 		return result;
 	}
 	
-	public String getJavaClass(String content, String path) {
-		CompilationUnit cu = JavaParser.parse( content );
-		
-		String packageName = cu.getPackageDeclaration().get().getNameAsString();
-		String className = path.substring(path.lastIndexOf("/") + 1, path.length() - 5);
-
-		return packageName + (packageName.isEmpty() ? "" : "." ) + className;
-	}
-	
-	public List<String> getJavaImportedElements(String content) {
-		ArrayList<String> importedElements = new ArrayList<>();
-		
-		CompilationUnit cu = JavaParser.parse( content );
-		com.github.javaparser.ast.NodeList<ImportDeclaration> imports = cu.getImports();
-		PackageDeclaration packageDeclaration  = cu.getPackageDeclaration().orElse(null);
-		if(packageDeclaration != null) {
-			importedElements.add(packageDeclaration.getNameAsString());
-		}
-		for(int i = 0; i < imports.size(); i++) {
-			String importName = imports.get(i).getNameAsString();
-			importedElements.add(importName);
-		}
-		return importedElements;
-	}
 	private boolean parseJava(String content) {
 		try {
 			JavaParser.parse(content);
@@ -143,83 +134,7 @@ public class LanguageService {
 		
 	}
 	
-	public Set<String> getDeclaredClasses(String content, String className) {
-		
-		Set<String> classDeclarations = new HashSet<>();
-		
-		if(content == null || className == null) return classDeclarations;
-		
-		CompilationUnit compilationUnit = JavaParser.parse(content);
-		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElse(null);
-		if(mainClass == null) return classDeclarations;
-		
-		List<BodyDeclaration<?>>  members = mainClass.getMembers();
-		for (BodyDeclaration member : members) {
-			if(member instanceof FieldDeclaration) {
-				FieldDeclaration field = (FieldDeclaration) member;
-				String type = field.getElementType().toString();
-				com.github.javaparser.ast.NodeList<VariableDeclarator> variableDeclaration =  field.getVariables();
-				classDeclarations.add(type);
-			}
-		}
-		
-		// Search for declarations in methods
-		List<MethodDeclaration> methods = mainClass.getMethods();
-		for(MethodDeclaration method : methods) {
-			classDeclarations.add(method.getType().toString());
-			
-			method.getParameters().forEach(
-					new Consumer<Parameter>() {
-						@Override
-						public void accept(Parameter parameter) {
-							classDeclarations.add(parameter.getType().toString());
-						}
-					}
-			);
-			
-			BlockStmt blockStmt = method.getBody().orElseGet(null);
-			blockStmt.getStatements().forEach(
-					new Consumer<Statement>() {
-						
-						@Override
-						public void accept(Statement statement) {
-							if(statement instanceof ExpressionStmt) {
-								ExpressionStmt expressionStmt = (ExpressionStmt) statement;
-								Expression expression = expressionStmt.getExpression();
-								if(expression instanceof VariableDeclarationExpr) {
-									VariableDeclarationExpr variableDeclaration = (VariableDeclarationExpr) expression;
-									String type = variableDeclaration.getElementType().asString();
-									classDeclarations.add(type);
-								}
-							}
-						}
-					}
-			
-			);
-		}
-		
-		return classDeclarations;
-	}
 	
-	public List<String> getMethodCalls(String content, String className) {
-		ArrayList<String> methodCalls = new ArrayList();
-		CompilationUnit compilationUnit = JavaParser.parse(content);
-		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElseThrow(null);
-		if(mainClass == null) return methodCalls;
-		for(MethodDeclaration method : mainClass.getMethods()) {
-			method.accept(new VoidVisitorAdapter<Void> (){
-				
-				public void visit (MethodCallExpr n, Void arg) {
-					// Found a method call
-					methodCalls.add(n.getNameAsString());
-					super.visit(n, arg);
-				}
-			}
-			, null);
-			
-		}
-		return methodCalls;
-	}
 	
 	public String getXMLFirstAttribute(String key, String tagName, String content) throws LanguageServiceException {
 		String value = "";

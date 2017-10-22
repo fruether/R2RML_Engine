@@ -2,27 +2,30 @@ package Plugin.JavaSpecific;
 
 import Services.FileRetrievementService;
 import Services.FileRetrievementServiceException;
+import Services.JavaService;
 import Services.LanguageService;
 import org.apache.jena.graph.Node;
 import org.apache.jena.reasoner.rulesys.RuleContext;
 import org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.WeakHashMap;
+import java.util.stream.Collectors;
 
+import util.Package;
 /**
  * Created by freddy on 24.09.17.
  */
 public class CheckImport extends BaseBuiltin {
-	private LanguageService languageService;
+	private JavaService javaService;
 	private FileRetrievementService fileRetrievementService;
-	private Map<String, List<String>> fileImportsCache;
+	private Map<String, List<Package>> fileImportsCache;
 	
 	public CheckImport() {
-		languageService = LanguageService.getInstance();
+		javaService = LanguageService.getInstance().getJavaService();
 		fileRetrievementService = FileRetrievementService.getInstance();
-		fileImportsCache = new HashMap<>();
+		fileImportsCache = new WeakHashMap<>();
 		
 	}
 	@Override
@@ -39,8 +42,8 @@ public class CheckImport extends BaseBuiltin {
 		if(args.length != getArgLength()) return result;
 		
 		String  fileUri = args[0].getURI();
-		String packageName = getPackageFromUri(args[1].getURI());
-		List<String> importedPackages = null;
+		Package packageName = new Package(getPackageFromUri(args[1].getURI()));
+		List<Package> importedPackages = null;
 		
 		System.out.println("[CheckImport] Checking in " + fileUri + " for " + packageName);
 		
@@ -51,7 +54,7 @@ public class CheckImport extends BaseBuiltin {
 			String content = null;
 			try {
 				content = fileRetrievementService.getContent(fileUri);
-				importedPackages = languageService.getJavaImportedElements(content);
+				importedPackages = javaService.getJavaImportedElements(content).stream().map(x->new Package(x)).collect(Collectors.toList());
 				fileImportsCache.put(fileUri, importedPackages);
 			}
 			catch (FileRetrievementServiceException e) {

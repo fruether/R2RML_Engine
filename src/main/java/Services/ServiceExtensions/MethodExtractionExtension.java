@@ -25,7 +25,7 @@ public class MethodExtractionExtension extends PreludeExtension {
 				for(int i = 0; i < jsonArray.length(); i++) {
 					JSONObject jsonObject = jsonArray.getJSONObject(i);
 					String curPackage = jsonObject.get("package").toString();
-					String technologyPackagePath=technology + ":Package\\/" + curPackage;
+					String technologyPackagePath=technology + ":util.Package\\/" + curPackage;
 					
 					JSONArray methodsArray = jsonObject.getJSONArray("methods");
 					

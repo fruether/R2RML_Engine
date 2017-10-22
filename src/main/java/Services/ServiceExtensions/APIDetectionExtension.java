@@ -30,7 +30,7 @@ public class APIDetectionExtension extends PluginManagerExtension{
 				for(int i = 0; i < jsonArray.length(); i++) {
 					JSONObject jsonObject = jsonArray.getJSONObject(i);
 					String curPackage = jsonObject.get("package").toString();
-					String technologyPackagePath=technology + ":Package\\/" + curPackage;
+					String technologyPackagePath=technology + ":util.Package\\/" + curPackage;
 					expected.add(technologyPackagePath+ " rdf:type " + getName() + " .");
 					expected.add(technologyPackagePath+ " sl:partOf " +  "sl:" + technology + " .");
 					expected.add("sl:" + technology + " sl:hasPackage " + technologyPackagePath + " .");
@@ -46,6 +46,6 @@ public class APIDetectionExtension extends PluginManagerExtension{
 	
 	@Override
 	public String getName() {
-		return "sl:Package";
+		return "sl:util.Package";
 	}
 }

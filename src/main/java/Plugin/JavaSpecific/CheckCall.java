@@ -2,6 +2,7 @@ package Plugin.JavaSpecific;
 
 import Services.FileRetrievementService;
 import Services.FileRetrievementServiceException;
+import Services.JavaService;
 import Services.LanguageService;
 import org.apache.jena.graph.Node;
 import org.apache.jena.reasoner.rulesys.RuleContext;
@@ -10,19 +11,20 @@ import java.lang.Math.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 /**
  * Created by freddy on 24.09.17.
  */
 public class CheckCall extends BaseBuiltin{
-	private LanguageService languageService;
+	private JavaService languageService;
 	private FileRetrievementService fileRetrievementService;
 	private Map<String, List<String>> fileFunctionCache;
 
 	public CheckCall() {
-		languageService = LanguageService.getInstance();
+		languageService = LanguageService.getInstance().getJavaService();
 		fileRetrievementService = FileRetrievementService.getInstance();
-		fileFunctionCache = new HashMap<>();
+		fileFunctionCache = new WeakHashMap<>();
 	}
 
 	@Override

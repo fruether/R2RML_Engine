@@ -11,5 +11,15 @@
     "package" : "org.hibernate.SessionFactory",
     "methods" : ["getCurrentSession", "openSession"],
     "dependency" : ["org.hibernate.Session"]
+  },
+  {
+    "package" : "javax.persistence.%2a",
+    "methods" : [""],
+    "dependency" : [""]
+  },
+  {
+    "package" : "javax.persistence.Table",
+    "methods" : [""],
+    "dependency" : [""]
   }
 ]

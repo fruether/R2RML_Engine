@@ -5,7 +5,9 @@ import java.util.List;
 import java.math.sqrt;
 import java.lang.*;
 
+@Table(name="Peter")
 public class SampleClassDeclarations {
+	@Column
 	private String test;
 	private Object hallo;
 	private LinkedHashMap linkedHashMap;
