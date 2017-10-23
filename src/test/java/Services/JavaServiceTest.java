@@ -141,4 +141,16 @@ public class JavaServiceTest {
 			assertNull(e);
 		}
 	}
+	@Test
+	public void getAnnotations_byName_correct2() {
+		String content = null;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/HibernateAnnotation/AFETipoDescuento.java");
+			AnnotationConsumer.AnnotationValue  result = javaService.getAnnotationByName(content, "AFETipoDescuento", "Table");
+			assertNotNull(result);
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+	}
 }

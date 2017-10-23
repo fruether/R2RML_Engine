@@ -1,4 +1,6 @@
-package Plugin;
+package Plugin.HibernateSpecific;
+
+import Plugin.Dependency;
 
 import javax.xml.parsers.ParserConfigurationException;
 

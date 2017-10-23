@@ -57,7 +57,7 @@ public class RetrieveTables extends BaseBuiltin {
 		
 		try {
 			String sqlContent = fileRetrievementService.getContent(sqlFileUri);
-			 retrievedTables = sqlService.mysql_get_tables(sqlContent);
+			retrievedTables = sqlService.mysql_get_tables(sqlContent);
 		}
 		catch (FileRetrievementServiceException e) {
 			return;

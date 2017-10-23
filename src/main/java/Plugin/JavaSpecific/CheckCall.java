@@ -45,7 +45,7 @@ public class CheckCall extends BaseBuiltin{
 		String className = getLastUriClasst(args[2].getURI());
 		
 		List<String> methodCalls = null;
-		System.out.println("[CheckCall] Checking in " + fileUri + " the class " + className +" for " + methodName);
+		//System.out.println("[CheckCall] Checking in " + fileUri + " the class " + className +" for " + methodName);
 		if(fileFunctionCache.containsKey(fileUri)) {
 			methodCalls = fileFunctionCache.get(fileUri);
 		}

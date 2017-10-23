@@ -45,7 +45,7 @@ public class CheckImport extends BaseBuiltin {
 		Package packageName = new Package(getPackageFromUri(args[1].getURI()));
 		List<Package> importedPackages = null;
 		
-		System.out.println("[CheckImport] Checking in " + fileUri + " for " + packageName);
+		//System.out.println("[CheckImport] Checking in " + fileUri + " for " + packageName);
 		
 		if(fileImportsCache.containsKey(fileUri)) {
 			importedPackages = fileImportsCache.get(fileUri);

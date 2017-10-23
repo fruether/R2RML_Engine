@@ -1,17 +1,17 @@
 import Plugin.ClassLiteral;
 import Plugin.GetTableLiteral;
-import Plugin.HibernateGetMappingType;
+import Plugin.HibernateSpecific.HibernateGetMappingType;
 import Plugin.JavaSpecific.CheckCall;
 import Plugin.JavaSpecific.CheckClassReference;
 import Plugin.JavaSpecific.CheckImport;
 import Plugin.CheckReferences;
 import Plugin.DTDCheckPlugin;
 import Plugin.FileEndingPlugin;
-import Plugin.HibernateMappingAnalysis;
-import Plugin.HibernateRoleIdentification;
-import Plugin.HibernateMappingGetTable;
+import Plugin.HibernateSpecific.HibernateMappingAnalysis;
+import Plugin.HibernateSpecific.HibernateRoleIdentification;
+import Plugin.HibernateSpecific.HibernateMappingGetTable;
 import Plugin.LiquidBaseDependencyPlugin;
-import Plugin.HibernateDependency;
+import Plugin.HibernateSpecific.HibernateDependency;
 import Plugin.NoXSDMatch;
 import Plugin.ParserPlugin;
 import Plugin.JavaSpecific.RetrieveClass;
@@ -42,6 +42,8 @@ import org.apache.jena.vocabulary.RDF;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -52,8 +54,9 @@ public class Program {
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<BaseBuiltin> builtins= new ArrayList<BaseBuiltin>();
         String inputFile = "mrsData.ttl";
-        
-        
+        System.setOut(new PrintStream(new FileOutputStream("/Users/freddy/Desktop/log_file.txt")));
+    
+    
         try {
             addPlugins(builtins);
         }

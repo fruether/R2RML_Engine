@@ -1,4 +1,4 @@
-package Plugin;
+package Plugin.HibernateSpecific;
 
 import Services.FileRetrievementService;
 import Services.FileRetrievementServiceException;

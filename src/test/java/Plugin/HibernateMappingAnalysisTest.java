@@ -1,5 +1,6 @@
 package Plugin;
 
+import Plugin.HibernateSpecific.HibernateMappingAnalysis;
 import Services.FileRetrievementService;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;

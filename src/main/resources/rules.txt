@@ -9,6 +9,9 @@
 [XSDCheck:
     (?a sl:elementOf sl:XML)
     (?b sl:elementOf sl:XSD)
+    (?a sl:partOf build1)
+    (?b sl:partOf build2)
+    notEqual(build1, build2)
     XSDCheck(?a,?b) ->
     (?a sl:conformsTo ?b)]
 
@@ -121,14 +124,14 @@
 [ImportDetection:
     (?file sl:elementOf sl:Java)
     (?file sl:hasClass ?class)
-    (?package rdf:type sl:util.Package)
+    (?package rdf:type sl:Package)
     CheckImport(?file, ?package)
     ->
     (?file sl:uses ?package)
 ]
-[HibernateImportUsedDetection:
+[HibernateImportUsedDetection
     (?file1 sl:elementOf sl:Java)
-    (?package rdf:type sl:util.Package)
+    (?package rdf:type sl:Package)
     (?package sl:partOf sl:hibernate)
     (?file1 sl:uses ?package)
     (?file2 sl:elementOf sl:Java)
@@ -142,7 +145,7 @@
 [MethodCallDetection:
     (?file sl:elementOf sl:Java)
     (?file sl:hasClass ?class)
-    (?package rdf:type sl:util.Package)
+    (?package rdf:type sl:Package)
     (?file sl:uses ?package)
     (?method sl:partOf ?package)
     (?method rdf:type sl:Method)
@@ -150,11 +153,11 @@
     ->
     (?class sl:calls ?method)
 ]
-[MethodCallDetectionWithDependency:
+[MethodCallDetectionWithDependency
     (?file sl:elementOf sl:Java)
     (?file sl:hasClass ?class)
-    (?package rdf:type sl:util.Package)
-    (?packageDep rdf:type sl:util.Package)
+    (?package rdf:type sl:Package)
+    (?packageDep rdf:type sl:Package)
     (?package sl:uses ?packageDep)
     (?file sl:uses ?package)
     (?method sl:partOf ?packageDep)
@@ -164,7 +167,7 @@
     (?class sl:calls ?method)
 ]
 
-[HibernateMappingFunctionUsed:
+[HibernateMappingFunctionUsed
     (?file rdf:type sl:Artefact)
     (?file sl:elementOf sl:Java)
     (?file sl:hasClass ?theClass)
@@ -173,7 +176,7 @@
     (?mappingFile sl:defines ?function)
     (?mappingFile sl:hasRole technologies:Hibernate/HibernateMapping)
     (?theClass sl:calls ?method)
-    (?method sl:partOf technologiesSmall:hibernate/util.Package/org.hibernate.Session)
+    (?method sl:partOf technologiesSmall:hibernate/Package/org.hibernate.Session)
  ->
     (?theClass sl:indicatesUseOf ?function)
 ]

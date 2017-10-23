@@ -1,5 +1,6 @@
 package Plugin;
 
+import Plugin.HibernateSpecific.HibernateRoleIdentification;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.reasoner.rulesys.BindingEnvironment;

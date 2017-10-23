@@ -1,5 +1,6 @@
 package Services;
 
+import org.apache.jena.base.Sys;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -102,6 +103,29 @@ public class SQLServiceTest {
 		assertTrue(tables.contains("KingdomHallFeature_AUD".toUpperCase()));
 		
 	}
+	
+	@Test
+	public void mysql_get_tables_correct2() {
+		String content = null;
+		Set<String> tables = null;
+		boolean result = false;
+		
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/initcaisi.sql").toUpperCase();
+			tables = sqlService.mysql_get_tables(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+		assertEquals(tables.size(), 120);
+		assertTrue(tables.contains("functionalCentreAdmission".toUpperCase()));
+		assertTrue(tables.contains("ClientLink".toUpperCase()));
+		assertTrue(tables.contains("GroupNoteLink".toUpperCase()));
+		
+		
+	}
 	@Test
 	public void test_sqliteInput_1() {
 		String content = null;
@@ -115,6 +139,25 @@ public class SQLServiceTest {
 		catch (FileRetrievementServiceException e) {
 			assertNull(e);
 		}
+		
+	}
+	
+	@Test
+	public void parse_sql_correct() {
+		String content = null;
+		boolean result = false;
+		
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/initcaisi.sql").toUpperCase();
+			//content = content.replace("DEFAULT CURRENT_TIMESTAMP", "");
+			result = sqlService.parseSQL(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+		assertTrue(result);
 		
 	}
 }

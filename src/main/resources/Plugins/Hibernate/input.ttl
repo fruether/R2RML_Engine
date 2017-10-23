@@ -4,61 +4,43 @@
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
  
- 
+
 sl:hibernate rdf:type sl:BuildRelease .
- 
 hibernate:hibernate-configuration-3.0.dtd rdf:type sl:Artefact .
 hibernate:hibernate-configuration-4.0.xsd rdf:type sl:Artefact .
 hibernate:hibernate-mapping-3.0.dtd rdf:type sl:Artefact .
 hibernate:hibernate-mapping-4.0.xsd rdf:type sl:Artefact .
- 
 hibernate:hibernate-configuration-3.0.dtd sl:partOf sl:hibernate .
 hibernate:hibernate-configuration-4.0.xsd sl:partOf sl:hibernate .
 hibernate:hibernate-mapping-3.0.dtd sl:partOf sl:hibernate .
 hibernate:hibernate-mapping-4.0.xsd sl:partOf sl:hibernate .
- 
-hibernate:util.Package\/org.hibernate.cfg.Configuration rdf:type sl:util.Package .
-hibernate:util.Package\/org.hibernate.cfg.Configuration sl:partOf sl:hibernate .
-sl:hibernate sl:hasPackage hibernate:util.Package\/org.hibernate.cfg.Configuration .
-hibernate:util.Package\/org.hibernate.Session rdf:type sl:util.Package .
-hibernate:util.Package\/org.hibernate.Session sl:partOf sl:hibernate .
-sl:hibernate sl:hasPackage hibernate:util.Package\/org.hibernate.Session .
-hibernate:util.Package\/org.hibernate.SessionFactory rdf:type sl:util.Package .
-hibernate:util.Package\/org.hibernate.SessionFactory sl:partOf sl:hibernate .
-sl:hibernate sl:hasPackage hibernate:util.Package\/org.hibernate.SessionFactory .
-hibernate:util.Package\/javax.persistence.%2a rdf:type sl:util.Package .
-hibernate:util.Package\/javax.persistence.%2a sl:partOf sl:hibernate .
-sl:hibernate sl:hasPackage hibernate:util.Package\/javax.persistence.%2a .
-hibernate:util.Package\/javax.persistence.Table rdf:type sl:util.Package .
-hibernate:util.Package\/javax.persistence.Table sl:partOf sl:hibernate .
-sl:hibernate sl:hasPackage hibernate:util.Package\/javax.persistence.Table .
- 
+hibernate:Package\/org.hibernate.cfg.Configuration rdf:type sl:Package .
+hibernate:Package\/org.hibernate.cfg.Configuration sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/org.hibernate.cfg.Configuration .
+hibernate:Package\/org.hibernate.Session rdf:type sl:Package .
+hibernate:Package\/org.hibernate.Session sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/org.hibernate.Session .
+hibernate:Package\/org.hibernate.SessionFactory rdf:type sl:Package .
+hibernate:Package\/org.hibernate.SessionFactory sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/org.hibernate.SessionFactory .
 hibernate:\/Method\/addResource rdf:type sl:Method .
-hibernate:\/Method\/addResource sl:partOf hibernate:util.Package\/org.hibernate.cfg.Configuration .
+hibernate:\/Method\/addResource sl:partOf hibernate:Package\/org.hibernate.cfg.Configuration .
 hibernate:\/Method\/addClass rdf:type sl:Method .
-hibernate:\/Method\/addClass sl:partOf hibernate:util.Package\/org.hibernate.cfg.Configuration .
+hibernate:\/Method\/addClass sl:partOf hibernate:Package\/org.hibernate.cfg.Configuration .
 hibernate:\/Method\/configure rdf:type sl:Method .
-hibernate:\/Method\/configure sl:partOf hibernate:util.Package\/org.hibernate.cfg.Configuration .
+hibernate:\/Method\/configure sl:partOf hibernate:Package\/org.hibernate.cfg.Configuration .
 hibernate:\/Method\/save rdf:type sl:Method .
-hibernate:\/Method\/save sl:partOf hibernate:util.Package\/org.hibernate.Session .
+hibernate:\/Method\/save sl:partOf hibernate:Package\/org.hibernate.Session .
 hibernate:\/Method\/saveOrUpdate rdf:type sl:Method .
-hibernate:\/Method\/saveOrUpdate sl:partOf hibernate:util.Package\/org.hibernate.Session .
+hibernate:\/Method\/saveOrUpdate sl:partOf hibernate:Package\/org.hibernate.Session .
 hibernate:\/Method\/update rdf:type sl:Method .
-hibernate:\/Method\/update sl:partOf hibernate:util.Package\/org.hibernate.Session .
+hibernate:\/Method\/update sl:partOf hibernate:Package\/org.hibernate.Session .
 hibernate:\/Method\/persist rdf:type sl:Method .
-hibernate:\/Method\/persist sl:partOf hibernate:util.Package\/org.hibernate.Session .
+hibernate:\/Method\/persist sl:partOf hibernate:Package\/org.hibernate.Session .
 hibernate:\/Method\/createQuery rdf:type sl:Method .
-hibernate:\/Method\/createQuery sl:partOf hibernate:util.Package\/org.hibernate.Session .
+hibernate:\/Method\/createQuery sl:partOf hibernate:Package\/org.hibernate.Session .
 hibernate:\/Method\/getCurrentSession rdf:type sl:Method .
-hibernate:\/Method\/getCurrentSession sl:partOf hibernate:util.Package\/org.hibernate.SessionFactory .
+hibernate:\/Method\/getCurrentSession sl:partOf hibernate:Package\/org.hibernate.SessionFactory .
 hibernate:\/Method\/openSession rdf:type sl:Method .
-hibernate:\/Method\/openSession sl:partOf hibernate:util.Package\/org.hibernate.SessionFactory .
-hibernate:\/Method\/ rdf:type sl:Method .
-hibernate:\/Method\/ sl:partOf hibernate:util.Package\/javax.persistence.%2a .
-hibernate:\/Method\/ rdf:type sl:Method .
-hibernate:\/Method\/ sl:partOf hibernate:util.Package\/javax.persistence.Table .
- 
-hibernate:util.Package\/org.hibernate.SessionFactory sl:uses hibernate:util.Package\/org.hibernate.Session .
-hibernate:util.Package\/javax.persistence.%2a sl:uses hibernate:util.Package\/ .
-hibernate:util.Package\/javax.persistence.Table sl:uses hibernate:util.Package\/ .
- 
+hibernate:\/Method\/openSession sl:partOf hibernate:Package\/org.hibernate.SessionFactory .
+hibernate:Package\/org.hibernate.SessionFactory sl:uses hibernate:Package\/org.hibernate.Session .

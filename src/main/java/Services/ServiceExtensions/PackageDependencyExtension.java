@@ -37,8 +37,8 @@ public class PackageDependencyExtension extends PluginManagerExtension {
 		
 					for(int j  = 0; j < dependencyJsonArray.length(); j++) {
 						
-						String dependPackageDeclaration = technology + ":util.Package\\/" +dependencyJsonArray.getString(j);
-						String curPackageDeclaration = technology + ":util.Package\\/" + curPackage;
+						String dependPackageDeclaration = technology + ":Package\\/" +dependencyJsonArray.getString(j);
+						String curPackageDeclaration = technology + ":Package\\/" + curPackage;
 						String depDeclaration = curPackageDeclaration + " sl:uses " + dependPackageDeclaration + " .";
 						expected.add(depDeclaration);
 					}

@@ -54,14 +54,20 @@ public class SQLService implements ANTLRErrorListener {
 		}
 		return result;
 	}
+	
 	private boolean parseMySQL(String content) {
 		try {
+			//Couldn't fix the ANTLR grammar to support this
+			String regex = "DEFAULT (.)*,";
+			String cleanedContent = content.replaceAll(regex, "DEFAULT 'X',");
+			//String cleanedContent = content.replace("default CURRENT_TIMESTAMP", "");
 			wellFormedSQL = true;
-			MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(content));
+			MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(cleanedContent));
 			MySqlParser parser = new MySqlParser(new CommonTokenStream(lexer));
 			parser.setErrorHandler(defaultAntlrErrorStrategy);
 			parser.addErrorListener(this);
 			parser.root();
+			
 		}
 		catch (ParseCancellationException parseCancellationException) {
 			wellFormedSQL =  false;
@@ -69,11 +75,14 @@ public class SQLService implements ANTLRErrorListener {
 		catch (Throwable error) {
 			wellFormedSQL =  false;
 		}
+		System.out.println("Trying MySQL not more");
+		
 		return wellFormedSQL;
 	}
 	
 	private boolean parseSQLite(String content) {
 		try {
+			
 			wellFormedSQL = true;
 			SQLiteLexer lexer = new SQLiteLexer(CharStreams.fromString(content));
 			SQLiteParser parser = new SQLiteParser(new CommonTokenStream(lexer));
@@ -93,8 +102,10 @@ public class SQLService implements ANTLRErrorListener {
 	
 	public Set<String> mysql_get_tables(String content) {
 		Set<String> foundTables = new HashSet<>();
+		String regex = "DEFAULT (.)*,";
+		String cleanedContent = content.toUpperCase().replaceAll(regex, "DEFAULT 'X',");
 		
-		MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(content.toUpperCase()));
+		MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(cleanedContent.toUpperCase()));
 		MySqlParser parser = new MySqlParser(new CommonTokenStream(lexer));
 		ParseTree tree = parser.root();
 		
@@ -103,11 +114,13 @@ public class SQLService implements ANTLRErrorListener {
 			@Override public void enterQueryCreateTable(MySqlParser.QueryCreateTableContext ctx) {
 				List<MySqlParser.Id_Context> tableId = ctx.table_name().id_();
 				String tableNameValue  = tableId.get(tableId.size() - 1).getText();
+				tableNameValue = tableNameValue.replace("`", "");
 				foundTables.add(tableNameValue);
 			}
 			@Override public void enterColCreateTable(MySqlParser.ColCreateTableContext ctx) {
 				List<MySqlParser.Id_Context> tableId = ctx.table_name().id_();
 				String tableNameValue  = tableId.get(tableId.size() - 1).getText();
+				tableNameValue = tableNameValue.replace("`", "");
 				foundTables.add(tableNameValue);
 			}
 			

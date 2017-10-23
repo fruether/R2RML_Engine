@@ -22,6 +22,10 @@ public class AnnotationConsumer implements Consumer<AnnotationExpr> {
 	public class AnnotationValue {
 		public String value;
 		public Map<String, String> keyValues;
+		public AnnotationValue() {
+			this.value = null;
+			keyValues = null;
+		}
 		public AnnotationValue(String value) {
 			this.value = value;
 			keyValues = null;
@@ -34,6 +38,10 @@ public class AnnotationConsumer implements Consumer<AnnotationExpr> {
 		public boolean hasKeys() {
 			return keyValues != null;
 		}
+		public boolean isEmpty() {
+			return keyValues == null && value == null;
+		}
+		
 	}
 	
 	@Override
@@ -57,7 +65,7 @@ public class AnnotationConsumer implements Consumer<AnnotationExpr> {
 			
 		}
 		else {
-			annotationsWithArguments.put(annotationName, null);
+			annotationsWithArguments.put(annotationName, new AnnotationValue());
 		}
 	
 	}
