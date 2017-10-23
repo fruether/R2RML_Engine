@@ -36,7 +36,7 @@ public class HibernateAnnotationDetectionTest {
 		BindingEnvironment bindingEnvironment = new BindingVector(env);
 		ruleContext.setEnv(bindingEnvironment);
 		
-		hibernateAnnotationDetection.headAction(env, 1, ruleContext);
+		//hibernateAnnotationDetection.headAction(env, 1, ruleContext);
 		
 		Triple x = new Triple(javaFile, NodeFactory.createURI("http://softlang.de/refersTo"), NodeFactory.createURI("http://softlang.de/Table/cont_libro"));
 	}
@@ -48,7 +48,7 @@ public class HibernateAnnotationDetectionTest {
 		BindingEnvironment bindingEnvironment = new BindingVector(env);
 		ruleContext.setEnv(bindingEnvironment);
 		
-		hibernateAnnotationDetection.headAction(env, 1, ruleContext);
+		//hibernateAnnotationDetection.headAction(env, 1, ruleContext);
 		
 		Triple x = new Triple(javaFile, NodeFactory.createURI("http://softlang.de/refersTo"), NodeFactory.createURI("http://softlang.de/Table/AFETipoDescuento"));
 	}
