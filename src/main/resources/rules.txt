@@ -96,6 +96,7 @@
     (?class sl:defines ?classLanguage)
     (?classLanguage rdf:type sl:Language)
     (?classLanguage sl:subsetOf sl:JVMObject)
+    (?file2 sl:hasRole technologies:Hibernate/HibernatePersistedObject)
 ]
 
 [HibernateMappingFunctionDefinition:
@@ -111,7 +112,7 @@
     ->
     (?file sl:defines sl:OR-Mapping)
 ]
-[ibernateMappingFunctionInputDefinition:
+[HibernateMappingFunctionInputDefinition:
     (?mappingFile sl:elementOf sl:XML)
     (?mappingFile sl:defines ?function)
     (?function sl:partOf sl:OR-Mapping)
@@ -129,13 +130,14 @@
     ->
     (?file sl:uses ?package)
 ]
-[HibernateImportUsedDetection
+[HibernateImportUsedDetection:
     (?file1 sl:elementOf sl:Java)
     (?package rdf:type sl:Package)
     (?package sl:partOf sl:hibernate)
     (?file1 sl:uses ?package)
     (?file2 sl:elementOf sl:Java)
     notEqual(?file1, ?file2)
+    (?file2 sl:hasRole technologies:Hibernate/HibernatePersistedObject)
     (?file2 sl:hasClass ?class2)
     CheckClassReference(?file1, ?class2)
     (?file1 sl:hasClass ?class1)
@@ -167,18 +169,19 @@
     (?class sl:calls ?method)
 ]
 
-[HibernateMappingFunctionUsed
-    (?file rdf:type sl:Artefact)
+[HibernateMappingFunctionUsed:
     (?file sl:elementOf sl:Java)
-    (?file sl:hasClass ?theClass)
-    (?theClass sl:uses ?class)
-    (?mappingFile sl:refersTo ?class)
-    (?mappingFile sl:defines ?function)
+    (?file sl:hasClass ?serviceClass)
+    (?perFile sl:hasRole technologies:Hibernate/HibernatePersistedObject)
+    (?perFile sl:hasClass ?perClass)
     (?mappingFile sl:hasRole technologies:Hibernate/HibernateMapping)
-    (?theClass sl:calls ?method)
+    (?mappingFile sl:refersTo ?perClass)
+    (?serviceClass sl:uses ?perClass)
+    (?mappingFile sl:defines ?function)
+    (?serviceClass sl:calls ?method)
     (?method sl:partOf technologiesSmall:hibernate/Package/org.hibernate.Session)
  ->
-    (?theClass sl:indicatesUseOf ?function)
+    (?serviceClass sl:indicatesUseOf ?function)
 ]
 
 [RetrieveReferencesBetweenXML

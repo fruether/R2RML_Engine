@@ -4,8 +4,10 @@ import org.apache.jena.base.Sys;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Map;
 import java.util.Set;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.*;
 
 /**
@@ -158,6 +160,61 @@ public class SQLServiceTest {
 		}
 		
 		assertTrue(result);
+		
+	}
+	
+	@Test
+	public void parse_sql_correct_large() {
+		String content = null;
+		boolean result = false;
+		
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/drugref.sql");
+			//content = content.replace("DEFAULT CURRENT_TIMESTAMP", "");
+			result = sqlService.parseSQL(content);
+			System.out.println("Done" + result);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+		assertTrue(result);
+		
+	}
+	
+	@Test
+	public void test_get_matches_small_file() {
+		String uri = "http://softlang.com/001.sql";
+		FileRetrievementService fileRetrievementService = FileRetrievementService.getInstance();
+		try {
+			String content = fileRetrievementService.getContent(uri);
+			
+			Map<String, int[]> matchedTable = sqlService.getCreateStmts(content);
+			assertEquals(matchedTable.size(), 88);
+			assertTrue(matchedTable.containsKey("USER"));
+			assertTrue(matchedTable.containsKey("Congregation_AUD".toUpperCase()));
+			
+		}
+		catch (FileRetrievementServiceException exception) {
+			assertTrue(false);
+		}
+		
+	}
+	@Test
+	public void test_get_matches_large_file() {
+		String uri = "http://softlang.com/SQL/drugref.sql";
+		FileRetrievementService fileRetrievementService = FileRetrievementService.getInstance();
+		
+		try {
+			String content = fileRetrievementService.getContent(uri);
+			Map<String, int[]> matchedTable = sqlService.getCreateStmts(content);
+			assertEquals(matchedTable.size(), 16);
+			
+		}
+		catch (FileRetrievementServiceException exception) {
+			assertTrue(false);
+		}
 		
 	}
 }

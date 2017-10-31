@@ -22,9 +22,13 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.util.BitSet;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by freddy on 15.10.17.
@@ -75,7 +79,6 @@ public class SQLService implements ANTLRErrorListener {
 		catch (Throwable error) {
 			wellFormedSQL =  false;
 		}
-		System.out.println("Trying MySQL not more");
 		
 		return wellFormedSQL;
 	}
@@ -138,20 +141,42 @@ public class SQLService implements ANTLRErrorListener {
 	@Override
 	public void reportAmbiguity(Parser parser, DFA dfa, int i, int i1, boolean b, BitSet bitSet,
 			ATNConfigSet atnConfigSet) {
-		
-		
 	}
 	
 	@Override
 	public void reportAttemptingFullContext(Parser parser, DFA dfa, int i, int i1, BitSet bitSet,
 			ATNConfigSet atnConfigSet) {
-		
 	}
 	
 	@Override
 	public void reportContextSensitivity(Parser parser, DFA dfa, int i, int i1, int i2,
 			ATNConfigSet atnConfigSet) {
+	}
+	
+	public Map<String, int[]> getCreateStmts(String content) {
+		content = content.toUpperCase();
+	
+		String regex = "create table [^(]+\\([^;]+\\)([^=;]+=[^;]+)?;";
+		Pattern pattern = Pattern.compile(regex, Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
+		Map<String, int[]> matchedTables = new HashMap<>();
 		
+		Matcher matcher = pattern.matcher(content);
+		
+		while(matcher.find()) {
+			int temp[] = new int[2];
+			temp[0] = matcher.start();
+			temp[1] = matcher.end();
+			//System.out.println(content.substring(temp[0], temp[1]));
+			//Table name
+			String query = matcher.group(0);
+			String table = query.substring(query.indexOf("table".toUpperCase())  + 5, query.indexOf("("))
+					.replace(" ", "")
+					.replace("IFNOTEXISTS", "")
+					.replace("`", "");
+			matchedTables.put(table, temp);
+		}
+		
+		return matchedTables;
 	}
 	
 }
