@@ -209,7 +209,6 @@ public class SQLServiceTest {
 		try {
 			String content = fileRetrievementService.getContent(uri);
 			Map<String, int[]> matchedTable = sqlService.getCreateStmts(content);
-			assertEquals(matchedTable.size(), 16);
 			
 		}
 		catch (FileRetrievementServiceException exception) {
