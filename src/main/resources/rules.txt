@@ -194,11 +194,7 @@
      (?file1 sl:refersTo ?file2)
  ]
 
-[GetDefinedTablesInSQL:
-    (?file sl:elementOf sl:SQL)
-    ->
-    RetrieveTables(?file)
-]
+
 
 [HibernateMappingReferencedTables:
     (?file sl:hasRole technologies:Hibernate/HibernateMapping)
@@ -218,10 +214,12 @@
 ]
 
 [RelationalLanguageDefinition:
-    (?table rdf:type sl:Table)
-    GetTableLiteral(?table, ?relationalLanguage)
+    (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
+    (?tableName sl:partOf ?fragment)
+    (?tableName sl:elementOf sl:Language/ReferenceLanguage)
+    GetTableLiteral(?tableName, ?relationalLanguage)
     ->
-    (?table sl:defines ?relationalLanguage)
+    (?fragment sl:defines ?relationalLanguage)
     (?relationalLanguage rdf:type sl:Language)
     (?relationalLanguage sl:partOf sl:RelationalDatabase)
 ]
@@ -230,7 +228,21 @@
     (?file sl:hasRole technologies:Hibernate/HibernateMapping)
     (?file sl:defines ?function)
     (?file sl:HibernateMappingRefersToRelationalTable ?table)
-    (?table sl:defines ?relationalLanguage)
+    (?table sl:partOf ?sqlFragment)
+    (?sqlFragment sl:defines ?relationalLanguage)
     ->
     (?function sl:output ?relationalLanguage)
+]
+
+
+[ExtractAndParseCreateStmts:
+    (?file sl:elementOf sl:SQL)
+    ->
+    CreateStmtExtraction(?file)
+]
+
+[GetTableUri:
+    (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
+    ->
+    RetrieveTableURI(?fragment)
 ]

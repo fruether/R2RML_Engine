@@ -16,7 +16,8 @@ import Plugin.HibernateSpecific.HibernateDependency;
 import Plugin.NoXSDMatch;
 import Plugin.ParserPlugin;
 import Plugin.JavaSpecific.RetrieveClass;
-import Plugin.RetrieveTables;
+import Plugin.RetrieveTableURI;
+import Plugin.SQLSpecific.CreateStmtExtraction;
 import Plugin.XSDCheckPlugin;
 import Services.InputManagementService;
 import Services.PluginManagmentService;
@@ -146,10 +147,11 @@ public class Program {
         builtins.add(new HibernateGetMappingType());
         builtins.add(new ClassLiteral());
         builtins.add(new CheckClassReference());
-        builtins.add(new RetrieveTables());
+        builtins.add(new RetrieveTableURI());
         builtins.add(new HibernateMappingGetTable());
         builtins.add(new GetTableLiteral());
         builtins.add(new HibernateAnnotationDetection());
+        builtins.add(new CreateStmtExtraction());
     
     }
 

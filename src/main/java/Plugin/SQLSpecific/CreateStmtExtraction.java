@@ -24,7 +24,7 @@ public class CreateStmtExtraction extends BaseBuiltin {
 	public CreateStmtExtraction() {
 		fileRetrievementService = FileRetrievementService.getInstance();
 		sqlService = LanguageService.getInstance().getSQLService();
-		uriService = new UriService("http://softlang.de/");
+		uriService = new UriService("http://softlang.com/");
 	}
 	
 	@Override
@@ -50,9 +50,10 @@ public class CreateStmtExtraction extends BaseBuiltin {
 				Node fragmentPart = NodeFactory.createURI(uri + "#" + matchedIdx[0] + ":" + matchedIdx[1]);
 				
 				if(checkActualStmt(content, matchedIdx[0], matchedIdx[1])) {
+					//System.out.println("True for " + fragmentPart.toString());
 					context.add(new Triple(fragmentPart, uriService.getNodeElementOfUri() ,uriService.getNodeLanguageSqlCreateStmt()));
 				}
-				
+				System.out.println("[CreateStmtExtraction] " + fragmentPart.toString());
 				context.add(new Triple(fragmentPart, uriService.getNodeRdfType(), uriService.getNodeFragmentUri()));
 				context.add(new Triple(fragmentPart, uriService.getNodePartOfUri(), args[0]));
 			}

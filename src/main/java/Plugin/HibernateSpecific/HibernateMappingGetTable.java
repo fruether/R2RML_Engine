@@ -22,7 +22,7 @@ public class HibernateMappingGetTable extends BaseBuiltin {
 	public HibernateMappingGetTable() {
 		fileRetrievementService = FileRetrievementService.getInstance();
 		languageService = LanguageService.getInstance();
-		baseUriTable = "http://softlang.com/Table/";
+		baseUriTable = "http://softlang.com/URI/";
 	}
 	
 	@Override

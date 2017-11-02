@@ -20,6 +20,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.ParseCancellationException;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import util.TableNameListener;
 
 import java.util.BitSet;
 import java.util.HashMap;
@@ -130,6 +131,21 @@ public class SQLService implements ANTLRErrorListener {
 		}, tree);
 		
 		return foundTables;
+	}
+	
+	public String mysql_get_table(String content) {
+		final String foundTable;
+		String regex = "DEFAULT (.)*,";
+		String cleanedContent = content.toUpperCase().replaceAll(regex, "DEFAULT 'X',");
+		
+		MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(cleanedContent.toUpperCase()));
+		MySqlParser parser = new MySqlParser(new CommonTokenStream(lexer));
+		ParseTree tree = parser.root();
+		TableNameListener tableNameListener = new TableNameListener();
+		
+		ParseTreeWalker.DEFAULT.walk(tableNameListener, tree);
+		
+		return tableNameListener.getTableName();
 	}
 	
 	@Override

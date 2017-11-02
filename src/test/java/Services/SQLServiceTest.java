@@ -215,6 +215,21 @@ public class SQLServiceTest {
 		catch (FileRetrievementServiceException exception) {
 			assertTrue(false);
 		}
+	}
+	@Test
+	public void test_get_matches_small_file2() {
+		String uri = "http://softlang.com/SQL/patch-2008-12-19.sql";
+		FileRetrievementService fileRetrievementService = FileRetrievementService.getInstance();
 		
+		try {
+			String content = fileRetrievementService.getContent(uri);
+			boolean matchedTable = sqlService.parseSQL(content);
+			
+			assertTrue(matchedTable);
+			
+		}
+		catch (FileRetrievementServiceException exception) {
+			assertTrue(false);
+		}
 	}
 }

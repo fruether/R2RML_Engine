@@ -14,6 +14,8 @@ public class UriService {
 	private String baseUri;
 	private String rdfType;
 	private String tableType;
+	private String referenceLanguage;
+	private String uriUri;
 	
 	public String getElementOfUri() {
 		return baseUri + elementOfUri;
@@ -30,20 +32,32 @@ public class UriService {
 	public String getLanguageSqlCreateStmt() {
 		return baseUri + sqlCreateStmt;
 	}
+	public String getReferenceLanguage() {
+		return baseUri + referenceLanguage;
+	}
+	public String getUri() {
+		return baseUri + uriUri;
+	}
+	
+	public Node getNodeReferenceLanguage() {
+		return NodeFactory.createURI(getReferenceLanguage());
+	}
+	
+	
 	public Node getNodeElementOfUri() {
-		return NodeFactory.createURI(baseUri + elementOfUri);
+		return NodeFactory.createURI(getElementOfUri());
 	}
 	
 	public Node getNodePartOfUri() {
-		return NodeFactory.createURI(baseUri + partOfUri);
+		return NodeFactory.createURI(getPartOfUri());
 	}
 	
 	public Node getNodeFragmentUri() {
-		return NodeFactory.createURI(baseUri + fragmentUri);
+		return NodeFactory.createURI(getFragmentUri());
 	}
 	
 	public Node getNodeLanguageSqlCreateStmt() {
-		return NodeFactory.createURI(baseUri + sqlCreateStmt);
+		return NodeFactory.createURI(getLanguageSqlCreateStmt());
 	}
 	public Node getNodeRdfType() {
 		return NodeFactory.createURI(rdfType);
@@ -59,13 +73,21 @@ public class UriService {
 		}
 		setUp();
 	}
+	
+	public UriService() {
+		this.baseUri = "http://softlang.com/";
+		setUp();
+	}
+	
 	private void setUp() {
 		fragmentUri = "Fragment";
 		partOfUri = "partOf";
 		elementOfUri = "elementOf";
-		sqlCreateStmt = "Language/SQLiteCreateTableStmt";
+		sqlCreateStmt = "Language/SQLCreateTableStmt";
 		rdfType = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
 		tableType = "Table";
+		referenceLanguage = "Language/ReferenceLanguage";
+		uriUri = "URI/";
 	}
 
 	

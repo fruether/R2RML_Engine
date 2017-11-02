@@ -34,6 +34,13 @@ public class CreateStmtExtractionTest {
 		
 		createStmtExtraction.headAction(env, 1, null);
 	}
-
+	
+	@Test
+	public void normal_sql_file_3() {
+		Node uri = NodeFactory.createURI("http://softlang.com/SQL/patch-2008-12-06-2-quatromerge.sql");
+		Node[] env = new Node[] {uri};
+		
+		createStmtExtraction.headAction(env, 1, null);
+	}
 	
 }
