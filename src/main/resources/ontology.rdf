@@ -27,6 +27,7 @@
     <rdfs:Class rdf:about="Function" rdfs:label="Function" rdfs:comment="A function as defined in MegaL"/>
     <rdfs:Class rdf:about="Table" rdfs:label="Table" rdfs:comment="An Table of a relational database"/>
     <rdfs:Class rdf:about="util.Package" rdfs:label="util.Package" rdfs:comment="A package knwon from Java"/>
+    <rdfs:Class rdf:about="Fragment" rdfs:label="Fragment" rdfs:comment="A fragment of the Megal concept"/>
 
 
 
@@ -49,6 +50,10 @@
 
     <rdf:Property rdf:about="hasRole">
         <rdfs:domain rdf:resource="Artefact"/>
+        <rdfs:range rdf:resource="Role"/>
+    </rdf:Property >
+    <rdf:Property rdf:about="hasRole">
+        <rdfs:domain rdf:resource="Fragment"/>
         <rdfs:range rdf:resource="Role"/>
     </rdf:Property >
     <rdf:Property rdf:about="conformsTo">

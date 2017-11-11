@@ -43,9 +43,22 @@ public class CheckImport extends BaseBuiltin {
 		
 		String  fileUri = args[0].getURI();
 		Package packageName = new Package(getPackageFromUri(args[1].getURI()));
-		List<Package> importedPackages = null;
+		List<Package> importedPackages = getImportedPackages(fileUri);
 		
 		//System.out.println("[CheckImport] Checking in " + fileUri + " for " + packageName);
+		
+		result = importedPackages.contains(packageName);
+		return result;
+		
+	}
+	
+	private String getPackageFromUri(String uri) {
+		int lastSlash = uri.lastIndexOf("/") + 1;
+		return uri.substring(lastSlash);
+		
+	}
+	protected List<Package> getImportedPackages(String fileUri){
+		List<Package> importedPackages = null;
 		
 		if(fileImportsCache.containsKey(fileUri)) {
 			importedPackages = fileImportsCache.get(fileUri);
@@ -61,15 +74,6 @@ public class CheckImport extends BaseBuiltin {
 				e.printError();
 			}
 		}
-		
-		result = importedPackages.contains(packageName);
-		return result;
-		
-	}
-	
-	private String getPackageFromUri(String uri) {
-		int lastSlash = uri.lastIndexOf("/") + 1;
-		return uri.substring(lastSlash);
-		
+		return importedPackages;
 	}
 }

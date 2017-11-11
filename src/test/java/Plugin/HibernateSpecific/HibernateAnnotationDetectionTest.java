@@ -38,7 +38,7 @@ public class HibernateAnnotationDetectionTest {
 		
 		//hibernateAnnotationDetection.headAction(env, 1, ruleContext);
 		
-		Triple x = new Triple(javaFile, NodeFactory.createURI("http://softlang.de/refersTo"), NodeFactory.createURI("http://softlang.de/Table/cont_libro"));
+		//Triple x = new Triple(javaFile, NodeFactory.createURI("http://softlang.de/refersTo"), NodeFactory.createURI("http://softlang.de/Table/cont_libro"));
 	}
 	
 	@Test
@@ -50,7 +50,19 @@ public class HibernateAnnotationDetectionTest {
 		
 		//hibernateAnnotationDetection.headAction(env, 1, ruleContext);
 		
-		Triple x = new Triple(javaFile, NodeFactory.createURI("http://softlang.de/refersTo"), NodeFactory.createURI("http://softlang.de/Table/AFETipoDescuento"));
+		//Triple x = new Triple(javaFile, NodeFactory.createURI("http://softlang.de/refersTo"), NodeFactory.createURI("http://softlang.de/Table/AFETipoDescuento"));
 	}
 	
+	
+	@Test
+	public void get_annoation_with_only_entity() {
+		Node javaFile = NodeFactory.createURI("http://softlang.com/HibernateAnnotation/SecurityToken.java");
+		Node[] env = new Node[] {javaFile};
+		BindingEnvironment bindingEnvironment = new BindingVector(env);
+		ruleContext.setEnv(bindingEnvironment);
+		
+		//hibernateAnnotationDetection.headAction(env, 1, ruleContext);
+		
+		//Triple x = new Triple(javaFile, NodeFactory.createURI("http://softlang.de/refersTo"), NodeFactory.createURI("http://softlang.de/Table/AFETipoDescuento"));
+	}
 }

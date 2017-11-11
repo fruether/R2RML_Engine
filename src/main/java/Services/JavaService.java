@@ -183,9 +183,13 @@ public class JavaService {
 		AnnotationConsumer annotationConsumer = new AnnotationConsumer();
 		
 		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElseThrow(null);
+		int endPosition = mainClass.getRange().get().begin.line;
+		annotationConsumer.setEndStatement(endPosition);
 		mainClass.getAnnotations().forEach(annotationConsumer);
 		com.github.javaparser.ast.NodeList<BodyDeclaration<?>> members = mainClass.getMembers();
 		for(BodyDeclaration bodyDeclaration : members) {
+			endPosition = bodyDeclaration.getRange().get().begin.line;
+			annotationConsumer.setEndStatement(endPosition);
 			bodyDeclaration.getAnnotations().forEach(annotationConsumer);
 		}
 		return annotationConsumer;

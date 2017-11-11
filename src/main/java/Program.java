@@ -11,6 +11,7 @@ import Plugin.FileEndingPlugin;
 import Plugin.HibernateSpecific.HibernateMappingAnalysis;
 import Plugin.HibernateSpecific.HibernateRoleIdentification;
 import Plugin.HibernateSpecific.HibernateMappingGetTable;
+import Plugin.JavaSpecific.CheckLiteralImported;
 import Plugin.LiquidBaseDependencyPlugin;
 import Plugin.HibernateSpecific.HibernateDependency;
 import Plugin.NoXSDMatch;
@@ -152,7 +153,7 @@ public class Program {
         builtins.add(new GetTableLiteral());
         builtins.add(new HibernateAnnotationDetection());
         builtins.add(new CreateStmtExtraction());
-    
+        builtins.add(new CheckLiteralImported());
     }
 
 }

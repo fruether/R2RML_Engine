@@ -4,6 +4,7 @@ import Services.FileRetrievementService;
 import Services.FileRetrievementServiceException;
 import Services.LanguageService;
 import Services.LanguageServiceException;
+import Services.UriService;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.reasoner.rulesys.BindingEnvironment;
@@ -28,7 +29,8 @@ public class HibernateMappingAnalysis extends BaseBuiltin {
 			return false;
 		
 		try {
-			String classUri = "http://softlang.com/Class/";
+			UriService uriService = new UriService("http://softlang.com/");
+			String classUri = uriService.getClassUri();
 			String uri = args[0].getURI();
 			BindingEnvironment env = context.getEnv();
 			

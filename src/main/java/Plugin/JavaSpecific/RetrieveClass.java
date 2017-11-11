@@ -40,7 +40,9 @@ public class RetrieveClass extends BaseBuiltin {
 			String className = languageService.getJavaClass(content, path);
 			if(className.isEmpty()) return false;
 			
-			Node value = NodeFactory.createURI("http://softlang.com/Class/" + className);
+			Node value = NodeFactory.createURI("http://softlang.com/ClassURI/" + className);
+			System.out.println("[RetrieveClass] leaving");
+			
 			return env.bind(args[1], value);
 		}
 		catch (FileRetrievementServiceException exception) {

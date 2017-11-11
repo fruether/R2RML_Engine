@@ -34,6 +34,7 @@ public class HibernateMappingGetTable extends BaseBuiltin {
 		if(args.length != 2) return false;
 		
 		String fileUri = args[0].getURI();
+		System.out.println("[HibernateMappingGetTable] " + fileUri);
 		BindingEnvironment environment = context.getEnv();
 		try {
 			String content = fileRetrievementService.getContent(fileUri);

@@ -153,4 +153,19 @@ public class JavaServiceTest {
 			assertNull(e);
 		}
 	}
+	
+	@Test
+	public void test_getJavaClass() {
+		String content = null;
+		try {
+			String uri = "http://softlang.com/Java/QueueDocumentLink.java";
+			content = FileRetrievementService.getInstance().getContent(uri);
+			String path = FileRetrievementService.getInstance().uriToPath(uri);
+			String  result = javaService.getJavaClass(content, path);
+			assertEquals(result, "org.oscarehr.common.model.QueueDocumentLink");
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+	}
 }

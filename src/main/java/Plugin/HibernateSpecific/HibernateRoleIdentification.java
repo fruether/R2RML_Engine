@@ -68,7 +68,7 @@ public class HibernateRoleIdentification extends BaseBuiltin {
 		if(args.length != 2) return result;
 		try {
 			String filename = fileRetrievementService.uriToPath(args[0].getURI());
-			String resultValue = "http://softlang.com/Plugins/Hibernate/";
+			String resultValue = "http://softlang.com/";
 			System.out.println("[HibernateRoleIdentification]: Checking role for " + filename);
 			
 			for(String roleNames : roleNameMappingFileEnding.keySet()) {

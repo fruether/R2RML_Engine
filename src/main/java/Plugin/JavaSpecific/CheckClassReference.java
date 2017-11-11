@@ -42,9 +42,9 @@ public class CheckClassReference extends BaseBuiltin {
 		boolean result = false;
 		if (args.length != getArgLength())
 			return result;
-		
 		String uriFile = args[0].toString();
 		String classAndPackegeNameDest = getClassFromUri(args[1].toString());
+		System.out.println("[CheckClassReference:] " + uriFile);
 		
 		try {
 			Set<String> typeDeclarations = null;

@@ -7,6 +7,7 @@
 
 
 [XSDCheck:
+    print(XSDCheck)
     (?a sl:elementOf sl:XML)
     (?b sl:elementOf sl:XSD)
     (?a sl:partOf build1)
@@ -16,17 +17,20 @@
     (?a sl:conformsTo ?b)]
 
 [DetectProjectDependencies:
+    print(DetectProjectDependencies)
     (?file sl:partOf ?build)
     (?file sl:conformsTo maven:maven-4.0.0.xsd)
     (?file  sl:references ?dependency) ->
     (?build sl:dependsOn ?dependency)]
 
 [DetectLiquidBase:
+    print(DetectLiquidBase)
     (?file sl:conformsTo maven:maven-4.0.0.xsd)
     liquidBaseDependencyCheck(?file) ->
     (?file sl:references technologies:liquidbase)]
 
 [LanguageDetection:
+    print(LanguageDetection)
     (?file sl:partOf ?build)
     (?file rdf:type sl:Artefact)
     Parse(?file, ?language)
@@ -34,13 +38,15 @@
     (?file sl:elementOf ?language)
 ]
 [JavaClassIdentification:
+    print(JavaClassIdentification)
     (?file sl:elementOf sl:Java)
     RetrieveClass(?file, ?classname)
     ->
-    (?file sl:hasClass ?classname)
+    (?file sl:hasReference ?classname)
 ]
 
 [DTDDetection:
+    print(DTDDetection)
     (?file sl:partOf ?build)
     (?file rdf:type sl:Artefact)
     FileEnding(?file, ".dtd")
@@ -48,6 +54,7 @@
     (?file sl:elementOf sl:DTD)
 ]
 [DTDValidation:
+    print(DTDValidation)
     (?file1 sl:partOf ?build1)
     (?file1 sl:elementOf sl:XML)
     (?file2 sl:partOf ?build2)
@@ -58,11 +65,13 @@
 ]
 
 [HibernateDependency:
+    print(HibernateDependency)
     (?file sl:conformsTo maven:maven-4.0.0.xsd)
     HibernateDependencyCheck(?file) ->
     (?file sl:references technologies:hibernate)
 ]
 [HibernateRoles:
+    print(HibernateRoles)
     (?file sl:partOf ?build1)
     (?file sl:elementOf sl:XML)
     (?file sl:conformsTo ?schema)
@@ -72,148 +81,130 @@
     (?file sl:hasRole ?role)
 ]
 [HibernateReferences:
+    print(HibernateReferences)
     (?file1 sl:hasRole technologies:Hibernate/HibernateConfiguration)
-    (?file2 sl:hasRole technologies:Hibernate/HibernateMapping)
+    (?file2 sl:hasRole sl:HibernateMapping)
     CheckReference(?file1, ?file2)
     ->
     (?file1 sl:HibernateConfigurationRefersToHibernateMapping ?file2)
 ]
 
 [HibernateMappingFast:
-    (?file1 sl:hasRole technologies:Hibernate/HibernateMapping)
+    print(HibernateMappingFast)
+    (?file1 sl:elementOf sl:XML)
+    (?file1 sl:hasRole sl:HibernateMapping)
     HibernateMappingAnalysis(?file1, ?class)
     ->
     (?file1 sl:refersTo ?class)
 ]
 
-[HibernateObjectDefinition:
-    (?file1 sl:hasRole technologies:Hibernate/HibernateMapping)
+[HibernateObjectDefinitionXMLMapping:
+    print(HibernateObjectDefinitionXMLMapping)
+    (?file1 sl:hasRole sl:HibernateMapping)
+    (?file1 sl:elementOf sl:XML)
     (?file2 sl:elementOf sl:Java)
-    (?file2 sl:hasClass ?class)
+    (?file2 sl:hasReference ?class)
     (?file1 sl:refersTo ?class)
     GetClassLiteral(?class, ?classLanguage)
     ->
-    (?class sl:defines ?classLanguage)
+    (?file2 sl:defines ?classLanguage)
     (?classLanguage rdf:type sl:Language)
     (?classLanguage sl:subsetOf sl:JVMObject)
     (?file2 sl:hasRole technologies:Hibernate/HibernatePersistedObject)
 ]
 
-[HibernateMappingFunctionDefinition:
-    (?file sl:hasRole technologies:Hibernate/HibernateMapping)
+[HibernateObjectDefinitionJavaMapping:
+    print(HibernateObjectDefinitionJavaMapping)
+    (?file sl:hasRole sl:HibernateMapping)
+    (?file sl:elementOf sl:Java)
+    (?file sl:hasReference ?class)
+    GetClassLiteral(?class, ?classLanguage)
+    ->
+    (?file sl:defines ?classLanguage)
+    (?classLanguage rdf:type sl:Language)
+    (?classLanguage sl:subsetOf sl:JVMObject)
+    (?file sl:hasRole technologies:Hibernate/HibernatePersistedObject)
+]
+
+[HibernateMappingFunctionDefinitionXML:
+    print(HibernateMappingFunctionDefinitionXML)
+    (?file sl:hasRole sl:HibernateMapping)
+    (?file sl:elementOf sl:XML)
     HibernateGetMappingType(?file, ?function)
     ->
     (?file sl:defines ?function)
     (?function rdf:type sl:Function)
     (?function sl:partOf sl:OR-Mapping)
 ]
+
+[HibernateMappingFunctionDefinitionJava:
+    print(HibernateMappingFunctionDefinitionJava)
+    (?fragment sl:hasRole sl:HibernateMapping)
+    (?fragment sl:elementOf sl:Language/JavaAnnotatedElement)
+    (?fragment sl:partOf ?file)
+    (?file sl:elementOf sl:Java)
+    HibernateGetMappingType(?file, ?function)
+    ->
+    (?fragment sl:defines ?function)
+    (?function rdf:type sl:Function)
+    (?function sl:partOf sl:OR-Mapping)
+]
+
 [HibernateMappingConfFunctionDefinition:
+    print(HibernateMappingConfFunctionDefinition)
     (?file sl:hasRole technologies:Hibernate/HibernateConfiguration)
     ->
     (?file sl:defines sl:OR-Mapping)
 ]
-[HibernateMappingFunctionInputDefinition:
+[HibernateMappingFunctionXMLInputDefinition:
+    print(HibernateMappingFunctionXMLInputDefinition)
     (?mappingFile sl:elementOf sl:XML)
     (?mappingFile sl:defines ?function)
     (?function sl:partOf sl:OR-Mapping)
     (?mappingFile sl:refersTo ?className)
-    (?className sl:defines ?language)
+    (?file sl:hasReference ?className)
+    (?file sl:defines ?language)
     ->
     (?language sl:input ?function)
 ]
 
-[ImportDetection:
-    (?file sl:elementOf sl:Java)
-    (?file sl:hasClass ?class)
-    (?package rdf:type sl:Package)
-    CheckImport(?file, ?package)
+[HibernateMappingFunctionJavaInputDefinition:
+    print(HibernateMappingFunctionJavaInputDefinition)
+    (?fragment sl:hasRole sl:HibernateMapping)
+    (?fragment sl:elementOf sl:Language/JavaAnnotatedElement)
+    (?fragment sl:partOf ?file)
+    (?fragment sl:defines ?function)
+    (?function sl:partOf sl:OR-Mapping)
+    (?file sl:defines ?language)
     ->
-    (?file sl:uses ?package)
+    (?language sl:input ?function)
 ]
-[HibernateImportUsedDetection:
-    (?file1 sl:elementOf sl:Java)
-    (?package rdf:type sl:Package)
-    (?package sl:partOf sl:hibernate)
-    (?file1 sl:uses ?package)
-    (?file2 sl:elementOf sl:Java)
-    notEqual(?file1, ?file2)
-    (?file2 sl:hasRole technologies:Hibernate/HibernatePersistedObject)
-    (?file2 sl:hasClass ?class2)
-    CheckClassReference(?file1, ?class2)
-    (?file1 sl:hasClass ?class1)
-    ->
-    (?class1 sl:uses ?class2)
-]
-[MethodCallDetection:
-    (?file sl:elementOf sl:Java)
-    (?file sl:hasClass ?class)
-    (?package rdf:type sl:Package)
-    (?file sl:uses ?package)
-    (?method sl:partOf ?package)
-    (?method rdf:type sl:Method)
-    CheckCall(?file, ?method, ?class)
-    ->
-    (?class sl:calls ?method)
-]
-[MethodCallDetectionWithDependency
-    (?file sl:elementOf sl:Java)
-    (?file sl:hasClass ?class)
-    (?package rdf:type sl:Package)
-    (?packageDep rdf:type sl:Package)
-    (?package sl:uses ?packageDep)
-    (?file sl:uses ?package)
-    (?method sl:partOf ?packageDep)
-    (?method rdf:type sl:Method)
-    CheckCall(?file, ?method, ?class)
-    ->
-    (?class sl:calls ?method)
-]
-
-[HibernateMappingFunctionUsed:
-    (?file sl:elementOf sl:Java)
-    (?file sl:hasClass ?serviceClass)
-    (?perFile sl:hasRole technologies:Hibernate/HibernatePersistedObject)
-    (?perFile sl:hasClass ?perClass)
-    (?mappingFile sl:hasRole technologies:Hibernate/HibernateMapping)
-    (?mappingFile sl:refersTo ?perClass)
-    (?serviceClass sl:uses ?perClass)
-    (?mappingFile sl:defines ?function)
-    (?serviceClass sl:calls ?method)
-    (?method sl:partOf technologiesSmall:hibernate/Package/org.hibernate.Session)
- ->
-    (?serviceClass sl:indicatesUseOf ?function)
-]
-
-[RetrieveReferencesBetweenXML
-     (?file1 sl:partOf ?build1)
-     (?file1 sl:elementOf sl:XML)
-     (?file2 sl:partOf ?build1)
-     (?file1 sl:elementOf sl:XML)
-     CheckReference(?file1, ?file2)
-     ->
-     (?file1 sl:refersTo ?file2)
- ]
-
 
 
 [HibernateMappingReferencedTables:
-    (?file sl:hasRole technologies:Hibernate/HibernateMapping)
+    print(HibernateMappingReferencedTables)
+    (?file sl:hasRole sl:HibernateMapping)
+    (?file sl:elementOf sl:XML)
     HibernateMappingGetTable(?file, ?table)
     ->
     (?file sl:HibernateMappingRefersToRelationalTable ?table)
 ]
 
 [HibernateMappingJavaCorrespondsToTable:
-    (?file sl:hasRole technologies:Hibernate/HibernateMapping)
-    (?file sl:HibernateMappingRefersToRelationalTable ?table)
-    (?table rdf:type sl:Table)
-    (?sqlFile sl:definesTable ?table)
+    print(HibernateMappingJavaCorrespondsToTable)
+    (?file sl:hasRole sl:HibernateMapping)
+    (?file sl:HibernateMappingRefersToRelationalTable ?tableUI)
+    (?tableUI sl:elementOf sl:Language/ReferenceLanguage)
+    (?tableUI sl:partOf ?fragment)
+    (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
     (?file sl:refersTo ?class)
+    (?javaFile sl:hasReference ?class)
     ->
-    (?class sl:correspondsTo ?table)
+    (?javaFile sl:correspondsTo ?fragment)
 ]
 
 [RelationalLanguageDefinition:
+    print(RelationalLanguageDefinition)
     (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
     (?tableName sl:partOf ?fragment)
     (?tableName sl:elementOf sl:Language/ReferenceLanguage)
@@ -225,7 +216,8 @@
 ]
 
 [HibernateMappingOutput:
-    (?file sl:hasRole technologies:Hibernate/HibernateMapping)
+    print(HibernateMappingOutput)
+    (?file sl:hasRole sl:HibernateMapping)
     (?file sl:defines ?function)
     (?file sl:HibernateMappingRefersToRelationalTable ?table)
     (?table sl:partOf ?sqlFragment)
@@ -233,16 +225,23 @@
     ->
     (?function sl:output ?relationalLanguage)
 ]
-
-
 [ExtractAndParseCreateStmts:
+    print(ExtractAndParseCreateStmts)
     (?file sl:elementOf sl:SQL)
     ->
     CreateStmtExtraction(?file)
 ]
-
 [GetTableUri:
+    print(GetTableUri)
     (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
     ->
     RetrieveTableURI(?fragment)
 ]
+[CheckAnnotationHibernate:
+    print(CheckAnnotationHibernate)
+    (?file sl:elementOf sl:Java)
+    CheckLiteralImported(?file, "javax.persistence")
+    ->
+    HibernateAnnotationDetection(?file)
+]
+

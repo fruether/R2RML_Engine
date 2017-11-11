@@ -111,6 +111,7 @@ public class SQLService implements ANTLRErrorListener {
 		
 		MySqlLexer lexer = new MySqlLexer(CharStreams.fromString(cleanedContent.toUpperCase()));
 		MySqlParser parser = new MySqlParser(new CommonTokenStream(lexer));
+		//parser.setErrorHandler(defaultAntlrErrorStrategy);
 		ParseTree tree = parser.root();
 		
 		
