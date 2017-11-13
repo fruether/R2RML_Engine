@@ -53,3 +53,13 @@ hibernate:Package\/org.hibernate.SessionFactory sl:uses hibernate:Package\/org.h
  
  
  
+hibernate:Package\/javax.persistence.Query rdf:type sl:Package .
+hibernate:Package\/javax.persistence.Query sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/javax.persistence.Query .
+hibernate:\/Method\/setParameter rdf:type sl:Method .
+hibernate:\/Method\/setParameter sl:partOf hibernate:Package\/javax.persistence.Query .
+hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport rdf:type sl:Package .
+hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport .
+hibernate:\/Method\/getHibernateTemplate rdf:type sl:Method .
+hibernate:\/Method\/getHibernateTemplate sl:partOf hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport .

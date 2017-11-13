@@ -72,7 +72,7 @@ public class HibernateAnnotationDetection extends BaseBuiltin {
 			}
 			
 //			System.out.println("t=>" + tableName);
-			Node attributeTable = NodeFactory.createURI(uriService.getUri()+ tableName);
+			Node attributeTable = NodeFactory.createURI(uriService.getUri()+ tableName.toUpperCase());
 			String fragmentUri = javaFileURI + "#" + annotationValue.getStartLine() + ":" + annotationValue.getEndLine();
 			Node fragmentUriNode = NodeFactory.createURI(fragmentUri);
 				

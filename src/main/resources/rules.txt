@@ -7,7 +7,6 @@
 
 
 [XSDCheck:
-    print(XSDCheck)
     (?a sl:elementOf sl:XML)
     (?b sl:elementOf sl:XSD)
     (?a sl:partOf build1)
@@ -17,20 +16,17 @@
     (?a sl:conformsTo ?b)]
 
 [DetectProjectDependencies:
-    print(DetectProjectDependencies)
     (?file sl:partOf ?build)
     (?file sl:conformsTo maven:maven-4.0.0.xsd)
     (?file  sl:references ?dependency) ->
     (?build sl:dependsOn ?dependency)]
 
 [DetectLiquidBase:
-    print(DetectLiquidBase)
     (?file sl:conformsTo maven:maven-4.0.0.xsd)
     liquidBaseDependencyCheck(?file) ->
     (?file sl:references technologies:liquidbase)]
 
 [LanguageDetection:
-    print(LanguageDetection)
     (?file sl:partOf ?build)
     (?file rdf:type sl:Artefact)
     Parse(?file, ?language)
@@ -38,7 +34,6 @@
     (?file sl:elementOf ?language)
 ]
 [JavaClassIdentification:
-    print(JavaClassIdentification)
     (?file sl:elementOf sl:Java)
     RetrieveClass(?file, ?classname)
     ->
@@ -46,7 +41,6 @@
 ]
 
 [DTDDetection:
-    print(DTDDetection)
     (?file sl:partOf ?build)
     (?file rdf:type sl:Artefact)
     FileEnding(?file, ".dtd")
@@ -54,7 +48,6 @@
     (?file sl:elementOf sl:DTD)
 ]
 [DTDValidation:
-    print(DTDValidation)
     (?file1 sl:partOf ?build1)
     (?file1 sl:elementOf sl:XML)
     (?file2 sl:partOf ?build2)
@@ -65,13 +58,11 @@
 ]
 
 [HibernateDependency:
-    print(HibernateDependency)
     (?file sl:conformsTo maven:maven-4.0.0.xsd)
     HibernateDependencyCheck(?file) ->
     (?file sl:references technologies:hibernate)
 ]
 [HibernateRoles:
-    print(HibernateRoles)
     (?file sl:partOf ?build1)
     (?file sl:elementOf sl:XML)
     (?file sl:conformsTo ?schema)
@@ -81,7 +72,6 @@
     (?file sl:hasRole ?role)
 ]
 [HibernateReferences:
-    print(HibernateReferences)
     (?file1 sl:hasRole technologies:Hibernate/HibernateConfiguration)
     (?file2 sl:hasRole sl:HibernateMapping)
     CheckReference(?file1, ?file2)
@@ -90,7 +80,6 @@
 ]
 
 [HibernateMappingFast:
-    print(HibernateMappingFast)
     (?file1 sl:elementOf sl:XML)
     (?file1 sl:hasRole sl:HibernateMapping)
     HibernateMappingAnalysis(?file1, ?class)
@@ -99,7 +88,6 @@
 ]
 
 [HibernateObjectDefinitionXMLMapping:
-    print(HibernateObjectDefinitionXMLMapping)
     (?file1 sl:hasRole sl:HibernateMapping)
     (?file1 sl:elementOf sl:XML)
     (?file2 sl:elementOf sl:Java)
@@ -114,9 +102,9 @@
 ]
 
 [HibernateObjectDefinitionJavaMapping:
-    print(HibernateObjectDefinitionJavaMapping)
-    (?file sl:hasRole sl:HibernateMapping)
-    (?file sl:elementOf sl:Java)
+    (?fragment sl:hasRole sl:HibernateMapping)
+    (?fragment sl:elementOf sl:Language/JavaAnnotatedElement)
+    (?fragment sl:partOf ?file)
     (?file sl:hasReference ?class)
     GetClassLiteral(?class, ?classLanguage)
     ->
@@ -127,7 +115,6 @@
 ]
 
 [HibernateMappingFunctionDefinitionXML:
-    print(HibernateMappingFunctionDefinitionXML)
     (?file sl:hasRole sl:HibernateMapping)
     (?file sl:elementOf sl:XML)
     HibernateGetMappingType(?file, ?function)
@@ -138,7 +125,6 @@
 ]
 
 [HibernateMappingFunctionDefinitionJava:
-    print(HibernateMappingFunctionDefinitionJava)
     (?fragment sl:hasRole sl:HibernateMapping)
     (?fragment sl:elementOf sl:Language/JavaAnnotatedElement)
     (?fragment sl:partOf ?file)
@@ -151,13 +137,11 @@
 ]
 
 [HibernateMappingConfFunctionDefinition:
-    print(HibernateMappingConfFunctionDefinition)
     (?file sl:hasRole technologies:Hibernate/HibernateConfiguration)
     ->
     (?file sl:defines sl:OR-Mapping)
 ]
 [HibernateMappingFunctionXMLInputDefinition:
-    print(HibernateMappingFunctionXMLInputDefinition)
     (?mappingFile sl:elementOf sl:XML)
     (?mappingFile sl:defines ?function)
     (?function sl:partOf sl:OR-Mapping)
@@ -169,7 +153,6 @@
 ]
 
 [HibernateMappingFunctionJavaInputDefinition:
-    print(HibernateMappingFunctionJavaInputDefinition)
     (?fragment sl:hasRole sl:HibernateMapping)
     (?fragment sl:elementOf sl:Language/JavaAnnotatedElement)
     (?fragment sl:partOf ?file)
@@ -182,7 +165,6 @@
 
 
 [HibernateMappingReferencedTables:
-    print(HibernateMappingReferencedTables)
     (?file sl:hasRole sl:HibernateMapping)
     (?file sl:elementOf sl:XML)
     HibernateMappingGetTable(?file, ?table)
@@ -190,9 +172,9 @@
     (?file sl:HibernateMappingRefersToRelationalTable ?table)
 ]
 
-[HibernateMappingJavaCorrespondsToTable:
-    print(HibernateMappingJavaCorrespondsToTable)
+[HibernateXMLMappingJavaCorrespondsToTable:
     (?file sl:hasRole sl:HibernateMapping)
+    (?file sl:elementOf sl:XML)
     (?file sl:HibernateMappingRefersToRelationalTable ?tableUI)
     (?tableUI sl:elementOf sl:Language/ReferenceLanguage)
     (?tableUI sl:partOf ?fragment)
@@ -203,8 +185,20 @@
     (?javaFile sl:correspondsTo ?fragment)
 ]
 
+[HibernateJavaMappingJavaCorrespondsToTable:
+    (?file sl:hasRole sl:HibernateMapping)
+    (?file sl:elementOf sl:Language/JavaAnnotatedElement)
+    (?file sl:HibernateMappingRefersToRelationalTable ?tableUI)
+    (?tableUI sl:elementOf sl:Language/ReferenceLanguage)
+    (?tableUI sl:partOf ?fragment)
+    (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
+    (?file sl:partOf ?javaFile)
+    (?javaFile sl:elementOf sl:Java)
+    ->
+    (?javaFile sl:correspondsTo ?fragment)
+]
+
 [RelationalLanguageDefinition:
-    print(RelationalLanguageDefinition)
     (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
     (?tableName sl:partOf ?fragment)
     (?tableName sl:elementOf sl:Language/ReferenceLanguage)
@@ -216,7 +210,6 @@
 ]
 
 [HibernateMappingOutput:
-    print(HibernateMappingOutput)
     (?file sl:hasRole sl:HibernateMapping)
     (?file sl:defines ?function)
     (?file sl:HibernateMappingRefersToRelationalTable ?table)
@@ -226,22 +219,184 @@
     (?function sl:output ?relationalLanguage)
 ]
 [ExtractAndParseCreateStmts:
-    print(ExtractAndParseCreateStmts)
     (?file sl:elementOf sl:SQL)
     ->
     CreateStmtExtraction(?file)
 ]
 [GetTableUri:
-    print(GetTableUri)
     (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
     ->
     RetrieveTableURI(?fragment)
 ]
 [CheckAnnotationHibernate:
-    print(CheckAnnotationHibernate)
     (?file sl:elementOf sl:Java)
     CheckLiteralImported(?file, "javax.persistence")
     ->
     HibernateAnnotationDetection(?file)
 ]
 
+[ImportDetection:
+    (?file sl:elementOf sl:Java)
+    (?package rdf:type sl:Package)
+    CheckImport(?file, ?package)
+    ->
+    (?file sl:uses ?package)
+]
+
+[HibernateImportUsedDetection:
+    (?file1 sl:elementOf sl:Java)
+    (?package sl:partOf sl:hibernate)
+    (?file1 sl:uses ?package)
+    (?file2 sl:hasRole technologies:Hibernate/HibernatePersistedObject)
+    notEqual(?file1, ?file2)
+    (?file2 sl:hasReference ?class2)
+    CheckClassReference(?file1, ?class2)
+    (?file1 sl:hasReference ?class1)
+    ->
+    (?file1 sl:uses ?class2)
+]
+
+[HibernateServiceDiscovery:
+    (?file sl:elementOf sl:Java)
+    (?file sl:uses ?package)
+    (?package sl:partOf sl:hibernate)
+    (?file sl:uses ?class)
+    (?filePers sl:hasReference ?class)
+    (?filePers sl:hasRole technologies:Hibernate/HibernatePersistedObject)
+    (?filePers sl:defines ?language)
+    (?language sl:input ?function)
+    (?function sl:partOf sl:OR-Mapping)
+    ->
+    (?file sl:indicatesUseOf ?function)
+    (?file sl:hasRole technologies:Hibernate/HibernateService)
+
+]
+
+
+[CountMappingDefinitions:
+    (?sth sl:hasRole  sl:HibernateMapping)
+    (?sth sl:elementOf sl:Language/JavaAnnotatedElement)
+    ->
+    Count("HibernateMappingJava")
+]
+[CountMappingDefinitions:
+    (?sth sl:hasRole  sl:HibernateMapping)
+    (?sth sl:elementOf sl:XML)
+    ->
+    Count("HibernateMappingXML")
+]
+
+[CountCorespondenceXML:
+    (?sth sl:hasRole  sl:HibernateMapping)
+    (?sth sl:elementOf sl:XML)
+    (?sth sl:refersTo ?class)
+    (?file sl:hasReference ?class)
+    (?file sl:correspondsTo ?table)
+    ->
+    Count("HibernateCorrespondenceByXML")
+]
+
+[CountCorespondenceJava:
+    (?sth sl:hasRole  sl:HibernateMapping)
+    (?sth sl:elementOf sl:Language/JavaAnnotatedElement)
+    (?sth sl:partOf ?file)
+    (?file sl:correspondsTo ?table)
+    ->
+    Count("HibernateCorrespondenceByJava")
+]
+[CountCorespondence:
+    (?sth sl:correspondsTo ?sthElse)
+    ->
+    Count("HibernateCorrespondence")
+]
+[CountTableCreated:
+    (?sth sl:elementOf sl:Language/SQLCreateTableStmt)
+    ->
+    Count("TableStatemtn")
+]
+[CountHibernateImports:
+    (?file sl:uses ?package)
+    (?package sl:partOf sl:hibernate)
+     ->
+    Count("HibernateImports", ?file)
+]
+
+[HibernateRefersToMapping:
+    (?x sl:HibernateMappingRefersToRelationalTable ?y)
+    (?x sl:elementOf sl:Language/JavaAnnotatedElement)
+    ->
+    Count("HibernateMappingRefersToRelationalTableJava")
+]
+
+[HibernateRefersToMapping:
+    (?x sl:HibernateMappingRefersToRelationalTable ?y)
+    ->
+    Count("HibernateMappingRefersToRelationalTableAll")
+]
+[NotExistingTables:
+    (?x sl:HibernateMappingRefersToRelationalTable ?y)
+    unbound(?y)
+    ->
+    Count("ReferencesToNonExistingTables")
+]
+[NotExistingTables:
+    (?x sl:HibernateMappingRefersToRelationalTable ?y)
+    bound(?y)
+    ->
+    Count("ReferencesToExistingTables")
+]
+[DefinedFunction:
+    (?x sl:hasRole sl:HibernateMapping)
+    (?x sl:defines ?func)
+    bound(?func)
+    ->
+    Count("ORMapping definition")
+]
+[NotWellFormedFunction:
+    (?x sl:hasRole sl:HibernateMapping)
+    (?x sl:defines ?func)
+    (?y sl:input ?func)
+    (?func sl:output ?y)
+    unbound(?y)
+    unbound(?x)
+    ->
+    Count("NotWellFormedORMapping")
+]
+[wellFormedFunction:
+    (?x sl:hasRole sl:HibernateMapping)
+    (?x sl:defines ?func)
+    (?y sl:input ?func)
+    (?func sl:output ?y)
+    bound(?y)
+    bound(?x)
+    ->
+    Count("WellFormedORMapping")
+]
+[UsedFunctions:
+    (?x sl:indicatesUseOf ?function)
+    (?function sl:partOf sl:OR-Mapping)
+    ->
+    Count("ImplementedFunctions")
+]
+
+[UsedFunctionsDistinct:
+    (?x sl:indicatesUseOf ?function)
+    (?function sl:partOf sl:OR-Mapping)
+    ->
+    Count("ImplementedFunctionsDistinct", ?function)
+]
+
+[HelperFunction:
+    (?z sl:indicatesUseOf ?function)
+    (?function sl:partOf sl:OR-Mapping)
+    ->
+    (?function sl:backwardsUse ?z)
+]
+
+[UsedFunctionsDistinct:
+    (?function sl:partOf sl:OR-Mapping)
+    noValue(?function, sl:backwardsUse, ?x)
+    ->
+    Count("NotImplementedFunctions")
+    Save(?function)
+]

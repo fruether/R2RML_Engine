@@ -11,5 +11,17 @@
     "package" : "org.hibernate.SessionFactory",
     "methods" : ["getCurrentSession", "openSession"],
     "dependency" : ["org.hibernate.Session"]
+  },
+  {
+    "package" : "javax.persistence.Query",
+    "methods" : ["setParameter"]
+  },
+  {
+    "package" : "org.springframework.orm.hibernate3.support.HibernateDaoSupport",
+    "methods" : ["getHibernateTemplate"]
   }
+
+
+
+
 ]

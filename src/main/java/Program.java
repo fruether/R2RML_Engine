@@ -1,4 +1,5 @@
 import Plugin.ClassLiteral;
+import Plugin.Count;
 import Plugin.GetTableLiteral;
 import Plugin.HibernateSpecific.HibernateAnnotationDetection;
 import Plugin.HibernateSpecific.HibernateGetMappingType;
@@ -57,11 +58,15 @@ public class Program {
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<BaseBuiltin> builtins= new ArrayList<BaseBuiltin>();
         String inputFile = "mrsData.ttl";
+        Count resultEvaluation = new Count();
+        Save save = new Save();
         System.setOut(new PrintStream(new FileOutputStream("/Users/freddy/Desktop/log_file.txt")));
     
     
         try {
             addPlugins(builtins);
+            builtins.add(resultEvaluation);
+            builtins.add(save);
         }
         catch (ParserConfigurationException e) {
            System.out.println("Error while setting up the plugins: " + e.getMessage());
@@ -110,6 +115,9 @@ public class Program {
         inf.write(System.out, "N-TRIPLES");
         /*  for (Statement x : inf.listStatements().toList())
             System.out.println(x);*/
+    
+        resultEvaluation.printResult();
+        save.printResult();
     
     }
     static void managePlugins(InputManagementService inputManagementService) {
