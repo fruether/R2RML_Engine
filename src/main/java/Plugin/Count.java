@@ -25,7 +25,7 @@ public class Count extends BaseBuiltin {
 			String literal = args[0].getLiteral().getLexicalForm();
 			if(args.length == 2) {
 				String fileName = args[1].getURI();
-				if(files.contains(fileName)) {
+				if(!files.contains(fileName)) {
 					files.add(fileName);
 				}
 				else {

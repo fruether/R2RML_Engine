@@ -393,10 +393,11 @@
     (?function sl:backwardsUse ?z)
 ]
 
-[UsedFunctionsDistinct:
-    (?function sl:partOf sl:OR-Mapping)
-    noValue(?function, sl:backwardsUse, ?x)
-    ->
-    Count("NotImplementedFunctions")
-    Save(?function)
+[HelperFunction2:
+    (?x sl:elementOf sl:NotImplementedFunction)
+    <-
+    (?x sl:partOf sl:OR-Mapping)
+    noValue(?x, sl:backwardsUse)
 ]
+
+

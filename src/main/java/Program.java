@@ -31,10 +31,16 @@ import Services.ServiceExtensions.PackageDependencyExtension;
 import Services.ServiceExtensions.PartOfDetectionExtension;
 import Services.ServiceExtensions.PrefixCreationExtension;
 import Services.ServiceExtensions.PreludeExtension;
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Multiset;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ValidityReport;
 import org.apache.jena.reasoner.rulesys.BuiltinRegistry;
@@ -50,6 +56,8 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by Frederik on 21.06.2017.
@@ -118,6 +126,8 @@ public class Program {
     
         resultEvaluation.printResult();
         save.printResult();
+        Map<String,Integer> predicateCounts = countPredicate(inf, null,  null, "http://softlang.com/NotImplementedFunction");
+        System.out.println("coujnt" + predicateCounts);
     
     }
     static void managePlugins(InputManagementService inputManagementService) {
@@ -163,6 +173,18 @@ public class Program {
         builtins.add(new CreateStmtExtraction());
         builtins.add(new CheckLiteralImported());
     }
-
+    
+    public static Map<String, Integer> countPredicate(Model model, String subject, String predicate, String object) {
+        Multiset<String> result = HashMultiset.create();
+        
+        Resource s = subject == null ? null : model.getResource(subject);
+        Property p = predicate == null ? null : model.getProperty(predicate);
+        RDFNode o = object == null ? null : model.getResource(object);
+        
+        for (Resource res : Lists.newArrayList(model.listSubjectsWithProperty(p, o)))
+            result.add(res.getURI());
+        
+        return result.entrySet().stream().collect(Collectors.toMap(x -> x.getElement(), x -> x.getCount()));
+    }
 }
 

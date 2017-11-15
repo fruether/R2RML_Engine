@@ -72,7 +72,6 @@ public class CheckClassReference extends BaseBuiltin {
 				if(!isImported)
 					return false;
 			}
-			
 			result = typeDeclarations.contains(packageAndClass[1]);
 		}
 		catch (FileRetrievementServiceException e) {
@@ -82,7 +81,7 @@ public class CheckClassReference extends BaseBuiltin {
 			throwable.printStackTrace();
 			result = false;
 		}
-		System.out.println("[CheckedSuccessfullClassReference] : " + uriFile + " " + classAndPackegeNameDest);
+		System.out.println("[CheckedSuccessfullClassReference] : " + uriFile + " " + classAndPackegeNameDest + " " + result);
 		
 		return result;
 	}

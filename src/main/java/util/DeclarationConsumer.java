@@ -40,7 +40,7 @@ public class DeclarationConsumer implements Consumer<Object> {
 		@Override
 		public void accept(Parameter parameter) {
 			if(parameter != null) {
-				classDeclarations.add(parameter.getType().toString());
+				cleanTemplateTypes(parameter.getType().toString());
 			}
 		}
 	};
@@ -53,13 +53,24 @@ public class DeclarationConsumer implements Consumer<Object> {
 				if(expression instanceof VariableDeclarationExpr) {
 					VariableDeclarationExpr variableDeclaration = (VariableDeclarationExpr) expression;
 					String type = variableDeclaration.getElementType().asString();
-					classDeclarations.add(type);
+					cleanTemplateTypes(type);
 				}
 			}
 		
 		}
+		
 	};
 	
+	private void cleanTemplateTypes(String expression) {
+		if(expression.contains("<")) {
+			for(String value : expression.replace(">", "").split("<")) {
+				classDeclarations.add(value);
+			}
+		}
+		else {
+			classDeclarations.add(expression);
+		}
+	}
 	public Set<String> getClassDeclaration() {
 		return classDeclarations;
 	}
