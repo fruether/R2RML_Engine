@@ -21,17 +21,9 @@ public class Count extends BaseBuiltin {
 	}
 	
 	public void headAction(Node[] args, int length, RuleContext context) {
+		
 		if(args.length <= 1) {
 			String literal = args[0].getLiteral().getLexicalForm();
-			if(args.length == 2) {
-				String fileName = args[1].getURI();
-				if(!files.contains(fileName)) {
-					files.add(fileName);
-				}
-				else {
-					return;
-				}
-			}
 			if(countRules.containsKey(literal)) {
 				int curCount = countRules.get(literal) + 1;
 				countRules.put(literal, curCount);

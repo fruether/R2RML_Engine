@@ -41,7 +41,7 @@ public class HibernateMappingAnalysisTest {
 	
 	@Test
 	public void hibernate_mapping_with_package_correct() {
-		String expectedClass  = "http://softlang.com/Class/uk.org.rbc1b.roms.db.volunteer.qualification.Qualification";
+		String expectedClass  = "http://softlang.com/ClassURI/uk.org.rbc1b.roms.db.volunteer.qualification.Qualification";
 		Node mapping_file = NodeFactory.createURI("http://softlang.com/Qualification.hbm.xml");
 		
 		Node[] env = setUpRuleContext(mapping_file);
@@ -59,7 +59,7 @@ public class HibernateMappingAnalysisTest {
 	
 	@Test
 	public void hibernate_mapping_with_package_wrong() {
-		String foundClass  = "http://softlang.com/Class/uk.org.rbc1b.roms.db.volunteer.qualification.Peter";
+		String foundClass  = "http://softlang.com/ClassURI/uk.org.rbc1b.roms.db.volunteer.qualification.Peter";
 		Node mapping_file = NodeFactory.createURI("http://softlang.com/Qualification.hbm.xml");
 		Node[] env = setUpRuleContext(mapping_file);
 		
@@ -77,7 +77,7 @@ public class HibernateMappingAnalysisTest {
 	
 	@Test
 	public void hibernate_mapping_without_package_correct() {
-		String foundClass  = "http://softlang.com/Class/org.openmrs.Allergy";
+		String foundClass  = "http://softlang.com/ClassURI/org.openmrs.Allergy";
 		Node mapping_file = NodeFactory.createURI("http://softlang.com/Allergy.hbm.xml");
 
 		Node[] env = setUpRuleContext(mapping_file);
@@ -93,7 +93,7 @@ public class HibernateMappingAnalysisTest {
 	
 	@Test
 	public void hibernate_mapping_without_package_wrong() {
-		String foundClass  = "http://softlang.com/Class/org.openmrs.Allergy2";
+		String foundClass  = "http://softlang.com/ClassURI/org.openmrs.Allergy2";
 		Node mapping_file = NodeFactory.createURI("http://softlang.com/Allergy.hbm.xml");
 		Node srfFile = NodeFactory.createURI(foundClass);
 		
@@ -108,7 +108,7 @@ public class HibernateMappingAnalysisTest {
 	
 	@Test
 	public void hibernate_mapping_without_with_package_correct() {
-		String foundClass  = "http://softlang.com/Class/uk.org.rbc1b.roms.db.report.FixedReport";
+		String foundClass  = "http://softlang.com/ClassURI/uk.org.rbc1b.roms.db.report.FixedReport";
 		Node mapping_file = NodeFactory.createURI("http://softlang.com/FixedReport.hbm.xml");
 		
 		Node[] env = setUpRuleContext(mapping_file);

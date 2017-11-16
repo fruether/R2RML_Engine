@@ -377,15 +377,8 @@
     (?function sl:partOf sl:OR-Mapping)
     ->
     Count("ImplementedFunctions")
+    CountDistinct("ImplementedFunctionsDistinct", ?function)
 ]
-
-[UsedFunctionsDistinct:
-    (?x sl:indicatesUseOf ?function)
-    (?function sl:partOf sl:OR-Mapping)
-    ->
-    Count("ImplementedFunctionsDistinct", ?function)
-]
-
 [HelperFunction:
     (?z sl:indicatesUseOf ?function)
     (?function sl:partOf sl:OR-Mapping)

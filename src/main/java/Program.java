@@ -1,5 +1,6 @@
 import Plugin.ClassLiteral;
 import Plugin.Count;
+import Plugin.CountDistinct;
 import Plugin.GetTableLiteral;
 import Plugin.HibernateSpecific.HibernateAnnotationDetection;
 import Plugin.HibernateSpecific.HibernateGetMappingType;
@@ -68,6 +69,7 @@ public class Program {
         String inputFile = "mrsData.ttl";
         Count resultEvaluation = new Count();
         Save save = new Save();
+        CountDistinct countDistinct = new CountDistinct();
         System.setOut(new PrintStream(new FileOutputStream("/Users/freddy/Desktop/log_file.txt")));
     
     
@@ -75,6 +77,7 @@ public class Program {
             addPlugins(builtins);
             builtins.add(resultEvaluation);
             builtins.add(save);
+            builtins.add(countDistinct);
         }
         catch (ParserConfigurationException e) {
            System.out.println("Error while setting up the plugins: " + e.getMessage());
@@ -126,8 +129,11 @@ public class Program {
     
         resultEvaluation.printResult();
         save.printResult();
+        countDistinct.printResult();
         Map<String,Integer> predicateCounts = countPredicate(inf, null,  null, "http://softlang.com/NotImplementedFunction");
-        System.out.println("coujnt" + predicateCounts);
+        System.out.println("coujnt" + predicateCounts.size());
+        System.out.println(predicateCounts.toString());
+    
     
     }
     static void managePlugins(InputManagementService inputManagementService) {
