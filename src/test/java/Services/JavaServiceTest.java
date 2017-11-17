@@ -168,4 +168,18 @@ public class JavaServiceTest {
 			assertNull(e);
 		}
 	}
+	@Test
+	public void test_getJavaClass_with_ExtendedType() {
+		String content = null;
+		try {
+			String uri = "http://softlang.com/Java/DemographicAccessoryDao.java";
+			content = FileRetrievementService.getInstance().getContent(uri);
+			String path = FileRetrievementService.getInstance().uriToPath(uri);
+			Set<String>  result = javaService.getDeclaredClasses(content, "DemographicAccessoryDao");
+			assertTrue(result.contains("DemographicAccessory"));
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+	}
 }

@@ -35,7 +35,7 @@ public class HibernateRoleIdentificationTest {
 	public void bodyCall_correct_role_assignment_mapping1() throws Exception {
 		Node artefact = NodeFactory.createURI(" http://softlang.com/plugins/hibernate/hibernate-mapping-3.0.dtd");
 		
-		String resultingRole = "http://softlang.com/Plugins/Hibernate/HibernateMapping";
+		String resultingRole = "http://softlang.com/HibernateMapping";
 		Node[] env = setUpRuleContext(artefact);
 		
 		boolean result = hibernateRoleIdentification.bodyCall(env,2 , ruleContext);
@@ -48,7 +48,7 @@ public class HibernateRoleIdentificationTest {
 	public void bodyCall_correct_role_assignment_mapping2() throws Exception {
 		Node artefact = NodeFactory.createURI("http://softlang.com/plugins/hibernate/hibernate-mapping-4.0.xsd");
 		
-		String resultingRole = "http://softlang.com/Plugins/Hibernate/HibernateMapping";
+		String resultingRole = "http://softlang.com/HibernateMapping";
 		Node[] env = setUpRuleContext(artefact);
 		
 		boolean result = hibernateRoleIdentification.bodyCall(env,2 , ruleContext);
@@ -61,7 +61,7 @@ public class HibernateRoleIdentificationTest {
 	public void bodyCall_correct_role_assignment_conf1() throws Exception {
 		Node artefact = NodeFactory.createURI("http://softlang.com/plugins/hibernate/hibernate-configuration-3.0.dtd");
 		
-		String resultingRole = "http://softlang.com/Plugins/Hibernate/HibernateConfiguration";
+		String resultingRole = "http://softlang.com/HibernateConfiguration";
 		Node[] env = setUpRuleContext(artefact);
 		
 		boolean result = hibernateRoleIdentification.bodyCall(env,2 , ruleContext);
@@ -74,7 +74,7 @@ public class HibernateRoleIdentificationTest {
 	public void bodyCall_correct_role_assignment_wrong() throws Exception {
 		Node artefact = NodeFactory.createURI("http://softlang.com/plugins/hibernate/hibernate-configuraadasf.xml");
 		
-		String resultingRole = "http://softlang.com/Plugins/Hibernate/HibernateConfiguration";
+		String resultingRole = "http://softlang.com/HibernateConfiguration";
 		Node[] env = setUpRuleContext(artefact);
 		
 		boolean result = hibernateRoleIdentification.bodyCall(env,2 , ruleContext);

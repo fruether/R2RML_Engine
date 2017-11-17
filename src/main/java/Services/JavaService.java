@@ -4,6 +4,7 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseProblemException;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.ImportDeclaration;
+import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.BodyDeclaration;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
@@ -17,6 +18,8 @@ import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.ExpressionStmt;
 import com.github.javaparser.ast.stmt.Statement;
+import com.github.javaparser.ast.type.ClassOrInterfaceType;
+import com.github.javaparser.ast.type.Type;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import util.AnnotationConsumer;
 import util.DeclarationConsumer;
@@ -106,6 +109,9 @@ public class JavaService {
 		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElse(null);
 		if(mainClass == null) return classDeclarations;
 		
+		classDeclarations.addAll(getExtendedClassTypes(mainClass));
+		
+		
 		List<BodyDeclaration<?>>  members = mainClass.getMembers();
 		for (BodyDeclaration member : members) {
 			if(member instanceof FieldDeclaration) {
@@ -131,6 +137,26 @@ public class JavaService {
 		 classDeclarations.addAll(declarationConsumer.getClassDeclaration());
 		return classDeclarations;
 	}
+	
+	
+	private Set<String> getExtendedClassTypes(ClassOrInterfaceDeclaration mainClass) {
+		HashSet<String> resultingTypes = new HashSet<>();
+		
+		NodeList<ClassOrInterfaceType> extendedTypes = mainClass.getExtendedTypes();
+		for(ClassOrInterfaceType extendedType : extendedTypes) {
+			resultingTypes.add(extendedType.getName().asString());
+			
+			NodeList<Type> arguments = extendedType.getTypeArguments().orElse(null);
+			if(arguments == null) {
+				continue;
+			}
+			for(Type type  : arguments) {
+				resultingTypes.add(type.asString());
+			}
+		}
+		return resultingTypes;
+	}
+	
 	
 	public List<String> getMethodCalls(String content, String className) {
 		ArrayList<String> methodCalls = new ArrayList();

@@ -170,9 +170,8 @@ public class SQLServiceTest {
 		
 		try {
 			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/drugref.sql");
-			//content = content.replace("DEFAULT CURRENT_TIMESTAMP", "");
-			//result = sqlService.parseSQL(content);
-			System.out.println("Done" + result);
+			content = content.replace("DEFAULT CURRENT_TIMESTAMP", "");
+			result = sqlService.parseSQL(content);
 			
 		}
 		catch (FileRetrievementServiceException e) {
