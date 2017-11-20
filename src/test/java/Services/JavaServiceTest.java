@@ -182,4 +182,35 @@ public class JavaServiceTest {
 			assertNull(e);
 		}
 	}
+	@Test
+	public void getJavaImportetElements_correct_withPackage_correct()  {
+		try {
+			String content = FileRetrievementService.getInstance().getContent("http://softlang.com/Java/MdsZLBDao.java");
+			List<String> result = javaService.getJavaImportedElements(content);
+			
+			assertEquals("ALl imports noticed", result.size(), 3);
+			assertEquals("Name is matching case 1", result.get(1).toString(), "org.oscarehr.common.model.MdsZLB");
+
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+	}
+	@Test
+	public void test_getJavaClass_with_ExtendedType2() {
+		String content = null;
+		try {
+			String uri = "http://softlang.com/Java/MdsZLBDao.java";
+			content = FileRetrievementService.getInstance().getContent(uri);
+			String path = FileRetrievementService.getInstance().uriToPath(uri);
+			Set<String>  result = javaService.getDeclaredClasses(content, "MdsZLBDao");
+			System.out.println(result);
+			assertTrue(result.contains("MdsZLB"));
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+	}
+
 }

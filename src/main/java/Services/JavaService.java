@@ -129,9 +129,14 @@ public class JavaService {
 			classDeclarations.add(method.getType().toString());
 			
 			method.getParameters().forEach(declarationConsumer);
-			
-			BlockStmt blockStmt = method.getBody().orElseGet(null);
-			blockStmt.getStatements().forEach(declarationConsumer);
+			try {
+				BlockStmt blockStmt = method.getBody().orElseGet(null);
+				blockStmt.getStatements().forEach(declarationConsumer);
+				
+			}
+			catch(NullPointerException np) {
+				continue;
+			}
 		}
 		
 		 classDeclarations.addAll(declarationConsumer.getClassDeclaration());

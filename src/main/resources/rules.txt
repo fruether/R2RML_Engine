@@ -243,10 +243,35 @@
     (?file sl:uses ?package)
 ]
 
+[ImportImportDetection:
+    (?package rdf:type sl:Package)
+    (?file sl:uses ?package)
+    (?file sl:hasReference ?class)
+    (?file2 sl:elementOf sl:Java)
+    CheckClassReference(?file2, ?class)
+    ->
+    (?file2 sl:uses ?class)
+    (?file2 sl:indirectUse ?package)
+]
+
 [HibernateImportUsedDetection:
     (?file1 sl:elementOf sl:Java)
     (?package sl:partOf sl:hibernate)
     (?file1 sl:uses ?package)
+    (?file2 sl:hasRole technologies:Hibernate/HibernatePersistedObject)
+    notEqual(?file1, ?file2)
+    (?file2 sl:hasReference ?class2)
+    CheckClassReference(?file1, ?class2)
+    (?file1 sl:hasReference ?class1)
+    ->
+    (?file1 sl:uses ?class2)
+]
+
+
+[HibernateImportUsedDetectionIndirect:
+    (?file1 sl:elementOf sl:Java)
+    (?package sl:partOf sl:hibernate)
+    (?file1 sl:indirectUse ?package)
     (?file2 sl:hasRole technologies:Hibernate/HibernatePersistedObject)
     notEqual(?file1, ?file2)
     (?file2 sl:hasReference ?class2)
@@ -269,9 +294,22 @@
     ->
     (?file sl:indicatesUseOf ?function)
     (?file sl:hasRole technologies:Hibernate/HibernateService)
-
 ]
 
+[HibernateServiceDiscoveryIndirect:
+    (?file sl:elementOf sl:Java)
+    (?file sl:indirectUse ?package)
+    (?package sl:partOf sl:hibernate)
+    (?file sl:uses ?class)
+    (?filePers sl:hasReference ?class)
+    (?filePers sl:hasRole technologies:Hibernate/HibernatePersistedObject)
+    (?filePers sl:defines ?language)
+    (?language sl:input ?function)
+    (?function sl:partOf sl:OR-Mapping)
+    ->
+    (?file sl:indicatesUseOf ?function)
+    (?file sl:hasRole technologies:Hibernate/HibernateService)
+]
 
 [CountMappingDefinitions:
     (?sth sl:hasRole  sl:HibernateMapping)
