@@ -143,6 +143,28 @@ public class JavaService {
 		return classDeclarations;
 	}
 	
+	public Set<String> getExtendedTypes(String content, String className) {
+		Set<String> classDeclarations = new HashSet<>();
+		
+		if(content == null || className == null) return classDeclarations;
+		
+		CompilationUnit compilationUnit = getCompilationUnit(content);
+		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElse(null);
+		if(mainClass == null) return classDeclarations;
+		
+		return getExtendedClassTypesWithoutArguments(mainClass);
+		
+	}
+	
+	private Set<String> getExtendedClassTypesWithoutArguments(ClassOrInterfaceDeclaration mainClass) {
+		HashSet<String> resultingTypes = new HashSet<>();
+		
+		NodeList<ClassOrInterfaceType> extendedTypes = mainClass.getExtendedTypes();
+		for(ClassOrInterfaceType extendedType : extendedTypes) {
+			resultingTypes.add(extendedType.getName().asString());
+		}
+		return resultingTypes;
+	}
 	
 	private Set<String> getExtendedClassTypes(ClassOrInterfaceDeclaration mainClass) {
 		HashSet<String> resultingTypes = new HashSet<>();

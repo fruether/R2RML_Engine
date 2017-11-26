@@ -7,8 +7,8 @@
 
 
 [XSDCheck:
-    (?a sl:elementOf sl:XML)
-    (?b sl:elementOf sl:XSD)
+    (?a sl:elementOf sl:Language/XML)
+    (?b sl:elementOf sl:Language/XSD)
     (?a sl:partOf build1)
     (?b sl:partOf build2)
     notEqual(build1, build2)
@@ -34,10 +34,10 @@
     (?file sl:elementOf ?language)
 ]
 [JavaClassIdentification:
-    (?file sl:elementOf sl:Java)
+    (?file sl:elementOf sl:Language/Java)
     RetrieveClass(?file, ?classname)
     ->
-    (?file sl:hasReference ?classname)
+    (?file sl:defOccurs ?classname)
 ]
 
 [DTDDetection:
@@ -45,13 +45,13 @@
     (?file rdf:type sl:Artefact)
     FileEnding(?file, ".dtd")
     ->
-    (?file sl:elementOf sl:DTD)
+    (?file sl:elementOf sl:Language/DTD)
 ]
 [DTDValidation:
     (?file1 sl:partOf ?build1)
-    (?file1 sl:elementOf sl:XML)
+    (?file1 sl:elementOf sl:Language/XML)
     (?file2 sl:partOf ?build2)
-    (?file2 sl:elementOf sl:DTD)
+    (?file2 sl:elementOf sl:Language/DTD)
     DTDCheck(?file1, ?file2)
     ->
     (?file1 sl:conformsTo ?file2)
@@ -64,7 +64,7 @@
 ]
 [HibernateRoles:
     (?file sl:partOf ?build1)
-    (?file sl:elementOf sl:XML)
+    (?file sl:elementOf sl:Language/XML)
     (?file sl:conformsTo ?schema)
     (?schema sl:partOf sl:hibernate)
     HibernateRoleIdentification(?schema, ?role)
@@ -80,19 +80,19 @@
 ]
 
 [HibernateMappingFast:
-    (?file1 sl:elementOf sl:XML)
+    (?file1 sl:elementOf sl:Language/XML)
     (?file1 sl:hasRole sl:HibernateMapping)
     HibernateMappingAnalysis(?file1, ?class)
     ->
-    (?file1 sl:refersTo ?class)
+    (?file1 sl:refOccurs ?class)
 ]
 
 [HibernateObjectDefinitionXMLMapping:
     (?file1 sl:hasRole sl:HibernateMapping)
-    (?file1 sl:elementOf sl:XML)
-    (?file2 sl:elementOf sl:Java)
-    (?file2 sl:hasReference ?class)
-    (?file1 sl:refersTo ?class)
+    (?file1 sl:elementOf sl:Language/XML)
+    (?file2 sl:elementOf sl:Language/Java)
+    (?file2 sl:defOccurs ?class)
+    (?file1 sl:refOccurs ?class)
     GetClassLiteral(?class, ?classLanguage)
     ->
     (?file2 sl:defines ?classLanguage)
@@ -105,7 +105,7 @@
     (?fragment sl:hasRole sl:HibernateMapping)
     (?fragment sl:elementOf sl:Language/JavaAnnotatedElement)
     (?fragment sl:partOf ?file)
-    (?file sl:hasReference ?class)
+    (?file sl:defOccurs ?class)
     GetClassLiteral(?class, ?classLanguage)
     ->
     (?file sl:defines ?classLanguage)
@@ -116,7 +116,7 @@
 
 [HibernateMappingFunctionDefinitionXML:
     (?file sl:hasRole sl:HibernateMapping)
-    (?file sl:elementOf sl:XML)
+    (?file sl:elementOf sl:Language/XML)
     HibernateGetMappingType(?file, ?function)
     ->
     (?file sl:defines ?function)
@@ -128,7 +128,7 @@
     (?fragment sl:hasRole sl:HibernateMapping)
     (?fragment sl:elementOf sl:Language/JavaAnnotatedElement)
     (?fragment sl:partOf ?file)
-    (?file sl:elementOf sl:Java)
+    (?file sl:elementOf sl:Language/Java)
     HibernateGetMappingType(?file, ?function)
     ->
     (?fragment sl:defines ?function)
@@ -142,11 +142,11 @@
     (?file sl:defines sl:OR-Mapping)
 ]
 [HibernateMappingFunctionXMLInputDefinition:
-    (?mappingFile sl:elementOf sl:XML)
+    (?mappingFile sl:elementOf sl:Language/XML)
     (?mappingFile sl:defines ?function)
     (?function sl:partOf sl:OR-Mapping)
-    (?mappingFile sl:refersTo ?className)
-    (?file sl:hasReference ?className)
+    (?mappingFile sl:refOccurs ?className)
+    (?file sl:defOccurs ?className)
     (?file sl:defines ?language)
     ->
     (?language sl:input ?function)
@@ -166,7 +166,7 @@
 
 [HibernateMappingReferencedTables:
     (?file sl:hasRole sl:HibernateMapping)
-    (?file sl:elementOf sl:XML)
+    (?file sl:elementOf sl:Language/XML)
     HibernateMappingGetTable(?file, ?table)
     ->
     (?file sl:HibernateMappingRefersToRelationalTable ?table)
@@ -174,13 +174,13 @@
 
 [HibernateXMLMappingJavaCorrespondsToTable:
     (?file sl:hasRole sl:HibernateMapping)
-    (?file sl:elementOf sl:XML)
+    (?file sl:elementOf sl:Language/XML)
     (?file sl:HibernateMappingRefersToRelationalTable ?tableUI)
     (?tableUI sl:elementOf sl:Language/ReferenceLanguage)
     (?tableUI sl:partOf ?fragment)
     (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
-    (?file sl:refersTo ?class)
-    (?javaFile sl:hasReference ?class)
+    (?file sl:refOccurs ?class)
+    (?javaFile sl:defOccurs ?class)
     ->
     (?javaFile sl:correspondsTo ?fragment)
 ]
@@ -193,7 +193,7 @@
     (?tableUI sl:partOf ?fragment)
     (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
     (?file sl:partOf ?javaFile)
-    (?javaFile sl:elementOf sl:Java)
+    (?javaFile sl:elementOf sl:Language/Java)
     ->
     (?javaFile sl:correspondsTo ?fragment)
 ]
@@ -219,7 +219,7 @@
     (?function sl:output ?relationalLanguage)
 ]
 [ExtractAndParseCreateStmts:
-    (?file sl:elementOf sl:SQL)
+    (?file sl:elementOf sl:Language/SQL)
     ->
     CreateStmtExtraction(?file)
 ]
@@ -229,14 +229,14 @@
     RetrieveTableURI(?fragment)
 ]
 [CheckAnnotationHibernate:
-    (?file sl:elementOf sl:Java)
+    (?file sl:elementOf sl:Language/Java)
     CheckLiteralImported(?file, "javax.persistence")
     ->
     HibernateAnnotationDetection(?file)
 ]
 
 [ImportDetection:
-    (?file sl:elementOf sl:Java)
+    (?file sl:elementOf sl:Language/Java)
     (?package rdf:type sl:Package)
     CheckImport(?file, ?package)
     ->
@@ -246,47 +246,46 @@
 [ImportImportDetection:
     (?package rdf:type sl:Package)
     (?file sl:uses ?package)
-    (?file sl:hasReference ?class)
-    (?file2 sl:elementOf sl:Java)
-    CheckClassReference(?file2, ?class)
+    (?file sl:defOccurs ?class)
+    (?file2 sl:elementOf sl:Language/Java)
+    notEqual(?file, ?file2)
+    CheckNotImported("javax.persistence")
+    CheckExtension(?file2, ?class)
     ->
-    (?file2 sl:uses ?class)
-    (?file2 sl:indirectUse ?package)
+    (?file2 sl:uses ?package)
 ]
-
-[HibernateImportUsedDetection:
-    (?file1 sl:elementOf sl:Java)
-    (?package sl:partOf sl:hibernate)
-    (?file1 sl:uses ?package)
-    (?file2 sl:hasRole technologies:Hibernate/HibernatePersistedObject)
-    notEqual(?file1, ?file2)
-    (?file2 sl:hasReference ?class2)
-    CheckClassReference(?file1, ?class2)
-    (?file1 sl:hasReference ?class1)
-    ->
-    (?file1 sl:uses ?class2)
-]
-
 
 [HibernateImportUsedDetectionIndirect:
-    (?file1 sl:elementOf sl:Java)
+    (?file1 sl:elementOf sl:Language/Java)
     (?package sl:partOf sl:hibernate)
     (?file1 sl:indirectUse ?package)
     (?file2 sl:hasRole technologies:Hibernate/HibernatePersistedObject)
     notEqual(?file1, ?file2)
-    (?file2 sl:hasReference ?class2)
+    (?file2 sl:defOccurs ?class2)
     CheckClassReference(?file1, ?class2)
-    (?file1 sl:hasReference ?class1)
+    (?file1 sl:defOccurs ?class1)
+    ->
+    (?file1 sl:uses ?class2)
+]
+[HibernateImportUsedDetection:
+    (?file1 sl:elementOf sl:Language/Java)
+    (?package sl:partOf sl:hibernate)
+    (?file1 sl:uses ?package)
+    (?file2 sl:hasRole technologies:Hibernate/HibernatePersistedObject)
+    notEqual(?file1, ?file2)
+    (?file2 sl:defOccurs ?class2)
+    CheckClassReference(?file1, ?class2)
+    (?file1 sl:defOccurs ?class1)
     ->
     (?file1 sl:uses ?class2)
 ]
 
 [HibernateServiceDiscovery:
-    (?file sl:elementOf sl:Java)
+    (?file sl:elementOf sl:Language/Java)
     (?file sl:uses ?package)
     (?package sl:partOf sl:hibernate)
     (?file sl:uses ?class)
-    (?filePers sl:hasReference ?class)
+    (?filePers sl:defOccurs ?class)
     (?filePers sl:hasRole technologies:Hibernate/HibernatePersistedObject)
     (?filePers sl:defines ?language)
     (?language sl:input ?function)
@@ -297,11 +296,11 @@
 ]
 
 [HibernateServiceDiscoveryIndirect:
-    (?file sl:elementOf sl:Java)
+    (?file sl:elementOf sl:Language/Java)
     (?file sl:indirectUse ?package)
     (?package sl:partOf sl:hibernate)
     (?file sl:uses ?class)
-    (?filePers sl:hasReference ?class)
+    (?filePers sl:defOccurs ?class)
     (?filePers sl:hasRole technologies:Hibernate/HibernatePersistedObject)
     (?filePers sl:defines ?language)
     (?language sl:input ?function)
@@ -311,6 +310,9 @@
     (?file sl:hasRole technologies:Hibernate/HibernateService)
 ]
 
+
+
+
 [CountMappingDefinitions:
     (?sth sl:hasRole  sl:HibernateMapping)
     (?sth sl:elementOf sl:Language/JavaAnnotatedElement)
@@ -319,16 +321,16 @@
 ]
 [CountMappingDefinitions:
     (?sth sl:hasRole  sl:HibernateMapping)
-    (?sth sl:elementOf sl:XML)
+    (?sth sl:elementOf sl:Language/XML)
     ->
     Count("HibernateMappingXML")
 ]
 
 [CountCorespondenceXML:
     (?sth sl:hasRole  sl:HibernateMapping)
-    (?sth sl:elementOf sl:XML)
-    (?sth sl:refersTo ?class)
-    (?file sl:hasReference ?class)
+    (?sth sl:elementOf sl:Language/XML)
+    (?sth sl:refOccurs ?class)
+    (?file sl:defOccurs ?class)
     (?file sl:correspondsTo ?table)
     ->
     Count("HibernateCorrespondenceByXML")
@@ -350,7 +352,14 @@
 [CountTableCreated:
     (?sth sl:elementOf sl:Language/SQLCreateTableStmt)
     ->
-    Count("TableStatemtn")
+    Count("TableStatement")
+]
+[CountTableDistinct:
+    (?sth sl:elementOf sl:Language/SQLCreateTableStmt)
+    (?table sl:elementOf sl:Language/ReferenceLanguage)
+    (?table sl:partOf ?sth)
+    ->
+    CountDistinct("TableStatementsDistinct", ?table)
 ]
 [CountHibernateImports:
     (?file sl:uses ?package)
@@ -431,4 +440,31 @@
     noValue(?x, sl:backwardsUse)
 ]
 
+[CountOLang:
+    (?function sl:partOf sl:OR-Mapping)
+    (?language sl:input ?function)
+    (?file sl:defines ?language)
+    (?file sl:elementOf sl:Language/Java)
+    ->
+    Count("MappingFunctionWithOLang")
+]
+
+[CountRLang:
+    (?function sl:partOf sl:OR-Mapping)
+    (?function sl:output ?language)
+    (?frag sl:defines ?language)
+    (?frag sl:elementOf sl:Language/SQLCreateTableStmt)
+    ->
+    CountDistinct("MappingFunctionWithRLang", ?function)
+]
+
+[CountTableIdCorrespondance:
+    (?file sl:correspondsTo sl:sqlFrag)
+    (?file sl:elementOf sl:Language/Java)
+    (?sqlFrag sl:elementOf sl:Language/SQLCreateTableStmt)
+    (?table sl:elementOf sl:Language/ReferenceLanguage)
+    (?table sl:partOf ?sqlFrag)
+    ->
+    CountDistinct("MappingFunctionWithRLang", ?table)
+]
 

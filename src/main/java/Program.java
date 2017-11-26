@@ -6,6 +6,7 @@ import Plugin.HibernateSpecific.HibernateAnnotationDetection;
 import Plugin.HibernateSpecific.HibernateGetMappingType;
 import Plugin.JavaSpecific.CheckCall;
 import Plugin.JavaSpecific.CheckClassReference;
+import Plugin.JavaSpecific.CheckExtension;
 import Plugin.JavaSpecific.CheckImport;
 import Plugin.CheckReferences;
 import Plugin.DTDCheckPlugin;
@@ -14,6 +15,7 @@ import Plugin.HibernateSpecific.HibernateMappingAnalysis;
 import Plugin.HibernateSpecific.HibernateRoleIdentification;
 import Plugin.HibernateSpecific.HibernateMappingGetTable;
 import Plugin.JavaSpecific.CheckLiteralImported;
+import Plugin.JavaSpecific.CheckNotImported;
 import Plugin.LiquidBaseDependencyPlugin;
 import Plugin.HibernateSpecific.HibernateDependency;
 import Plugin.NoXSDMatch;
@@ -178,6 +180,8 @@ public class Program {
         builtins.add(new HibernateAnnotationDetection());
         builtins.add(new CreateStmtExtraction());
         builtins.add(new CheckLiteralImported());
+        builtins.add(new CheckExtension());
+        builtins.add(new CheckNotImported());
     }
     
     public static Map<String, Integer> countPredicate(Model model, String subject, String predicate, String object) {

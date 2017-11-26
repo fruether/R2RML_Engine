@@ -6,7 +6,6 @@ import Services.JavaService;
 import Services.LanguageService;
 import org.apache.jena.graph.Node;
 import org.apache.jena.reasoner.rulesys.RuleContext;
-import org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin;
 
 import java.util.List;
 import java.util.Map;
@@ -16,18 +15,15 @@ import java.util.WeakHashMap;
 /**
  * Created by freddy on 02.10.17.
  */
-public class CheckClassReference extends BaseBuiltin {
+public class CheckClassReference extends JavaBase {
 	private JavaService javaService;
 	private FileRetrievementService fileRetrievementService;
 	private Map<String, Set<String>> fileClassCache;
-	private Map<String, List<String>> fileImportedPackages;
 	
 	public CheckClassReference() {
 		javaService = LanguageService.getInstance().getJavaService();
 		fileRetrievementService = FileRetrievementService.getInstance();
 		fileClassCache = new WeakHashMap<>();
-		fileImportedPackages = new WeakHashMap<>();
-		
 	}
 	@Override
 	public String getName() {
@@ -54,7 +50,7 @@ public class CheckClassReference extends BaseBuiltin {
 				typeDeclarations = fileClassCache.get(uriFile);
 			}
 			else {
-				String classNameOfFile = getClass(uriFile);
+				String classNameOfFile = getClassFromJavaFilePath(uriFile);
 				typeDeclarations = javaService.getDeclaredClasses(content, classNameOfFile);
 				fileClassCache.put(uriFile, typeDeclarations);
 			}
@@ -84,37 +80,5 @@ public class CheckClassReference extends BaseBuiltin {
 		System.out.println("[CheckedSuccessfullClassReference] : " + uriFile + " " + classAndPackegeNameDest + " " + result);
 		
 		return result;
-	}
-	
-	private String getClassFromUri(String uri) {
-		return  uri.substring(uri.lastIndexOf("/") + 1);
-	}
-	
-	private String[] getPackageAndClass(String classPath) {
-		String[] packageClass = new String[2];
-		if(classPath.contains(".")) {
-			packageClass[0] = classPath.substring(0, classPath.lastIndexOf("."));
-			packageClass[1] = classPath.substring(classPath.lastIndexOf(".") + 1);
-		}
-		else {
-			packageClass[0] = null;
-			packageClass[1] = classPath;
-		}
-		return packageClass;
-	}
-	
-	private String getClass(String uri) {
-		return  uri.substring(uri.lastIndexOf("/") + 1, uri.length() - ".java".length());
-	}
-	
-	private List<String> getPackages(String fileId, String content) {
-		if(fileImportedPackages.containsKey(fileId)) {
-			return fileImportedPackages.get(fileId);
-		}
-		else {
-			List<String> result = javaService.getJavaImportedElements(content);
-			fileImportedPackages.put(fileId, result);
-			return result;
-		}
 	}
 }

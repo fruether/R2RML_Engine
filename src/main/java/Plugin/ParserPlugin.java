@@ -43,7 +43,7 @@ public class ParserPlugin extends BaseBuiltin {
 			String language = languageService.getLanguage(prefix,content);
 			if(language.isEmpty()) return false;
 			
-			Node value = NodeFactory.createURI("http://softlang.com/" + language);
+			Node value = NodeFactory.createURI("http://softlang.com/Language/" + language);
 			return env.bind(args[1], value);
 		}
 		catch (FileRetrievementServiceException exception) {
