@@ -85,5 +85,18 @@ public class CheckClassReferenceTest {
 		
 		assertTrue(result);
 	}
+	@Test
+	public void checkClassIsNot_references_without_cache() {
+		Node javaFile = NodeFactory.createURI("http://softlang.com/Java/MeasurementTypeDao.java");
+		Node className = NodeFactory.createURI("http://softlang.com/Class/org.oscarehr.common.model.MeasurementType");
+		
+		Node[] env = new Node[] {javaFile, className};
+		
+		boolean result = checkClassReference.bodyCall(env, 2, null);
+		
+		assertTrue(result);
+	}
+	
+	
 	
 }

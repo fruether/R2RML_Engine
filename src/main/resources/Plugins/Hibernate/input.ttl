@@ -1,11 +1,10 @@
-@prefix technologies: <http://softlang.com/Plugins/> .
 @prefix hibernate: <http://softlang.com/plugins/hibernate/> .
+@prefix technologies: <http://softlang.com/Plugins/> .
 @prefix sl: <http://softlang.com/> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-technologies:HibernateMapping rdf:type sl:Role .
-technologies:HibernateConfiguration rdf:type sl:Role .
+hibernate:HibernatePersistedObject rdf:type sl:Role.
 
 sl:hibernate rdf:type sl:BuildRelease .
 hibernate:hibernate-configuration-3.0.dtd rdf:type sl:Artefact .
@@ -16,23 +15,6 @@ hibernate:hibernate-configuration-3.0.dtd sl:partOf sl:hibernate .
 hibernate:hibernate-configuration-4.0.xsd sl:partOf sl:hibernate .
 hibernate:hibernate-mapping-3.0.dtd sl:partOf sl:hibernate .
 hibernate:hibernate-mapping-4.0.xsd sl:partOf sl:hibernate .
-
-
-sl:JavaObjects rdf:type sl:Language .
-sl:Mapping rdf:type sl:Language .
-sl:Relations rdf:type sl:Language .
-sl:OR-Mapping rdf:type sl:Function .
-
-sl:JavaObjects sl:input sl:OR-Mapping .
-sl:Mapping sl:input sl:OR-Mapping .
-sl:Relations sl:output sl:OR-Mapping .
-
-sl:hibernate sl:implements sl:OR-Mapping .
- 
- 
- 
- 
- 
 hibernate:Package\/org.hibernate.cfg.Configuration rdf:type sl:Package .
 hibernate:Package\/org.hibernate.cfg.Configuration sl:partOf sl:hibernate .
 sl:hibernate sl:hasPackage hibernate:Package\/org.hibernate.cfg.Configuration .
@@ -63,11 +45,21 @@ hibernate:\/Method\/getCurrentSession sl:partOf hibernate:Package\/org.hibernate
 hibernate:\/Method\/openSession rdf:type sl:Method .
 hibernate:\/Method\/openSession sl:partOf hibernate:Package\/org.hibernate.SessionFactory .
 hibernate:Package\/org.hibernate.SessionFactory sl:uses hibernate:Package\/org.hibernate.Session .
-hibernate:hibernate-configuration-3\.0\.dtd rdf:type sl:Artefact .
-hibernate:hibernate-configuration-4\.0\.xsd rdf:type sl:Artefact .
-hibernate:hibernate-mapping-3\.0\.dtd rdf:type sl:Artefact .
-hibernate:hibernate-mapping-4\.0\.xsd rdf:type sl:Artefact .
-hibernate:hibernate-configuration-3\.0\.dtd sl:partOf sl:hibernate .
-hibernate:hibernate-configuration-4\.0\.xsd sl:partOf sl:hibernate .
-hibernate:hibernate-mapping-3\.0\.dtd sl:partOf sl:hibernate .
-hibernate:hibernate-mapping-4\.0\.xsd sl:partOf sl:hibernate .
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+hibernate:Package\/javax.persistence.Query rdf:type sl:Package .
+hibernate:Package\/javax.persistence.Query sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/javax.persistence.Query .
+hibernate:\/Method\/setParameter rdf:type sl:Method .
+hibernate:\/Method\/setParameter sl:partOf hibernate:Package\/javax.persistence.Query .
+hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport rdf:type sl:Package .
+hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport .
+hibernate:\/Method\/getHibernateTemplate rdf:type sl:Method .
+hibernate:\/Method\/getHibernateTemplate sl:partOf hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport .

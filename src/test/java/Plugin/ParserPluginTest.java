@@ -45,7 +45,7 @@ public class ParserPluginTest {
 	@Test
 	public void bodyCall_correct_xml() throws Exception {
 		Node source = NodeFactory.createURI("http://softlang.com/pom.xml");
-		String resultingLanguage = "http://softlang.com/XML";
+		String resultingLanguage = "http://softlang.com/Language/XML";
 		Node[] env = setUpRuleContext(source);
 		
 		boolean result = parserPlugin.bodyCall(env,2 , ruleContext);
@@ -57,7 +57,7 @@ public class ParserPluginTest {
 	@Test
 	public void bodyCall_correct_xsd() throws Exception {
 		Node source = NodeFactory.createURI("http://softlang.com/maven-4.0.0.xsd");
-		String resultingLanguage = "http://softlang.com/XSD";
+		String resultingLanguage = "http://softlang.com/Language/XSD";
 		Node[] env = setUpRuleContext(source);
 		
 		
@@ -71,7 +71,7 @@ public class ParserPluginTest {
 	@Test
 	public void bodyCall_correct_java() throws Exception {
 		Node source = NodeFactory.createURI("http://softlang.com/Parser/Correct.java");
-		String resultingLanguage = "http://softlang.com/Java";
+		String resultingLanguage = "http://softlang.com/Language/Java";
 		Node[] env = setUpRuleContext(source);
 		
 		
@@ -84,7 +84,7 @@ public class ParserPluginTest {
 	@Test
 	public void bodyCall_incorrect_java() throws Exception {
 		Node source = NodeFactory.createURI("http://softlang.com/Parser/Incorrect.java");
-		String resultingLanguage = "http://softlang.com/Java";
+		String resultingLanguage = "http://softlang.com/Language/Java";
 		Node[] env = setUpRuleContext(source);
 		
 		boolean result = parserPlugin.bodyCall(env,2 , ruleContext);
@@ -95,7 +95,7 @@ public class ParserPluginTest {
 	@Test
 	public void bodyCall_incorrect_xml() throws Exception {
 		Node source = NodeFactory.createURI("http://softlang.com/pom_wrong_syntax.xml");
-		String resultingLanguage = "http://softlang.com/XML";
+		String resultingLanguage = "http://softlang.com/Language/XML";
 		Node[] env = setUpRuleContext(source);
 		
 		boolean result = parserPlugin.bodyCall(env,2 , ruleContext);

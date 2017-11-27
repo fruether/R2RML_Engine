@@ -1,5 +1,6 @@
 package Plugin;
 
+import Plugin.HibernateSpecific.HibernateMappingGetTable;
 import Services.FileRetrievementService;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
@@ -37,7 +38,7 @@ public class HibernateMappingGetTableTest {
 	
 	@Test
 	public void table_name_correct_1() {
-		String expectedTable = "http://softlang.com/Table/ALLERGY";
+		String expectedTable = "http://softlang.com/URI/ALLERGY";
 		Node inputFile = NodeFactory.createURI("http://softlang.com/Allergy.hbm.xml");
 		Node[] env = setUpRuleContext(inputFile);
 		
@@ -51,7 +52,7 @@ public class HibernateMappingGetTableTest {
 	
 	@Test
 	public void table_name_correct_2() {
-		String expectedTable = "http://softlang.com/Table/FIXEDREPORT";
+		String expectedTable = "http://softlang.com/URI/FIXEDREPORT";
 		Node inputFile = NodeFactory.createURI("http://softlang.com/FixedReport.hbm.xml");
 		Node[] env = setUpRuleContext(inputFile);
 		
@@ -65,7 +66,7 @@ public class HibernateMappingGetTableTest {
 	
 	@Test
 	public void table_name_wrong() {
-		String expectedTable = "http://softlang.com/Table/FIXEDREPORT";
+		String expectedTable = "http://softlang.com/URI/FIXEDREPORT";
 		Node inputFile = NodeFactory.createURI("http://softlang.com/pom.xml");
 		Node[] env = setUpRuleContext(inputFile);
 		
@@ -75,7 +76,7 @@ public class HibernateMappingGetTableTest {
 	}
 	@Test
 	public void table_name_correct_default() {
-		String expectedTable = "http://softlang.com/Table/PROJECTAVAILABILITY";
+		String expectedTable = "http://softlang.com/URI/PROJECTAVAILABILITY";
 		Node inputFile = NodeFactory.createURI("http://softlang.com/ProjectAvailability.hbm.xml");
 		Node[] env = setUpRuleContext(inputFile);
 		
