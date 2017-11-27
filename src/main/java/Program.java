@@ -133,7 +133,11 @@ public class Program {
         save.printResult();
         countDistinct.printResult();
         Map<String,Integer> predicateCounts = countPredicate(inf, null,  null, "http://softlang.com/NotImplementedFunction");
-        System.out.println("coujnt" + predicateCounts.size());
+        System.out.println("count" + predicateCounts.size());
+        System.out.println(predicateCounts.toString());
+    
+        predicateCounts = countPredicate(inf, null,  null, "http://softlang.com/NotImplementedTable");
+        System.out.println("countTables" + predicateCounts.size());
         System.out.println(predicateCounts.toString());
     
     

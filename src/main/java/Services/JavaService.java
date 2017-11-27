@@ -126,7 +126,7 @@ public class JavaService {
 		// Search for declarations in methods
 		List<MethodDeclaration> methods = mainClass.getMethods();
 		for(MethodDeclaration method : methods) {
-			classDeclarations.add(method.getType().toString());
+			classDeclarations.addAll(cleanTemplateType(method.getType().toString()));
 			
 			method.getParameters().forEach(declarationConsumer);
 			try {
@@ -248,4 +248,18 @@ public class JavaService {
 		return annotationConsumer;
 	}
 	
+	
+	private Set<String> cleanTemplateType(String expression) {
+		Set<String> result = new HashSet<String>();
+		if(expression.contains("<")) {
+			
+			for(String value : expression.replace(">", "").replace("<", ",").split(",")) {
+				result.add(value);
+			}
+		}
+		else {
+			result.add(expression);
+		}
+		return result;
+	}
 }

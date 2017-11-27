@@ -26,7 +26,7 @@ public class CheckClassReferenceTest {
 	@Test
 	public void checkClassIs_references_no_cache() {
 		Node javaFile = NodeFactory.createURI("http://softlang.com/Java/SampleClassDeclarations.java");
-		Node className = NodeFactory.createURI("http://softlang.com/Class/String");
+		Node className = NodeFactory.createURI("http://softlang.com/Class/java.lang.String");
 		
 		Node[] env = new Node[] {javaFile, className};
 		
@@ -37,12 +37,12 @@ public class CheckClassReferenceTest {
 	@Test
 	public void checkClassIs_references_cache() {
 		Node javaFile = NodeFactory.createURI("http://softlang.com/Java/SampleClassDeclarations.java");
-		Node className = NodeFactory.createURI("http://softlang.com/Class/String");
+		Node className = NodeFactory.createURI("http://softlang.com/Class/java.lang.String");
 		
 		Node[] env = new Node[] {javaFile, className};
 		
 		checkClassReference.bodyCall(env, 2, null);
-		Node className2 = NodeFactory.createURI("http://softlang.com/Class/LinkedHashMap");
+		Node className2 = NodeFactory.createURI("http://softlang.com/Class/java.util.LinkedHashMap");
 		env = new Node[] {javaFile, className2};
 		
 		boolean result = checkClassReference.bodyCall(env, 2, null);
@@ -75,7 +75,7 @@ public class CheckClassReferenceTest {
 	}
 	
 	@Test
-	public void checkClassIsNot_references_no_cache_withPackage2() {
+	public void checkClassIs_referenced_no_cache_withPackage2() {
 		Node javaFile = NodeFactory.createURI("http://softlang.com/Java/SampleClassDeclarations.java");
 		Node className = NodeFactory.createURI("http://softlang.com/Class/java.lang.t.Object");
 		
@@ -86,7 +86,7 @@ public class CheckClassReferenceTest {
 		assertTrue(result);
 	}
 	@Test
-	public void checkClassIsNot_references_without_cache() {
+	public void checkClassIs_referenced_without_cache() {
 		Node javaFile = NodeFactory.createURI("http://softlang.com/Java/MeasurementTypeDao.java");
 		Node className = NodeFactory.createURI("http://softlang.com/Class/org.oscarehr.common.model.MeasurementType");
 		
@@ -97,6 +97,44 @@ public class CheckClassReferenceTest {
 		assertTrue(result);
 	}
 	
+	@Test
+	public void checkClassIsReferenced_inLoop() {
+		Node javaFile = NodeFactory.createURI("http://softlang.com/Java/LookupDao.java");
+		Node className = NodeFactory.createURI("http://softlang.com/Class/com.quatro.model.FieldDefValue");
+		
+		Node[] env = new Node[] { javaFile, className };
+		
+		boolean result = checkClassReference.bodyCall(env, 2, null);
+		
+		assertTrue(result);
+		
+	}
 	
+	@Test
+	public void checkClassIsReferenced_normalCase() {
+		Node javaFile = NodeFactory.createURI("http://softlang.com/Java/SecPrivilegeDao.java");
+		Node className = NodeFactory.createURI("http://softlang.com/Class/org.oscarehr.common.model.SecPrivilege");
+		
+		Node[] env = new Node[] { javaFile, className };
+		
+		boolean result = checkClassReference.bodyCall(env, 2, null);
+		
+		assertTrue(result);
+		
+	}
+	
+	
+	@Test
+	public void checkClassIsReferenced_normalCase2() {
+		Node javaFile = NodeFactory.createURI("http://softlang.com/Java/Hl7TextInfoDao.java");
+		Node className = NodeFactory.createURI("http://softlang.com/Class/org.oscarehr.common.model.Hl7TextMessageInfo2");
+		
+		Node[] env = new Node[] { javaFile, className };
+		
+		boolean result = checkClassReference.bodyCall(env, 2, null);
+		
+		assertTrue(result);
+		
+	}
 	
 }
