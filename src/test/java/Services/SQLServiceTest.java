@@ -128,6 +128,29 @@ public class SQLServiceTest {
 		
 		
 	}
+	
+	@Test
+	public void mysql_get_tables_correct3() {
+		String content = null;
+		Map<String, int[]> tables = null;
+		boolean result = false;
+		
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/update-2015-02-12.sql.txt").toUpperCase();
+			//content = content.replace(" ;", ";");
+			tables = sqlService.getCreateStmts(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+		assertEquals(tables.size(), 2);
+		assertTrue(tables.containsKey("consultationResponse".toUpperCase()));
+		assertTrue(tables.containsKey("consultResponseDoc".toUpperCase()));
+		
+		
+	}
 	@Test
 	public void test_sqliteInput_1() {
 		String content = null;
@@ -217,6 +240,23 @@ public class SQLServiceTest {
 	@Test
 	public void test_get_matches_small_file2() {
 		String uri = "http://softlang.com/SQL/patch-2008-12-19.sql";
+		FileRetrievementService fileRetrievementService = FileRetrievementService.getInstance();
+		
+		try {
+			String content = fileRetrievementService.getContent(uri);
+			boolean matchedTable = sqlService.parseSQL(content);
+			
+			assertTrue(matchedTable);
+			
+		}
+		catch (FileRetrievementServiceException exception) {
+			assertTrue(false);
+		}
+	}
+	
+	@Test
+	public void test_get_matches_small_file3() {
+		String uri = "http://softlang.com/SQL/update-2015-02-12.sql.txt";
 		FileRetrievementService fileRetrievementService = FileRetrievementService.getInstance();
 		
 		try {

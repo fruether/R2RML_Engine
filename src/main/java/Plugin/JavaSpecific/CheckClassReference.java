@@ -54,21 +54,13 @@ public class CheckClassReference extends JavaBase {
 				typeDeclarations = javaService.getDeclaredClasses(content, classNameOfFile);
 				fileClassCache.put(uriFile, typeDeclarations);
 			}
+			
 			String[] packageAndClass = getPackageAndClass(classAndPackegeNameDest);
-			if (packageAndClass[0] != null) {
-				boolean isImported = false;
-				List<String> importedElements = getPackages(uriFile, content);
-				for(String element : importedElements) {
-					element = element.replace("*", "");
-					if(element.equals(packageAndClass[0] + "." + packageAndClass[1]) || packageAndClass[0].startsWith(element)) {
-						isImported = true;
-						break;
-					}
-				}
-				if(!isImported)
-					return false;
-			}
+			List<String> importedElements = getPackages(uriFile, content);
+			boolean isImported = checkPackageIsImported(packageAndClass, importedElements);
+			if(!isImported)  return false;
 			result = typeDeclarations.contains(packageAndClass[1]);
+			System.out.println(typeDeclarations);
 		}
 		catch (FileRetrievementServiceException e) {
 			e.printStackTrace();

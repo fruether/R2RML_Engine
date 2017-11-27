@@ -173,7 +173,7 @@ public class SQLService implements ANTLRErrorListener {
 	public Map<String, int[]> getCreateStmts(String content) {
 		content = content.toUpperCase();
 	
-		String regex = "create table [^(]+\\([^;]+\\)([^=;]+=[^;]+)?;";
+		String regex = "create table [^(]+\\([^;]+\\)([^=;]+=[^;]+)?\\s*;";
 		Pattern pattern = Pattern.compile(regex, Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
 		Map<String, int[]> matchedTables = new HashMap<>();
 		
