@@ -1852,6 +1852,7 @@ null_notnull
 constant
     : string_literal | decimal_literal
    | hexadecimal_literal | boolean_literal
+   | ID_LITERAL+
    | REAL_LITERAL | BIT_STRING | NOTNULL
    | (NULL_LITERAL | NULL_SPEC_LITERAL)
    ;

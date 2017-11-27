@@ -27,6 +27,11 @@ public abstract class PluginManagerExtension {
 		
 		if(path.startsWith("."))
 			path = "\\" + path;
-		return path.replace("/", "\\/");
+		
+		String result =  path.replace("/", "\\/");
+		result =  result.replace("(", "%28").replace(")", "%29");
+		result = result.replace(" ", "%20");
+		result = result.replace("@", "%40");
+		return result;
 	}
 }

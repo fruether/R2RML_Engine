@@ -2,6 +2,7 @@ package Plugin.JavaSpecific;
 
 import Services.FileRetrievementService;
 import Services.FileRetrievementServiceException;
+import Services.JavaService;
 import Services.LanguageService;
 import Services.LanguageServiceException;
 import org.apache.jena.graph.Node;
@@ -18,7 +19,7 @@ import java.util.Map;
  */
 public class RetrieveClass extends BaseBuiltin {
 	private FileRetrievementService fileRetrievementService = FileRetrievementService.getInstance();
-	private LanguageService languageService = LanguageService.getInstance();
+	private JavaService languageService = LanguageService.getInstance().getJavaService();
 	
 	@Override
 	public String getName() {
@@ -39,7 +40,9 @@ public class RetrieveClass extends BaseBuiltin {
 			String className = languageService.getJavaClass(content, path);
 			if(className.isEmpty()) return false;
 			
-			Node value = NodeFactory.createURI("http://softlang.com/Class/" + className);
+			Node value = NodeFactory.createURI("http://softlang.com/ClassURI/" + className);
+			System.out.println("[RetrieveClass] leaving");
+			
 			return env.bind(args[1], value);
 		}
 		catch (FileRetrievementServiceException exception) {

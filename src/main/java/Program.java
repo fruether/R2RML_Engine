@@ -1,21 +1,28 @@
 import Plugin.ClassLiteral;
+import Plugin.Count;
+import Plugin.CountDistinct;
 import Plugin.GetTableLiteral;
-import Plugin.HibernateGetMappingType;
+import Plugin.HibernateSpecific.HibernateAnnotationDetection;
+import Plugin.HibernateSpecific.HibernateGetMappingType;
 import Plugin.JavaSpecific.CheckCall;
 import Plugin.JavaSpecific.CheckClassReference;
+import Plugin.JavaSpecific.CheckExtension;
 import Plugin.JavaSpecific.CheckImport;
 import Plugin.CheckReferences;
 import Plugin.DTDCheckPlugin;
 import Plugin.FileEndingPlugin;
-import Plugin.HibernateMappingAnalysis;
-import Plugin.HibernateRoleIdentification;
-import Plugin.HibernateMappingGetTable;
+import Plugin.HibernateSpecific.HibernateMappingAnalysis;
+import Plugin.HibernateSpecific.HibernateRoleIdentification;
+import Plugin.HibernateSpecific.HibernateMappingGetTable;
+import Plugin.JavaSpecific.CheckLiteralImported;
+import Plugin.JavaSpecific.CheckNotImported;
 import Plugin.LiquidBaseDependencyPlugin;
-import Plugin.HibernateDependency;
+import Plugin.HibernateSpecific.HibernateDependency;
 import Plugin.NoXSDMatch;
 import Plugin.ParserPlugin;
 import Plugin.JavaSpecific.RetrieveClass;
-import Plugin.RetrieveTables;
+import Plugin.RetrieveTableURI;
+import Plugin.SQLSpecific.CreateStmtExtraction;
 import Plugin.XSDCheckPlugin;
 import Services.InputManagementService;
 import Services.PluginManagmentService;
@@ -27,10 +34,16 @@ import Services.ServiceExtensions.PackageDependencyExtension;
 import Services.ServiceExtensions.PartOfDetectionExtension;
 import Services.ServiceExtensions.PrefixCreationExtension;
 import Services.ServiceExtensions.PreludeExtension;
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Multiset;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ValidityReport;
 import org.apache.jena.reasoner.rulesys.BuiltinRegistry;
@@ -42,8 +55,12 @@ import org.apache.jena.vocabulary.RDF;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by Frederik on 21.06.2017.
@@ -52,10 +69,17 @@ public class Program {
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<BaseBuiltin> builtins= new ArrayList<BaseBuiltin>();
         String inputFile = "mrsData.ttl";
-        
-        
+        Count resultEvaluation = new Count();
+        Save save = new Save();
+        CountDistinct countDistinct = new CountDistinct();
+        System.setOut(new PrintStream(new FileOutputStream("/Users/freddy/Desktop/log_file.txt")));
+    
+    
         try {
             addPlugins(builtins);
+            builtins.add(resultEvaluation);
+            builtins.add(save);
+            builtins.add(countDistinct);
         }
         catch (ParserConfigurationException e) {
            System.out.println("Error while setting up the plugins: " + e.getMessage());
@@ -105,6 +129,14 @@ public class Program {
         /*  for (Statement x : inf.listStatements().toList())
             System.out.println(x);*/
     
+        resultEvaluation.printResult();
+        save.printResult();
+        countDistinct.printResult();
+        Map<String,Integer> predicateCounts = countPredicate(inf, null,  null, "http://softlang.com/NotImplementedFunction");
+        System.out.println("coujnt" + predicateCounts.size());
+        System.out.println(predicateCounts.toString());
+    
+    
     }
     static void managePlugins(InputManagementService inputManagementService) {
         PluginManagmentService pluginManagmentService = PluginManagmentService.getInstance();
@@ -142,11 +174,27 @@ public class Program {
         builtins.add(new HibernateGetMappingType());
         builtins.add(new ClassLiteral());
         builtins.add(new CheckClassReference());
-        builtins.add(new RetrieveTables());
+        builtins.add(new RetrieveTableURI());
         builtins.add(new HibernateMappingGetTable());
         builtins.add(new GetTableLiteral());
-    
+        builtins.add(new HibernateAnnotationDetection());
+        builtins.add(new CreateStmtExtraction());
+        builtins.add(new CheckLiteralImported());
+        builtins.add(new CheckExtension());
+        builtins.add(new CheckNotImported());
     }
-
+    
+    public static Map<String, Integer> countPredicate(Model model, String subject, String predicate, String object) {
+        Multiset<String> result = HashMultiset.create();
+        
+        Resource s = subject == null ? null : model.getResource(subject);
+        Property p = predicate == null ? null : model.getProperty(predicate);
+        RDFNode o = object == null ? null : model.getResource(object);
+        
+        for (Resource res : Lists.newArrayList(model.listSubjectsWithProperty(p, o)))
+            result.add(res.getURI());
+        
+        return result.entrySet().stream().collect(Collectors.toMap(x -> x.getElement(), x -> x.getCount()));
+    }
 }
 

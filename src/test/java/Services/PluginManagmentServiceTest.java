@@ -37,7 +37,7 @@ public class PluginManagmentServiceTest {
 	@Test
 	public void test_getPlugins_correct() throws Exception {
 		List<String> plugins = pluginManagmentService.getPlugins();
-		String[] resultArray = new String[] {"Plugins/Liquidbase/input.ttl", "Plugins/maven/input.ttl" };
+		String[] resultArray = new String[] { "Plugins/maven/input.ttl", "Plugins/Liquidbase/input.ttl" };
 		assertArrayEquals(plugins.toArray(), resultArray);
 	}
 	

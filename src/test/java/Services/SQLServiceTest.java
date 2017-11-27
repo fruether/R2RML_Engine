@@ -1,10 +1,13 @@
 package Services;
 
+import org.apache.jena.base.Sys;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Map;
 import java.util.Set;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.*;
 
 /**
@@ -102,6 +105,29 @@ public class SQLServiceTest {
 		assertTrue(tables.contains("KingdomHallFeature_AUD".toUpperCase()));
 		
 	}
+	
+	@Test
+	public void mysql_get_tables_correct2() {
+		String content = null;
+		Set<String> tables = null;
+		boolean result = false;
+		
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/initcaisi.sql").toUpperCase();
+			tables = sqlService.mysql_get_tables(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+		assertEquals(tables.size(), 120);
+		assertTrue(tables.contains("functionalCentreAdmission".toUpperCase()));
+		assertTrue(tables.contains("ClientLink".toUpperCase()));
+		assertTrue(tables.contains("GroupNoteLink".toUpperCase()));
+		
+		
+	}
 	@Test
 	public void test_sqliteInput_1() {
 		String content = null;
@@ -116,5 +142,92 @@ public class SQLServiceTest {
 			assertNull(e);
 		}
 		
+	}
+	
+	@Test
+	public void parse_sql_correct() {
+		String content = null;
+		boolean result = false;
+		
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/initcaisi.sql").toUpperCase();
+			//content = content.replace("DEFAULT CURRENT_TIMESTAMP", "");
+			result = sqlService.parseSQL(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+		assertTrue(result);
+		
+	}
+	
+	@Test
+	public void parse_sql_correct_large() {
+		String content = null;
+		boolean result = false;
+		
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/drugref.sql");
+			//content = content.replace("DEFAULT CURRENT_TIMESTAMP", "");
+			//result = sqlService.parseSQL(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+		//assertTrue(result);
+		
+	}
+	
+	@Test
+	public void test_get_matches_small_file() {
+		String uri = "http://softlang.com/001.sql";
+		FileRetrievementService fileRetrievementService = FileRetrievementService.getInstance();
+		try {
+			String content = fileRetrievementService.getContent(uri);
+			
+			Map<String, int[]> matchedTable = sqlService.getCreateStmts(content);
+			assertEquals(matchedTable.size(), 88);
+			assertTrue(matchedTable.containsKey("USER"));
+			assertTrue(matchedTable.containsKey("Congregation_AUD".toUpperCase()));
+			
+		}
+		catch (FileRetrievementServiceException exception) {
+			assertTrue(false);
+		}
+		
+	}
+	@Test
+	public void test_get_matches_large_file() {
+		String uri = "http://softlang.com/SQL/drugref.sql";
+		FileRetrievementService fileRetrievementService = FileRetrievementService.getInstance();
+		
+		try {
+			String content = fileRetrievementService.getContent(uri);
+			Map<String, int[]> matchedTable = sqlService.getCreateStmts(content);
+			assertTrue(matchedTable.size() > 0);
+		}
+		catch (FileRetrievementServiceException exception) {
+			assertTrue(false);
+		}
+	}
+	@Test
+	public void test_get_matches_small_file2() {
+		String uri = "http://softlang.com/SQL/patch-2008-12-19.sql";
+		FileRetrievementService fileRetrievementService = FileRetrievementService.getInstance();
+		
+		try {
+			String content = fileRetrievementService.getContent(uri);
+			boolean matchedTable = sqlService.parseSQL(content);
+			
+			assertTrue(matchedTable);
+			
+		}
+		catch (FileRetrievementServiceException exception) {
+			assertTrue(false);
+		}
 	}
 }

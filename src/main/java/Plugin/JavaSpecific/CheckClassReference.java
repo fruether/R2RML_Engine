@@ -2,30 +2,28 @@ package Plugin.JavaSpecific;
 
 import Services.FileRetrievementService;
 import Services.FileRetrievementServiceException;
+import Services.JavaService;
 import Services.LanguageService;
-import org.apache.jena.base.Sys;
 import org.apache.jena.graph.Node;
 import org.apache.jena.reasoner.rulesys.RuleContext;
-import org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.WeakHashMap;
 
 /**
  * Created by freddy on 02.10.17.
  */
-public class CheckClassReference extends BaseBuiltin {
-	private LanguageService languageService;
+public class CheckClassReference extends JavaBase {
+	private JavaService javaService;
 	private FileRetrievementService fileRetrievementService;
 	private Map<String, Set<String>> fileClassCache;
 	
 	public CheckClassReference() {
-		languageService = LanguageService.getInstance();
+		javaService = LanguageService.getInstance().getJavaService();
 		fileRetrievementService = FileRetrievementService.getInstance();
-		fileClassCache = new HashMap<>();
-		
+		fileClassCache = new WeakHashMap<>();
 	}
 	@Override
 	public String getName() {
@@ -40,28 +38,26 @@ public class CheckClassReference extends BaseBuiltin {
 		boolean result = false;
 		if (args.length != getArgLength())
 			return result;
-		
 		String uriFile = args[0].toString();
 		String classAndPackegeNameDest = getClassFromUri(args[1].toString());
+		System.out.println("[CheckClassReference:] " + uriFile);
 		
-		System.out.println("[CheckClassReference] : " + uriFile + " " + classAndPackegeNameDest);
 		try {
 			Set<String> typeDeclarations = null;
 			String content = fileRetrievementService.getContent(uriFile);
-			String classNameOfFile = getClass(uriFile);
 			
 			if(fileClassCache.containsKey(uriFile)) {
 				typeDeclarations = fileClassCache.get(uriFile);
 			}
 			else {
-				typeDeclarations = languageService.getDeclaredClasses(content, classNameOfFile);
+				String classNameOfFile = getClassFromJavaFilePath(uriFile);
+				typeDeclarations = javaService.getDeclaredClasses(content, classNameOfFile);
 				fileClassCache.put(uriFile, typeDeclarations);
 			}
-			String classNameDest = classAndPackegeNameDest.substring(classAndPackegeNameDest.lastIndexOf(".") + 1);
 			String[] packageAndClass = getPackageAndClass(classAndPackegeNameDest);
 			if (packageAndClass[0] != null) {
 				boolean isImported = false;
-				List<String> importedElements = languageService.getJavaImportedElements(content);
+				List<String> importedElements = getPackages(uriFile, content);
 				for(String element : importedElements) {
 					element = element.replace("*", "");
 					if(element.equals(packageAndClass[0] + "." + packageAndClass[1]) || packageAndClass[0].startsWith(element)) {
@@ -72,34 +68,17 @@ public class CheckClassReference extends BaseBuiltin {
 				if(!isImported)
 					return false;
 			}
-			
 			result = typeDeclarations.contains(packageAndClass[1]);
 		}
 		catch (FileRetrievementServiceException e) {
 			e.printStackTrace();
 		}
+		catch (Throwable throwable) {
+			throwable.printStackTrace();
+			result = false;
+		}
+		System.out.println("[CheckedSuccessfullClassReference] : " + uriFile + " " + classAndPackegeNameDest + " " + result);
 		
 		return result;
-	}
-	
-	private String getClassFromUri(String uri) {
-		return  uri.substring(uri.lastIndexOf("/") + 1);
-	}
-	
-	private String[] getPackageAndClass(String classPath) {
-		String[] packageClass = new String[2];
-		if(classPath.contains(".")) {
-			packageClass[0] = classPath.substring(0, classPath.lastIndexOf("."));
-			packageClass[1] = classPath.substring(classPath.lastIndexOf(".") + 1);
-		}
-		else {
-			packageClass[0] = null;
-			packageClass[1] = classPath;
-		}
-		return packageClass;
-	}
-	
-	private String getClass(String uri) {
-		return  uri.substring(uri.lastIndexOf("/") + 1, uri.length() - ".java".length());
 	}
 }
