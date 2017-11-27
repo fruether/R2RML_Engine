@@ -79,7 +79,7 @@ public class JavaServiceTest {
 		try {
 			content = FileRetrievementService.getInstance().getContent("http://softlang.com/Java/SampleClassDeclarations.java");
 			Set<String> result = javaService.getDeclaredClasses(content, "SampleClassDeclarations");
-			
+			System.out.print(result);
 			assertEquals(result.size(), 9);
 		}
 		catch (FileRetrievementServiceException e) {

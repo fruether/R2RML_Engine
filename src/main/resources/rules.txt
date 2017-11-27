@@ -439,6 +439,14 @@
     (?x sl:partOf sl:OR-Mapping)
     noValue(?x, sl:backwardsUse)
 ]
+[HelperFunctionSQL:
+    (?table sl:elementOf sl:NotImplementedTable)
+    <-
+    (?x sl:partOf sl:OR-Mapping)
+    noValue(?x, sl:output)
+    (?mapping sl:defines ?x)
+    (?mapping sl:HibernateMappingRefersToRelationalTable ?table)
+]
 
 [CountOLang:
     (?function sl:partOf sl:OR-Mapping)

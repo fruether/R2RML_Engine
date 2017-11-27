@@ -3,7 +3,11 @@ package util;
 import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
+import com.github.javaparser.ast.nodeTypes.NodeWithBody;
+import com.github.javaparser.ast.nodeTypes.NodeWithCondition;
+import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.ExpressionStmt;
+import com.github.javaparser.ast.stmt.IfStmt;
 import com.github.javaparser.ast.stmt.Statement;
 
 import java.util.HashSet;
@@ -56,6 +60,20 @@ public class DeclarationConsumer implements Consumer<Object> {
 					cleanTemplateTypes(type);
 				}
 			}
+			else if(statement instanceof NodeWithBody) {
+				NodeWithBody nodeWithBody = (NodeWithBody) statement;
+				Statement bodyStatement = nodeWithBody.getBody();
+				if(bodyStatement instanceof BlockStmt) {
+					((BlockStmt)bodyStatement).getStatements().forEach(this);
+				}
+			}
+			else if(statement instanceof IfStmt) {
+				IfStmt ifStmt = (IfStmt) statement;
+				accept(ifStmt.getThenStmt());
+				if(ifStmt.hasElseBlock()) {
+					accept(ifStmt.getElseStmt().get());
+				}
+			}
 		
 		}
 		
@@ -63,6 +81,7 @@ public class DeclarationConsumer implements Consumer<Object> {
 	
 	private void cleanTemplateTypes(String expression) {
 		if(expression.contains("<")) {
+			
 			for(String value : expression.replace(">", "").split("<")) {
 				classDeclarations.add(value);
 			}
