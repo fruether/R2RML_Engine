@@ -63,7 +63,7 @@ public class RetrieveTableURI extends BaseBuiltin {
 			return;
 		}
 		Node tableUri = NodeFactory.createURI(uriService.getUri() + retrievedTable);
-		context.add(new Triple(tableUri, uriService.getNodeElementOfUri(), uriService.getNodeReferenceLanguage()));
+		context.add(new Triple(tableUri, uriService.getNodeElementOfUri(), uriService.getNodeQualifiedName()));
 		context.add(new Triple(tableUri, uriService.getNodePartOfUri(), sqlFragmentNode));
 		
 	}

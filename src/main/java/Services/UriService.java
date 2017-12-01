@@ -22,6 +22,7 @@ public class UriService {
 	private String hibernateMappingRole;
 	private String hibernateRefersTo;
 	private String classUri;
+	private String qualifiedName;
 	
 	public String getElementOfUri() {
 		return baseUri + elementOfUri;
@@ -54,6 +55,7 @@ public class UriService {
 		return baseUri + hasRole;
 	}
 	public String getClassUri() { return baseUri + classUri;}
+	public String getQualifiedName() { return baseUri + qualifiedName;}
 	
 	public Node getNodeHasRole() {return NodeFactory.createURI(getHasRole());}
 	
@@ -89,7 +91,7 @@ public class UriService {
 	}
 	public Node getAnnotationLanguageType() { return NodeFactory.createURI(getAnnotationLanguage());}
 	public Node getNodeHibernateRefersTo() { return NodeFactory.createURI(getHibernateRefersTo());}
-	
+	public Node getNodeQualifiedName() {return NodeFactory.createURI(getQualifiedName());}
 	
 	public UriService(String baseUri) {
 		this.baseUri = baseUri;
@@ -119,7 +121,7 @@ public class UriService {
 		hasRole = "hasRole";
 		classUri = "ClassURI/";
 		hibernateRefersTo = "HibernateMappingRefersToRelationalTable";
-		
+		qualifiedName = "Language/QualifiedName";
 	}
 
 	

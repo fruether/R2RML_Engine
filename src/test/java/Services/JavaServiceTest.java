@@ -212,5 +212,20 @@ public class JavaServiceTest {
 			assertNull(e);
 		}
 	}
+	@Test
+	public void test_getJavaClass_with_forLoopDef() {
+		String content = null;
+		try {
+			String uri = "http://softlang.com/Java/HibernateCongregationDao.java";
+			content = FileRetrievementService.getInstance().getContent(uri);
+			String path = FileRetrievementService.getInstance().uriToPath(uri);
+			Set<String>  result = javaService.getDeclaredClasses(content, "HibernateCongregationDao");
+			System.out.println(result);
+			assertTrue(result.contains("CongregationContact"));
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+	}
 
 }

@@ -7,6 +7,8 @@ import com.github.javaparser.ast.nodeTypes.NodeWithBody;
 import com.github.javaparser.ast.nodeTypes.NodeWithCondition;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.ExpressionStmt;
+import com.github.javaparser.ast.stmt.ForStmt;
+import com.github.javaparser.ast.stmt.ForeachStmt;
 import com.github.javaparser.ast.stmt.IfStmt;
 import com.github.javaparser.ast.stmt.Statement;
 
@@ -61,6 +63,11 @@ public class DeclarationConsumer implements Consumer<Object> {
 				}
 			}
 			else if(statement instanceof NodeWithBody) {
+				if(statement instanceof ForeachStmt) {
+					String variableType = ((ForeachStmt)statement).getVariable().getElementType().asString();
+					cleanTemplateTypes(variableType);
+				}
+				
 				NodeWithBody nodeWithBody = (NodeWithBody) statement;
 				Statement bodyStatement = nodeWithBody.getBody();
 				if(bodyStatement instanceof BlockStmt) {

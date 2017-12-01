@@ -38,6 +38,7 @@
     RetrieveClass(?file, ?classname)
     ->
     (?file sl:defOccurs ?classname)
+    (?classname sl:elementOf sl:Language/JavaClassURI)
 ]
 
 [DTDDetection:
@@ -176,7 +177,7 @@
     (?file sl:hasRole sl:HibernateMapping)
     (?file sl:elementOf sl:Language/XML)
     (?file sl:HibernateMappingRefersToRelationalTable ?tableUI)
-    (?tableUI sl:elementOf sl:Language/ReferenceLanguage)
+    (?tableUI sl:elementOf sl:Language/QualifiedName)
     (?tableUI sl:partOf ?fragment)
     (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
     (?file sl:refOccurs ?class)
@@ -189,7 +190,7 @@
     (?file sl:hasRole sl:HibernateMapping)
     (?file sl:elementOf sl:Language/JavaAnnotatedElement)
     (?file sl:HibernateMappingRefersToRelationalTable ?tableUI)
-    (?tableUI sl:elementOf sl:Language/ReferenceLanguage)
+    (?tableUI sl:elementOf sl:Language/QualifiedName)
     (?tableUI sl:partOf ?fragment)
     (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
     (?file sl:partOf ?javaFile)
@@ -201,7 +202,7 @@
 [RelationalLanguageDefinition:
     (?fragment sl:elementOf sl:Language/SQLCreateTableStmt)
     (?tableName sl:partOf ?fragment)
-    (?tableName sl:elementOf sl:Language/ReferenceLanguage)
+    (?tableName sl:elementOf sl:Language/QualifiedName)
     GetTableLiteral(?tableName, ?relationalLanguage)
     ->
     (?fragment sl:defines ?relationalLanguage)
@@ -294,21 +295,18 @@
     (?file sl:indicatesUseOf ?function)
     (?file sl:hasRole technologies:Hibernate/HibernateService)
 ]
-
-[HibernateServiceDiscoveryIndirect:
+[HibernateXToManyDiscovery:
     (?file sl:elementOf sl:Language/Java)
-    (?file sl:indirectUse ?package)
-    (?package sl:partOf sl:hibernate)
-    (?file sl:uses ?class)
-    (?filePers sl:defOccurs ?class)
-    (?filePers sl:hasRole technologies:Hibernate/HibernatePersistedObject)
-    (?filePers sl:defines ?language)
-    (?language sl:input ?function)
-    (?function sl:partOf sl:OR-Mapping)
+    (?file sl:hasRole technologies:Hibernate/HibernatePersistedObject)
+    (?file sl:defOccurs ?class)
+    (?file2 sl:elementOf sl:Language/Java)
+    (?file2 sl:hasRole technologies:Hibernate/HibernatePersistedObject)
+    CheckClassReference(?file2, ?class)
     ->
-    (?file sl:indicatesUseOf ?function)
-    (?file sl:hasRole technologies:Hibernate/HibernateService)
+    (?file2 sl:uses ?class)
 ]
+
+
 
 
 
@@ -356,7 +354,7 @@
 ]
 [CountTableDistinct:
     (?sth sl:elementOf sl:Language/SQLCreateTableStmt)
-    (?table sl:elementOf sl:Language/ReferenceLanguage)
+    (?table sl:elementOf sl:Language/QualifiedName)
     (?table sl:partOf ?sth)
     ->
     CountDistinct("TableStatementsDistinct", ?table)
@@ -470,7 +468,7 @@
     (?file sl:correspondsTo sl:sqlFrag)
     (?file sl:elementOf sl:Language/Java)
     (?sqlFrag sl:elementOf sl:Language/SQLCreateTableStmt)
-    (?table sl:elementOf sl:Language/ReferenceLanguage)
+    (?table sl:elementOf sl:Language/QualifiedName)
     (?table sl:partOf ?sqlFrag)
     ->
     CountDistinct("MappingFunctionWithRLang", ?table)
