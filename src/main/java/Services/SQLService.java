@@ -51,6 +51,7 @@ public class SQLService implements ANTLRErrorListener {
 	
 	public boolean parseSQL(String content) {
 		String upperCase = content.toUpperCase();
+		
 		boolean result =  parseMySQL(upperCase) || parseSQLNormal(upperCase) || parseSQLite(upperCase);
 		return result;
 	}
@@ -115,17 +116,19 @@ public class SQLService implements ANTLRErrorListener {
 	
 	
 	public String get_table(String content) {
+		String newcContent = normalSQL_clean_query(content);
 		
-		if(!contentDialectMap.containsKey(content)) {
-			boolean result = parseSQL(content);
+		System.out.println(newcContent);
+		if(!contentDialectMap.containsKey(newcContent)) {
+			boolean result = parseSQL(newcContent);
 			if(!result) return "";
 		}
+		SQLDialects sqlDialects = contentDialectMap.get(newcContent);
 		
-		SQLDialects sqlDialects = contentDialectMap.get(content);
 		switch (sqlDialects) {
-			case MYSQL : return cleanTableName(mysql_get_table(content));
-			case SQLITE: return  cleanTableName(sqlite_get_table(content));
-			case SQL:   return cleanTableName(sqlNormal_get_table(content));
+			case MYSQL : return cleanTableName(mysql_get_table(newcContent));
+			case SQLITE: return  cleanTableName(sqlite_get_table(newcContent));
+			case SQL:   return cleanTableName(sqlNormal_get_table(newcContent));
 		}
 		return "";
 	}
@@ -227,7 +230,6 @@ public class SQLService implements ANTLRErrorListener {
 	}
 	
 	private String sqlNormal_get_table(String content) {
-		Set<String> foundTables = new HashSet<>();
 		try {
 			Statements statements =  CCJSqlParserUtil.parseStatements(content);
 			List<Statement> statementList = statements.getStatements();
@@ -350,4 +352,23 @@ public class SQLService implements ANTLRErrorListener {
 		return matchedTables;
 	}
 	
+	private String normalSQL_clean_query(String content) {
+		String result = content.replace("  ", " ");
+		String endsWithParanthes = "(?s)[^;]*\\)\\W*;\\W*";
+		
+		if(content.matches(endsWithParanthes)) {
+			String regexPrimaryKey = "(?s)[^,](\\s|\\S)\\sPRIMARY KEY\\([^),]+,[^)]+\\)";
+			result = result.replaceAll(regexPrimaryKey, "");
+			String regex2 = "CONSTRAINT [^,]*";
+			String regex = "(?s)(,?\\s\\s+CONSTRAINT [^,;]*,?)";
+			result = result.replaceAll(regex, "");
+			result = result.replaceAll(regex2, "");
+			if(!result.matches(endsWithParanthes)) {
+				result = result.replace(";", ");");
+			}
+		}
+		
+		result = result.replaceAll("ENABLE", "").replaceAll("NUMBER\\(\\*,0\\)", "CLOB");
+		return result;
+	}
 }

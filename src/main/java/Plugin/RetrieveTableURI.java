@@ -68,6 +68,7 @@ public class RetrieveTableURI extends BaseBuiltin {
 			context.add(new Triple(tableUri, uriService.getNodePartOfUri(), sqlFragmentNode));
 			
 		}
+
 		
 	}
 	

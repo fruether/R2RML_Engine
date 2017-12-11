@@ -298,7 +298,20 @@
     ->
     (?file2 sl:uses ?class)
 ]
-
+[HibernateFunctionUsingFunction:
+    (?fileX sl:elementOf sl:Language/Java)
+    (?fileX sl:hasRole technologies:Hibernate/HibernatePersistedObject)
+    (?fileY sl:elementOf sl:Language/Java)
+    (?fileY sl:hasRole technologies:Hibernate/HibernatePersistedObject)
+    (?fileY sl:defOccurs ?classY)
+    (?fileX sl:uses ?classY)
+    (?fileY sl:defines ?langY)
+    (?fileX sl:defines ?langX)
+    (?langX sl:input ?functionX)
+    (?langY sl:input ?functionY)
+    ->
+    (?functionX sl:uses ?functionY)
+]
 
 
 
