@@ -137,4 +137,19 @@ public class CheckClassReferenceTest {
 		
 	}
 	
+	
+	@Test
+	public void checkClassIsReferenced_forLoopCase() {
+		Node javaFile = NodeFactory.createURI("http://softlang.com/Java/HibernateCongregationDao.java");
+		Node className = NodeFactory.createURI("http://softlang.com/Class/uk.org.rbc1b.roms.db.CongregationContact");
+		
+		Node[] env = new Node[] { javaFile, className };
+		
+		boolean result = checkClassReference.bodyCall(env, 2, null);
+		
+		assertTrue(result);
+		
+	}
+	
+	
 }

@@ -7,8 +7,11 @@ import com.github.javaparser.ast.nodeTypes.NodeWithBody;
 import com.github.javaparser.ast.nodeTypes.NodeWithCondition;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.ExpressionStmt;
+import com.github.javaparser.ast.stmt.ForStmt;
+import com.github.javaparser.ast.stmt.ForeachStmt;
 import com.github.javaparser.ast.stmt.IfStmt;
 import com.github.javaparser.ast.stmt.Statement;
+import com.github.javaparser.ast.stmt.TryStmt;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -51,7 +54,14 @@ public class DeclarationConsumer implements Consumer<Object> {
 	private class StatementConsumer implements Consumer<Statement> {
 		@Override
 		public void accept(Statement statement) {
-			if(statement instanceof ExpressionStmt) {
+			if(statement instanceof TryStmt) {
+				TryStmt tryStmt = (TryStmt) statement;
+				BlockStmt block = tryStmt.getTryBlock().get();
+				if(block!=null) {
+					block.getStatements().forEach(this);
+				}
+			}
+			else if(statement instanceof ExpressionStmt) {
 				ExpressionStmt expressionStmt = (ExpressionStmt) statement;
 				Expression expression = expressionStmt.getExpression();
 				if(expression instanceof VariableDeclarationExpr) {
@@ -61,20 +71,37 @@ public class DeclarationConsumer implements Consumer<Object> {
 				}
 			}
 			else if(statement instanceof NodeWithBody) {
-				NodeWithBody nodeWithBody = (NodeWithBody) statement;
-				Statement bodyStatement = nodeWithBody.getBody();
-				if(bodyStatement instanceof BlockStmt) {
-					((BlockStmt)bodyStatement).getStatements().forEach(this);
+				if(statement instanceof ForeachStmt) {
+					String variableType = ((ForeachStmt)statement).getVariable().getElementType().asString();
+					cleanTemplateTypes(variableType);
 				}
+				
+				NodeWithBody nodeWithBody = (NodeWithBody) statement;
+				unwrapBlocksAndVisit(nodeWithBody.getBody());
 			}
 			else if(statement instanceof IfStmt) {
 				IfStmt ifStmt = (IfStmt) statement;
-				accept(ifStmt.getThenStmt());
+				Statement thenStmt = ifStmt.getThenStmt();
+				
+				if(!unwrapBlocksAndVisit(thenStmt)) {
+					accept(thenStmt);
+				}
 				if(ifStmt.hasElseBlock()) {
-					accept(ifStmt.getElseStmt().get());
+					Statement elseStmt = ifStmt.getElseStmt().get();
+					if (!unwrapBlocksAndVisit(elseStmt)) {
+						accept(elseStmt);
+					}
 				}
 			}
+		}
 		
+		private boolean unwrapBlocksAndVisit(Statement statement) {
+			if(statement instanceof BlockStmt){
+				BlockStmt blockStmt = (BlockStmt)statement;
+				blockStmt.getStatements().forEach(this);
+				return true;
+			}
+			return false;
 		}
 		
 	};

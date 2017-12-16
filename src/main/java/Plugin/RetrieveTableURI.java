@@ -57,14 +57,18 @@ public class RetrieveTableURI extends BaseBuiltin {
 		try {
 			String sqlContent = fileRetrievementService.getContent(sqlFileUri).toUpperCase();
 			String sqlFragmentContent = sqlContent.substring(fragmentParts[0], fragmentParts[1]);
-			retrievedTable = sqlService.mysql_get_table(sqlFragmentContent);
+			retrievedTable = sqlService.get_table(sqlFragmentContent);
 		}
 		catch (FileRetrievementServiceException e) {
 			return;
 		}
-		Node tableUri = NodeFactory.createURI(uriService.getUri() + retrievedTable);
-		context.add(new Triple(tableUri, uriService.getNodeElementOfUri(), uriService.getNodeReferenceLanguage()));
-		context.add(new Triple(tableUri, uriService.getNodePartOfUri(), sqlFragmentNode));
+		if(retrievedTable != null && retrievedTable != "") {
+			Node tableUri = NodeFactory.createURI(uriService.getUri() + retrievedTable);
+			context.add(new Triple(tableUri, uriService.getNodeElementOfUri(), uriService.getNodeQualifiedName()));
+			context.add(new Triple(tableUri, uriService.getNodePartOfUri(), sqlFragmentNode));
+			
+		}
+
 		
 	}
 	
