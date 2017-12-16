@@ -118,7 +118,6 @@ public class SQLService implements ANTLRErrorListener {
 	public String get_table(String content) {
 		String newcContent = normalSQL_clean_query(content);
 		
-		System.out.println(newcContent);
 		if(!contentDialectMap.containsKey(newcContent)) {
 			boolean result = parseSQL(newcContent);
 			if(!result) return "";

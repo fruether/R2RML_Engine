@@ -227,5 +227,35 @@ public class JavaServiceTest {
 			assertNull(e);
 		}
 	}
-
+	
+	@Test
+	public void test_getJavaClass_with_forLoopDefInIf() {
+		String content = null;
+		try {
+			String uri = "http://softlang.com/Java/EntradaDaoHibernate.java";
+			content = FileRetrievementService.getInstance().getContent(uri);
+			String path = FileRetrievementService.getInstance().uriToPath(uri);
+			Set<String>  result = javaService.getDeclaredClasses(content, "EntradaDaoHibernate");
+			System.out.println(result);
+			assertTrue(result.contains("XLoteSalida"));
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+	}
+	@Test
+	public void test_getJavaClass_with_whileLoopInWhileLoop() {
+		String content = null;
+		try {
+			String uri = "http://softlang.com/Java/MigracionDaoHibernate.java";
+			content = FileRetrievementService.getInstance().getContent(uri);
+			String path = FileRetrievementService.getInstance().uriToPath(uri);
+			Set<String>  result = javaService.getDeclaredClasses(content, "MigracionDaoHibernate");
+			System.out.println(result);
+			assertTrue(result.contains("Libro"));
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+	}
 }
