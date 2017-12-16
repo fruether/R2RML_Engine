@@ -50,7 +50,9 @@ public class HibernateAnnotationDetection extends BaseBuiltin {
 			String className = getClass(javaFileURI);
 			String tableName = null;
 			AnnotationConsumer.AnnotationValue annotationValue;
-
+			Node mappingRole = uriService.getNodeHibernateMappingRole();
+			boolean tableDefinition = true;
+			
 			Map<String, AnnotationConsumer.AnnotationValue> annotations = javaService.getAnnotations(content, className);
 			if(annotations.containsKey("Table")) {
 				annotationValue = annotations.get("Table");
@@ -62,6 +64,11 @@ public class HibernateAnnotationDetection extends BaseBuiltin {
 			}
 			else if (annotations.containsKey("Entity")) {
 				annotationValue = annotations.get("Entity");
+			}
+			else if (annotations.containsKey("Embeddable")) {
+				annotationValue = annotations.get("Embeddable");
+				mappingRole = uriService.getNodeHibernateEmbeddedRole();
+				tableDefinition = false;
 			}
 			else {
 				return;
@@ -80,8 +87,11 @@ public class HibernateAnnotationDetection extends BaseBuiltin {
 			context.add(new Triple(fragmentUriNode, uriService.getNodeRdfType(), uriService.getNodeFragmentUri()));
 			context.add(new Triple(fragmentUriNode, uriService.getNodeElementOfUri(), uriService.getAnnotationLanguageType()));
 			context.add(new Triple(fragmentUriNode, uriService.getNodePartOfUri(), javaFileNode));
-			context.add(new Triple(fragmentUriNode, uriService.getNodeHibernateRefersTo(), attributeTable));
-			context.add(new Triple(fragmentUriNode, uriService.getNodeHasRole(), uriService.getNodeHibernateMappingRole()));
+			context.add(new Triple(fragmentUriNode, uriService.getNodeHasRole(), mappingRole));
+			
+			if(tableDefinition) {
+				context.add(new Triple(fragmentUriNode, uriService.getNodeHibernateRefersTo(), attributeTable));
+			}
 		}
 		catch (FileRetrievementServiceException e) {
 			e.printStackTrace();

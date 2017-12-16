@@ -63,5 +63,5 @@ public class CheckReferencesTest {
 		
 		assertFalse(result);
 	}
-
+	
 }

@@ -92,7 +92,7 @@ public class SQLServiceTest {
 		
 		try {
 			content = FileRetrievementService.getInstance().getContent("http://softlang.com/001.sql").toUpperCase();
-			tables = sqlService.mysql_get_tables(content);
+			tables = sqlService.get_tables(content);
 			
 		}
 		catch (FileRetrievementServiceException e) {
@@ -114,7 +114,7 @@ public class SQLServiceTest {
 		
 		try {
 			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/initcaisi.sql").toUpperCase();
-			tables = sqlService.mysql_get_tables(content);
+			tables = sqlService.get_tables(content);
 			
 		}
 		catch (FileRetrievementServiceException e) {
@@ -151,6 +151,29 @@ public class SQLServiceTest {
 		
 		
 	}
+	
+	@Test
+	public void mysql_get_tables_correct4() {
+		String content = null;
+		Map<String, int[]> tables = null;
+		boolean result = false;
+		
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/create_table_SUBJECT_GROUPS.sql").toUpperCase();
+			//content = content.replace(" ;", ";");
+			tables = sqlService.getCreateStmts(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+		assertEquals(tables.size(), 1);
+		//System.out.println(tables);
+		assertTrue(tables.containsKey("SUBJECT_GROUP".toUpperCase()));
+		
+	}
+	
 	@Test
 	public void test_sqliteInput_1() {
 		String content = null;
@@ -270,4 +293,195 @@ public class SQLServiceTest {
 			assertTrue(false);
 		}
 	}
+	
+	@Test
+	public void test_get_matches_small_file_with_quotes() {
+		String uri = "http://softlang.com/SQL/create_table_SUBJECT_GROUPS.sql";
+		FileRetrievementService fileRetrievementService = FileRetrievementService.getInstance();
+		
+		try {
+			String content = fileRetrievementService.getContent(uri);
+			boolean matchedTable = sqlService.parseSQL(content);
+			
+			assertTrue(matchedTable);
+			
+		}
+		catch (FileRetrievementServiceException exception) {
+			assertTrue(false);
+		}
+	}
+	
+	
+	@Test
+	public void sql_get_tables_correct6() {
+		String content = null;
+		Set<String> tables = null;
+		boolean result = false;
+		
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/create_table_SUBJECT_GROUPS.sql").toUpperCase();
+			tables = sqlService.get_tables(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+		assertEquals(tables.size(), 1);
+		assertTrue(tables.contains("SUBJECT_GROUP"));
+		
+	}
+	
+	@Test
+	public void sql_get_table_correct() {
+		String content = null;
+		String tables = null;
+		boolean result = false;
+		
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/create_table_SUBJECT_GROUPS.sql").toUpperCase();
+			tables = sqlService.get_table(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		
+		assertEquals(tables, "SUBJECT_GROUP");
+		
+	}
+	
+	@Test
+	public void sql_get_table_correct2() {
+		String content = null;
+		String tables = null;
+		boolean result = false;
+		///Users/freddy/Dropbox/Uni/Master Informatik Semester 4/Seminar/RuleEngine/src/test/resources/SQL/create_table_ARTEFACT_REMOVING_METHODS.sql
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/create_table_ARTEFACT_REMOVING_METHODS.sql").toUpperCase();
+			tables = sqlService.get_table(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		assertEquals(tables, "ARTEFACT_REMOVING_METHOD");
+		
+	}
+	
+	@Test
+	public void sql_get_table_correct3() {
+		String content = null;
+		String tables = null;
+		boolean result = false;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/create_table_SCENARIO.sql").toUpperCase();
+			tables = sqlService.get_table(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		assertEquals(tables, "SCENARIO");
+		
+	}
+	
+	@Test
+	public void sql_get_table_correct4() {
+		String content = null;
+		String tables = null;
+		boolean result = false;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/create_table_PERSON.sql").toUpperCase();
+			tables = sqlService.get_table(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		assertEquals(tables, "PERSON");
+	}
+	
+	@Test
+	public void sql_get_table_correct5() {
+		String content = null;
+		String tables = null;
+		boolean result = false;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/create_tables_codebooks_relations.sql").toUpperCase();
+			tables = sqlService.get_table(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		assertEquals(tables, "WEATHER_GROUP_REL");
+	}
+	
+	@Test
+	public void sql_get_table_correct6() {
+		String content = null;
+		String tables = null;
+		boolean result = false;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/create_table_EXPERIMENT_OPT_PARAM_VAL.sql").toUpperCase();
+			tables = sqlService.get_table(content);
+			
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		assertEquals(tables, "EXPERIMENT_OPT_PARAM_VAL");
+	}
+	@Test
+	public void sql_get_table_correct7() {
+		String content = null;
+		String tables = null;
+		boolean result = false;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/create_table_RESEARCH_GROUP_MEMBERSHIP.sql").toUpperCase();
+			tables = sqlService.get_table(content);
+			System.out.print(tables);
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		assertEquals(tables, "RESEARCH_GROUP_MEMBERSHIP");
+	}
+	
+	@Test
+	public void sql_get_table_correct8() {
+		String content = null;
+		String tables = null;
+		boolean result = false;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/create_table_STIMULUS_REL.sql").toUpperCase();
+			tables = sqlService.get_table(content);
+			System.out.print(tables);
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		assertEquals(tables, "STIMULUS_REL");
+	}
+	
+	
+	@Test
+	public void sql_get_table_correct9() {
+		String content = null;
+		String tables = null;
+		boolean result = false;
+		try {
+			content = FileRetrievementService.getInstance().getContent("http://softlang.com/SQL/create_table_SCENARIO_SCHEMA.sql").toUpperCase();
+			tables = sqlService.get_table(content);
+			System.out.print(tables);
+		}
+		catch (FileRetrievementServiceException e) {
+			assertNull(e);
+		}
+		assertEquals(tables, "SCENARIO_SCHEMA");
+	}
 }
+
+
+

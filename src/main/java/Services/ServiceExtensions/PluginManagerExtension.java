@@ -32,6 +32,8 @@ public abstract class PluginManagerExtension {
 		result =  result.replace("(", "%28").replace(")", "%29");
 		result = result.replace(" ", "%20");
 		result = result.replace("@", "%40");
+		result = result.replace("$", "%24");
+		result = result.replace("~", "%7e");
 		return result;
 	}
 }
