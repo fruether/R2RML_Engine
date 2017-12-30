@@ -1,6 +1,7 @@
 package Plugin.JavaSpecific;
 
 import org.apache.jena.graph.Node;
+import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.reasoner.rulesys.RuleContext;
 import org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin;
 
@@ -14,6 +15,7 @@ public class CheckNotImported extends CheckImport {
 	}
 	
 	public boolean bodyCall(Node[] args, int length, RuleContext context) {
+		args[1] = NodeFactory.createURI("http://softlang.com" + args[1].getLiteral().toString());
 		return  !super.bodyCall(args, length, context);
 	}
 	

@@ -65,4 +65,15 @@ public class HibernateAnnotationDetectionTest {
 		
 		//Triple x = new Triple(javaFile, NodeFactory.createURI("http://softlang.de/refersTo"), NodeFactory.createURI("http://softlang.de/Table/AFETipoDescuento"));
 	}
+	@Test
+	public void get_annoation_3() {
+		Node javaFile = NodeFactory.createURI("http://softlang.com/HibernateAnnotation/GroupMembership.java");
+		Node[] env = new Node[] {javaFile};
+		BindingEnvironment bindingEnvironment = new BindingVector(env);
+		ruleContext.setEnv(bindingEnvironment);
+		
+//		hibernateAnnotationDetection.headAction(env, 1, ruleContext);
+		
+		//Triple x = new Triple(javaFile, NodeFactory.createURI("http://softlang.de/refersTo"), NodeFactory.createURI("http://softlang.de/Table/AFETipoDescuento"));
+	}
 }
