@@ -242,7 +242,7 @@
 [ImportDetection:
     (?file sl:elementOf sl:Language/Java)
     (?package rdf:type sl:Package)
-    CheckImport(?file, ?package)
+    CheckClassReference(?file, ?package)
     ->
     (?file sl:uses ?package)
 ]
@@ -253,7 +253,6 @@
     (?file sl:defOccurs ?class)
     (?file2 sl:elementOf sl:Language/Java)
     notEqual(?file, ?file2)
-    CheckNotImported("javax.persistence")
     CheckExtension(?file2, ?class)
     ->
     (?file2 sl:uses ?package)
@@ -480,3 +479,10 @@
     CountDistinct("MappingFunctionWithRLang", ?table)
 ]
 
+[CountFunctionUsingFiles:
+    (?file sl:elementOf sl:Language/Java)
+    (?file sl:uses ?function)
+    (?function sl:partOf sl:OR-Mapping)
+    ->
+    CountDistinct("FunctionUsingFile", ?file)
+]

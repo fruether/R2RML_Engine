@@ -19,9 +19,10 @@
   {
     "package" : "org.springframework.orm.hibernate3.support.HibernateDaoSupport",
     "methods" : ["getHibernateTemplate"]
+  },
+  {
+    "package" : "javax.persistence.EntityManager",
+    "methods" : ["persist"]
   }
-
-
-
 
 ]
