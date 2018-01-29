@@ -56,10 +56,12 @@ public class HibernateAnnotationDetection extends BaseBuiltin {
 			Map<String, AnnotationConsumer.AnnotationValue> annotations = javaService.getAnnotations(content, className);
 			if(annotations.containsKey("Table")) {
 				annotationValue = annotations.get("Table");
+				
 				if (annotationValue.hasKeys()) {
 					tableName = annotationValue.keyValues.get("name");
-					tableName = tableName.replace("\"", "");
-					
+					if(tableName != null) {
+						tableName = tableName.replace("\"", "");
+					}
 				}
 			}
 			else if (annotations.containsKey("Entity")) {

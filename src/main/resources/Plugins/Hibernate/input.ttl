@@ -63,3 +63,7 @@ hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSuppor
 sl:hibernate sl:hasPackage hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport .
 hibernate:\/Method\/getHibernateTemplate rdf:type sl:Method .
 hibernate:\/Method\/getHibernateTemplate sl:partOf hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport .
+hibernate:Package\/javax.persistence.EntityManager rdf:type sl:Package .
+hibernate:Package\/javax.persistence.EntityManager sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/javax.persistence.EntityManager .
+hibernate:\/Method\/persist sl:partOf hibernate:Package\/javax.persistence.EntityManager .

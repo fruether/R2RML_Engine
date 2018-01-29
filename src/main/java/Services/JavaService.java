@@ -235,7 +235,9 @@ public class JavaService {
 		CompilationUnit compilationUnit = getCompilationUnit(content);
 		AnnotationConsumer annotationConsumer = new AnnotationConsumer();
 		
-		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElseThrow(null);
+		ClassOrInterfaceDeclaration mainClass = compilationUnit.getClassByName(className).orElse(null);
+		if(mainClass == null) return annotationConsumer;
+		
 		int endPosition = mainClass.getRange().get().begin.line;
 		annotationConsumer.setEndStatement(endPosition);
 		mainClass.getAnnotations().forEach(annotationConsumer);

@@ -46,4 +46,10 @@ public class CountDistinct  extends BaseBuiltin{
 			
 		}
 	}
+	public void printKeySet(String key) {
+		if(files.containsKey(key)) {
+			Set<String> distinctFiles = files.get(key);
+			distinctFiles.forEach(x -> System.out.println(x));
+		}
+	}
 }
