@@ -5,7 +5,6 @@ import Services.FileRetrievementService;
 import Services.FileRetrievementServiceException;
 import Services.JavaService;
 import Services.LanguageService;
-import com.sun.tools.javac.comp.Check;
 import org.apache.jena.graph.Node;
 import org.apache.jena.reasoner.rulesys.RuleContext;
 import org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin;
@@ -20,17 +19,17 @@ import java.util.Set;
 /**
  * Created by freddy on 01.01.18.
  */
-public class CheckMethodUsage extends JavaBase {
+public class CheckHibernateMethodUsage extends JavaBase {
 	
 	private List<String> validMethods;
 	private FileRetrievementService fileRetrievementService = FileRetrievementService.getInstance();
 	JavaService javaService = LanguageService.getInstance().getJavaService();
 	@Override
 	public String getName() {
-		return "CheckMethodUsage";
+		return "CheckHibernateMethodUsage";
 	}
 	
-	public CheckMethodUsage() {
+	public CheckHibernateMethodUsage() {
 		validMethods = new ArrayList<>();
 		setUp();
 	}
@@ -38,7 +37,6 @@ public class CheckMethodUsage extends JavaBase {
 	private void setUp() {
 		validMethods.add("createSQLQuery");
 		validMethods.add("iterate");
-		validMethods.add("executeUpdate");
 		validMethods.add("createCriteria");
 		validMethods.add("list");
 		validMethods.add("executeUpdate");
@@ -47,15 +45,16 @@ public class CheckMethodUsage extends JavaBase {
 		validMethods.add("getSingleResult");
 		validMethods.add("unwrap");
 		validMethods.add("delete");
-		validMethods.add("beginTransaction");
+		validMethods.add("findByNamedParam");
 		validMethods.add("get");
-		validMethods.add("load");
+		//validMethods.add("load");
 		validMethods.add("save");
 		validMethods.add("persist");
 		validMethods.add("refresh");
 		validMethods.add("replicate");
 		validMethods.add("saveOrUpdate");
 		validMethods.add("update");
+		validMethods.add("uniqueResult");
 	}
 	
 	public int getArgLength() {
@@ -70,7 +69,8 @@ public class CheckMethodUsage extends JavaBase {
 			String content = fileRetrievementService.getContent(fileUri);
 			String className = getClassFromJavaFilePath(fileUri);
 			List<String> methodCalls = javaService.getMethodCalls(content, className);
-			Collections.disjoint(methodCalls, validMethods);
+			
+			return !Collections.disjoint(methodCalls, validMethods);
 		}
 		catch (FileRetrievementServiceException e) {
 			e.printError();
