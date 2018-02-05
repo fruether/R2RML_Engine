@@ -3,18 +3,20 @@
 @prefix sl: <http://softlang.com/> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-
-hibernate:HibernatePersistedObject rdf:type sl:Role.
-
+ 
+ 
 sl:hibernate rdf:type sl:BuildRelease .
-hibernate:hibernate-configuration-3.0.dtd rdf:type sl:Artefact .
+ 
+hibernate:hibernate-mapping-4.0.xsd rdf:type sl:Artefact .
 hibernate:hibernate-configuration-4.0.xsd rdf:type sl:Artefact .
 hibernate:hibernate-mapping-3.0.dtd rdf:type sl:Artefact .
-hibernate:hibernate-mapping-4.0.xsd rdf:type sl:Artefact .
-hibernate:hibernate-configuration-3.0.dtd sl:partOf sl:hibernate .
+hibernate:hibernate-configuration-3.0.dtd rdf:type sl:Artefact .
+ 
+hibernate:hibernate-mapping-4.0.xsd sl:partOf sl:hibernate .
 hibernate:hibernate-configuration-4.0.xsd sl:partOf sl:hibernate .
 hibernate:hibernate-mapping-3.0.dtd sl:partOf sl:hibernate .
-hibernate:hibernate-mapping-4.0.xsd sl:partOf sl:hibernate .
+hibernate:hibernate-configuration-3.0.dtd sl:partOf sl:hibernate .
+ 
 hibernate:Package\/org.hibernate.cfg.Configuration rdf:type sl:Package .
 hibernate:Package\/org.hibernate.cfg.Configuration sl:partOf sl:hibernate .
 sl:hibernate sl:hasPackage hibernate:Package\/org.hibernate.cfg.Configuration .
@@ -24,6 +26,22 @@ sl:hibernate sl:hasPackage hibernate:Package\/org.hibernate.Session .
 hibernate:Package\/org.hibernate.SessionFactory rdf:type sl:Package .
 hibernate:Package\/org.hibernate.SessionFactory sl:partOf sl:hibernate .
 sl:hibernate sl:hasPackage hibernate:Package\/org.hibernate.SessionFactory .
+hibernate:Package\/javax.persistence.Query rdf:type sl:Package .
+hibernate:Package\/javax.persistence.Query sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/javax.persistence.Query .
+hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport rdf:type sl:Package .
+hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport .
+hibernate:Package\/javax.persistence.EntityManager rdf:type sl:Package .
+hibernate:Package\/javax.persistence.EntityManager sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/javax.persistence.EntityManager .
+hibernate:Package\/org.hibernate.Criteria rdf:type sl:Package .
+hibernate:Package\/org.hibernate.Criteria sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/org.hibernate.Criteria .
+hibernate:Package\/org.hibernate.Query rdf:type sl:Package .
+hibernate:Package\/org.hibernate.Query sl:partOf sl:hibernate .
+sl:hibernate sl:hasPackage hibernate:Package\/org.hibernate.Query .
+ 
 hibernate:\/Method\/addResource rdf:type sl:Method .
 hibernate:\/Method\/addResource sl:partOf hibernate:Package\/org.hibernate.cfg.Configuration .
 hibernate:\/Method\/addClass rdf:type sl:Method .
@@ -44,26 +62,16 @@ hibernate:\/Method\/getCurrentSession rdf:type sl:Method .
 hibernate:\/Method\/getCurrentSession sl:partOf hibernate:Package\/org.hibernate.SessionFactory .
 hibernate:\/Method\/openSession rdf:type sl:Method .
 hibernate:\/Method\/openSession sl:partOf hibernate:Package\/org.hibernate.SessionFactory .
-hibernate:Package\/org.hibernate.SessionFactory sl:uses hibernate:Package\/org.hibernate.Session .
- 
- 
- 
- 
- 
- 
- 
- 
-hibernate:Package\/javax.persistence.Query rdf:type sl:Package .
-hibernate:Package\/javax.persistence.Query sl:partOf sl:hibernate .
-sl:hibernate sl:hasPackage hibernate:Package\/javax.persistence.Query .
 hibernate:\/Method\/setParameter rdf:type sl:Method .
 hibernate:\/Method\/setParameter sl:partOf hibernate:Package\/javax.persistence.Query .
-hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport rdf:type sl:Package .
-hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport sl:partOf sl:hibernate .
-sl:hibernate sl:hasPackage hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport .
 hibernate:\/Method\/getHibernateTemplate rdf:type sl:Method .
 hibernate:\/Method\/getHibernateTemplate sl:partOf hibernate:Package\/org.springframework.orm.hibernate3.support.HibernateDaoSupport .
-hibernate:Package\/javax.persistence.EntityManager rdf:type sl:Package .
-hibernate:Package\/javax.persistence.EntityManager sl:partOf sl:hibernate .
-sl:hibernate sl:hasPackage hibernate:Package\/javax.persistence.EntityManager .
+hibernate:\/Method\/persist rdf:type sl:Method .
 hibernate:\/Method\/persist sl:partOf hibernate:Package\/javax.persistence.EntityManager .
+hibernate:\/Method\/ rdf:type sl:Method .
+hibernate:\/Method\/ sl:partOf hibernate:Package\/org.hibernate.Criteria .
+hibernate:\/Method\/ rdf:type sl:Method .
+hibernate:\/Method\/ sl:partOf hibernate:Package\/org.hibernate.Query .
+ 
+hibernate:Package\/org.hibernate.SessionFactory sl:uses hibernate:Package\/org.hibernate.Session .
+ 
