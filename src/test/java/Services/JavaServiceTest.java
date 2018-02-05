@@ -43,7 +43,7 @@ public class JavaServiceTest {
 	@Test
 	public void getJavaImportetElements_correct_withPackage()  {
 		try {
-			String content = FileRetrievementService.getInstance().getContent("http://softlang.com/Java/HibernateEmailDao");
+			String content = FileRetrievementService.getInstance().getContent("http://softlang.com/Java/HibernateEmailDao.java");
 			List<String> result = javaService.getJavaImportedElements(content);
 			
 			assertEquals("ALl imports noticed", result.size(), 8);
