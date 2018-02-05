@@ -243,6 +243,7 @@
     (?file sl:elementOf sl:Language/Java)
     (?package rdf:type sl:Package)
     CheckClassReference(?file, ?package)
+    CheckHibernateMethodUsage(?file)
     ->
     (?file sl:uses ?package)
 ]

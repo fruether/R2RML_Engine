@@ -2,6 +2,7 @@ import Plugin.ClassLiteral;
 import Plugin.Count;
 import Plugin.CountDistinct;
 import Plugin.GetTableLiteral;
+import Plugin.HibernateSpecific.CheckHibernateMethodUsage;
 import Plugin.HibernateSpecific.HibernateAnnotationDetection;
 import Plugin.HibernateSpecific.HibernateGetMappingType;
 import Plugin.JavaSpecific.CheckCall;
@@ -188,6 +189,7 @@ public class Program {
         builtins.add(new CheckLiteralImported());
         builtins.add(new CheckExtension());
         builtins.add(new CheckNotImported());
+        builtins.add(new CheckHibernateMethodUsage());
     }
     
     public static Map<String, Integer> countPredicate(Model model, String subject, String predicate, String object) {

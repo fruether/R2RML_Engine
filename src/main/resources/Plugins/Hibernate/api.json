@@ -23,6 +23,16 @@
   {
     "package" : "javax.persistence.EntityManager",
     "methods" : ["persist"]
+  },
+  {
+    "package" : "org.hibernate.Criteria",
+    "methods" : [""]
+  },
+  {
+    "package" : "org.hibernate.Query",
+    "methods" : [""]
   }
+
+
 
 ]

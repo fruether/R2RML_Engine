@@ -14,7 +14,9 @@ import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.MethodCallExpr;
+import com.github.javaparser.ast.expr.NameExpr;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
+import com.github.javaparser.ast.nodeTypes.NodeWithType;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.ExpressionStmt;
 import com.github.javaparser.ast.stmt.Statement;
@@ -23,6 +25,7 @@ import com.github.javaparser.ast.type.Type;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import util.AnnotationConsumer;
 import util.DeclarationConsumer;
+import util.LightWeightTypeSystem;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -100,7 +103,7 @@ public class JavaService {
 	}
 	
 	public Set<String> getDeclaredClasses(String content, String className) {
-		
+		LightWeightTypeSystem lightWeightTypeSystem = LightWeightTypeSystem.getInstance();
 		Set<String> classDeclarations = new HashSet<>();
 		
 		if(content == null || className == null) return classDeclarations;
@@ -119,6 +122,8 @@ public class JavaService {
 				String type = field.getElementType().toString();
 				com.github.javaparser.ast.NodeList<VariableDeclarator> variableDeclaration =  field.getVariables();
 				classDeclarations.add(type);
+			/*	for(VariableDeclarator variableDeclarator : variableDeclaration)
+					lightWeightTypeSystem.setPair(variableDeclarator.getNameAsString(), type);*/
 			}
 		}
 		DeclarationConsumer declarationConsumer = new DeclarationConsumer();
@@ -197,6 +202,15 @@ public class JavaService {
 					              // Found a method call
 					              methodCalls.add(n.getNameAsString());
 					              super.visit(n, arg);
+
+					           /*    Expression exp = n.getScope().orElse(null);
+					              if(exp != null) {
+					              	if (exp instanceof NameExpr) {
+					              		String type = ((NameExpr) exp).getName().asString();
+					              		System.out.println("X  " + type);
+					                }
+					              }*/
+					
 				              }
 			              }
 					, null);
