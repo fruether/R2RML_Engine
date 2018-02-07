@@ -1,0 +1,1493 @@
+The following amount of elements have to be added 0 to the plugin Plugins/maven/input.ttl
+Wrote out the file src/main/resources/Plugins/maven/input.ttl
+The following amount of elements have to be added 0 to the plugin Plugins/Hibernate/input.ttl
+Wrote out the file src/main/resources/Plugins/Hibernate/input.ttl
+The following amount of elements have to be added 0 to the plugin Plugins/Liquidbase/input.ttl
+Wrote out the file src/main/resources/Plugins/Liquidbase/input.ttl
+[InputManagementService] Creating input file: src/main/resources/input/mrsData.ttl
+Wrote out the file src/main/resources/input/mrsData.ttl
+[PluginManagmentService] Loading of the file Plugins/maven/input.ttl
+[PluginManagmentService] Loading of the file Plugins/Hibernate/input.ttl
+[PluginManagmentService] Loading of the file Plugins/Liquidbase/input.ttl
+The model is valid
+[http://softlang.com/liquidbase, http://www.w3.org/1999/02/22-rdf-syntax-ns#type, http://softlang.com/BuildRelease]
+
+
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/plugins/hibernate/hibernate-configuration-3.0.dtd
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/plugins/liquidbase/dbchangelog-3.0.xsd
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/plugins/hibernate/hibernate-mapping-3.0.dtd
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/README.md
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java for javax.persistence
+[HibernateAnnotationDetection:] http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java
+[RetrieveClass] leaving
+[HibernateGetMappingType] checking http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java
+[GetClassLiteral] checking http://softlang.com/ClassURI/iTests.framework.resources.Person
+[ParsePlugin] parsing http://softlang.com/plugins/liquidbase/dbchangelog-3.1.xsd
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/plugins/hibernate/hibernate-mapping-4.0.xsd
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/plugins/liquidbase/dbchangelog-2.0.xsd
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/.DS_Store
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/pom.xml
+[DTDCheckPlugin:] Checking if http://softlang.com/input/pom.xml references http://softlang.com/plugins/hibernate/hibernate-mapping-3.0.dtd
+[DTDCheckPlugin:] Checking if http://softlang.com/input/pom.xml references http://softlang.com/plugins/hibernate/hibernate-configuration-3.0.dtd
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/plugins/hibernate/hibernate-configuration-4.0.xsd
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/plugins/maven/maven-4.0.0.xsd
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/testng.xml
+[DTDCheckPlugin:] Checking if http://softlang.com/input/src/main/java/iTests/framework/testng/testng.xml references http://softlang.com/plugins/hibernate/hibernate-mapping-3.0.dtd
+[DTDCheckPlugin:] Checking if http://softlang.com/input/src/main/java/iTests/framework/testng/testng.xml references http://softlang.com/plugins/hibernate/hibernate-configuration-3.0.dtd
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java
+[RetrieveClass] leaving
+[ParsePlugin] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java
+[CheckLiteralImported] Checking in http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java for javax.persistence
+[RetrieveClass] parsing http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java
+[RetrieveClass] leaving
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java
+[CheckClassReference:] http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java
+<http://softlang.com/ClassURI/iTests.framework.utils.SGConsoleHandler> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.MavenUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiChartStatistics> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.SLAUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.ZipUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.ToStringUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.SGTestNGReporter> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiPage> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.WebUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.AdminUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.mail.MailReporterProperties> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.GridServiceAgentsCounter> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.tools.SGTestHelper> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.TestsReportMerger> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.ZipUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.JGitUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/plugins/hibernate/hibernate-mapping-4.0.xsd> <http://softlang.com/elementOf> <http://softlang.com/Language/XSD> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.SGTestNGMethodInterceptor> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.IOUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.DistributionUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiClient> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.SGTestNGMethodInterceptor> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.TestUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.SGTestNgSuiteSplitter> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.TestUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.ManagingGridServiceManagerChangedLogger> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/plugins/maven/maven-4.0.0.xsd> <http://softlang.com/elementOf> <http://softlang.com/Language/XSD> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.DefaultValues> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.FutureReference> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.PortConnectionUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.SGTestNgSuiteSplitter> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.ThreadBarrier> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.TestNGUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.xml.SummaryReport> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.TestStatus> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiClient> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/Languages/PersonOLang> <http://softlang.com/input> <http://softlang.com/Functions/Person-OR-Mapping> .
+<http://softlang.com/Languages/PersonOLang> <http://softlang.com/subsetOf> <http://softlang.com/JVMObject> .
+<http://softlang.com/Languages/PersonOLang> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Language> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.TestsReportFileStream> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.mail.HtmlMailReporter> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.xml.SummaryReport> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/plugins/liquidbase/dbchangelog-3.0.xsd> <http://softlang.com/elementOf> <http://softlang.com/Language/XSD> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.TestNgReporterImpl> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.TestNgReporterImpl> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.DBUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiPage> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.WebUIAjaxHelper> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.ScriptUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.xml.CustomizedDomDriver> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.IRepetitiveRunnable> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.DeploymentUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.GsmTestUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.DefaultValues> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.xml.CustomizedDomDriver> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.WebUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.SftpUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.TestClassComparator> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.mail.HtmlMailReporter> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/pom.xml> <http://softlang.com/elementOf> <http://softlang.com/Language/XML> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.CliUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.IRepetitiveRunnable> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.WebUiUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.resources.Person> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.annotations.TestConfiguration> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiConnectionException> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/plugins/hibernate/hibernate-configuration-3.0.dtd> <http://softlang.com/elementOf> <http://softlang.com/Language/DTD> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiChartStatistics> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.SGTestNGListener> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.SetupUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.DistributionUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.ProcessingUnitUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.WGetUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.PortConnectionUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.ThreadBarrier> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.ManagingGridServiceManagerChangedLogger> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.xml.TestLog> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.GsmTestUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.ToStringUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/plugins/liquidbase/dbchangelog-2.0.xsd> <http://softlang.com/elementOf> <http://softlang.com/Language/XSD> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.CommandTestUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.IOUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.NetworkUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.AssertUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.AdminUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.LogUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.SGTestNGReporter> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.GridServiceContainersCounter> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.DumpUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.WANemUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.Statistics> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.TestsReportFileStream> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.SSHUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.WebuiAjaxUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java> <http://softlang.com/hasRole> <http://softlang.com/Plugins/Hibernate/HibernatePersistedObject> .
+<http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java> <http://softlang.com/defines> <http://softlang.com/Languages/PersonOLang> .
+<http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.resources.Person> .
+<http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.HTTPUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.SetupUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.WebuiTestUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.CollectionUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.JvmUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiConnectionException> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.DBUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.WebUIAdminUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.xml.TestReport> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.FutureReference> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.WebUIAjaxHelper> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.tools.SimpleMail> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.WGetUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.CliUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.CollectionUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.tools.SGTestHelper> .
+<http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java#16:15> <http://softlang.com/defines> <http://softlang.com/Functions/Person-OR-Mapping> .
+<http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java#16:15> <http://softlang.com/HibernateMappingRefersToRelationalTable> <http://softlang.com/URI/PERSON> .
+<http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java#16:15> <http://softlang.com/hasRole> <http://softlang.com/HibernateMapping> .
+<http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java#16:15> <http://softlang.com/partOf> <http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java> .
+<http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java#16:15> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaAnnotatedElement> .
+<http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java#16:15> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Fragment> .
+<http://softlang.com/ClassURI/iTests.framework.utils.DumpUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.SLAUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.WANemUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.Statistics> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.LogFetcher> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.TestClassComparator> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.NetworkUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.SigarUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.xml.TestLog> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.JGitUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiReporterProperties> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.xml.TestsReport> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.xml.TestReport> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiReporter> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.FormattingUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiReporterProperties> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.LogFetcher> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/plugins/hibernate/hibernate-mapping-3.0.dtd> <http://softlang.com/elementOf> <http://softlang.com/Language/DTD> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.HTTPUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/Functions/Person-OR-Mapping> <http://softlang.com/partOf> <http://softlang.com/OR-Mapping> .
+<http://softlang.com/Functions/Person-OR-Mapping> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Function> .
+<http://softlang.com/ClassURI/iTests.framework.utils.AssertUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.WebuiTestUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.testng.annotations.TestConfiguration> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.FormattingUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/testng.xml> <http://softlang.com/elementOf> <http://softlang.com/Language/XML> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.TestResultComparator> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.CustomFileListener> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/plugins/hibernate/hibernate-configuration-4.0.xsd> <http://softlang.com/elementOf> <http://softlang.com/Language/XSD> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.ScriptUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.ProcessingUnitUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.DeploymentUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiReporter> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.TestResultComparator> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.SftpUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.SGConsoleHandler> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.WebUiUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.wiki.WikiUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.tools.SimpleMail> .
+<http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.JvmUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.tools.S3DeployUtil> .
+<http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.TestsReportMerger> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.TestStatus> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.WebuiAjaxUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.SigarUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.xml.TestsReport> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.testng.report.mail.MailReporterProperties> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.SSHUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.CustomFileListener> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.GridServiceAgentsCounter> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.LogUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.CommandTestUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.GridServiceContainersCounter> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.TestNGUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.utils.TeardownUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/ClassURI/iTests.framework.utils.MavenUtils> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.testng.report.SGTestNGListener> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/ClassURI/iTests.framework.tools.S3DeployUtil> <http://softlang.com/elementOf> <http://softlang.com/Language/JavaClassURI> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.WebUIAdminUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/plugins/liquidbase/dbchangelog-3.1.xsd> <http://softlang.com/elementOf> <http://softlang.com/Language/XSD> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java> <http://softlang.com/defOccurs> <http://softlang.com/ClassURI/iTests.framework.utils.TeardownUtils> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java> <http://softlang.com/elementOf> <http://softlang.com/Language/Java> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporter.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/.DS_Store> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/.DS_Store> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ScriptUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/AssertUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGReporter.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate//Method/saveOrUpdate> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.hibernate.Session> .
+<http://softlang.com/plugins/hibernate//Method/saveOrUpdate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DistributionUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/IRepetitiveRunnable.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/GsmTestUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestStatus.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/MailReporterProperties.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate/Package/org.hibernate.Query> <http://softlang.com/partOf> <http://softlang.com/hibernate> .
+<http://softlang.com/plugins/hibernate/Package/org.hibernate.Query> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Package> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/CustomizedDomDriver.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate/Package/org.hibernate.Criteria> <http://softlang.com/partOf> <http://softlang.com/hibernate> .
+<http://softlang.com/plugins/hibernate/Package/org.hibernate.Criteria> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Package> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestClassComparator.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiChartStatistics.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate//Method/openSession> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.hibernate.SessionFactory> .
+<http://softlang.com/plugins/hibernate//Method/openSession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/PortConnectionUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiAjaxUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/LogFetcher.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNgSuiteSplitter.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate//Method/update> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.hibernate.Session> .
+<http://softlang.com/plugins/hibernate//Method/update> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/hibernate> <http://softlang.com/hasPackage> <http://softlang.com/plugins/hibernate/Package/org.hibernate.Query> .
+<http://softlang.com/hibernate> <http://softlang.com/hasPackage> <http://softlang.com/plugins/hibernate/Package/org.hibernate.Criteria> .
+<http://softlang.com/hibernate> <http://softlang.com/hasPackage> <http://softlang.com/plugins/hibernate/Package/javax.persistence.EntityManager> .
+<http://softlang.com/hibernate> <http://softlang.com/hasPackage> <http://softlang.com/plugins/hibernate/Package/org.springframework.orm.hibernate3.support.HibernateDaoSupport> .
+<http://softlang.com/hibernate> <http://softlang.com/hasPackage> <http://softlang.com/plugins/hibernate/Package/javax.persistence.Query> .
+<http://softlang.com/hibernate> <http://softlang.com/hasPackage> <http://softlang.com/plugins/hibernate/Package/org.hibernate.SessionFactory> .
+<http://softlang.com/hibernate> <http://softlang.com/hasPackage> <http://softlang.com/plugins/hibernate/Package/org.hibernate.Session> .
+<http://softlang.com/hibernate> <http://softlang.com/hasPackage> <http://softlang.com/plugins/hibernate/Package/org.hibernate.cfg.Configuration> .
+<http://softlang.com/hibernate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/BuildRelease> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DumpUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ZipUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGListener.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/TestNGUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate//Method/getHibernateTemplate> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.springframework.orm.hibernate3.support.HibernateDaoSupport> .
+<http://softlang.com/plugins/hibernate//Method/getHibernateTemplate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/FormattingUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/CliUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate/Package/org.hibernate.Session> <http://softlang.com/partOf> <http://softlang.com/hibernate> .
+<http://softlang.com/plugins/hibernate/Package/org.hibernate.Session> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Package> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/JvmUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAdminUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/openmrs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/BuildRelease> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ToStringUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/JGitUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ThreadBarrier.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate//Method/configure> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.hibernate.cfg.Configuration> .
+<http://softlang.com/plugins/hibernate//Method/configure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/SGTestNGMethodInterceptor.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/annotations/TestConfiguration.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WGetUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DefaultValues.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiReporterProperties.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SLAUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate//Method/addResource> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.hibernate.cfg.Configuration> .
+<http://softlang.com/plugins/hibernate//Method/addResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebuiTestUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/testng.xml> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/testng.xml> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/MavenUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DBUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate/Package/org.hibernate.SessionFactory> <http://softlang.com/uses> <http://softlang.com/plugins/hibernate/Package/org.hibernate.Session> .
+<http://softlang.com/plugins/hibernate/Package/org.hibernate.SessionFactory> <http://softlang.com/partOf> <http://softlang.com/hibernate> .
+<http://softlang.com/plugins/hibernate/Package/org.hibernate.SessionFactory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Package> .
+<http://softlang.com/liquidbase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/BuildRelease> .
+<http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/tools/SGTestHelper.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/CustomFileListener.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate/Package/javax.persistence.Query> <http://softlang.com/partOf> <http://softlang.com/hibernate> .
+<http://softlang.com/plugins/hibernate/Package/javax.persistence.Query> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Package> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceContainersCounter.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/LogUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiPage.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/CommandTestUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ProcessingUnitUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate//Method/save> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.hibernate.Session> .
+<http://softlang.com/plugins/hibernate//Method/save> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SSHUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/SummaryReport.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/liquidbase/dbchangelog-2.0.xsd> <http://softlang.com/partOf> <http://softlang.com/liquidbase> .
+<http://softlang.com/plugins/liquidbase/dbchangelog-2.0.xsd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportFileStream.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate/hibernate-configuration-3.0.dtd> <http://softlang.com/partOf> <http://softlang.com/hibernate> .
+<http://softlang.com/plugins/hibernate/hibernate-configuration-3.0.dtd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/HTTPUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/maven/maven-4.0.0.xsd> <http://softlang.com/partOf> <http://softlang.com/maven> .
+<http://softlang.com/plugins/maven/maven-4.0.0.xsd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SigarUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/AdminUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate/Package/org.hibernate.cfg.Configuration> <http://softlang.com/partOf> <http://softlang.com/hibernate> .
+<http://softlang.com/plugins/hibernate/Package/org.hibernate.cfg.Configuration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Package> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiConnectionException.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/tools/SimpleMail.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUiUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/maven> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/BuildRelease> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/FutureReference.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/IOUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestReport.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate/hibernate-configuration-4.0.xsd> <http://softlang.com/partOf> <http://softlang.com/hibernate> .
+<http://softlang.com/plugins/hibernate/hibernate-configuration-4.0.xsd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/TestUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SGConsoleHandler.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestLog.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate//Method/persist> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/javax.persistence.EntityManager> .
+<http://softlang.com/plugins/hibernate//Method/persist> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.hibernate.Session> .
+<http://softlang.com/plugins/hibernate//Method/persist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/tools/S3DeployUtil.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/CollectionUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate//Method/setParameter> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/javax.persistence.Query> .
+<http://softlang.com/plugins/hibernate//Method/setParameter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/TeardownUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/xml/TestsReport.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/liquidbase/dbchangelog-3.1.xsd> <http://softlang.com/partOf> <http://softlang.com/liquidbase> .
+<http://softlang.com/plugins/liquidbase/dbchangelog-3.1.xsd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WANemUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate/hibernate-mapping-3.0.dtd> <http://softlang.com/partOf> <http://softlang.com/hibernate> .
+<http://softlang.com/plugins/hibernate/hibernate-mapping-3.0.dtd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate/Package/org.springframework.orm.hibernate3.support.HibernateDaoSupport> <http://softlang.com/partOf> <http://softlang.com/hibernate> .
+<http://softlang.com/plugins/hibernate/Package/org.springframework.orm.hibernate3.support.HibernateDaoSupport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Package> .
+<http://softlang.com/plugins/hibernate//Method/addClass> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.hibernate.cfg.Configuration> .
+<http://softlang.com/plugins/hibernate//Method/addClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SetupUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/pom.xml> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/pom.xml> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate/hibernate-mapping-4.0.xsd> <http://softlang.com/partOf> <http://softlang.com/hibernate> .
+<http://softlang.com/plugins/hibernate/hibernate-mapping-4.0.xsd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/SftpUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/WebUIAjaxHelper.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/NetworkUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestsReportMerger.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/resources/Person.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/GridServiceAgentsCounter.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestNgReporterImpl.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/mail/HtmlMailReporter.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/README.md> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/README.md> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate//Method/createQuery> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.hibernate.Session> .
+<http://softlang.com/plugins/hibernate//Method/createQuery> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/ManagingGridServiceManagerChangedLogger.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/liquidbase/dbchangelog-3.0.xsd> <http://softlang.com/partOf> <http://softlang.com/liquidbase> .
+<http://softlang.com/plugins/liquidbase/dbchangelog-3.0.xsd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/plugins/hibernate//Method/> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.hibernate.Query> .
+<http://softlang.com/plugins/hibernate//Method/> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.hibernate.Criteria> .
+<http://softlang.com/plugins/hibernate//Method/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/plugins/hibernate//Method/getCurrentSession> <http://softlang.com/partOf> <http://softlang.com/plugins/hibernate/Package/org.hibernate.SessionFactory> .
+<http://softlang.com/plugins/hibernate//Method/getCurrentSession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Method> .
+<http://softlang.com/plugins/hibernate/Package/javax.persistence.EntityManager> <http://softlang.com/partOf> <http://softlang.com/hibernate> .
+<http://softlang.com/plugins/hibernate/Package/javax.persistence.EntityManager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Package> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/utils/DeploymentUtils.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/WikiClient.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/wiki/Statistics.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java> <http://softlang.com/partOf> <http://softlang.com/openmrs> .
+<http://softlang.com/input/src/main/java/iTests/framework/testng/report/TestResultComparator.java> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://softlang.com/Artefact> .
+<http://softlang.com/Functions/Person-OR-Mapping> <http://softlang.com/elementOf> <http://softlang.com/NotImplementedFunction> .
+<http://softlang.com/URI/PERSON> <http://softlang.com/elementOf> <http://softlang.com/NotImplementedTable> .
+ORMapping definition ===> 1
+MappingFunctionWithOLang ===> 1
+HibernateMappingRefersToRelationalTableAll ===> 1
+HibernateMappingJava ===> 1
+ReferencesToTable ===> 1
+HibernateMappingRefersToRelationalTableJava ===> 1
+Resultcount1
+{http://softlang.com/Functions/Person-OR-Mapping=1}
+countTables1
+{http://softlang.com/URI/PERSON=1}
